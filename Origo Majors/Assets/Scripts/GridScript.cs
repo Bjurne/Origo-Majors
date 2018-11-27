@@ -7,6 +7,7 @@ public class GridScript : MonoBehaviour
 {
     public int xSize, ySize;
     private Vector3[] vertices;
+    private Mesh mesh;
 
     private void Awake()
     {
@@ -16,6 +17,10 @@ public class GridScript : MonoBehaviour
     private IEnumerator Generate()
     {
         WaitForSeconds wait = new WaitForSeconds(0.0f);
+
+        GetComponent<MeshFilter>().mesh = mesh = new Mesh();
+        mesh.name = "Procedural Grid";
+
         vertices = new Vector3[(xSize + 1) * (ySize + 1)];
         for (int i = 0, y = 0; y <= ySize; y++)
         {
@@ -25,6 +30,15 @@ public class GridScript : MonoBehaviour
                 yield return wait;
             }
         }
+
+        mesh.vertices = vertices;
+
+        int[] triangles = new int[6];
+        triangles[0] = 0;
+        triangles[3] = triangles[2] = 1;
+        triangles[4] = triangles[1] = xSize + 1;
+        triangles[5] = xSize + 2;
+        mesh.triangles = triangles;
     }
 
     private void OnDrawGizmos()
