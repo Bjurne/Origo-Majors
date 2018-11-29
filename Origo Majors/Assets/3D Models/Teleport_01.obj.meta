@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: afe905c28c2145b4283cdd20fad00021
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Gods-JumpGate_Arms_Left2_Left
+    100002: Gods-JumpGate_Arms_Left2_Left1
+    100004: Gods-JumpGate_Arms_Left2_Left_1
+    100006: Gods-JumpGate_Arms_Left2_Left_2
+    100008: Gods-JumpGate_Arms_Left2_Left_3
+    100010: Gods-JumpGate_Arms_Right2_Right
+    100012: Gods-JumpGate_Arms_Right2_Right1
+    100014: Gods-JumpGate_Arms_Right2_Right_1
+    100016: Gods-JumpGate_Arms_Right2_Right_2
+    100018: Gods-JumpGate_Arms_Right2_Right_3
+    100020: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Boole_Cylinder_14
+    100022: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Boole_Torus
+    100024: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Cylinder4
+    100026: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Cylinder_13
+    100028: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Cylinder3
+    100030: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Cylinder_12
+    100032: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Cylinder2
+    100034: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Cylinder_11
+    100036: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Cylinder1
+    100038: Gods-JumpGate_Boole_9_Boole_8_Cylinder_1
+    100040: Gods-JumpGate_Boole_9_Cylinder
+    100042: //RootNode
+    400000: Gods-JumpGate_Arms_Left2_Left
+    400002: Gods-JumpGate_Arms_Left2_Left1
+    400004: Gods-JumpGate_Arms_Left2_Left_1
+    400006: Gods-JumpGate_Arms_Left2_Left_2
+    400008: Gods-JumpGate_Arms_Left2_Left_3
+    400010: Gods-JumpGate_Arms_Right2_Right
+    400012: Gods-JumpGate_Arms_Right2_Right1
+    400014: Gods-JumpGate_Arms_Right2_Right_1
+    400016: Gods-JumpGate_Arms_Right2_Right_2
+    400018: Gods-JumpGate_Arms_Right2_Right_3
+    400020: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Boole_Cylinder_14
+    400022: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Boole_Torus
+    400024: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Cylinder4
+    400026: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Cylinder_13
+    400028: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Cylinder3
+    400030: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Cylinder_12
+    400032: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Cylinder2
+    400034: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Cylinder_11
+    400036: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Cylinder1
+    400038: Gods-JumpGate_Boole_9_Boole_8_Cylinder_1
+    400040: Gods-JumpGate_Boole_9_Cylinder
+    400042: //RootNode
+    2100000: Gods-JumpGate_Arms_Left2_LeftMat
+    2100002: Gods-JumpGate_Arms_Left2_Left1Mat
+    2100004: Gods-JumpGate_Arms_Left2_Left_1Mat
+    2100006: Gods-JumpGate_Arms_Left2_Left_2Mat
+    2100008: Gods-JumpGate_Arms_Left2_Left_3Mat
+    2100010: Gods-JumpGate_Arms_Right2_RightMat
+    2100012: Gods-JumpGate_Arms_Right2_Right1Mat
+    2100014: Gods-JumpGate_Arms_Right2_Right_1Mat
+    2100016: Gods-JumpGate_Arms_Right2_Right_2Mat
+    2100018: Gods-JumpGate_Arms_Right2_Right_3Mat
+    2100020: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Boole_Cylinder_14Mat
+    2100022: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Boole_TorusMat
+    2100024: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Cylinder4Mat
+    2100026: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Cylinder_13Mat
+    2100028: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Cylinder3Mat
+    2100030: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Cylinder_12Mat
+    2100032: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Cylinder2Mat
+    2100034: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Cylinder_11Mat
+    2100036: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Cylinder1Mat
+    2100038: Gods-JumpGate_Boole_9_Boole_8_Cylinder_1Mat
+    2100040: Gods-JumpGate_Boole_9_CylinderMat
+    2300000: Gods-JumpGate_Arms_Left2_Left
+    2300002: Gods-JumpGate_Arms_Left2_Left1
+    2300004: Gods-JumpGate_Arms_Left2_Left_1
+    2300006: Gods-JumpGate_Arms_Left2_Left_2
+    2300008: Gods-JumpGate_Arms_Left2_Left_3
+    2300010: Gods-JumpGate_Arms_Right2_Right
+    2300012: Gods-JumpGate_Arms_Right2_Right1
+    2300014: Gods-JumpGate_Arms_Right2_Right_1
+    2300016: Gods-JumpGate_Arms_Right2_Right_2
+    2300018: Gods-JumpGate_Arms_Right2_Right_3
+    2300020: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Boole_Cylinder_14
+    2300022: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Boole_Torus
+    2300024: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Cylinder4
+    2300026: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Cylinder_13
+    2300028: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Cylinder3
+    2300030: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Cylinder_12
+    2300032: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Cylinder2
+    2300034: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Cylinder_11
+    2300036: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Cylinder1
+    2300038: Gods-JumpGate_Boole_9_Boole_8_Cylinder_1
+    2300040: Gods-JumpGate_Boole_9_Cylinder
+    3300000: Gods-JumpGate_Arms_Left2_Left
+    3300002: Gods-JumpGate_Arms_Left2_Left1
+    3300004: Gods-JumpGate_Arms_Left2_Left_1
+    3300006: Gods-JumpGate_Arms_Left2_Left_2
+    3300008: Gods-JumpGate_Arms_Left2_Left_3
+    3300010: Gods-JumpGate_Arms_Right2_Right
+    3300012: Gods-JumpGate_Arms_Right2_Right1
+    3300014: Gods-JumpGate_Arms_Right2_Right_1
+    3300016: Gods-JumpGate_Arms_Right2_Right_2
+    3300018: Gods-JumpGate_Arms_Right2_Right_3
+    3300020: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Boole_Cylinder_14
+    3300022: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Boole_Torus
+    3300024: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Cylinder4
+    3300026: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Cylinder_13
+    3300028: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Cylinder3
+    3300030: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Cylinder_12
+    3300032: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Cylinder2
+    3300034: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Cylinder_11
+    3300036: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Cylinder1
+    3300038: Gods-JumpGate_Boole_9_Boole_8_Cylinder_1
+    3300040: Gods-JumpGate_Boole_9_Cylinder
+    4300000: Gods-JumpGate_Arms_Left2_Left
+    4300002: Gods-JumpGate_Arms_Left2_Left1
+    4300004: Gods-JumpGate_Arms_Left2_Left_1
+    4300006: Gods-JumpGate_Arms_Left2_Left_2
+    4300008: Gods-JumpGate_Arms_Left2_Left_3
+    4300010: Gods-JumpGate_Arms_Right2_Right
+    4300012: Gods-JumpGate_Arms_Right2_Right1
+    4300014: Gods-JumpGate_Arms_Right2_Right_1
+    4300016: Gods-JumpGate_Arms_Right2_Right_2
+    4300018: Gods-JumpGate_Arms_Right2_Right_3
+    4300020: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Boole_Cylinder_14
+    4300022: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Boole_Torus
+    4300024: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Boole_1_Cylinder4
+    4300026: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Boole_2_Cylinder_13
+    4300028: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Boole_3_Cylinder3
+    4300030: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Boole_4_Cylinder_12
+    4300032: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Boole_5_Cylinder2
+    4300034: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Boole_6_Cylinder_11
+    4300036: Gods-JumpGate_Boole_9_Boole_8_Boole_7_Cylinder1
+    4300038: Gods-JumpGate_Boole_9_Boole_8_Cylinder_1
+    4300040: Gods-JumpGate_Boole_9_Cylinder
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.003
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

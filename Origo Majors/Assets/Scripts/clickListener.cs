@@ -47,6 +47,7 @@ public class clickListener : MonoBehaviour {
             }
 
             if (Physics.Raycast(ray, out hit, 1000f, selectable))
+                // och om pjäsen tillhör mig / current player
             {
                 clickPosition = hit.point;
                 currentlySelectedObject = hit.rigidbody.gameObject;
