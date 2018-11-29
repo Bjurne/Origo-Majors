@@ -16,9 +16,9 @@ public class BoosterPickUpGenerator : MonoBehaviour {
         for (int i = 0; i < numberOfBoosterPickUps; i++)
         {
             int randomWaypoint = Random.Range(0, waypoints.Length);
-            int randomBoosterPickUp = Random.Range(0, 2);
+            int randomBoosterPickUp = Random.Range(0, 3);
 
-            if (randomBoosterPickUp==0)
+            if (randomBoosterPickUp == 0)
             {
                 Instantiate(warpBoosterPickUpPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
             }
