@@ -32,7 +32,7 @@ public class clickListener : MonoBehaviour {
 
                 Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.name);
 
-                selectionMarker.SetActive(false);
+                selectionMarker.SetActive(false); // denna funkar inte för tillfället, av någon anledning
                 currentlySelectedObject = null;
                 selectionMarker = null;
                 selectedWaypoint = null;
