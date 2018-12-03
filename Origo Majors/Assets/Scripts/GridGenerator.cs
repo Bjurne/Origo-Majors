@@ -6,6 +6,11 @@ public class GridGenerator : MonoBehaviour {
 
     //För ett liggande hex-grid
     public int boardSize = 5;
+
+    public float nodeOuterRadius = 2f;
+    float nodeInnerRadius;
+    //float nodeInnerRadius = nodeOuterRadius * 0.866025405f;
+
     int boardMaxDistance, widthMin, heightMax;
     float offset;
 
@@ -15,8 +20,10 @@ public class GridGenerator : MonoBehaviour {
 
     public void Awake ()
     {
+        nodeInnerRadius = nodeOuterRadius * 0.866025405f; // temp
         UpdateBoardSizeVariables(boardSize);
         nodes = new GridNode[NodeCounter()];
+        Debug.Log(NodeCounter());
     }
 
     private void Start ()
@@ -76,9 +83,9 @@ public class GridGenerator : MonoBehaviour {
     {      
         Vector3 position;
         offset = (((float)n - (float)boardSize) / 2);
-        position.x = x - offset;
+        position.x = (x - offset) * (nodeInnerRadius * 2f);
         position.y = 0f;
-        position.z = z;
+        position.z = z * (nodeOuterRadius * 1.5f);
 
         GridNode node = nodes[i] = Instantiate<GridNode>(gridNodePrefab);
         node.transform.SetParent(transform, false);
