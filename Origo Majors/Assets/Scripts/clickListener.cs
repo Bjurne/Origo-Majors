@@ -9,7 +9,7 @@ public class clickListener : MonoBehaviour {
     public GameObject currentlySelectedObject = null;
     public GameObject selectionMarker = null;
     public GameObject selectedWaypoint = null;
-    public GameObject previouslyOccupiedWaypoint = null;
+    //public GameObject previouslyOccupiedWaypoint = null;
 
 
     void Update ()
@@ -34,6 +34,7 @@ public class clickListener : MonoBehaviour {
                 {
                     currentlySelectedObject.transform.position = selectedWaypoint.transform.position;
                     selectedWaypoint.GetComponent<waypointContents>().occupied = true;
+                    currentlySelectedObject.GetComponent<droneLocation>().changeLocation();
 
                     Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.name);
 
@@ -57,7 +58,6 @@ public class clickListener : MonoBehaviour {
             {
                 clickPosition = hit.point;
                 currentlySelectedObject = hit.rigidbody.gameObject;
-                //previouslyOccupiedWaypoint = FindObjectOfType<GameObject.waypointContents>
                 selectionMarker = currentlySelectedObject.transform.GetChild(0).gameObject;
                 selectionMarker.SetActive(true);
                 if (currentlySelectedObject != null)

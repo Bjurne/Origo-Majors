@@ -34,8 +34,10 @@ public class DronePlacement : MonoBehaviour {
 
                 if ((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false)
                 {
-                    Instantiate(dronePrefab, selectedWaypoint.transform.position, Quaternion.identity);
+                    GameObject newDrone = Instantiate(dronePrefab, selectedWaypoint.transform.position, Quaternion.identity);
                     selectedWaypoint.GetComponent<waypointContents>().occupied = true;
+                    newDrone.GetComponent<droneLocation>().previouslyOccupiedWaypoint = selectedWaypoint;
+                    newDrone.GetComponent<droneLocation>().currentlyOccupiedWaypoint = selectedWaypoint;
                     numberOfDronesSpawned++;
                     Debug.Log(dronePrefab.name + " has been placed at " + selectedWaypoint.name);
                 }
