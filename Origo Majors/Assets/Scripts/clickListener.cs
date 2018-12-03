@@ -9,6 +9,7 @@ public class clickListener : MonoBehaviour {
     public GameObject currentlySelectedObject = null;
     public GameObject selectionMarker = null;
     public GameObject selectedWaypoint = null;
+    public GameObject previouslyOccupiedWaypoint = null;
 
 
     void Update ()
@@ -27,15 +28,20 @@ public class clickListener : MonoBehaviour {
             {
                 clickPosition = hit.point;
                 selectedWaypoint = hit.collider.gameObject;
+                bool occupied = selectedWaypoint.GetComponent<waypointContents>().occupied;
 
-                currentlySelectedObject.transform.position = selectedWaypoint.transform.position;
+                if (!occupied)
+                {
+                    currentlySelectedObject.transform.position = selectedWaypoint.transform.position;
+                    selectedWaypoint.GetComponent<waypointContents>().occupied = true;
 
-                Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.name);
+                    Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.name);
 
-                selectionMarker.SetActive(false); // denna funkar inte för tillfället, av någon anledning
-                currentlySelectedObject = null;
-                selectionMarker = null;
-                selectedWaypoint = null;
+                    selectionMarker.SetActive(false); // denna funkar inte för tillfället, av någon anledning
+                    currentlySelectedObject = null;
+                    selectionMarker = null;
+                    selectedWaypoint = null;
+                }
             }
 
             if (currentlySelectedObject != null)
@@ -51,6 +57,7 @@ public class clickListener : MonoBehaviour {
             {
                 clickPosition = hit.point;
                 currentlySelectedObject = hit.rigidbody.gameObject;
+                //previouslyOccupiedWaypoint = FindObjectOfType<GameObject.waypointContents>
                 selectionMarker = currentlySelectedObject.transform.GetChild(0).gameObject;
                 selectionMarker.SetActive(true);
                 if (currentlySelectedObject != null)
