@@ -5,18 +5,18 @@ using UnityEngine;
 public class GridGenerator : MonoBehaviour {
 
     //För ett liggande hex-grid
-    public int boardSize = 5; //längden på en sida i antal noder
-    int boardMaxDistance, widthMin, widthMax, heightMin, heightMax;
+    public int boardSize = 5;
+    int boardMaxDistance, widthMin, heightMax;
+    float offset;
 
     public GridNode gridNodePrefab;
 
     GridNode[] nodes;
 
-    private void Awake ()
+    public void Awake ()
     {
         UpdateBoardSizeVariables(boardSize);
-        Debug.Log(widthMin);
-        nodes = new GridNode[60]; //tillfällig tvingad storlek för ett size 5-grid
+        nodes = new GridNode[NodeCounter()];
     }
 
     private void Start ()
@@ -28,43 +28,61 @@ public class GridGenerator : MonoBehaviour {
     {
         boardMaxDistance = (boardSize * 2) - 1;
         widthMin = boardSize;
-        widthMax = boardMaxDistance;
-        heightMin = 1;
-        heightMax = boardMaxDistance;
     }
 
-    public void GenerateGameBoard ()
+    private int NodeCounter()
     {
-        for (int z = 0; 0 < boardMaxDistance; z++)
+        int counter = 0;
+        for (int z = 0, i = 0, n = widthMin; z < boardMaxDistance; z++)
         {
-            for (int i = 0, x = 0; i < boardMaxDistance; i++)
+            for (int x = 0; x < n; x++, i++)
             {
-                if (i < boardSize)
-                {
-                    CreateNode(x, z, i);
-                    x++;
-                }
-                else if (i >= boardSize)
-                {
-                    CreateNode(x, z, i);
-                    x--;
-                }
-                Debug.Log("HELP");
+                counter++;
+            }
+
+            if (z < boardSize - 1)
+            {
+                n++;
+            }
+            else if (z >= boardSize - 1)
+            {
+                n--;
+            }
+        }
+        return counter;
+    }
+
+    public void GenerateGameBoard()
+    {
+        for (int z = 0, i = 0, n = widthMin; z < boardMaxDistance; z++)
+        {
+            for (int x = 0; x < n; x++, i++)
+            {
+                CreateNode(x, z, n, i);
+            }
+
+            if (z < boardSize - 1)
+            {
+                n++;
+            }
+            else if (z >= boardSize - 1)
+            {
+                n--;
             }
         }
     }
 
-    void CreateNode (int x, int z, int i)
-    {
+    void CreateNode(int x, int z, int n, int i)
+    {      
         Vector3 position;
-        position.x = x;
+        offset = (((float)n - (float)boardSize) / 2);
+        position.x = x - offset;
         position.y = 0f;
         position.z = z;
 
         GridNode node = nodes[i] = Instantiate<GridNode>(gridNodePrefab);
         node.transform.SetParent(transform, false);
         node.transform.localPosition = position;
-
     }
 
 }
