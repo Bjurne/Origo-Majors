@@ -20,7 +20,7 @@ public class GridGenerator : MonoBehaviour {
 
     public void Awake ()
     {
-        nodeInnerRadius = nodeOuterRadius * 0.866025405f; // temp
+        nodeInnerRadius = nodeOuterRadius * 0.866025405f; // temp location
         UpdateBoardSizeVariables(boardSize);
         nodes = new GridNode[NodeCounter()];
         Debug.Log(NodeCounter());
