@@ -9,12 +9,13 @@ public class Dice : MonoBehaviour {
     // flytta in text (textrutan) in i Text Number (script) för att referera till text rutan 
     // som tillhör UI:n
 
-    int rolledNumber, moveRange;
+    public int diceValue;
+    public int moveRange;
     public Text textNumber;
+    public Sprite[] NumberSprite;
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -22,11 +23,11 @@ public class Dice : MonoBehaviour {
 	void Update () {
 
         // space är placeholder button för aktivering tillvidare
-        if (Input.GetKeyDown("space"))
+ /*       if (Input.GetKeyDown("space"))
         {
             Number();
             textNumber.text = moveRange.ToString();
-        }
+      }*/  
 
 
     }
@@ -36,29 +37,34 @@ public class Dice : MonoBehaviour {
 
 
 
-    void Number()
+    public void Number()
     {
-        rolledNumber = Random.Range(1, 7);
+        diceValue = Random.Range(1, 7);
 
-        if (rolledNumber == 1)
+        if (diceValue == 1)
         {
             moveRange = 1;
+          this.transform.GetChild(1).GetComponent<Image>().sprite = NumberSprite[0];
         }
 
-        if (rolledNumber == 2 || rolledNumber == 5)
+        if (diceValue == 2 || diceValue == 5)
         {
             moveRange = 2;
+           this.transform.GetChild(1).GetComponent<Image>().sprite = NumberSprite[1];
         }
 
-        if (rolledNumber == 3 || rolledNumber == 6 || rolledNumber == 7)
+        if (diceValue == 3 || diceValue == 6 || diceValue == 7)
         {
             moveRange = 3;
+            this.transform.GetChild(1).GetComponent<Image>().sprite = NumberSprite[2];
         }
 
-        if (rolledNumber == 4)
+        if (diceValue == 4)
         {
             moveRange = 4;
+            this.transform.GetChild(1).GetComponent<Image>().sprite = NumberSprite[3];
         }
+        textNumber.text = moveRange.ToString();
     }
 
 }
