@@ -4,4 +4,6 @@ using UnityEngine;
 
 public class GridNode : MonoBehaviour {
 
+    public GridCoordinates coordinates;
+
 }
