@@ -5,8 +5,10 @@ using UnityEngine;
 public class waypointContents : MonoBehaviour {
 
     public bool occupied = false;
-
-	void Start () {
+    public bool holdingTeleporter = false;
+    public bool holdingBoosterPickUp = false;
+    
+    void Start () {
 		
 	}
 	

@@ -55,16 +55,13 @@ public class clickListener : MonoBehaviour {
                 selectedWaypoint = null;
             }
 
-            if (Physics.Raycast(ray, out hit, 1000f, selectable))
+            if ((Physics.Raycast(ray, out hit, 1000f, selectable)) && !hasBeenMoved)
                 // och om pjäsen tillhör mig / current player
             {
                 clickPosition = hit.point;
                 currentlySelectedObject = hit.rigidbody.gameObject;
                 selectionMarker = currentlySelectedObject.transform.GetChild(0).gameObject;
-                if (!hasBeenMoved)
-                {
-                    selectionMarker.SetActive(true);
-                }
+                selectionMarker.SetActive(true);
                 if (currentlySelectedObject != null)
                 {
                     Debug.Log("Currently selected object is " + currentlySelectedObject.name);
@@ -88,8 +85,8 @@ public class clickListener : MonoBehaviour {
         }
     }
 
-    //void SetSelectedObject()
-    //{
+    void SetSelectedObject()
+    {
 
-    //}
+    }
 }

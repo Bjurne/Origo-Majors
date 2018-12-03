@@ -13,25 +13,35 @@ public class BoosterPickUpGenerator : MonoBehaviour {
     void Start()
     {
 
-        for (int i = 0; i < numberOfBoosterPickUps; i++)
+        for (int i = 0; i < numberOfBoosterPickUps;)
         {
             int randomWaypoint = Random.Range(0, waypoints.Length);
-            int randomBoosterPickUp = Random.Range(0, 3);
+            bool illegalSpawnPoint = waypoints[randomWaypoint].GetComponent<waypointContents>().holdingBoosterPickUp;
 
-            if (randomBoosterPickUp == 0)
+            if (!illegalSpawnPoint)
             {
-                Instantiate(warpBoosterPickUpPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
-            }
-            else if (randomBoosterPickUp == 1)
-            {
-                Instantiate(mapperBoosterPickUpPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
+                int randomBoosterPickUp = Random.Range(0, 3);
+
+                if (randomBoosterPickUp == 0)
+                {
+                    Instantiate(warpBoosterPickUpPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
+                }
+                else if (randomBoosterPickUp == 1)
+                {
+                    Instantiate(mapperBoosterPickUpPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(remapperBoosterPickUpPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
+                }
+
+                waypoints[randomWaypoint].GetComponent<waypointContents>().holdingBoosterPickUp = true;
+                i++;
             }
             else
             {
-                Instantiate(remapperBoosterPickUpPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
+                Debug.Log("This waypoint is allready holding a Booster Pick Up");
             }
-            
         }
-
     }
 }

@@ -10,11 +10,21 @@ public class TeleportGenerator : MonoBehaviour {
 
     void Start () {
 
-        for (int i = 0; i < numberOfTeleports; i++)
+        for (int i = 0; i < numberOfTeleports;)
         {
             int randomWaypoint = Random.Range(0, waypoints.Length);
+            bool illegalSpawnPoint = waypoints[randomWaypoint].GetComponent<waypointContents>().holdingTeleporter;
 
-            Instantiate(teleportPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
+            if (!illegalSpawnPoint)
+            {
+                Instantiate(teleportPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
+                waypoints[randomWaypoint].GetComponent<waypointContents>().holdingTeleporter = true;
+                i++;
+            }
+            else
+            {
+                Debug.Log("This waypoint is allready holding a teleporter");
+            }
         }
 		
 	}
