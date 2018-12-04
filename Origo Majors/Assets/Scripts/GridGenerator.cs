@@ -54,6 +54,30 @@ public class GridGenerator : MonoBehaviour {
         //Calculate needed / unneeded nodes on the grid and inactivate unneeded nodes
     }
 
+    void Update ()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            HandleInput();
+        }
+    }
+
+    void HandleInput ()
+    {
+        Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(inputRay, out hit))
+        {
+            TouchCell(hit.point);
+        }
+    }
+
+    void TouchCell (Vector3 position)
+    {
+        position = transform.InverseTransformPoint(position);
+        Debug.Log("touched at " + position);
+    }
+
     /*  FOR OLD HEX SHAPE GRID, USE TO CALCULATE ACTIVE GAMEBOARD
     private int NodeCounter ()
     {
