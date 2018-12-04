@@ -30,7 +30,7 @@ public class GridGenerator : MonoBehaviour {
     private void Start ()
     {
         GenerateGameBoard(boardMaxDistance);
-        PaintHexagon();
+        FindCenter(boardSize);
     }
 	
     public void UpdateBoardSizeVariables (int boardSize)
@@ -49,9 +49,18 @@ public class GridGenerator : MonoBehaviour {
         }
     }
 
-    public void PaintHexagon ()
+    public void FindCenter (int boardSize)
     {
-        //Calculate needed / unneeded nodes on the grid and inactivate unneeded nodes
+        Vector3 center = new Vector3(0, 0, 0);
+        center.z = transform.position.z + (boardSize * (nodeOuterRadius * 1.5f));
+        if (boardSize % 2 == 1)
+        {
+            center.x = transform.position.x + (boardSize * (nodeInnerRadius * 2f));
+        }
+        else
+        {
+            center.x = transform.position.x + (boardSize * (nodeInnerRadius * 2f));
+        }
     }
 
     void Update ()
