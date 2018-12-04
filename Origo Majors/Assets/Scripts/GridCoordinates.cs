@@ -38,7 +38,7 @@ public struct GridCoordinates {
 
     public static GridCoordinates FromOffsetCoordinates (int x, int z)
     {
-        return new GridCoordinates(x, z);
+        return new GridCoordinates(x - z / 2, z);
     }
 
     public override string ToString ()

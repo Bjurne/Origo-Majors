@@ -25,13 +25,13 @@ public class GridGenerator : MonoBehaviour {
         nodeInnerRadius = nodeOuterRadius * 0.866025405f; // temp location
 
         UpdateBoardSizeVariables(boardSize);
-        nodes = new GridNode[NodeCounter()];
-        Debug.Log(NodeCounter());
+        nodes = new GridNode[boardMaxDistance * boardMaxDistance];
     }
 
     private void Start ()
     {
-        GenerateGameBoard();
+        GenerateGameBoard(boardMaxDistance);
+        PaintHexagon();
     }
 	
     public void UpdateBoardSizeVariables (int boardSize)
@@ -40,6 +40,23 @@ public class GridGenerator : MonoBehaviour {
         widthMin = boardSize;
     }
 
+    public void GenerateGameBoard (int boardMaxDist)
+    {
+        for (int z = 0, i = 0; z < boardMaxDist; z++)
+        {
+            for (int x = 0; x < boardMaxDist; x++)
+            {
+                CreateNode(x, z, i++);
+            }
+        }
+    }
+
+    public void PaintHexagon ()
+    {
+        
+    }
+
+    /*  FOR OLD HEX SHAPE GRID, USE TO CALCULATE ACTIVE GAMEBOARD
     private int NodeCounter ()
     {
         int counter = 0;
@@ -81,12 +98,16 @@ public class GridGenerator : MonoBehaviour {
             }
         }
     }
+    */
 
-    void CreateNode(int x, int z, int n, int i)
-    {      
+    void CreateNode(int x, int z, int i)
+    {
+
+        // offset = (((float)n - (float)boardSize) / 2); //Hex shape old version of grid
+        // position.x = (x - offset) * (nodeInnerRadius * 2f);
+
         Vector3 position;
-        offset = (((float)n - (float)boardSize) / 2);
-        position.x = (x - offset) * (nodeInnerRadius * 2f); //current
+        position.x = (x + z * 0.5f - z / 2) * (nodeInnerRadius * 2f);
         position.y = 0f;
         position.z = z * (nodeOuterRadius * 1.5f);
 
@@ -98,7 +119,7 @@ public class GridGenerator : MonoBehaviour {
         Text text = Instantiate<Text>(nodeTextPrefab);
         text.rectTransform.SetParent(gridCanvas.transform, false);
         text.rectTransform.anchoredPosition = new Vector2(position.x, position.z);
-        //text.text = x.ToString() + "\n" + z.ToString();
+        text.text = x.ToString() + "\n" + z.ToString();
         text.text = node.coordinates.ToStringOnSeparateLines();
         
     }
