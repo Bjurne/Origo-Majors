@@ -9,8 +9,7 @@ public class GridGenerator : MonoBehaviour {
     public int boardSize = 5;
     public float nodeOuterRadius = 2f;
     float nodeInnerRadius; //float nodeInnerRadius = nodeOuterRadius * 0.866025405f;
-    int boardMaxDistance, widthMin, heightMax;
-    float offset;
+    int boardMaxDistance;
 
     public GridNode gridNodePrefab;
     public Text nodeTextPrefab;
@@ -37,7 +36,6 @@ public class GridGenerator : MonoBehaviour {
     public void UpdateBoardSizeVariables (int boardSize)
     {
         boardMaxDistance = (boardSize * 2) - 1;
-        widthMin = boardSize;
     }
 
     public void GenerateGameBoard (int boardMaxDist)
@@ -53,7 +51,7 @@ public class GridGenerator : MonoBehaviour {
 
     public void PaintHexagon ()
     {
-        
+        //Calculate needed / unneeded nodes on the grid and inactivate unneeded nodes
     }
 
     /*  FOR OLD HEX SHAPE GRID, USE TO CALCULATE ACTIVE GAMEBOARD
