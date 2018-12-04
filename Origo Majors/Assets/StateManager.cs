@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour {
 
-    public class Drawboard; 
+    //public class Drawboard; 
 	// Use this for initialization
 	void Start () {
 
