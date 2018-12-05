@@ -18,8 +18,11 @@ public class GridGenerator : MonoBehaviour {
 
     Canvas gridCanvas;
 
+    public Dictionary<Vector3, GridNode> dic;
+
     public void Awake ()
     {
+        dic = new Dictionary<Vector3, GridNode>();
         gridCanvas = GetComponentInChildren<Canvas>();
         nodeInnerRadius = nodeOuterRadius * 0.866025405f; // temp location
 
@@ -68,6 +71,14 @@ public class GridGenerator : MonoBehaviour {
         if (Input.GetMouseButton(0))
         {
             HandleInput();
+        }
+        if (Input.GetButtonDown("Jump")) {
+            GridNode testNode;
+            var pos = new Vector3(2, -5, 3);
+            if (dic.TryGetValue(pos, out testNode))
+                testNode.transform.localScale = new Vector3(2, 2, 2);
+            else
+                Debug.Log("almost");
         }
     }
 
@@ -146,6 +157,8 @@ public class GridGenerator : MonoBehaviour {
         node.transform.SetParent(transform, false);
         node.transform.localPosition = position;
         node.coordinates = GridCoordinates.FromOffsetCoordinates(x, z);
+
+        dic.Add(new Vector3(x, -x - z, z), node);
 
         Text text = Instantiate<Text>(nodeTextPrefab);
         text.rectTransform.SetParent(gridCanvas.transform, false);
