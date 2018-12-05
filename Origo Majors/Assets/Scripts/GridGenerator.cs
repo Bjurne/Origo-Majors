@@ -156,16 +156,18 @@ public class GridGenerator : MonoBehaviour {
         GridNode node = nodes[i] = Instantiate<GridNode>(gridNodePrefab);
         node.transform.SetParent(transform, false);
         node.transform.localPosition = position;
-        node.coordinates = GridCoordinates.FromOffsetCoordinates(x, z);
+        node.Coordinates = new Vector3(x, -x -z, z);
+        
+
+        //node.coordinates = GridCoordinates.FromOffsetCoordinates(x, z);
 
         dic.Add(new Vector3(x, -x - z, z), node);
 
         Text text = Instantiate<Text>(nodeTextPrefab);
         text.rectTransform.SetParent(gridCanvas.transform, false);
         text.rectTransform.anchoredPosition = new Vector2(position.x, position.z);
-        text.text = x.ToString() + "\n" + z.ToString();
-        text.text = node.coordinates.ToStringOnSeparateLines();
-        
+        text.text = x.ToString() + "\n" + (-x - z).ToString() + "\n" + z.ToString();
+
     }
 
 }
