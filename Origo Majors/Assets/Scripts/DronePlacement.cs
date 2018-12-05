@@ -16,7 +16,7 @@ public class DronePlacement : MonoBehaviour {
 	}
 
     // Update is called once per frame
-    void Update()
+    public void Placing ()
     {
         if (Input.GetMouseButtonUp (0))
         {
