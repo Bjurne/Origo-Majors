@@ -14,7 +14,7 @@ public class GridGenerator : MonoBehaviour {
     public GridNode gridNodePrefab;
     public Text nodeTextPrefab;
 
-    GridNode[] nodes;
+    public GridNode[] nodes;
 
     Canvas gridCanvas;
 
