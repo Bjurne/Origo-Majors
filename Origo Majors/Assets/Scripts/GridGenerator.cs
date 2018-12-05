@@ -32,7 +32,7 @@ public class GridGenerator : MonoBehaviour {
     private void Start ()
     {
         GenerateGameBoard(boardMaxDistance);
-        FindCenter(boardSize);
+        //FindCenter(boardSize);
     }
 	
     public void UpdateBoardSizeVariables (int boardSize)
@@ -53,16 +53,11 @@ public class GridGenerator : MonoBehaviour {
 
     public void FindCenter (int boardSize)
     {
+        //fixa formel för att hitta mitten???
+        int centerX = 2;
+        int centerY = -(boardSize + 1);
+        int centerZ = (boardSize / 2) + 1;
         Vector3 center = new Vector3(0, 0, 0);
-        center.z = transform.position.z + (boardSize * (nodeOuterRadius * 1.5f));
-        if (boardSize % 2 == 1)
-        {
-            center.x = transform.position.x + (boardSize * (nodeInnerRadius * 2f));
-        }
-        else
-        {
-            center.x = transform.position.x + (boardSize * (nodeInnerRadius * 2f));
-        }
     }
 
     void Update ()
@@ -152,18 +147,25 @@ public class GridGenerator : MonoBehaviour {
         position.y = 0f;
         position.z = z * (nodeOuterRadius * 1.5f);
 
+        Vector3 cubeCoordinates;
+        cubeCoordinates.x = x - z / 2;
+        cubeCoordinates.y = -(x - z / 2) -z;
+        cubeCoordinates.z = z;
+        Debug.Log(-x -z);
+
         GridNode node = nodes[i] = Instantiate<GridNode>(gridNodePrefab);
         node.transform.SetParent(transform, false);
         node.transform.localPosition = position;
-        node.Coordinates = new Vector3(x, -x -z, z);
+        node.Coordinates = cubeCoordinates;
 
-        dic.Add(new Vector3(x, -x - z, z), node);
+        dic.Add(cubeCoordinates, node);
 
-        Text text = Instantiate<Text>(nodeTextPrefab);
+       Text text = Instantiate<Text>(nodeTextPrefab);
         text.rectTransform.SetParent(gridCanvas.transform, false);
         text.rectTransform.anchoredPosition = new Vector2(position.x, position.z);
-        text.text = x.ToString() + "\n" + (-x - z).ToString() + "\n" + z.ToString();
-
+        text.text = cubeCoordinates.x.ToString() + "\n" +
+                    cubeCoordinates.y.ToString() + "\n" +
+                    cubeCoordinates.z.ToString();
     }
 
 }
