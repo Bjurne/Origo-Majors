@@ -9,6 +9,7 @@ public class clickListener : MonoBehaviour {
     public GameObject currentlySelectedObject = null;
     public GameObject selectionMarker = null;
     public GameObject selectedWaypoint = null;
+    public CalculateLegalWarpDestination legalMoves;
     private bool hasBeenMoved = false;
 
 
@@ -39,6 +40,9 @@ public class clickListener : MonoBehaviour {
 
                     Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.GetComponent<GridNode>().coordinates);
 
+                    Vector3 directionMoved = currentlySelectedObject.GetComponent<droneLocation>().currentlyOccupiedWaypoint.transform.position - currentlySelectedObject.GetComponent<droneLocation>().previouslyOccupiedWaypoint.transform.position;
+                    Debug.Log("direction is " + directionMoved);
+
                     hasBeenMoved = true;
                     selectionMarker.SetActive(false); // denna funkar inte för tillfället, av någon anledning
                     currentlySelectedObject = null;
@@ -67,6 +71,7 @@ public class clickListener : MonoBehaviour {
                     Debug.Log("Currently selected object is " + currentlySelectedObject.name);
                     Debug.Log("The Selection Marker of Currently selected object is " + selectionMarker.name);
                 }
+                legalMoves.calculateLegalWarpDestinations();
             }
             else
             {
