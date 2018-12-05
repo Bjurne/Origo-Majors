@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class GridGenerator : MonoBehaviour {
 
-    //För ett liggande hex-grid
     public int boardSize = 5;
     public float nodeOuterRadius = 2f;
     float nodeInnerRadius; //float nodeInnerRadius = nodeOuterRadius * 0.866025405f;
@@ -18,7 +17,7 @@ public class GridGenerator : MonoBehaviour {
 
     Canvas gridCanvas;
 
-    public Dictionary<Vector3, GridNode> dic;
+    public Dictionary<Vector3, GridNode> dic; //Roberts variabelnamn, confirmed teacher standard
 
     public void Awake ()
     {
@@ -157,9 +156,6 @@ public class GridGenerator : MonoBehaviour {
         node.transform.SetParent(transform, false);
         node.transform.localPosition = position;
         node.Coordinates = new Vector3(x, -x -z, z);
-        
-
-        //node.coordinates = GridCoordinates.FromOffsetCoordinates(x, z);
 
         dic.Add(new Vector3(x, -x - z, z), node);
 
