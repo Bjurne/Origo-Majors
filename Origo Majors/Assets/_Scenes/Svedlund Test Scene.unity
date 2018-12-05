@@ -122,15 +122,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4768293818973762, guid: 8a566577eac1a38479d47dd2a33e9456, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -12.55
+      value: -12.37
       objectReference: {fileID: 0}
     - target: {fileID: 4768293818973762, guid: 8a566577eac1a38479d47dd2a33e9456, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.39
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4768293818973762, guid: 8a566577eac1a38479d47dd2a33e9456, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -10.83
+      value: -10.77
       objectReference: {fileID: 0}
     - target: {fileID: 4768293818973762, guid: 8a566577eac1a38479d47dd2a33e9456, type: 2}
       propertyPath: m_LocalRotation.x
@@ -155,20 +155,19 @@ Prefab:
     - target: {fileID: 114191547108016676, guid: 8a566577eac1a38479d47dd2a33e9456,
         type: 2}
       propertyPath: nodeOuterRadius
-      value: 1.83
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 1258363272267494, guid: 8a566577eac1a38479d47dd2a33e9456, type: 2}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000,
-        type: 0}
+      objectReference: {fileID: 0}
     - target: {fileID: 1061657489312088, guid: 8a566577eac1a38479d47dd2a33e9456, type: 2}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1258363272267494, guid: 8a566577eac1a38479d47dd2a33e9456, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a566577eac1a38479d47dd2a33e9456, type: 2}
@@ -2139,7 +2138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &542564907
 Transform:
   m_ObjectHideFlags: 0
@@ -2909,7 +2908,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh4928
+  m_Name: pb_Mesh4944
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -5321,68 +5320,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportPrefab: {fileID: 1441617400084314, guid: b3ff86399ac993a48be9e690d608b990,
     type: 2}
-  waypoints:
-  - {fileID: 1193394852}
-  - {fileID: 304216045}
-  - {fileID: 1654427128}
-  - {fileID: 988369206}
-  - {fileID: 937746364}
-  - {fileID: 1649562621}
-  - {fileID: 249220853}
-  - {fileID: 306444414}
-  - {fileID: 843603707}
-  - {fileID: 737881365}
-  - {fileID: 1310625034}
-  - {fileID: 1087470483}
-  - {fileID: 1544074317}
-  - {fileID: 428835317}
-  - {fileID: 1211682604}
-  - {fileID: 1204515294}
-  - {fileID: 1294015613}
-  - {fileID: 992827775}
-  - {fileID: 1575637713}
-  - {fileID: 176167939}
-  - {fileID: 813219935}
-  - {fileID: 656941346}
-  - {fileID: 69886688}
-  - {fileID: 1010880603}
-  - {fileID: 1745129063}
-  - {fileID: 445237824}
-  - {fileID: 1240344441}
-  - {fileID: 1938349813}
-  - {fileID: 406669390}
-  - {fileID: 1622564932}
-  - {fileID: 235309894}
-  - {fileID: 1086681975}
-  - {fileID: 344821707}
-  - {fileID: 586777846}
-  - {fileID: 1348718020}
-  - {fileID: 609098319}
-  - {fileID: 1341072831}
-  - {fileID: 1450480517}
-  - {fileID: 512580248}
-  - {fileID: 82699489}
-  - {fileID: 1047854810}
-  - {fileID: 170410807}
-  - {fileID: 1146864672}
-  - {fileID: 362149595}
-  - {fileID: 1766564972}
-  - {fileID: 749490750}
-  - {fileID: 1910775654}
-  - {fileID: 864675171}
-  - {fileID: 850321814}
-  - {fileID: 1528878754}
-  - {fileID: 1911974695}
-  - {fileID: 285344900}
-  - {fileID: 369070875}
-  - {fileID: 285699956}
-  - {fileID: 434055546}
-  - {fileID: 1553665100}
-  - {fileID: 1470790365}
-  - {fileID: 1627194800}
-  - {fileID: 712896410}
-  - {fileID: 1426834994}
-  - {fileID: 1799064433}
+  waypoints: []
+  gridGenerator: {fileID: 1515755752}
   numberOfTeleports: 12
 --- !u!4 &1402460856
 Transform:
@@ -5697,6 +5636,11 @@ MonoBehaviour:
   occupied: 0
   holdingTeleporter: 0
   holdingBoosterPickUp: 0
+--- !u!1 &1515755752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1258363272267494, guid: 8a566577eac1a38479d47dd2a33e9456,
+    type: 2}
+  m_PrefabInternal: {fileID: 31322051}
 --- !u!1 &1528878754
 GameObject:
   m_ObjectHideFlags: 0
@@ -7031,67 +6975,68 @@ MonoBehaviour:
   remapperBoosterPickUpPrefab: {fileID: 1328791530360408, guid: 2c73b27a8ac10ca43a70d05bb2ab5be1,
     type: 2}
   waypoints:
-  - {fileID: 1193394852}
-  - {fileID: 304216045}
-  - {fileID: 1654427128}
-  - {fileID: 988369206}
-  - {fileID: 937746364}
-  - {fileID: 1649562621}
-  - {fileID: 249220853}
-  - {fileID: 306444414}
-  - {fileID: 843603707}
-  - {fileID: 737881365}
-  - {fileID: 1310625034}
-  - {fileID: 1087470483}
-  - {fileID: 1544074317}
-  - {fileID: 428835317}
-  - {fileID: 1211682604}
-  - {fileID: 1204515294}
-  - {fileID: 1294015613}
-  - {fileID: 992827775}
-  - {fileID: 1575637713}
-  - {fileID: 176167939}
-  - {fileID: 813219935}
-  - {fileID: 656941346}
-  - {fileID: 69886688}
-  - {fileID: 1010880603}
-  - {fileID: 1745129063}
-  - {fileID: 445237824}
-  - {fileID: 1240344441}
-  - {fileID: 1938349813}
-  - {fileID: 406669390}
-  - {fileID: 1622564932}
-  - {fileID: 235309894}
-  - {fileID: 1086681975}
-  - {fileID: 344821707}
-  - {fileID: 586777846}
-  - {fileID: 1348718020}
-  - {fileID: 609098319}
-  - {fileID: 1341072831}
-  - {fileID: 1450480517}
-  - {fileID: 512580248}
-  - {fileID: 82699489}
-  - {fileID: 1047854810}
-  - {fileID: 170410807}
-  - {fileID: 1146864672}
-  - {fileID: 362149595}
-  - {fileID: 1766564972}
-  - {fileID: 749490750}
-  - {fileID: 1910775654}
-  - {fileID: 864675171}
-  - {fileID: 850321814}
-  - {fileID: 1528878754}
-  - {fileID: 1911974695}
-  - {fileID: 285344900}
-  - {fileID: 369070875}
-  - {fileID: 285699956}
-  - {fileID: 434055546}
-  - {fileID: 1553665100}
-  - {fileID: 1470790365}
-  - {fileID: 1627194800}
-  - {fileID: 712896410}
-  - {fileID: 1426834994}
-  - {fileID: 1799064433}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  gridGenerator: {fileID: 1515755752}
   numberOfBoosterPickUps: 12
 --- !u!4 &1914289535
 Transform:
