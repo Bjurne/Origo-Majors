@@ -11,6 +11,7 @@ public class GridGenerator : MonoBehaviour {
     float nodeInnerRadius; //float nodeInnerRadius = nodeOuterRadius * 0.866025405f;
     int boardMaxDistance;
 
+
     public GridNode gridNodePrefab;
     public Text nodeTextPrefab;
 
@@ -29,7 +30,7 @@ public class GridGenerator : MonoBehaviour {
 
     private void Start ()
     {
-        GenerateGameBoard(boardMaxDistance);
+     //   GenerateGameBoard(boardMaxDistance);
         PaintHexagon();
     }
 	

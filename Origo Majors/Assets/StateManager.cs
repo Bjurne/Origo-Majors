@@ -4,33 +4,51 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour {
 
-    public class Drawboard; 
-	// Use this for initialization
 	void Start () {
-
-        //TODO:  add to start in each script that reference statemanager     :  
-       // theStateManager = GameObject.FindObjectOfType<StateManager>();
+        gridscript.GenerateGameBoard(9); // number 9 to be changed later
+        
 
     }
 
-    // TODO : add to each script:     StateManager theStateManager;
-
+    
+    public GridGenerator gridscript;
+    public DronePlacement initialPlacement; 
+    public Dice diceRoller; 
 
     public int NumberOfplayers = 4;
     public int CurrentPlayerId = 0;
 
     // todo : add boolians in each phase and add them here
 
-    bool isDonePlacing = false;
+    bool initialPlacementIsDone = false;
+    bool isDoneRolling = false; 
+    bool isDoneMoving= false;
+
+
 
     void Update()
     {
-        if (isDonePlacing == false)
+        // place the initial drones
+      /*  if (initialPlacementIsDone == false)
         {
+            initialPlacement.Placing();
+            initialPlacementIsDone = true;
+       }*/ 
 
+        //intial drones are place and its time for the first real turn. time to roll dice
+        if (initialPlacementIsDone == true && isDoneRolling == false )
+        {
+            diceRoller.Number(); // TODO: check roll number funktion button , change script to roll instead of rolling number directly
+            isDoneRolling = true;
         }
 
-        // Todo: add all boolians that check the turn status for each turn element
+        if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == false)
+        {
+            // moveunit - move a drone the omount rolled. 
+            // if no legal moves continue; ? 
+        }
+        
+
 
         if (true)
         {
@@ -38,14 +56,14 @@ public class StateManager : MonoBehaviour {
         }
     }
 
-    public void PlacementTurn ()    
+    public void initialPlacementIsDoneTurn ()    
     {
-        if (isDonePlacing == true)
+        if (initialPlacementIsDone == true)
         {
             return;
         }
-     //   DronePlacement(); 
-        isDonePlacing = true;
+    
+        initialPlacementIsDone = true;
     }
 
 
