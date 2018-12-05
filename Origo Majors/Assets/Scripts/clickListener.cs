@@ -38,7 +38,7 @@ public class clickListener : MonoBehaviour {
                     selectedWaypoint.GetComponent<waypointContents>().occupied = true;
                     currentlySelectedObject.GetComponent<droneLocation>().changeLocation();
 
-                    Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.GetComponent<GridNode>().coordinates);
+                    Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
 
                     Vector3 directionMoved = currentlySelectedObject.GetComponent<droneLocation>().currentlyOccupiedWaypoint.transform.position - currentlySelectedObject.GetComponent<droneLocation>().previouslyOccupiedWaypoint.transform.position;
                     Debug.Log("direction is " + directionMoved);

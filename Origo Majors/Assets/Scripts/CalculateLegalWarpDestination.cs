@@ -16,7 +16,8 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
     public void calculateLegalWarpDestinations()
     {
         int moveRange = dice.GetComponent<Dice>().moveRange;
-        Vector3 direction = new Vector3 (1, 0, 0);
+        Vector3 dir = new Vector3();
+        dir.Set(1,0,0);
 
         currentlySelectedObject = clickListener.GetComponent<clickListener>().currentlySelectedObject;
 
@@ -30,17 +31,17 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
                 RaycastHit hit;
                 if (nodeToCheckFrom == Vector3.zero) nodeToCheckFrom = currentlySelectedObject.transform.position;
 
-                if (Physics.Raycast(nodeToCheckFrom, direction, out hit, 3, waypoints))
+                if (Physics.Raycast(nodeToCheckFrom, dir, out hit, 3, waypoints))
                     // TODO fixa rangen till gridGenerator.nodeRadius
                 {
                     //Debug.DrawRay(currentlySelectedObject.transform.position, hit.point);
-                    Debug.Log( hit.collider.GetComponent<GridNode>().coordinates + " has been hit by the ray");
+                    Debug.Log( hit.collider.GetComponent<GridNode>().Coordinates + " has been hit by the ray");
                 }
 
                 nodeToCheckFrom = hit.transform.position;
             }
 
-            direction = new Vector3 (1.6f, 0.0f, 2.7f);
+            dir.Set(-1,0,0);
             nodeToCheckFrom = Vector3.zero;
         }
     }

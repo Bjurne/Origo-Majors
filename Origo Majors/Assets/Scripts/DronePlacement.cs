@@ -39,7 +39,7 @@ public class DronePlacement : MonoBehaviour {
                     newDrone.GetComponent<droneLocation>().previouslyOccupiedWaypoint = selectedWaypoint;
                     newDrone.GetComponent<droneLocation>().currentlyOccupiedWaypoint = selectedWaypoint;
                     numberOfDronesSpawned++;
-                    Debug.Log(dronePrefab.name + " has been placed at " + selectedWaypoint.GetComponent<GridNode>().coordinates);
+                    Debug.Log(dronePrefab.name + " has been placed at " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
                 }
                 if (numberOfDronesSpawned == numberOfDronesToSpawn)
                 {
