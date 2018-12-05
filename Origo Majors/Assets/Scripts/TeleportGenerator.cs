@@ -12,8 +12,8 @@ public class TeleportGenerator : MonoBehaviour {
     public int numberOfTeleports;
 
 
-    void Start () {
-
+    void Start ()
+    {
         waypoints = gridGenerator.GetComponent<GridGenerator>().nodes;
 
         for (int i = 0; i < numberOfTeleports;)

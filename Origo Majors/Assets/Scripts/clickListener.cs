@@ -37,7 +37,7 @@ public class clickListener : MonoBehaviour {
                     selectedWaypoint.GetComponent<waypointContents>().occupied = true;
                     currentlySelectedObject.GetComponent<droneLocation>().changeLocation();
 
-                    Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.name);
+                    Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.GetComponent<GridNode>().coordinates);
 
                     hasBeenMoved = true;
                     selectionMarker.SetActive(false); // denna funkar inte för tillfället, av någon anledning
