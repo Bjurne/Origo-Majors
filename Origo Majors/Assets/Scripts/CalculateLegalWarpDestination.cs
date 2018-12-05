@@ -17,7 +17,7 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
     {
         int moveRange = dice.GetComponent<Dice>().moveRange;
         Vector3 dir = new Vector3();
-        dir.Set(1,0,0);
+        //dir.Set(1.0f,0.0f,0.0f);
 
         currentlySelectedObject = clickListener.GetComponent<clickListener>().currentlySelectedObject;
 
@@ -26,29 +26,44 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
         for (int x = 0; x < 6; x++)
         {
             Debug.Log("moveRange = " + moveRange);
+
+            if (x == 0) dir.Set(1.0f, 0.0f, 0.0f);
+            if (x == 1) dir.Set(1.6f, 0.0f, 2.7f);
+            if (x == 2) dir.Set(-1.6f, 0.0f, 2.7f);
+            if (x == 3) dir.Set(-1.0f, 0.0f, 0.0f);
+            if (x == 4) dir.Set(-1.6f, 0.0f, -2.7f);
+            if (x == 5) dir.Set(1.6f, 0.0f, -2.7f);
+
             for (int y = 0; y < moveRange; y++)
             {
                 RaycastHit hit;
                 if (nodeToCheckFrom == Vector3.zero) nodeToCheckFrom = currentlySelectedObject.transform.position;
 
-                if (Physics.Raycast(nodeToCheckFrom, dir, out hit, 3, waypoints))
-                    // TODO fixa rangen till gridGenerator.nodeRadius
+                try
                 {
-                    //Debug.DrawRay(currentlySelectedObject.transform.position, hit.point);
-                    Debug.Log( hit.collider.GetComponent<GridNode>().Coordinates + " has been hit by the ray");
+                    if (Physics.Raycast(nodeToCheckFrom, dir, out hit, 3, waypoints))
+                    // TODO fixa rangen till gridGenerator.nodeRadius
+                    {
+                        //Debug.DrawRay(currentlySelectedObject.transform.position, hit.point);
+                        Debug.Log(hit.collider.GetComponent<GridNode>().Coordinates + " has been hit by the ray");
+                        hit.transform.localScale = new Vector3(2, 2, 2);
+                    }
+                    nodeToCheckFrom = hit.transform.position;
                 }
-
-                nodeToCheckFrom = hit.transform.position;
+                catch { }
             }
 
-            dir.Set(-1,0,0);
+            
+            
+
+
             nodeToCheckFrom = Vector3.zero;
         }
     }
-            //dirXPositive  3.1, 0.0, 0.0
+            //dirXPositive  1.0, 0.0, 0.0
             //dirYPositive  1.6, 0.0, 2.7
             //dirZPositive  -1.6, 0.0, 2.7
-            //dirXNegative  -3.1, 0.0, 0.0
+            //dirXNegative  -1.0, 0.0, 0.0
             //dirYNegative  -1.6, 0.0, -2.7
             //dirZNegative  1.6, 0.0, -2.7
 }
