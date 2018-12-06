@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Player
 {
@@ -11,29 +12,28 @@ public enum Player
 }
 
 public class StateManager : MonoBehaviour {
+    void Start()
+    {
+        // draw nodes
+        gridscript.GenerateGameBoard(9); // number 9 to be changed later
+        currentPlayer = Player.Blue;     // blue player starts
+        rollButton.interactable = false; // rollbutton disabled
+    }
 
     public Player currentPlayer;
 
-
-    
+    // reference other scripts
     public GridGenerator gridscript;
     public DronePlacement initialPlacement; 
-    public Dice diceRoller; 
+    public Dice diceRoller;
+    public Button rollButton;
 
-
-
-
+    
+    
     public bool initialPlacementIsDone = false;
     bool isDoneRolling = false; 
     bool isDoneMoving= false;
 
-    void Start()
-    {
-        gridscript.GenerateGameBoard(9); // number 9 to be changed later
-
-        currentPlayer = Player.Blue;
-        
-    }
 
     void Update()
     {
@@ -45,17 +45,14 @@ public class StateManager : MonoBehaviour {
             if (Input.GetMouseButtonUp(0))
             {
                 initialPlacement.PlaceDrone(currentPlayer);
-             //   PassTurnToNextPlayer();
 
             }
-
-            //initialPlacementIsDone = true;
         } 
 
         //intial drones are place and its time for the first real turn. time to roll dice
         if (initialPlacementIsDone == true && isDoneRolling == false )
         {
-            //diceRoller.Number(); // TODO: check roll number funktion button , change script to roll instead of rolling number directly
+            diceRoller.Number(); // TODO: check roll number funktion button , change script to roll instead of rolling number directly
             isDoneRolling = true;
         }
 
