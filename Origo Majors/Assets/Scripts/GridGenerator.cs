@@ -41,7 +41,7 @@ public class GridGenerator : MonoBehaviour {
 
         //Herr Svedlunds coola kod
         FindObjectOfType<TeleportGenerator>().GenerateTeleports();
-        FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickups();
+        FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
     }
 	
     public void UpdateBoardSizeVariables (int boardSize)
