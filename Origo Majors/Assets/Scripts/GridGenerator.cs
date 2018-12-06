@@ -102,29 +102,52 @@ public class GridGenerator : MonoBehaviour {
     }
 
     //IN PROGRESS: Målar hela brädet 
-    public void PaintBoard ()
+    public void PaintBoard()
     {
-        Vector3 paintCoordinate = FindCenter();
+        Vector3 origo = FindCenter();
+        Vector3 paintCoordinate = origo;
 
-        for (int v = 0; v < publicInt; v++)
+        //Varje steg utåt från mitten
+        for (int i = 0; i < boardSize; i++)
         {
-            GridNode paintNode;
-            if (dic.TryGetValue(paintCoordinate, out paintNode))
+
+            //Varje riktning ([Dir[0] - Dir[5])
+            for (int j = 0; j < 6; j++)
             {
-                m_Material = paintNode.GetComponent<MeshRenderer>().material;
-                m_Material.color = Color.red;
+
+                paintCoordinate += GridMetrics.Dir[j] * (i);
+
+                PaintNode(paintCoordinate);
+
+                paintCoordinate = origo;
             }
-            else
-            {
-                Debug.Log("No coordinate found! " + paintCoordinate);
-            }
-            paintCoordinate += GridMetrics.Dir[v];
         }
+
         //noll steg, rita mitten + 4 vänster + 4 höger 
         //ett steg, rita mitten + 4 vänster + 3 höger
         //två steg, rita mitten + 3 vänster + 3 höger
         //tre steg, rita mitten + 3 vänster + 2 höger
         //fyra steg, ritta mitten + 2 vänster + 2 höger
+    }
+
+    private void PaintNode (Vector3 paintCoordinate)
+    {
+        GridNode paintNode;
+        if (dic.TryGetValue(paintCoordinate, out paintNode))
+        {
+            m_Material = paintNode.GetComponent<MeshRenderer>().material;
+            m_Material.color = Color.red;
+        }
+        else
+        {
+            Debug.Log("No coordinate found! " + paintCoordinate);
+        }
+    }
+
+
+    int ResetNumber (int dir)
+    {
+        return dir % 6;
     }
 
     void Update ()
