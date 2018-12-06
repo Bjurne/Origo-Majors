@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CalculateLegalWarpDestination : MonoBehaviour {
-
+    
     public GameObject currentlySelectedObject;
     public GridNode[] legalWarpNodes;
     public LayerMask waypoints;
@@ -18,7 +18,7 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
         //int moveRange = Random.Range(1, 5);
         //Debug.Log("MoveRange is " + moveRange);
         Vector3 dir = new Vector3();
-        nodeToCheckFrom = Vector3.zero;
+        nodeToCheckFrom = Vector3.zero; // kolla om det behövs . behövs kanske kinte sen men funkar nu
         //dir.Set(1.0f,0.0f,0.0f);
 
         //Debug.Log("The distance to move is " + moveRange);
@@ -68,11 +68,8 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
                 //catch { }
             }
 
-            
-            
-
-
             nodeToCheckFrom = Vector3.zero;
+            
         }
     }
             //dirXPositive  1.0, 0.0, 0.0

@@ -35,7 +35,7 @@ public class StateManager : MonoBehaviour {
 
     public bool initialPlacementIsDone = false;
     public bool isDoneRolling = false; 
-    bool isDoneMoving= false;
+    public bool isDoneMoving= false;
 
 
     void Update()
@@ -73,18 +73,19 @@ public class StateManager : MonoBehaviour {
                 else
                 {
                     drone.gameObject.layer = 11; // refenses to nonselctable layer
-
                 }
             }
-
-            // moveunit - move a drone the omount rolled. 
-            // if no legal moves continue; ? 
         }
 
-        if (true)
+        if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == true)
         {
-            //NextTurn();
-        }
+            Debug.Log( "next turn" );
+            PassTurnToNextPlayer();
+            rollButton.interactable = false; // disables button. is here for now
+
+            isDoneRolling = false;
+            isDoneMoving = false;
+}
     }
 
     public void PassTurnToNextPlayer()

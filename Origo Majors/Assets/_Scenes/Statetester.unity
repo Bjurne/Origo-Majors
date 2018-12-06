@@ -312,6 +312,7 @@ MonoBehaviour:
   selectionMarker: {fileID: 0}
   selectedWaypoint: {fileID: 0}
   legalMoves: {fileID: 1651405434}
+  stateManager: {fileID: 1218919287}
 --- !u!4 &239941635
 Transform:
   m_ObjectHideFlags: 0
@@ -577,6 +578,7 @@ MonoBehaviour:
     m_Bits: 2048
   initialPlacementIsDone: 0
   isDoneRolling: 0
+  isDoneMoving: 0
 --- !u!4 &1218919288
 Transform:
   m_ObjectHideFlags: 0

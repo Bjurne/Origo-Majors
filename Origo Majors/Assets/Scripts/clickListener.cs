@@ -12,13 +12,14 @@ public class ClickListener : MonoBehaviour {
     public GameObject selectedWaypoint = null;
     public CalculateLegalWarpDestination legalMoves;
     private bool hasBeenMoved = false;
+    public StateManager stateManager;
+
 
 
     void Update ()
     {
         if (Input.GetMouseButtonUp (0))
         {
-            Debug.Log(" moused up i clickL ");
 
 
             Vector3 clickPosition = -Vector3.one;
@@ -52,6 +53,8 @@ public class ClickListener : MonoBehaviour {
                     currentlySelectedObject = null;
                     selectionMarker = null;
                     selectedWaypoint = null;
+                    stateManager.isDoneMoving = true;
+
                 }
             }
 
