@@ -56,8 +56,8 @@ public class DronePlacement : MonoBehaviour {
                 if ((((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false) && !teleporterPresent) && !boosterPresent)
                 {
                     GameObject newDrone = Instantiate(dronePrefab, selectedWaypoint.transform.position, Quaternion.identity);
-                    //set drone color and tag
-                    newDrone.GetComponentInChildren<MeshRenderer>().material.color = GetPlayerColor(player);
+                    
+                    newDrone.GetComponentInChildren<MeshRenderer>().material.color = GetPlayerColor(player);//set drone color and tag
                     Debug.Log(player.ToString());
                     newDrone.tag = player.ToString();
 
@@ -73,8 +73,7 @@ public class DronePlacement : MonoBehaviour {
                 if (numberOfDronesSpawned == numberOfDronesToSpawn)
                 {
                     placementPhaseDone();
-                    Debug.Log("Placement phase is done");
-                    stateManager.initialPlacementIsDone = true;
+                    
                 }
             }
         }
@@ -102,6 +101,8 @@ public class DronePlacement : MonoBehaviour {
 
     void placementPhaseDone()
     {
+        Debug.Log("Placement phase is done");
+        stateManager.initialPlacementIsDone = true;
         clickListener.SetActive(true);
     }
 }

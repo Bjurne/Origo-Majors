@@ -18,6 +18,7 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
         //int moveRange = Random.Range(1, 5);
         //Debug.Log("MoveRange is " + moveRange);
         Vector3 dir = new Vector3();
+        nodeToCheckFrom = Vector3.zero;
         //dir.Set(1.0f,0.0f,0.0f);
 
         //Debug.Log("The distance to move is " + moveRange);
@@ -42,8 +43,8 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
                 RaycastHit hit;
                 if (nodeToCheckFrom == Vector3.zero) nodeToCheckFrom = currentlySelectedObject.transform.position;
 
-                try
-                {
+                //try
+                //{
                     Debug.Log("Inne i Try");
                     if (Physics.Raycast(nodeToCheckFrom, dir, out hit, 100, waypoints))
                     // TODO fixa rangen till gridGenerator.nodeRadius
@@ -63,8 +64,8 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
                         }
                     }
                     nodeToCheckFrom = hit.transform.position;
-                }
-                catch { }
+                //}
+                //catch { }
             }
 
             

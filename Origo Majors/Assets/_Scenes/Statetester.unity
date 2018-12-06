@@ -152,6 +152,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114843121813573902, guid: 8464c930d48fdde4595ff96e1cfc26d4,
+        type: 2}
+      propertyPath: gridGenerator
+      value: 
+      objectReference: {fileID: 1348405728}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8464c930d48fdde4595ff96e1cfc26d4, type: 2}
   m_IsPrefabAsset: 0
@@ -294,11 +299,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 239941633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb9922c609723c14cb810275e7f2192f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d011d5b2de1b904bb1a82fc2657568d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Coordinates: {x: 0, y: 0, z: 0}
-  isActive: 1
+  selectable:
+    serializedVersion: 2
+    m_Bits: 1024
+  waypoints:
+    serializedVersion: 2
+    m_Bits: 512
+  currentlySelectedObject: {fileID: 0}
+  selectionMarker: {fileID: 0}
+  selectedWaypoint: {fileID: 0}
+  legalMoves: {fileID: 1651405434}
 --- !u!4 &239941635
 Transform:
   m_ObjectHideFlags: 0
@@ -344,7 +357,7 @@ MonoBehaviour:
   numberOfDronesToSpawnPerPlayer: 1
   waypoints:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 512
   selectedWaypoint: {fileID: 0}
   dronePrefab: {fileID: 1421427863671348, guid: 9c4264f1ebdf7cf4ca8f89f981d776a6,
     type: 2}
@@ -648,7 +661,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1230811929}
   m_OnClick:
     m_PersistentCalls:
@@ -700,6 +713,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1230811926}
   m_CullTransparentMesh: 0
+--- !u!1 &1348405728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1258363272267494, guid: 8a566577eac1a38479d47dd2a33e9456,
+    type: 2}
+  m_PrefabInternal: {fileID: 1771065736}
 --- !u!1 &1409703020
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,6 +977,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114869637031004384, guid: 14573136086987d44bbd38dc1ebdc86f,
+        type: 2}
+      propertyPath: gridGenerator
+      value: 
+      objectReference: {fileID: 1348405728}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14573136086987d44bbd38dc1ebdc86f, type: 2}
   m_IsPrefabAsset: 0

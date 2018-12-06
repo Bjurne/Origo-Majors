@@ -8,6 +8,7 @@ TagManager:
   - Red
   - Green
   - Yellow
+  - LegalWarpDestination
   layers:
   - Default
   - TransparentFX

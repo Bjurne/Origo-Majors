@@ -43,7 +43,7 @@ public class StateManager : MonoBehaviour {
         // place the initial drones
         if (initialPlacementIsDone == false)
         {
-            Debug.Log(" started if sttement ");
+    //        Debug.Log(" started if sttement ");
 
             if (Input.GetMouseButtonUp(0))
             {
@@ -60,6 +60,7 @@ public class StateManager : MonoBehaviour {
 
         if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == false)
         {
+            Debug.Log(" Time to selct ");
             //Select all drones so we can turn them off.
             var allDrones = FindObjectsOfType<DroneLocation>();
 

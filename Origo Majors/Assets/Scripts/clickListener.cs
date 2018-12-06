@@ -18,7 +18,9 @@ public class ClickListener : MonoBehaviour {
     {
         if (Input.GetMouseButtonUp (0))
         {
- 
+            Debug.Log(" moused up i clickL ");
+
+
             Vector3 clickPosition = -Vector3.one;
             Plane plane = new Plane(Vector3.up, 0f);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -40,10 +42,10 @@ public class ClickListener : MonoBehaviour {
                     selectedWaypoint.GetComponent<WaypointContents>().occupied = true;
                     currentlySelectedObject.GetComponent<DroneLocation>().changeLocation();
 
-                    //Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
+                   Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
 
                     Vector3 directionMoved = currentlySelectedObject.GetComponent<DroneLocation>().currentlyOccupiedWaypoint.transform.position - currentlySelectedObject.GetComponent<DroneLocation>().previouslyOccupiedWaypoint.transform.position;
-                    //Debug.Log("direction is " + directionMoved);
+                    Debug.Log("direction is " + directionMoved);
 
                     hasBeenMoved = true;
                     selectionMarker.SetActive(false); // denna funkar inte för tillfället, av någon anledning
