@@ -60,7 +60,7 @@ public class StateManager : MonoBehaviour {
         if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == false)
         {
             //Select all drones so we can turn them off.
-            var allDrones = FindObjectsOfType<droneLocation>();
+            var allDrones = FindObjectsOfType<DroneLocation>();
 
             foreach(var drone in allDrones)
             {
