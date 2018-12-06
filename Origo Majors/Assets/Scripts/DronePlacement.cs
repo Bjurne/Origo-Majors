@@ -46,7 +46,7 @@ public class DronePlacement : MonoBehaviour {
         {
             clickPosition = hit.point;
             selectedWaypoint = hit.collider.gameObject;
-            bool occupied = selectedWaypoint.GetComponent<waypointContents>().occupied;
+            bool occupied = selectedWaypoint.GetComponent<WaypointContents>().occupied;
 
             if ((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false)
             {
@@ -56,11 +56,11 @@ public class DronePlacement : MonoBehaviour {
                 newDrone.GetComponentInChildren<MeshRenderer>().material.color = GetPlayerColor(player);
                 Debug.Log(player.ToString());
                 newDrone.tag = player.ToString();
-                selectedWaypoint.GetComponent<waypointContents>().occupied = true;
-                newDrone.GetComponent<droneLocation>().previouslyOccupiedWaypoint = selectedWaypoint;
-                newDrone.GetComponent<droneLocation>().currentlyOccupiedWaypoint = selectedWaypoint;
+                selectedWaypoint.GetComponent<WaypointContents>().occupied = true;
+                newDrone.GetComponent<DroneLocation>().previouslyOccupiedWaypoint = selectedWaypoint;
+                newDrone.GetComponent<DroneLocation>().currentlyOccupiedWaypoint = selectedWaypoint;
                 numberOfDronesSpawned++;
-                Debug.Log(dronePrefab.name + " has been placed at " + selectedWaypoint.GetComponent<GridNode>().coordinates);
+                Debug.Log(dronePrefab.name + " has been placed at " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
                             stateManager.PassTurnToNextPlayer();
             }
                 
