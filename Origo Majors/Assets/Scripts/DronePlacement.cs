@@ -31,8 +31,10 @@ public class DronePlacement : MonoBehaviour {
                 clickPosition = hit.point;
                 selectedWaypoint = hit.collider.gameObject;
                 bool occupied = selectedWaypoint.GetComponent<WaypointContents>().occupied;
+                bool teleporterPresent = selectedWaypoint.GetComponent<WaypointContents>().holdingTeleporter;
+                bool boosterPresent = selectedWaypoint.GetComponent<WaypointContents>().holdingBoosterPickUp;
 
-                if ((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false)
+                if ((((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false) && !teleporterPresent) && !boosterPresent)
                 {
                     GameObject newDrone = Instantiate(dronePrefab, selectedWaypoint.transform.position, Quaternion.identity);
                     selectedWaypoint.GetComponent<WaypointContents>().occupied = true;

@@ -97,8 +97,8 @@ public class GridGenerator : MonoBehaviour {
     {
         if (Input.GetMouseButton(0))
         {
-            HandleInput();
-            Debug.Log("Mouse button being pressed.");
+            //HandleInput();
+            //Debug.Log("Mouse button being pressed.");
         }
         if (Input.GetButtonDown("Jump")) {
 

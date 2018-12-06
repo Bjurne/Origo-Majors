@@ -1,33 +1,34 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TeleportGenerator : MonoBehaviour {
 
     public GameObject teleportPrefab;
-    public GridNode[] waypoints;
+    public GridNode[] gridNodes;
     public GameObject gridGenerator;
     private int numberOfNodes;
 
     public int numberOfTeleports;
 
 
-    void Start ()
+    public void GenerateTeleports ()
     {
-        waypoints = gridGenerator.GetComponent<GridGenerator>().nodes;
+        gridNodes = gridGenerator.GetComponent<GridGenerator>().nodes;
 
         for (int i = 0; i < numberOfTeleports;)
         {
-            int randomWaypoint = Random.Range(0, waypoints.Length);
-            bool illegalSpawnPoint = waypoints[randomWaypoint].GetComponent<WaypointContents>().holdingTeleporter;
+            int randomWaypoint = UnityEngine.Random.Range(0, gridNodes.Length);
+            bool illegalSpawnPoint = gridNodes[randomWaypoint].GetComponent<WaypointContents>().holdingTeleporter;
             //bool illegalSpawnPoint = waypoints[randomWaypoint].gameObject.GetComponent<waypointContents>().holdingTeleporter;
             //bool illegalSpawnPoint = gridGenerator.GetComponent<GridGenerator>().nodes[randomWaypoint].GetComponent<waypointContents>().holdingTeleporter;
 
 
             if (!illegalSpawnPoint)
             {
-                Instantiate(teleportPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
-                waypoints[randomWaypoint].GetComponent<WaypointContents>().holdingTeleporter = true;
+                Instantiate(teleportPrefab, gridNodes[randomWaypoint].transform.position, Quaternion.identity);
+                gridNodes[randomWaypoint].GetComponent<WaypointContents>().holdingTeleporter = true;
                 i++;
             }
             else
