@@ -7,7 +7,6 @@ public class GridGenerator : MonoBehaviour {
 
     public int boardSize = 5;
     public float nodeOuterRadius = 2f;
-    public int publicInt = 0;
     float nodeInnerRadius; //float nodeInnerRadius = nodeOuterRadius * 0.866025405f;
     int boardMaxDistance;
 
@@ -46,6 +45,7 @@ public class GridGenerator : MonoBehaviour {
         GenerateGameBoard(boardMaxDistance);
         //PaintCenter();
         PaintBoard();
+        DisableInactiveNodes();
 
         //Herr Svedlunds coola kod
         //FindObjectOfType<TeleportGenerator>().GenerateTeleports();
@@ -101,7 +101,7 @@ public class GridGenerator : MonoBehaviour {
         }
     }
 
-    //IN PROGRESS: Målar hela brädet 
+    //Målar hela brädet 
     public void PaintBoard()
     {
         Vector3 origo = FindCenter();
@@ -110,24 +110,22 @@ public class GridGenerator : MonoBehaviour {
         //Varje steg utåt från mitten
         for (int i = 0; i < boardSize; i++)
         {
-
             //Varje riktning ([Dir[0] - Dir[5])
             for (int j = 0; j < 6; j++)
             {
-
                 paintCoordinate += GridMetrics.Dir[j] * (i);
+                ToggleNode(paintCoordinate);
 
-                PaintNode(paintCoordinate);
-
+                //Rita noder med koordinaterna "i - 1" steg i en "Dir + 2" vinkel
+                //Ritar noder till höger om noden i relation till nodens riktning mot mitten
+                for (int k = 0; k < i - 1; k++)
+                {
+                    paintCoordinate += GridMetrics.Dir[ResetNumber(j + 2)];
+                    ToggleNode(paintCoordinate);
+                }
                 paintCoordinate = origo;
             }
         }
-
-        //noll steg, rita mitten + 4 vänster + 4 höger 
-        //ett steg, rita mitten + 4 vänster + 3 höger
-        //två steg, rita mitten + 3 vänster + 3 höger
-        //tre steg, rita mitten + 3 vänster + 2 höger
-        //fyra steg, ritta mitten + 2 vänster + 2 höger
     }
 
     private void PaintNode (Vector3 paintCoordinate)
@@ -144,10 +142,33 @@ public class GridGenerator : MonoBehaviour {
         }
     }
 
+    private void ToggleNode(Vector3 nodeCoordinate, bool state = true)
+    {
+        GridNode currentNode;
+        if (dic.TryGetValue(nodeCoordinate, out currentNode))
+        {
+            currentNode.isActive = state;
+        }
+        else
+        {
+            Debug.Log("No coordinate found! " + nodeCoordinate);
+        }
+    }
 
     int ResetNumber (int dir)
     {
         return dir % 6;
+    }
+
+    void DisableInactiveNodes ()
+    {
+        for (int i = 0; i < nodes.Length; i++)
+        {
+            if (!nodes[i].isActive)
+            {
+                nodes[i].gameObject.SetActive(false);
+            }
+        }
     }
 
     void Update ()
