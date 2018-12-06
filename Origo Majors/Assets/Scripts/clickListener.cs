@@ -6,6 +6,7 @@ public class clickListener : MonoBehaviour {
 
     public LayerMask selectable;
     public LayerMask waypoints;
+    //public LayerMask legalWarpDestination;
     public GameObject currentlySelectedObject = null;
     public GameObject selectionMarker = null;
     public GameObject selectedWaypoint = null;
@@ -25,6 +26,7 @@ public class clickListener : MonoBehaviour {
             RaycastHit hit;
             hasBeenMoved = false;
 
+
             if (Physics.Raycast(ray, out hit, 1000f, waypoints) && currentlySelectedObject != null)
             // Vi kollar i nästa steg ifall den valda waypointen är ockuperad eller inte
             {
@@ -32,7 +34,7 @@ public class clickListener : MonoBehaviour {
                 selectedWaypoint = hit.collider.gameObject;
                 bool occupied = selectedWaypoint.GetComponent<waypointContents>().occupied;
 
-                if (!occupied)
+                if ((!occupied) && selectedWaypoint.tag == "LegalWarpDestination")
                 {
                     currentlySelectedObject.transform.position = selectedWaypoint.transform.position;
                     selectedWaypoint.GetComponent<waypointContents>().occupied = true;
@@ -48,6 +50,15 @@ public class clickListener : MonoBehaviour {
                     currentlySelectedObject = null;
                     selectionMarker = null;
                     selectedWaypoint = null;
+                }
+            }
+
+            GridNode[] gos = GridNode.FindObjectsOfType(typeof(GridNode)) as GridNode[];
+            foreach (GridNode gn in gos)
+            {
+                if (gn.gameObject.tag == "LegalWarpDestination")
+                {
+                    gn.tag = "Untagged";
                 }
             }
 

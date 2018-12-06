@@ -157,6 +157,11 @@ Prefab:
       propertyPath: legalMoves
       value: 
       objectReference: {fileID: 1500633151}
+    - target: {fileID: 114476790858755670, guid: f175d98a1be0c2b4a896b4eebd445691,
+        type: 2}
+      propertyPath: legalWarpDestination.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f175d98a1be0c2b4a896b4eebd445691, type: 2}
   m_IsPrefabAsset: 0
@@ -2509,6 +2514,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114869637031004384, guid: 14573136086987d44bbd38dc1ebdc86f,
+        type: 2}
+      propertyPath: waypoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4370038900142928, guid: 14573136086987d44bbd38dc1ebdc86f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5726,9 +5736,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentlySelectedObject: {fileID: 0}
   legalWarpNodes: []
-  legalWarpDestination:
-    serializedVersion: 2
-    m_Bits: 16384
   waypoints:
     serializedVersion: 2
     m_Bits: 8192
@@ -6383,6 +6390,11 @@ Prefab:
       propertyPath: clickListener
       value: 
       objectReference: {fileID: 1106706472}
+    - target: {fileID: 114083167989645142, guid: 5ad4331564b139045b6677b86c184d70,
+        type: 2}
+      propertyPath: numberOfDronesToSpawn
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ad4331564b139045b6677b86c184d70, type: 2}
   m_IsPrefabAsset: 0

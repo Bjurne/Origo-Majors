@@ -6,7 +6,6 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
 
     public GameObject currentlySelectedObject;
     public GridNode[] legalWarpNodes;
-    public LayerMask legalWarpDestination;
     public LayerMask waypoints;
     public GameObject dice;
     public GameObject clickListener;
@@ -16,6 +15,8 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
     public void calculateLegalWarpDestinations()
     {
         int moveRange = dice.GetComponent<Dice>().moveRange;
+        //int moveRange = Random.Range(1, 5);
+        //Debug.Log("MoveRange is " + moveRange);
         Vector3 dir = new Vector3();
         //dir.Set(1.0f,0.0f,0.0f);
 
@@ -25,7 +26,7 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
 
         for (int x = 0; x < 6; x++)
         {
-            Debug.Log("moveRange = " + moveRange);
+            //Debug.Log("moveRange = " + moveRange);
 
             if (x == 0) dir.Set(1.0f, 0.0f, 0.0f);
             if (x == 1) dir.Set(1.6f, 0.0f, 2.7f);
@@ -46,7 +47,17 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
                     {
                         //Debug.DrawRay(currentlySelectedObject.transform.position, hit.point);
                         Debug.Log(hit.collider.GetComponent<GridNode>().Coordinates + " has been hit by the ray");
-                        hit.transform.localScale = new Vector3(2, 2, 2);
+                        if (hit.collider.GetComponent<waypointContents>().occupied)
+                        {
+                            Debug.Log("The path is blocked, and this move is illegal");
+                            continue;
+                        }
+                        if (y == moveRange - 1)
+                        {
+                            hit.collider.GetComponent<GridNode>().gameObject.tag = "LegalWarpDestination";
+                            Debug.Log(hit.collider.GetComponent<GridNode>().Coordinates + " has been added to legalWarpDestination");
+                            hit.transform.localScale = new Vector3(2, 2, 2);
+                        }
                     }
                     nodeToCheckFrom = hit.transform.position;
                 }
