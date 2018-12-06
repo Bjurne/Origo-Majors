@@ -40,10 +40,10 @@ public class ClickListener : MonoBehaviour {
                     selectedWaypoint.GetComponent<WaypointContents>().occupied = true;
                     currentlySelectedObject.GetComponent<DroneLocation>().changeLocation();
 
-                    Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
+                    //Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
 
                     Vector3 directionMoved = currentlySelectedObject.GetComponent<DroneLocation>().currentlyOccupiedWaypoint.transform.position - currentlySelectedObject.GetComponent<DroneLocation>().previouslyOccupiedWaypoint.transform.position;
-                    Debug.Log("direction is " + directionMoved);
+                    //Debug.Log("direction is " + directionMoved);
 
                     hasBeenMoved = true;
                     selectionMarker.SetActive(false); // denna funkar inte för tillfället, av någon anledning
@@ -79,8 +79,8 @@ public class ClickListener : MonoBehaviour {
                 selectionMarker.SetActive(true);
                 if (currentlySelectedObject != null)
                 {
-                    Debug.Log("Currently selected object is " + currentlySelectedObject.name);
-                    Debug.Log("The Selection Marker of Currently selected object is " + selectionMarker.name);
+                    //Debug.Log("Currently selected object is " + currentlySelectedObject.name);
+                    //Debug.Log("The Selection Marker of Currently selected object is " + selectionMarker.name);
                 }
                 legalMoves.calculateLegalWarpDestinations();
             }
@@ -88,8 +88,8 @@ public class ClickListener : MonoBehaviour {
             {
                 //currentlySelectedObject.transform.GetChild(0).gameObject.SetActive(false);
                 //currentlySelectedObject = null;
-                Debug.Log("Currently selected object is none");
-                Debug.Log("The Selection Marker of Currently selected object is none");
+                //Debug.Log("Currently selected object is none");
+                //Debug.Log("The Selection Marker of Currently selected object is none");
             }
 
             if (plane.Raycast(ray, out distanceToPlane))
@@ -97,7 +97,7 @@ public class ClickListener : MonoBehaviour {
                 clickPosition = ray.GetPoint(distanceToPlane);
             }
 
-            Debug.Log(clickPosition);
+            //Debug.Log(clickPosition);
         }
     }
 

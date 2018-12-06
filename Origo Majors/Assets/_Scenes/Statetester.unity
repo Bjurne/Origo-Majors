@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356c9f8bff8ee3a46b73c6fdef4cd980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateManager: {fileID: 1218919287}
+  stateManager: {fileID: 0}
   diceValue: 0
   moveRange: 0
   NumberSprite:
@@ -257,14 +257,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectable:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 1024
   waypoints:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 512
   currentlySelectedObject: {fileID: 0}
   selectionMarker: {fileID: 0}
   selectedWaypoint: {fileID: 0}
-  legalMoves: {fileID: 0}
+  legalMoves: {fileID: 1651405434}
 --- !u!4 &239941635
 Transform:
   m_ObjectHideFlags: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickListener: {fileID: 239941633}
   numberOfDronesSpawned: 0
-  numberOfDronesToSpawnPerPlayer: 6
+  numberOfDronesToSpawnPerPlayer: 1
   waypoints:
     serializedVersion: 2
     m_Bits: 8192
@@ -522,6 +522,12 @@ MonoBehaviour:
   initialPlacement: {fileID: 617232068}
   diceRoller: {fileID: 92466767}
   rollButton: {fileID: 1230811928}
+  selectable:
+    serializedVersion: 2
+    m_Bits: 1024
+  nonSelectable:
+    serializedVersion: 2
+    m_Bits: 2048
   initialPlacementIsDone: 0
   isDoneRolling: 0
 --- !u!4 &1218919288
@@ -729,6 +735,53 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1539233005}
   m_CullTransparentMesh: 0
+--- !u!1 &1651405433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1651405435}
+  - component: {fileID: 1651405434}
+  m_Layer: 0
+  m_Name: Legal Moves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1651405434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651405433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77166f768fc2d5440a0df1cff1d8bbd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentlySelectedObject: {fileID: 0}
+  legalWarpNodes: []
+  waypoints:
+    serializedVersion: 2
+    m_Bits: 0
+  dice: {fileID: 92466766}
+  clickListener: {fileID: 239941633}
+--- !u!4 &1651405435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651405433}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 626.5, y: 75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1771065736
 Prefab:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class StateManager : MonoBehaviour {
         // draw nodes
         gridscript.GenerateGameBoard(9); // number 9 to be changed later
         currentPlayer = Player.Blue;     // blue player starts
-    //    rollButton.interactable = false; // rollbutton disabled
+  //      rollButton.interactable = false; // rollbutton disabled
     }
 
     public Player currentPlayer;
@@ -27,9 +27,12 @@ public class StateManager : MonoBehaviour {
     public DronePlacement initialPlacement; 
     public Dice diceRoller;
     public Button rollButton;
+    
 
-    
-    
+    public LayerMask selectable;
+    public LayerMask nonSelectable;
+
+
     public bool initialPlacementIsDone = false;
     public bool isDoneRolling = false; 
     bool isDoneMoving= false;
@@ -64,11 +67,12 @@ public class StateManager : MonoBehaviour {
             {
                 if (drone.tag == currentPlayer.ToString())
                 {
-                    //activate  drone
+                    drone.gameObject.layer = 10; // refenses to selctable layer
                 }
                 else
                 {
-                    //deactivate drone
+                    drone.gameObject.layer = 11; // refenses to nonselctable layer
+
                 }
             }
 

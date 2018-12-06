@@ -20,9 +20,11 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
         Vector3 dir = new Vector3();
         //dir.Set(1.0f,0.0f,0.0f);
 
+        //Debug.Log("The distance to move is " + moveRange);
+
         currentlySelectedObject = clickListener.GetComponent<ClickListener>().currentlySelectedObject;
 
-        Debug.Log("currentlySelectedObject is located at " + currentlySelectedObject.transform.position);
+        //Debug.Log("currentlySelectedObject is located at " + currentlySelectedObject.transform.position);
 
         for (int x = 0; x < 6; x++)
         {
@@ -42,7 +44,8 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
 
                 try
                 {
-                    if (Physics.Raycast(nodeToCheckFrom, dir, out hit, 3, waypoints))
+                    Debug.Log("Inne i Try");
+                    if (Physics.Raycast(nodeToCheckFrom, dir, out hit, 100, waypoints))
                     // TODO fixa rangen till gridGenerator.nodeRadius
                     {
                         //Debug.DrawRay(currentlySelectedObject.transform.position, hit.point);
