@@ -19,7 +19,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
         {
             int randomWaypoint = Random.Range(0, gridNodes.Length);
             bool illegalSpawnPoint = false;
-            //bool illegalSpawnPoint = waypoints[randomWaypoint].GetComponent<WaypointContents>().holdingBoosterPickUp;
+
             var myNode = gridNodes[randomWaypoint].GetComponent<WaypointContents>();
             if ((myNode.holdingTeleporter) || myNode.holdingBoosterPickUp)
             {
