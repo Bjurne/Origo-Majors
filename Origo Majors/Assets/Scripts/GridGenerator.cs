@@ -19,6 +19,8 @@ public class GridGenerator : MonoBehaviour {
 
     public Dictionary<Vector3, GridNode> dic; //Roberts variabelnamn, confirmed teacher standard
 
+    Vector3 pos = new Vector3(3, -9, 6);
+
     public void Awake ()
     {
         dic = new Dictionary<Vector3, GridNode>();
@@ -32,7 +34,7 @@ public class GridGenerator : MonoBehaviour {
     private void Start ()
     {
         GenerateGameBoard(boardMaxDistance);
-        //FindCenter(boardSize);
+        FindCenter(boardSize);
     }
 	
     public void UpdateBoardSizeVariables (int boardSize)
@@ -53,11 +55,40 @@ public class GridGenerator : MonoBehaviour {
 
     public void FindCenter (int boardSize)
     {
-        //fixa formel för att hitta mitten???
-        int centerX = 2;
-        int centerY = -(boardSize + 1);
-        int centerZ = (boardSize / 2) + 1;
-        Vector3 center = new Vector3(0, 0, 0);
+        Vector3 centerNode = Vector3.zero;
+        GridNode testNode;
+
+        for (int i = 0; i < boardSize -1; i++)
+        {
+
+            if (dic.TryGetValue(centerNode, out testNode))
+            {
+                testNode.transform.localScale = new Vector3(2, 2, 2);
+            }
+
+            centerNode += GridMetrics.Dir[0];
+        }
+
+        for (int i = 0; i < boardSize -1; i++)
+        {
+
+            if (dic.TryGetValue(centerNode, out testNode))
+            {
+                testNode.transform.localScale = new Vector3(2, 2, 2);
+            }
+
+            if (i % 2 == 1)
+                centerNode += GridMetrics.Dir[2];
+            else
+            {
+                centerNode += GridMetrics.Dir[1];
+            }
+        }
+        if (dic.TryGetValue(centerNode, out testNode))
+        {
+            testNode.transform.localScale = new Vector3(2, 2, 2);
+        }
+        Debug.Log("Center of board coordinate: " + centerNode);
     }
 
     void Update ()
@@ -67,12 +98,19 @@ public class GridGenerator : MonoBehaviour {
             HandleInput();
         }
         if (Input.GetButtonDown("Jump")) {
+
             GridNode testNode;
-            var pos = new Vector3(2, -5, 3);
+            
             if (dic.TryGetValue(pos, out testNode))
+            {
                 testNode.transform.localScale = new Vector3(2, 2, 2);
+                pos += GridMetrics.Dir[Random.Range(0, 6)];
+            }
             else
+            {
                 Debug.Log("almost");
+            }
+
         }
     }
 
@@ -82,15 +120,10 @@ public class GridGenerator : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(inputRay, out hit))
         {
-            TouchCell(hit.point);
+            Debug.Log(hit.collider.GetComponent<GridNode>().Coordinates);
         }
     }
 
-    void TouchCell (Vector3 position)
-    {
-        position = transform.InverseTransformPoint(position);
-        Debug.Log("touched at " + position);
-    }
 
     /*  FOR OLD HEX SHAPE GRID, USE TO CALCULATE ACTIVE GAMEBOARD
     private int NodeCounter ()
@@ -151,7 +184,6 @@ public class GridGenerator : MonoBehaviour {
         cubeCoordinates.x = x - z / 2;
         cubeCoordinates.y = -(x - z / 2) -z;
         cubeCoordinates.z = z;
-        Debug.Log(-x -z);
 
         GridNode node = nodes[i] = Instantiate<GridNode>(gridNodePrefab);
         node.transform.SetParent(transform, false);
