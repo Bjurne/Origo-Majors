@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class clickListener : MonoBehaviour {
+public class ClickListener : MonoBehaviour {
 
     public LayerMask selectable;
     public LayerMask waypoints;
+    //public LayerMask legalWarpDestination;
     public GameObject currentlySelectedObject = null;
     public GameObject selectionMarker = null;
     public GameObject selectedWaypoint = null;
+    public CalculateLegalWarpDestination legalMoves;
     private bool hasBeenMoved = false;
 
 
@@ -24,26 +26,39 @@ public class clickListener : MonoBehaviour {
             RaycastHit hit;
             hasBeenMoved = false;
 
+
             if (Physics.Raycast(ray, out hit, 1000f, waypoints) && currentlySelectedObject != null)
             // Vi kollar i nästa steg ifall den valda waypointen är ockuperad eller inte
             {
                 clickPosition = hit.point;
                 selectedWaypoint = hit.collider.gameObject;
-                bool occupied = selectedWaypoint.GetComponent<waypointContents>().occupied;
+                bool occupied = selectedWaypoint.GetComponent<WaypointContents>().occupied;
 
-                if (!occupied)
+                if ((!occupied) && selectedWaypoint.tag == "LegalWarpDestination")
                 {
                     currentlySelectedObject.transform.position = selectedWaypoint.transform.position;
-                    selectedWaypoint.GetComponent<waypointContents>().occupied = true;
-                    currentlySelectedObject.GetComponent<droneLocation>().changeLocation();
+                    selectedWaypoint.GetComponent<WaypointContents>().occupied = true;
+                    currentlySelectedObject.GetComponent<DroneLocation>().changeLocation();
 
-                    Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.GetComponent<GridNode>().coordinates);
+                    Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
+
+                    Vector3 directionMoved = currentlySelectedObject.GetComponent<DroneLocation>().currentlyOccupiedWaypoint.transform.position - currentlySelectedObject.GetComponent<DroneLocation>().previouslyOccupiedWaypoint.transform.position;
+                    Debug.Log("direction is " + directionMoved);
 
                     hasBeenMoved = true;
                     selectionMarker.SetActive(false); // denna funkar inte för tillfället, av någon anledning
                     currentlySelectedObject = null;
                     selectionMarker = null;
                     selectedWaypoint = null;
+                }
+            }
+
+            GridNode[] gos = GridNode.FindObjectsOfType(typeof(GridNode)) as GridNode[];
+            foreach (GridNode gn in gos)
+            {
+                if (gn.gameObject.tag == "LegalWarpDestination")
+                {
+                    gn.tag = "Untagged";
                 }
             }
 
@@ -67,6 +82,7 @@ public class clickListener : MonoBehaviour {
                     Debug.Log("Currently selected object is " + currentlySelectedObject.name);
                     Debug.Log("The Selection Marker of Currently selected object is " + selectionMarker.name);
                 }
+                legalMoves.calculateLegalWarpDestinations();
             }
             else
             {

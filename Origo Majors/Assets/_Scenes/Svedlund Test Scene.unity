@@ -113,6 +113,58 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &20199380
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4461612369566174, guid: f175d98a1be0c2b4a896b4eebd445691, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461612369566174, guid: f175d98a1be0c2b4a896b4eebd445691, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461612369566174, guid: f175d98a1be0c2b4a896b4eebd445691, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461612369566174, guid: f175d98a1be0c2b4a896b4eebd445691, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461612369566174, guid: f175d98a1be0c2b4a896b4eebd445691, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461612369566174, guid: f175d98a1be0c2b4a896b4eebd445691, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461612369566174, guid: f175d98a1be0c2b4a896b4eebd445691, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461612369566174, guid: f175d98a1be0c2b4a896b4eebd445691, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114476790858755670, guid: f175d98a1be0c2b4a896b4eebd445691,
+        type: 2}
+      propertyPath: legalMoves
+      value: 
+      objectReference: {fileID: 1500633151}
+    - target: {fileID: 114476790858755670, guid: f175d98a1be0c2b4a896b4eebd445691,
+        type: 2}
+      propertyPath: legalWarpDestination.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f175d98a1be0c2b4a896b4eebd445691, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &31322051
 Prefab:
   m_ObjectHideFlags: 0
@@ -2355,54 +2407,6 @@ MonoBehaviour:
   occupied: 0
   holdingTeleporter: 0
   holdingBoosterPickUp: 0
---- !u!1 &592776075
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 592776077}
-  - component: {fileID: 592776076}
-  m_Layer: 0
-  m_Name: Drone Placement Handler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &592776076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 592776075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 981e75a30a06d2d40ac18d34ffa41ff3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickListener: {fileID: 1106706472}
-  numberOfDronesToSpawn: 6
-  waypoints:
-    serializedVersion: 2
-    m_Bits: 8192
-  selectedWaypoint: {fileID: 0}
-  dronePrefab: {fileID: 1421427863671348, guid: 9c4264f1ebdf7cf4ca8f89f981d776a6,
-    type: 2}
---- !u!4 &592776077
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 592776075}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &609098319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,6 +2507,58 @@ MonoBehaviour:
   occupied: 0
   holdingTeleporter: 0
   holdingBoosterPickUp: 0
+--- !u!1001 &641526578
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114869637031004384, guid: 14573136086987d44bbd38dc1ebdc86f,
+        type: 2}
+      propertyPath: waypoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370038900142928, guid: 14573136086987d44bbd38dc1ebdc86f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370038900142928, guid: 14573136086987d44bbd38dc1ebdc86f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370038900142928, guid: 14573136086987d44bbd38dc1ebdc86f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370038900142928, guid: 14573136086987d44bbd38dc1ebdc86f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370038900142928, guid: 14573136086987d44bbd38dc1ebdc86f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370038900142928, guid: 14573136086987d44bbd38dc1ebdc86f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370038900142928, guid: 14573136086987d44bbd38dc1ebdc86f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370038900142928, guid: 14573136086987d44bbd38dc1ebdc86f, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114869637031004384, guid: 14573136086987d44bbd38dc1ebdc86f,
+        type: 2}
+      propertyPath: gridGenerator
+      value: 
+      objectReference: {fileID: 1515755752}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14573136086987d44bbd38dc1ebdc86f, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &656941346
 GameObject:
   m_ObjectHideFlags: 0
@@ -3158,6 +3214,50 @@ MonoBehaviour:
   occupied: 0
   holdingTeleporter: 0
   holdingBoosterPickUp: 0
+--- !u!1 &839923395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 839923397}
+  - component: {fileID: 839923396}
+  m_Layer: 0
+  m_Name: Dice
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &839923396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 839923395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 356c9f8bff8ee3a46b73c6fdef4cd980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diceValue: 0
+  moveRange: 3
+  textNumber: {fileID: 0}
+  NumberSprite: []
+--- !u!4 &839923397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 839923395}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &843603707
 GameObject:
   m_ObjectHideFlags: 0
@@ -4234,55 +4334,11 @@ MonoBehaviour:
   occupied: 0
   holdingTeleporter: 0
   holdingBoosterPickUp: 0
---- !u!1 &1106706472
+--- !u!1 &1106706472 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1106706474}
-  - component: {fileID: 1106706473}
-  m_Layer: 0
-  m_Name: Click Listener
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1106706473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1106706472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d011d5b2de1b904bb1a82fc2657568d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectable:
-    serializedVersion: 2
-    m_Bits: 4096
-  waypoints:
-    serializedVersion: 2
-    m_Bits: 8192
-  currentlySelectedObject: {fileID: 0}
-  selectionMarker: {fileID: 0}
-  selectedWaypoint: {fileID: 0}
---- !u!4 &1106706474
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1106706472}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_CorrespondingSourceObject: {fileID: 1954901136779392, guid: f175d98a1be0c2b4a896b4eebd445691,
+    type: 2}
+  m_PrefabInternal: {fileID: 20199380}
 --- !u!1 &1146864672
 GameObject:
   m_ObjectHideFlags: 0
@@ -5091,6 +5147,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1322649201
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4469856327645446, guid: 8464c930d48fdde4595ff96e1cfc26d4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856327645446, guid: 8464c930d48fdde4595ff96e1cfc26d4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856327645446, guid: 8464c930d48fdde4595ff96e1cfc26d4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856327645446, guid: 8464c930d48fdde4595ff96e1cfc26d4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856327645446, guid: 8464c930d48fdde4595ff96e1cfc26d4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856327645446, guid: 8464c930d48fdde4595ff96e1cfc26d4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856327645446, guid: 8464c930d48fdde4595ff96e1cfc26d4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469856327645446, guid: 8464c930d48fdde4595ff96e1cfc26d4, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114843121813573902, guid: 8464c930d48fdde4595ff96e1cfc26d4,
+        type: 2}
+      propertyPath: gridGenerator
+      value: 
+      objectReference: {fileID: 1515755752}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8464c930d48fdde4595ff96e1cfc26d4, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1341072831
 GameObject:
   m_ObjectHideFlags: 0
@@ -5291,51 +5394,6 @@ MonoBehaviour:
   occupied: 0
   holdingTeleporter: 0
   holdingBoosterPickUp: 0
---- !u!1 &1402460854
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1402460856}
-  - component: {fileID: 1402460855}
-  m_Layer: 0
-  m_Name: Teleport Generator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1402460855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1402460854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b9473dea89456e4b802bba6837aa865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleportPrefab: {fileID: 1441617400084314, guid: b3ff86399ac993a48be9e690d608b990,
-    type: 2}
-  waypoints: []
-  gridGenerator: {fileID: 1515755752}
-  numberOfTeleports: 12
---- !u!4 &1402460856
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1402460854}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1426834994
 GameObject:
   m_ObjectHideFlags: 0
@@ -5636,6 +5694,53 @@ MonoBehaviour:
   occupied: 0
   holdingTeleporter: 0
   holdingBoosterPickUp: 0
+--- !u!1 &1500633149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1500633150}
+  - component: {fileID: 1500633151}
+  m_Layer: 0
+  m_Name: Legal Destination Calculator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1500633150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1500633149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.46971592, y: -36.523518, z: 28.469496}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1500633151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1500633149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77166f768fc2d5440a0df1cff1d8bbd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentlySelectedObject: {fileID: 0}
+  legalWarpNodes: []
+  waypoints:
+    serializedVersion: 2
+    m_Bits: 8192
+  dice: {fileID: 839923395}
+  clickListener: {fileID: 1106706472}
 --- !u!1 &1515755752 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1258363272267494, guid: 8a566577eac1a38479d47dd2a33e9456,
@@ -6241,6 +6346,58 @@ MonoBehaviour:
   occupied: 0
   holdingTeleporter: 0
   holdingBoosterPickUp: 0
+--- !u!1001 &1642644686
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4592949754821472, guid: 5ad4331564b139045b6677b86c184d70, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592949754821472, guid: 5ad4331564b139045b6677b86c184d70, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592949754821472, guid: 5ad4331564b139045b6677b86c184d70, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592949754821472, guid: 5ad4331564b139045b6677b86c184d70, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592949754821472, guid: 5ad4331564b139045b6677b86c184d70, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592949754821472, guid: 5ad4331564b139045b6677b86c184d70, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592949754821472, guid: 5ad4331564b139045b6677b86c184d70, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592949754821472, guid: 5ad4331564b139045b6677b86c184d70, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114083167989645142, guid: 5ad4331564b139045b6677b86c184d70,
+        type: 2}
+      propertyPath: clickListener
+      value: 
+      objectReference: {fileID: 1106706472}
+    - target: {fileID: 114083167989645142, guid: 5ad4331564b139045b6677b86c184d70,
+        type: 2}
+      propertyPath: numberOfDronesToSpawn
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ad4331564b139045b6677b86c184d70, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1649562621
 GameObject:
   m_ObjectHideFlags: 0
@@ -6941,116 +7098,6 @@ MonoBehaviour:
   occupied: 0
   holdingTeleporter: 0
   holdingBoosterPickUp: 0
---- !u!1 &1914289533
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1914289535}
-  - component: {fileID: 1914289534}
-  m_Layer: 0
-  m_Name: Booster Pick Up Generator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1914289534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1914289533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d6a4b85880ecac4da0a992e89a52a7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  warpBoosterPickUpPrefab: {fileID: 1685326278180318, guid: a2add51e7d1cc064abb1a8158918a9e7,
-    type: 2}
-  mapperBoosterPickUpPrefab: {fileID: 1339632709208102, guid: c04147f65d86a2c40aa84abba37ff571,
-    type: 2}
-  remapperBoosterPickUpPrefab: {fileID: 1328791530360408, guid: 2c73b27a8ac10ca43a70d05bb2ab5be1,
-    type: 2}
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  gridGenerator: {fileID: 1515755752}
-  numberOfBoosterPickUps: 12
---- !u!4 &1914289535
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1914289533}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1938349813
 GameObject:
   m_ObjectHideFlags: 0

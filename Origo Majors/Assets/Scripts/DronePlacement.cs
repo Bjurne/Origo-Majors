@@ -50,21 +50,19 @@ public class DronePlacement : MonoBehaviour {
 
             if ((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false)
             {
-                GameObject newDrone = Instantiate(dronePrefab, selectedWaypoint.transform.position, Quaternion.identity);
+                bool teleporterPresent = selectedWaypoint.GetComponent<WaypointContents>().holdingTeleporter;
+                bool boosterPresent = selectedWaypoint.GetComponent<WaypointContents>().holdingBoosterPickUp;
 
-                //set drone color and tag
-                newDrone.GetComponentInChildren<MeshRenderer>().material.color = GetPlayerColor(player);
-                Debug.Log(player.ToString());
-                newDrone.tag = player.ToString();
-
-                selectedWaypoint.GetComponent<waypointContents>().occupied = true;
-                newDrone.GetComponent<droneLocation>().previouslyOccupiedWaypoint = selectedWaypoint;
-                newDrone.GetComponent<droneLocation>().currentlyOccupiedWaypoint = selectedWaypoint;
-                numberOfDronesSpawned++;
-                Debug.Log(dronePrefab.name + " has been placed at " + selectedWaypoint.GetComponent<GridNode>().coordinates);
-
+                if ((((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false) && !teleporterPresent) && !boosterPresent)
+                    GameObject newDrone = Instantiate(dronePrefab, selectedWaypoint.transform.position, Quaternion.identity);
+                {
+                    selectedWaypoint.GetComponent<WaypointContents>().occupied = true;
+                    newDrone.GetComponent<DroneLocation>().previouslyOccupiedWaypoint = selectedWaypoint;
+                    newDrone.GetComponent<DroneLocation>().currentlyOccupiedWaypoint = selectedWaypoint;
+                    numberOfDronesSpawned++;
+                    Debug.Log(dronePrefab.name + " has been placed at " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
+                }
                             stateManager.PassTurnToNextPlayer();
-
             }
                 
             if (numberOfDronesSpawned == numberOfDronesToSpawn)

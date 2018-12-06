@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GridNode : MonoBehaviour {
 
-    public GridCoordinates coordinates;
+    //pls dont manipulate
+    public Vector3 Coordinates = Vector3.zero;
+    public bool isActive = true;
+    
 
 }
