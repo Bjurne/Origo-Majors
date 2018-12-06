@@ -7,18 +7,24 @@ public class BoosterPickUpGenerator : MonoBehaviour {
     public GameObject warpBoosterPickUpPrefab;
     public GameObject mapperBoosterPickUpPrefab;
     public GameObject remapperBoosterPickUpPrefab;
-    public GridNode[] waypoints;
+    public GridNode[] gridNodes;
     public GameObject gridGenerator;
     public int numberOfBoosterPickUps;
 
-    void hej()
+    public void GenerateBoosterPickUps()
     {
-        waypoints = gridGenerator.GetComponent<GridGenerator>().nodes;
+        gridNodes = gridGenerator.GetComponent<GridGenerator>().nodes;
 
         for (int i = 0; i < numberOfBoosterPickUps;)
         {
-            int randomWaypoint = Random.Range(0, waypoints.Length);
-            bool illegalSpawnPoint = waypoints[randomWaypoint].GetComponent<WaypointContents>().holdingBoosterPickUp;
+            int randomWaypoint = Random.Range(0, gridNodes.Length);
+            bool illegalSpawnPoint = false;
+            //bool illegalSpawnPoint = waypoints[randomWaypoint].GetComponent<WaypointContents>().holdingBoosterPickUp;
+            var myNode = gridNodes[randomWaypoint].GetComponent<WaypointContents>();
+            if ((myNode.holdingTeleporter) || myNode.holdingBoosterPickUp)
+            {
+                illegalSpawnPoint = true;
+            }
 
             if (!illegalSpawnPoint)
             {
@@ -26,18 +32,18 @@ public class BoosterPickUpGenerator : MonoBehaviour {
 
                 if (randomBoosterPickUp == 0)
                 {
-                    Instantiate(warpBoosterPickUpPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
+                    Instantiate(warpBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
                 }
                 else if (randomBoosterPickUp == 1)
                 {
-                    Instantiate(mapperBoosterPickUpPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
+                    Instantiate(mapperBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
                 }
                 else
                 {
-                    Instantiate(remapperBoosterPickUpPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
+                    Instantiate(remapperBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
                 }
 
-                waypoints[randomWaypoint].GetComponent<WaypointContents>().holdingBoosterPickUp = true;
+                myNode.holdingBoosterPickUp = true;
                 i++;
             }
             else
