@@ -6,28 +6,37 @@ using UnityEngine;
 public class DronePlacement : MonoBehaviour {
 
     public GameObject clickListener;
-    private int numberOfDronesSpawned;
-    public int numberOfDronesToSpawn;
+    public int numberOfDronesSpawned;
+    public int numberOfDronesToSpawnPerPlayer;
     public LayerMask waypoints;
     public GameObject selectedWaypoint;
     public GameObject dronePrefab;
+    public int numberOfPlayers;
+    public int numberOfDronesToSpawn;
+
+    public StateManager stateManager;
 
     void Start () {
         clickListener.SetActive(false);
+        numberOfDronesToSpawn = numberOfDronesToSpawnPerPlayer * numberOfPlayers;
 	}
 
     // Update is called once per frame
-     public void Update ()
-    {
-    //    Debug.Log( "runs placing ");
-        if (Input.GetMouseButtonUp (0))
-        {
-            //PlaceDrone();
-        }
-    }
+    //public void update()
+    //{
+    //    debug.log("runs placing ");
+    //    if (input.getmousebuttonup(0))
+    //    {
+    //        placedrone();
+    //    }
+    //}
 
     public void PlaceDrone(Player player)
     {
+        //foreach (Player Player in player)
+        //{
+
+        //}
         Vector3 clickPosition = -Vector3.one;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -53,11 +62,16 @@ public class DronePlacement : MonoBehaviour {
                 newDrone.GetComponent<droneLocation>().currentlyOccupiedWaypoint = selectedWaypoint;
                 numberOfDronesSpawned++;
                 Debug.Log(dronePrefab.name + " has been placed at " + selectedWaypoint.GetComponent<GridNode>().coordinates);
+
+                            stateManager.PassTurnToNextPlayer();
+
             }
+                
             if (numberOfDronesSpawned == numberOfDronesToSpawn)
             {
                 placementPhaseDone();
                 Debug.Log("Placement phase is done");
+                stateManager.initialPlacementIsDone = true;
             }
         }
     }

@@ -18,12 +18,10 @@ public class StateManager : MonoBehaviour {
     public DronePlacement initialPlacement; 
     public Dice diceRoller; 
 
-    public int NumberOfplayers = 4;
-    public int CurrentPlayerId = 0;
 
-    // todo : add boolians in each phase and add them here
 
-    bool initialPlacementIsDone = false;
+
+    public bool initialPlacementIsDone = false;
     bool isDoneRolling = false; 
     bool isDoneMoving= false;
 
@@ -45,7 +43,8 @@ public class StateManager : MonoBehaviour {
             if (Input.GetMouseButtonUp(0))
             {
                 initialPlacement.PlaceDrone(currentPlayer);
-                PassTurnToNextPlayer();
+             //   PassTurnToNextPlayer();
+
             }
 
             //initialPlacementIsDone = true;
@@ -67,7 +66,7 @@ public class StateManager : MonoBehaviour {
             {
                 if (drone.tag == currentPlayer.ToString())
                 {
-                    //activate drone
+                    //activate  drone
                 }
                 else
                 {
@@ -85,8 +84,10 @@ public class StateManager : MonoBehaviour {
         }
     }
 
-    private void PassTurnToNextPlayer()
+    public void PassTurnToNextPlayer()
     {
+        Debug.Log(" passar turen ");
+
         if (currentPlayer == Player.Yellow)
         {
             currentPlayer = 0;
@@ -107,15 +108,6 @@ public class StateManager : MonoBehaviour {
         initialPlacementIsDone = true;
     }
 
-
-
-    //public void NextTurn ()
-    //{
-
-
-    //    // advances to next player 
-    //    CurrentPlayerId = (CurrentPlayerId + 1) % NumberOfplayers;
-    //}
 	
 
 
