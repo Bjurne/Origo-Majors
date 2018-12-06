@@ -20,15 +20,14 @@ public class TeleportGenerator : MonoBehaviour {
         for (int i = 0; i < numberOfTeleports;)
         {
             int randomWaypoint = UnityEngine.Random.Range(0, gridNodes.Length);
-            bool illegalSpawnPoint = gridNodes[randomWaypoint].GetComponent<WaypointContents>().holdingTeleporter;
-            //bool illegalSpawnPoint = waypoints[randomWaypoint].gameObject.GetComponent<waypointContents>().holdingTeleporter;
-            //bool illegalSpawnPoint = gridGenerator.GetComponent<GridGenerator>().nodes[randomWaypoint].GetComponent<waypointContents>().holdingTeleporter;
+            var myNode = gridNodes[randomWaypoint].GetComponent<WaypointContents>();
+            bool illegalSpawnPoint = myNode.holdingTeleporter;
 
 
             if (!illegalSpawnPoint)
             {
-                Instantiate(teleportPrefab, gridNodes[randomWaypoint].transform.position, Quaternion.identity);
-                gridNodes[randomWaypoint].GetComponent<WaypointContents>().holdingTeleporter = true;
+                Instantiate(teleportPrefab, myNode.transform.position, Quaternion.identity);
+                myNode.holdingTeleporter = true;
                 i++;
             }
             else
