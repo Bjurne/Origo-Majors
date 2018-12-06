@@ -18,7 +18,7 @@ public class ClickListener : MonoBehaviour {
     {
         if (Input.GetMouseButtonUp (0))
         {
-
+ 
             Vector3 clickPosition = -Vector3.one;
             Plane plane = new Plane(Vector3.up, 0f);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

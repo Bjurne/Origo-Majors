@@ -17,7 +17,7 @@ public class StateManager : MonoBehaviour {
         // draw nodes
         gridscript.GenerateGameBoard(9); // number 9 to be changed later
         currentPlayer = Player.Blue;     // blue player starts
-        rollButton.interactable = false; // rollbutton disabled
+    //    rollButton.interactable = false; // rollbutton disabled
     }
 
     public Player currentPlayer;
@@ -31,7 +31,7 @@ public class StateManager : MonoBehaviour {
     
     
     public bool initialPlacementIsDone = false;
-    bool isDoneRolling = false; 
+    public bool isDoneRolling = false; 
     bool isDoneMoving= false;
 
 
@@ -45,15 +45,14 @@ public class StateManager : MonoBehaviour {
             if (Input.GetMouseButtonUp(0))
             {
                 initialPlacement.PlaceDrone(currentPlayer);
-
             }
         } 
 
-        //intial drones are place and its time for the first real turn. time to roll dice
-        if (initialPlacementIsDone == true && isDoneRolling == false )
+        if (initialPlacementIsDone == true && isDoneRolling == false ) // time to roll the dice
         {
-            diceRoller.Number(); // TODO: check roll number funktion button , change script to roll instead of rolling number directly
-            isDoneRolling = true;
+            rollButton.interactable = true;
+            
+            
         }
 
         if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == false)
