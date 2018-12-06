@@ -19,7 +19,9 @@ public class GridGenerator : MonoBehaviour {
 
     public Dictionary<Vector3, GridNode> dic; //Roberts variabelnamn, confirmed teacher standard
 
-    Vector3 pos = new Vector3(3, -9, 6);
+    Material m_Material;
+
+    Vector3 pos;
 
     public void Awake ()
     {
@@ -35,6 +37,11 @@ public class GridGenerator : MonoBehaviour {
     {
         GenerateGameBoard(boardMaxDistance);
         FindCenter(boardSize);
+        Vector3 pos = FindCenter(boardSize);
+
+        //Herr Svedlunds coola kod
+        FindObjectOfType<TeleportGenerator>().GenerateTeleports();
+        FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickups();
     }
 	
     public void UpdateBoardSizeVariables (int boardSize)
@@ -53,30 +60,25 @@ public class GridGenerator : MonoBehaviour {
         }
     }
 
-    public void FindCenter (int boardSize)
+    public Vector3 FindCenter (int boardSize)
     {
         Vector3 centerNode = Vector3.zero;
-        GridNode testNode;
-
+        //GridNode testNode;
         for (int i = 0; i < boardSize -1; i++)
         {
-
-            if (dic.TryGetValue(centerNode, out testNode))
-            {
-                testNode.transform.localScale = new Vector3(2, 2, 2);
-            }
-
+            //if (dic.TryGetValue(centerNode, out testNode))
+            //{
+            //    testNode.transform.localScale = new Vector3(2, 2, 2);
+            //}
             centerNode += GridMetrics.Dir[0];
         }
 
         for (int i = 0; i < boardSize -1; i++)
         {
-
-            if (dic.TryGetValue(centerNode, out testNode))
-            {
-                testNode.transform.localScale = new Vector3(2, 2, 2);
-            }
-
+            //if (dic.TryGetValue(centerNode, out testNode))
+            //{
+            //    testNode.transform.localScale = new Vector3(2, 2, 2);
+            //}
             if (i % 2 == 1)
                 centerNode += GridMetrics.Dir[2];
             else
@@ -84,11 +86,11 @@ public class GridGenerator : MonoBehaviour {
                 centerNode += GridMetrics.Dir[1];
             }
         }
-        if (dic.TryGetValue(centerNode, out testNode))
-        {
-            testNode.transform.localScale = new Vector3(2, 2, 2);
-        }
-        Debug.Log("Center of board coordinate: " + centerNode);
+        //if (dic.TryGetValue(centerNode, out testNode))
+        //{
+        //    testNode.transform.localScale = new Vector3(2, 2, 2);
+        //}
+        return centerNode;
     }
 
     void Update ()
@@ -96,11 +98,12 @@ public class GridGenerator : MonoBehaviour {
         if (Input.GetMouseButton(0))
         {
             HandleInput();
+            Debug.Log("Mouse button being pressed.");
         }
         if (Input.GetButtonDown("Jump")) {
 
             GridNode testNode;
-            
+
             if (dic.TryGetValue(pos, out testNode))
             {
                 testNode.transform.localScale = new Vector3(2, 2, 2);
@@ -110,7 +113,6 @@ public class GridGenerator : MonoBehaviour {
             {
                 Debug.Log("almost");
             }
-
         }
     }
 
@@ -120,7 +122,9 @@ public class GridGenerator : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(inputRay, out hit))
         {
-            Debug.Log(hit.collider.GetComponent<GridNode>().Coordinates);
+            m_Material = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
+            m_Material.color = Color.red;
+            Debug.Log("Doing things.");
         }
     }
 
