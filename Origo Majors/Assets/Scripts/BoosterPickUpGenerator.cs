@@ -7,16 +7,18 @@ public class BoosterPickUpGenerator : MonoBehaviour {
     public GameObject warpBoosterPickUpPrefab;
     public GameObject mapperBoosterPickUpPrefab;
     public GameObject remapperBoosterPickUpPrefab;
-    public GameObject[] waypoints;
+    public GridNode[] waypoints;
+    public GameObject gridGenerator;
     public int numberOfBoosterPickUps;
 
     void Start()
     {
+        waypoints = gridGenerator.GetComponent<GridGenerator>().nodes;
 
         for (int i = 0; i < numberOfBoosterPickUps;)
         {
             int randomWaypoint = Random.Range(0, waypoints.Length);
-            bool illegalSpawnPoint = waypoints[randomWaypoint].GetComponent<waypointContents>().holdingBoosterPickUp;
+            bool illegalSpawnPoint = waypoints[randomWaypoint].GetComponent<WaypointContents>().holdingBoosterPickUp;
 
             if (!illegalSpawnPoint)
             {
@@ -35,7 +37,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
                     Instantiate(remapperBoosterPickUpPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
                 }
 
-                waypoints[randomWaypoint].GetComponent<waypointContents>().holdingBoosterPickUp = true;
+                waypoints[randomWaypoint].GetComponent<WaypointContents>().holdingBoosterPickUp = true;
                 i++;
             }
             else

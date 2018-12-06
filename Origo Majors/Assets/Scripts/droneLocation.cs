@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class droneLocation : MonoBehaviour {
+public class DroneLocation : MonoBehaviour {
 
     public GameObject previouslyOccupiedWaypoint = null;
     public GameObject currentlyOccupiedWaypoint = null;
@@ -14,13 +14,13 @@ public class droneLocation : MonoBehaviour {
             previouslyOccupiedWaypoint = currentlyOccupiedWaypoint;
             //Debug.Log(previouslyOccupiedWaypoint + " is saved as prev. waypoint");
 
-            previouslyOccupiedWaypoint.GetComponent<waypointContents>().occupied = false;
+            previouslyOccupiedWaypoint.GetComponent<WaypointContents>().occupied = false;
             //Debug.Log(previouslyOccupiedWaypoint + " is no longer occupied");
 
-            currentlyOccupiedWaypoint = FindObjectOfType<clickListener>().selectedWaypoint;
+            currentlyOccupiedWaypoint = FindObjectOfType<ClickListener>().selectedWaypoint;
             //Debug.Log(currentlyOccupiedWaypoint + " is now the new position");
 
-            currentlyOccupiedWaypoint.GetComponent<waypointContents>().occupied = true;
+            currentlyOccupiedWaypoint.GetComponent<WaypointContents>().occupied = true;
             //Debug.Log(currentlyOccupiedWaypoint + " is now set to occupied");
         }
     }
