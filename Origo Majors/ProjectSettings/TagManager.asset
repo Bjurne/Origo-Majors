@@ -4,6 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Blue
+  - Red
+  - Green
+  - Yellow
+  tags:
   - LegalWarpDestination
   layers:
   - Default

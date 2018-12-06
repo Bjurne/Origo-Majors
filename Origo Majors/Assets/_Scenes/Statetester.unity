@@ -190,13 +190,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickListener: {fileID: 239941633}
-  numberOfDronesToSpawn: 6
+  numberOfDronesSpawned: 0
+  numberOfDronesToSpawnPerPlayer: 6
   waypoints:
     serializedVersion: 2
     m_Bits: 8192
   selectedWaypoint: {fileID: 0}
   dronePrefab: {fileID: 1421427863671348, guid: 9c4264f1ebdf7cf4ca8f89f981d776a6,
     type: 2}
+  numberOfPlayers: 4
+  numberOfDronesToSpawn: 0
+  stateManager: {fileID: 1218919287}
 --- !u!4 &617232069
 Transform:
   m_ObjectHideFlags: 0
@@ -286,8 +290,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 764531715}
-  m_LocalRotation: {x: 0.6696933, y: -0.06036354, z: 0.05476599, w: 0.73815167}
-  m_LocalPosition: {x: 11.389014, y: 49.00481, z: 5.1983175}
+  m_LocalRotation: {x: -0.68295795, y: 0.0026267658, z: -0.0024566366, w: -0.7304489}
+  m_LocalPosition: {x: 13.6687975, y: 29.271461, z: 9.085735}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -320,11 +324,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d862cc36409b9da42b935a7d219adc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPlayer: 0
   gridscript: {fileID: 629287927}
-  initialPlacement: {fileID: 0}
+  initialPlacement: {fileID: 617232068}
   diceRoller: {fileID: 0}
-  NumberOfplayers: 4
-  CurrentPlayerId: 0
 --- !u!4 &1218919288
 Transform:
   m_ObjectHideFlags: 0
