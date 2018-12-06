@@ -331,7 +331,7 @@ Prefab:
     - target: {fileID: 114191547108016676, guid: 8a566577eac1a38479d47dd2a33e9456,
         type: 2}
       propertyPath: boardSize
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224093847241752650, guid: 8a566577eac1a38479d47dd2a33e9456,
         type: 2}
