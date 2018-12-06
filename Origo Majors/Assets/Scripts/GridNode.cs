@@ -7,7 +7,7 @@ public class GridNode : MonoBehaviour {
     Material m_Material;
 
     //pls dont manipulate
-    public Vector3 Coordinates = Vector3.zero;
+    internal Vector3 Coordinates = Vector3.zero;
 
     internal bool isActive = false;
     

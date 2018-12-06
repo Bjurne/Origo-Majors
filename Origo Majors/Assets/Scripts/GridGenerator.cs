@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,9 +14,9 @@ public class GridGenerator : MonoBehaviour {
     public GridNode gridNodePrefab;
     public Text nodeTextPrefab;
 
-    public GridNode[] nodes;
-
     Canvas gridCanvas;
+
+    public GridNode[] nodes;
 
     public Dictionary<Vector3, GridNode> dic; //Roberts variabelnamn, confirmed teacher standard
 
@@ -32,12 +33,12 @@ public class GridGenerator : MonoBehaviour {
 
     public void Awake ()
     {
+        nodes = new GridNode[100000];
         dic = new Dictionary<Vector3, GridNode>();
         gridCanvas = GetComponentInChildren<Canvas>();
         nodeInnerRadius = nodeOuterRadius * 0.866025405f; // temp location
 
         UpdateBoardSizeVariables(boardSize);
-        nodes = new GridNode[boardMaxDistance * boardMaxDistance];
     }
 
     private void Start ()
@@ -46,6 +47,7 @@ public class GridGenerator : MonoBehaviour {
         //PaintCenter();
         PaintBoard();
         DisableInactiveNodes();
+ 
 
         //Herr Svedlunds coola kod
         //FindObjectOfType<TeleportGenerator>().GenerateTeleports();
@@ -162,11 +164,12 @@ public class GridGenerator : MonoBehaviour {
 
     void DisableInactiveNodes ()
     {
-        for (int i = 0; i < nodes.Length; i++)
+        foreach (KeyValuePair<Vector3, GridNode> node in dic)
         {
-            if (!nodes[i].isActive)
+            if (!node.Value.isActive)
             {
-                nodes[i].gameObject.SetActive(false);
+                Destroy(node.Value.gameObject);
+                //dic.Remove(node.Key); //TODO: Fråga robert
             }
         }
     }
@@ -185,7 +188,7 @@ public class GridGenerator : MonoBehaviour {
             if (dic.TryGetValue(FindCenter(), out testNode))
             {
                 testNode.transform.localScale = new Vector3(2, 2, 2);
-                testNode.Coordinates += GridMetrics.Dir[Random.Range(0, 6)];
+                testNode.Coordinates += GridMetrics.Dir[UnityEngine.Random.Range(0, 6)];
             }
             else
             {
@@ -229,13 +232,15 @@ public class GridGenerator : MonoBehaviour {
         node.Coordinates = cubeCoordinates;
         dic.Add(cubeCoordinates, node);
 
-        //Lägger till text ovanpå alla noder.
-       Text text = Instantiate<Text>(nodeTextPrefab);
+    //Lägger till text ovanpå alla noder. 
+    //TODO: Learn how to use #if-statements in VS to separate game / editor code
+        Text text = Instantiate<Text>(nodeTextPrefab);
         text.rectTransform.SetParent(gridCanvas.transform, false);
         text.rectTransform.anchoredPosition = new Vector2(position.x, position.z);
         text.text = cubeCoordinates.x.ToString() + "\n" +
                     cubeCoordinates.y.ToString() + "\n" +
                     cubeCoordinates.z.ToString();
+
     }
 
 }
