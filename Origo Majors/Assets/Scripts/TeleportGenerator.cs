@@ -15,7 +15,7 @@ public class TeleportGenerator : MonoBehaviour {
 
     public void GenerateTeleports ()
     {
-        gridNodes = gridGenerator.GetComponent<GridGenerator>().nodes;
+        gridNodes = gridGenerator.GetComponent<GridGenerator>().activeNodes;
 
         for (int i = 0; i < numberOfTeleports;)
         {

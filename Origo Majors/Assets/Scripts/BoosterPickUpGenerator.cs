@@ -13,7 +13,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
 
     public void GenerateBoosterPickUps()
     {
-        gridNodes = gridGenerator.GetComponent<GridGenerator>().nodes;
+        gridNodes = gridGenerator.GetComponent<GridGenerator>().activeNodes;
 
         for (int i = 0; i < numberOfBoosterPickUps;)
         {

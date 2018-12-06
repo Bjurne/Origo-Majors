@@ -16,7 +16,7 @@ public class GridGenerator : MonoBehaviour {
 
     Canvas gridCanvas;
 
-    public GridNode[] nodes;
+    public GridNode[] activeNodes;
 
     public Dictionary<Vector3, GridNode> dic; //Roberts variabelnamn, confirmed teacher standard
 
@@ -33,7 +33,7 @@ public class GridGenerator : MonoBehaviour {
 
     public void Awake ()
     {
-        nodes = new GridNode[100000];
+        activeNodes = new GridNode[boardMaxDistance * boardMaxDistance];
         dic = new Dictionary<Vector3, GridNode>();
         gridCanvas = GetComponentInChildren<Canvas>();
         nodeInnerRadius = nodeOuterRadius * 0.866025405f; // temp location
@@ -47,6 +47,7 @@ public class GridGenerator : MonoBehaviour {
         //PaintCenter();
         PaintBoard();
         DisableInactiveNodes();
+        NodeListToArray();
  
 
         //Herr Svedlunds coola kod
@@ -150,6 +151,7 @@ public class GridGenerator : MonoBehaviour {
         if (dic.TryGetValue(nodeCoordinate, out currentNode))
         {
             currentNode.isActive = state;
+            
         }
         else
         {
@@ -174,28 +176,27 @@ public class GridGenerator : MonoBehaviour {
         }
     }
 
-    void Update ()
+    void NodeListToArray()
     {
-        if (Input.GetMouseButton(0))
+        List<GridNode> theNodes = new List<GridNode>();
+        foreach (KeyValuePair<Vector3, GridNode> node in dic)
         {
-            //HandleInput();
-            //Debug.Log("Mouse button being pressed.");
-        }
-        if (Input.GetButtonDown("Jump")) {
-
-            GridNode testNode;
-
-            if (dic.TryGetValue(FindCenter(), out testNode))
+            if (node.Value.isActive)
             {
-                testNode.transform.localScale = new Vector3(2, 2, 2);
-                testNode.Coordinates += GridMetrics.Dir[UnityEngine.Random.Range(0, 6)];
-            }
-            else
-            {
-                Debug.Log("almost");
+                theNodes.Add(node.Value);
             }
         }
+        activeNodes = theNodes.ToArray();
     }
+
+    //void Update () //Used for testing purposes only
+    //{
+    //    if (Input.GetMouseButton(0))
+    //    {
+    //        HandleInput();
+    //        Debug.Log("Mouse button being pressed.");
+    //    }
+    //}
 
     //Kallas vid musknappsklick, används enbart för test
     void HandleInput ()
@@ -206,7 +207,6 @@ public class GridGenerator : MonoBehaviour {
         {
             m_Material = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
             m_Material.color = Color.red;
-            Debug.Log("Doing things.");
         }
     }
 
@@ -226,7 +226,7 @@ public class GridGenerator : MonoBehaviour {
 
         //Lägger till noder i en array och ger tilldelar dem en plats i dictionaryn.
         //Varje nod har sin koordinat sparad i GridNode.cs som read only.
-        GridNode node = nodes[i] = Instantiate<GridNode>(gridNodePrefab);
+        GridNode node =  Instantiate<GridNode>(gridNodePrefab);
         node.transform.SetParent(transform, false);
         node.transform.localPosition = position;
         node.Coordinates = cubeCoordinates;
