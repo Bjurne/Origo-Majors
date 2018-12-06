@@ -20,7 +20,7 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
         Vector3 dir = new Vector3();
         //dir.Set(1.0f,0.0f,0.0f);
 
-        currentlySelectedObject = clickListener.GetComponent<clickListener>().currentlySelectedObject;
+        currentlySelectedObject = clickListener.GetComponent<ClickListener>().currentlySelectedObject;
 
         Debug.Log("currentlySelectedObject is located at " + currentlySelectedObject.transform.position);
 
@@ -47,7 +47,7 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
                     {
                         //Debug.DrawRay(currentlySelectedObject.transform.position, hit.point);
                         Debug.Log(hit.collider.GetComponent<GridNode>().Coordinates + " has been hit by the ray");
-                        if (hit.collider.GetComponent<waypointContents>().occupied)
+                        if (hit.collider.GetComponent<WaypointContents>().occupied)
                         {
                             Debug.Log("The path is blocked, and this move is illegal");
                             continue;

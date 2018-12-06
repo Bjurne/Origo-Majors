@@ -18,7 +18,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
         for (int i = 0; i < numberOfBoosterPickUps;)
         {
             int randomWaypoint = Random.Range(0, waypoints.Length);
-            bool illegalSpawnPoint = waypoints[randomWaypoint].GetComponent<waypointContents>().holdingBoosterPickUp;
+            bool illegalSpawnPoint = waypoints[randomWaypoint].GetComponent<WaypointContents>().holdingBoosterPickUp;
 
             if (!illegalSpawnPoint)
             {
@@ -37,7 +37,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
                     Instantiate(remapperBoosterPickUpPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
                 }
 
-                waypoints[randomWaypoint].GetComponent<waypointContents>().holdingBoosterPickUp = true;
+                waypoints[randomWaypoint].GetComponent<WaypointContents>().holdingBoosterPickUp = true;
                 i++;
             }
             else

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class clickListener : MonoBehaviour {
+public class ClickListener : MonoBehaviour {
 
     public LayerMask selectable;
     public LayerMask waypoints;
@@ -32,17 +32,17 @@ public class clickListener : MonoBehaviour {
             {
                 clickPosition = hit.point;
                 selectedWaypoint = hit.collider.gameObject;
-                bool occupied = selectedWaypoint.GetComponent<waypointContents>().occupied;
+                bool occupied = selectedWaypoint.GetComponent<WaypointContents>().occupied;
 
                 if ((!occupied) && selectedWaypoint.tag == "LegalWarpDestination")
                 {
                     currentlySelectedObject.transform.position = selectedWaypoint.transform.position;
-                    selectedWaypoint.GetComponent<waypointContents>().occupied = true;
-                    currentlySelectedObject.GetComponent<droneLocation>().changeLocation();
+                    selectedWaypoint.GetComponent<WaypointContents>().occupied = true;
+                    currentlySelectedObject.GetComponent<DroneLocation>().changeLocation();
 
                     Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
 
-                    Vector3 directionMoved = currentlySelectedObject.GetComponent<droneLocation>().currentlyOccupiedWaypoint.transform.position - currentlySelectedObject.GetComponent<droneLocation>().previouslyOccupiedWaypoint.transform.position;
+                    Vector3 directionMoved = currentlySelectedObject.GetComponent<DroneLocation>().currentlyOccupiedWaypoint.transform.position - currentlySelectedObject.GetComponent<DroneLocation>().previouslyOccupiedWaypoint.transform.position;
                     Debug.Log("direction is " + directionMoved);
 
                     hasBeenMoved = true;

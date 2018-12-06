@@ -19,7 +19,7 @@ public class TeleportGenerator : MonoBehaviour {
         for (int i = 0; i < numberOfTeleports;)
         {
             int randomWaypoint = Random.Range(0, waypoints.Length);
-            bool illegalSpawnPoint = waypoints[randomWaypoint].GetComponent<waypointContents>().holdingTeleporter;
+            bool illegalSpawnPoint = waypoints[randomWaypoint].GetComponent<WaypointContents>().holdingTeleporter;
             //bool illegalSpawnPoint = waypoints[randomWaypoint].gameObject.GetComponent<waypointContents>().holdingTeleporter;
             //bool illegalSpawnPoint = gridGenerator.GetComponent<GridGenerator>().nodes[randomWaypoint].GetComponent<waypointContents>().holdingTeleporter;
 
@@ -27,7 +27,7 @@ public class TeleportGenerator : MonoBehaviour {
             if (!illegalSpawnPoint)
             {
                 Instantiate(teleportPrefab, waypoints[randomWaypoint].transform.position, Quaternion.identity);
-                waypoints[randomWaypoint].GetComponent<waypointContents>().holdingTeleporter = true;
+                waypoints[randomWaypoint].GetComponent<WaypointContents>().holdingTeleporter = true;
                 i++;
             }
             else

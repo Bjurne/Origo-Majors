@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class waypointContents : MonoBehaviour {
+public class WaypointContents : MonoBehaviour {
 
     public bool occupied = false;
     public bool holdingTeleporter = false;
