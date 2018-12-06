@@ -286,8 +286,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 764531715}
-  m_LocalRotation: {x: 0.6696933, y: -0.06036354, z: 0.05476599, w: 0.73815167}
-  m_LocalPosition: {x: 11.389014, y: 49.00481, z: 5.1983175}
+  m_LocalRotation: {x: -0.68295795, y: 0.0026267658, z: -0.0024566366, w: -0.7304489}
+  m_LocalPosition: {x: 13.6687975, y: 29.271461, z: 9.085735}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridscript: {fileID: 629287927}
-  initialPlacement: {fileID: 0}
+  initialPlacement: {fileID: 617232068}
   diceRoller: {fileID: 0}
   NumberOfplayers: 4
   CurrentPlayerId: 0

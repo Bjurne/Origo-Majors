@@ -33,7 +33,7 @@ public class GridGenerator : MonoBehaviour {
 
     private void Start ()
     {
-     //   GenerateGameBoard(boardMaxDistance);
+     //  GenerateGameBoard(boardMaxDistance);
     }
 	
     public void UpdateBoardSizeVariables (int boardSize)

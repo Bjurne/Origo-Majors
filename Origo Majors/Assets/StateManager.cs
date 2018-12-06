@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Player
+{
+    Blue,
+    Red,
+    Green,
+    Yellow
+}
+
 public class StateManager : MonoBehaviour {
 
-	void Start () {
-        gridscript.GenerateGameBoard(9); // number 9 to be changed later
-        
-
-    }
-
+    public Player currentPlayer;
     
     public GridGenerator gridscript;
     public DronePlacement initialPlacement; 
@@ -24,35 +27,73 @@ public class StateManager : MonoBehaviour {
     bool isDoneRolling = false; 
     bool isDoneMoving= false;
 
+    void Start()
+    {
+        gridscript.GenerateGameBoard(9); // number 9 to be changed later
 
+        currentPlayer = Player.Blue;
+        
+    }
 
     void Update()
     {
         // place the initial drones
-      /*  if (initialPlacementIsDone == false)
+        if (initialPlacementIsDone == false)
         {
-            initialPlacement.Placing();
-            initialPlacementIsDone = true;
-       }*/ 
+            Debug.Log(" started if sttement ");
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                initialPlacement.PlaceDrone(currentPlayer);
+                PassTurnToNextPlayer();
+            }
+
+            //initialPlacementIsDone = true;
+        } 
 
         //intial drones are place and its time for the first real turn. time to roll dice
         if (initialPlacementIsDone == true && isDoneRolling == false )
         {
-            diceRoller.Number(); // TODO: check roll number funktion button , change script to roll instead of rolling number directly
+            //diceRoller.Number(); // TODO: check roll number funktion button , change script to roll instead of rolling number directly
             isDoneRolling = true;
         }
 
         if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == false)
         {
+            //Select all drones so we can turn them off.
+            var allDrones = FindObjectsOfType<droneLocation>();
+
+            foreach(var drone in allDrones)
+            {
+                if (drone.tag == currentPlayer.ToString())
+                {
+                    //activate drone
+                }
+                else
+                {
+                    //deactivate drone
+                }
+            }
+
             // moveunit - move a drone the omount rolled. 
             // if no legal moves continue; ? 
         }
-        
-
 
         if (true)
         {
-            NextTurn();
+            //NextTurn();
+        }
+    }
+
+    private void PassTurnToNextPlayer()
+    {
+        if (currentPlayer == Player.Yellow)
+        {
+            currentPlayer = 0;
+        }
+        else
+        {
+            currentPlayer++;
         }
     }
 
@@ -68,13 +109,13 @@ public class StateManager : MonoBehaviour {
 
 
 
-    public void NextTurn ()
-    {
+    //public void NextTurn ()
+    //{
 
 
-        // advances to next player 
-        CurrentPlayerId = (CurrentPlayerId + 1) % NumberOfplayers;
-    }
+    //    // advances to next player 
+    //    CurrentPlayerId = (CurrentPlayerId + 1) % NumberOfplayers;
+    //}
 	
 
 

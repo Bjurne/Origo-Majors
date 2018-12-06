@@ -11,7 +11,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
     public GameObject gridGenerator;
     public int numberOfBoosterPickUps;
 
-    void Start()
+    void hej()
     {
         waypoints = gridGenerator.GetComponent<GridGenerator>().nodes;
 
