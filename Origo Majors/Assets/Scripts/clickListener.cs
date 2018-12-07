@@ -7,6 +7,7 @@ public class ClickListener : MonoBehaviour {
 
     public LayerMask selectable;
     public LayerMask waypoints;
+    public StateManager stateManager;
     public GameObject currentlySelectedObject = null;
     public GameObject selectionMarker = null;
     public GameObject selectedWaypoint = null;
@@ -16,7 +17,7 @@ public class ClickListener : MonoBehaviour {
     private RaycastHit hit;
     private Vector3 clickPosition = -Vector3.one;
     private Plane plane = new Plane(Vector3.up, 0f);
-
+    
 
 
     void Update ()
@@ -75,6 +76,7 @@ public class ClickListener : MonoBehaviour {
         currentlySelectedObject = null;
         selectionMarker = null;
         selectedWaypoint = null;
+        stateManager.isDoneMoving = true;
     }
 
     private void ClearLegalWarpDestinations()
