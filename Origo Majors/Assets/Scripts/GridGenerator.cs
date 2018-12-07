@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,15 +17,15 @@ public class GridGenerator : MonoBehaviour {
 
     Canvas gridCanvas;
 
+    public Dictionary<Vector3, GridNode> dic; //Roberts variabelnamn, confirmed teacher standard
     public GridNode[] activeNodes;
 
-    public Dictionary<Vector3, GridNode> dic; //Roberts variabelnamn, confirmed teacher standard
 
     Material m_Material;
 
-    Vector3 pos;
-
     //EXEMPEL PÅ HUR MAN ANVÄNDER DICTIONARYN
+    //Detta hittar noden på koordinaten "centerNode", refererar till
+    //gameObject "testNode" och ändrar storleken på den
     //  GridNode testNode;
     //  if (dic.TryGetValue(centerNode, out testNode))
     //  {
@@ -33,7 +34,7 @@ public class GridGenerator : MonoBehaviour {
 
     public void Awake ()
     {
-        activeNodes = new GridNode[boardMaxDistance * boardMaxDistance];
+        activeNodes = new GridNode[0];
         dic = new Dictionary<Vector3, GridNode>();
         gridCanvas = GetComponentInChildren<Canvas>();
         nodeInnerRadius = nodeOuterRadius * 0.866025405f; // temp location
@@ -44,11 +45,9 @@ public class GridGenerator : MonoBehaviour {
     private void Start ()
     {
         GenerateGameBoard(boardMaxDistance);
-        //PaintCenter();
-        PaintBoard();
+        PaintActiveBoard();
         DisableInactiveNodes();
         NodeListToArray();
- 
 
         //Herr Svedlunds coola kod
         FindObjectOfType<TeleportGenerator>().GenerateTeleports();
@@ -105,7 +104,7 @@ public class GridGenerator : MonoBehaviour {
     }
 
     //Målar hela brädet 
-    public void PaintBoard()
+    public void PaintActiveBoard()
     {
         Vector3 origo = FindCenter();
         Vector3 paintCoordinate = origo;
@@ -159,22 +158,30 @@ public class GridGenerator : MonoBehaviour {
         }
     }
 
+    //Håller alltid talet mellan 0 - 5 (används för förändringar i Dir[])
     int ResetNumber (int dir)
     {
         return dir % 6;
     }
 
+    //TODO: Undersöka hur "var" används här, hur "kvp =>" används och vad "Linq" är.
     void DisableInactiveNodes ()
     {
-        foreach (KeyValuePair<Vector3, GridNode> node in dic)
+        foreach (var item in dic.Where(kvp => !kvp.Value.isActive).ToList())
         {
-            if (!node.Value.isActive)
-            {
-                Destroy(node.Value.gameObject);
-                //dic.Remove(node.Key); 
-                //TODO: Fråga robert
-            }
+            Destroy(item.Value.gameObject);
+            dic.Remove(item.Key);
         }
+
+        //foreach (var node in dic.Where().ToList())
+        //{
+        //    if (!node.Value.isActive)
+        //    {
+        //        dic.Remove(node.Key);
+        //        Destroy(node.Value.gameObject);
+        //        //TODO: Fråga robert
+        //    }
+        //}
     }
 
     void NodeListToArray()
