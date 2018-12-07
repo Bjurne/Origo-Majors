@@ -56,8 +56,16 @@ public class DronePlacement : MonoBehaviour {
                 if ((((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false) && !teleporterPresent) && !boosterPresent)
                 {
                     GameObject newDrone = Instantiate(dronePrefab, selectedWaypoint.transform.position, Quaternion.identity);
-                    
-                    newDrone.GetComponentInChildren<MeshRenderer>().material.color = GetPlayerColor(player);//set drone color and tag
+
+                    MeshRenderer[] children = newDrone.GetComponentsInChildren<MeshRenderer>();
+
+                    foreach (MeshRenderer mesh in children)
+                    {
+                        mesh.material.color = GetPlayerColor(player);
+
+                    }
+
+                 //   newDrone.GetComponentInChildren<MeshRenderer>().material.color = GetPlayerColor(player);//set drone color and tag
                     Debug.Log(player.ToString());
                     newDrone.tag = player.ToString();
 
