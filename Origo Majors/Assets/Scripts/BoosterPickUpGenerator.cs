@@ -13,13 +13,13 @@ public class BoosterPickUpGenerator : MonoBehaviour {
 
     public void GenerateBoosterPickUps()
     {
-        gridNodes = gridGenerator.GetComponent<GridGenerator>().nodes;
+        gridNodes = gridGenerator.GetComponent<GridGenerator>().activeNodes;
 
         for (int i = 0; i < numberOfBoosterPickUps;)
         {
             int randomWaypoint = Random.Range(0, gridNodes.Length);
             bool illegalSpawnPoint = false;
-            //bool illegalSpawnPoint = waypoints[randomWaypoint].GetComponent<WaypointContents>().holdingBoosterPickUp;
+
             var myNode = gridNodes[randomWaypoint].GetComponent<WaypointContents>();
             if ((myNode.holdingTeleporter) || myNode.holdingBoosterPickUp)
             {
