@@ -6,14 +6,14 @@ public class CameraHolder : MonoBehaviour {
 
     public Camera myCamera;
     public GridGenerator gridGenerator;
-    GridNode tempGridNode;
+
     Vector3 turnSpeed = new Vector3(0, 100, 0);
     Vector3 cameraOffset = new Vector3(0, -7, 0);
 
     void Start ()
     {
         myCamera.transform.LookAt(transform.position + cameraOffset);
-        transform.position = Thingy();
+        transform.position = MoveToCenter();
     }
 
     void Update ()
@@ -21,7 +21,7 @@ public class CameraHolder : MonoBehaviour {
         transform.Rotate(turnSpeed * Time.deltaTime);
     }
 
-    public Vector3 Thingy ()
+    public Vector3 MoveToCenter ()
     {
         Vector3 cameraHeight = new Vector3(0, 0, 0);
         GridNode testNode;
