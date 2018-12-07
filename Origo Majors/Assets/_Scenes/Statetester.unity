@@ -308,11 +308,11 @@ MonoBehaviour:
   waypoints:
     serializedVersion: 2
     m_Bits: 512
+  stateManager: {fileID: 1218919287}
   currentlySelectedObject: {fileID: 0}
   selectionMarker: {fileID: 0}
   selectedWaypoint: {fileID: 0}
   legalMoves: {fileID: 1651405434}
-  stateManager: {fileID: 1218919287}
 --- !u!4 &239941635
 Transform:
   m_ObjectHideFlags: 0
