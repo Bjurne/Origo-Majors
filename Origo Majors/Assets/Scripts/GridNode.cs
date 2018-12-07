@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class GridNode : MonoBehaviour {
 
-    //pls dont manipulate
-    public Vector3 Coordinates = Vector3.zero;
-    public bool isActive = true;
-    
+    Material m_Material;
 
+    //pls dont manipulate
+    internal Vector3 Coordinates = Vector3.zero;
+
+    internal bool isActive = false;
+    
+    public void Paint ()
+    {
+        m_Material = GetComponent<MeshRenderer>().material;
+        m_Material.color = Color.red;
+    }
 }

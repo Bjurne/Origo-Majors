@@ -8,7 +8,7 @@ public class DroneLocation : MonoBehaviour {
     public GameObject currentlyOccupiedWaypoint = null;
 
 
-    public void changeLocation () {
+    public void ChangeLocation () {
         if (previouslyOccupiedWaypoint != null)
         {
             previouslyOccupiedWaypoint = currentlyOccupiedWaypoint;

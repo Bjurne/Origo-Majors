@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,6 @@ public class GridGenerator : MonoBehaviour {
 
     public int boardSize = 5;
     public float nodeOuterRadius = 2f;
-    public int publicInt = 0;
     float nodeInnerRadius; //float nodeInnerRadius = nodeOuterRadius * 0.866025405f;
     int boardMaxDistance;
 
@@ -15,9 +15,9 @@ public class GridGenerator : MonoBehaviour {
     public GridNode gridNodePrefab;
     public Text nodeTextPrefab;
 
-    public GridNode[] nodes;
-
     Canvas gridCanvas;
+
+    public GridNode[] activeNodes;
 
     public Dictionary<Vector3, GridNode> dic; //Roberts variabelnamn, confirmed teacher standard
 
@@ -34,12 +34,12 @@ public class GridGenerator : MonoBehaviour {
 
     public void Awake ()
     {
+        activeNodes = new GridNode[boardMaxDistance * boardMaxDistance];
         dic = new Dictionary<Vector3, GridNode>();
         gridCanvas = GetComponentInChildren<Canvas>();
         nodeInnerRadius = nodeOuterRadius * 0.866025405f; // temp location
 
         UpdateBoardSizeVariables(boardSize);
-        nodes = new GridNode[boardMaxDistance * boardMaxDistance];
     }
 
     private void Start ()
@@ -47,6 +47,9 @@ public class GridGenerator : MonoBehaviour {
         GenerateGameBoard(boardMaxDistance);
         //PaintCenter();
         PaintBoard();
+        DisableInactiveNodes();
+        NodeListToArray();
+ 
 
         //Herr Svedlunds coola kod
         FindObjectOfType<TeleportGenerator>().GenerateTeleports();
@@ -102,54 +105,100 @@ public class GridGenerator : MonoBehaviour {
         }
     }
 
-    //IN PROGRESS: Målar hela brädet 
-    public void PaintBoard ()
+    //Målar hela brädet 
+    public void PaintBoard()
     {
-        Vector3 paintCoordinate = FindCenter();
+        Vector3 origo = FindCenter();
+        Vector3 paintCoordinate = origo;
 
-        for (int v = 0; v < publicInt; v++)
+        //Varje steg utåt från mitten
+        for (int i = 0; i < boardSize; i++)
         {
-            GridNode paintNode;
-            if (dic.TryGetValue(paintCoordinate, out paintNode))
+            //Varje riktning ([Dir[0] - Dir[5])
+            for (int j = 0; j < 6; j++)
             {
-                m_Material = paintNode.GetComponent<MeshRenderer>().material;
-                m_Material.color = Color.red;
-            }
-            else
-            {
-                Debug.Log("No coordinate found! " + paintCoordinate);
-            }
-            paintCoordinate += GridMetrics.Dir[v];
-        }
-        //noll steg, rita mitten + 4 vänster + 4 höger 
-        //ett steg, rita mitten + 4 vänster + 3 höger
-        //två steg, rita mitten + 3 vänster + 3 höger
-        //tre steg, rita mitten + 3 vänster + 2 höger
-        //fyra steg, ritta mitten + 2 vänster + 2 höger
-    }
+                paintCoordinate += GridMetrics.Dir[j] * (i);
+                ToggleNode(paintCoordinate);
 
-    void Update ()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            //HandleInput();
-            //Debug.Log("Mouse button being pressed.");
-        }
-        if (Input.GetButtonDown("Jump")) {
-
-            GridNode testNode;
-
-            if (dic.TryGetValue(FindCenter(), out testNode))
-            {
-                testNode.transform.localScale = new Vector3(2, 2, 2);
-                testNode.Coordinates += GridMetrics.Dir[Random.Range(0, 6)];
-            }
-            else
-            {
-                Debug.Log("almost");
+                //Rita noder med koordinaterna "i - 1" steg i en "Dir + 2" vinkel
+                //Ritar noder till höger om noden i relation till nodens riktning mot mitten
+                for (int k = 0; k < i - 1; k++)
+                {
+                    paintCoordinate += GridMetrics.Dir[ResetNumber(j + 2)];
+                    ToggleNode(paintCoordinate);
+                }
+                paintCoordinate = origo;
             }
         }
     }
+
+    private void PaintNode (Vector3 paintCoordinate)
+    {
+        GridNode paintNode;
+        if (dic.TryGetValue(paintCoordinate, out paintNode))
+        {
+            m_Material = paintNode.GetComponent<MeshRenderer>().material;
+            m_Material.color = Color.red;
+        }
+        else
+        {
+            Debug.Log("No coordinate found! " + paintCoordinate);
+        }
+    }
+
+    private void ToggleNode(Vector3 nodeCoordinate, bool state = true)
+    {
+        GridNode currentNode;
+        if (dic.TryGetValue(nodeCoordinate, out currentNode))
+        {
+            currentNode.isActive = state;
+            
+        }
+        else
+        {
+            Debug.Log("No coordinate found! " + nodeCoordinate);
+        }
+    }
+
+    int ResetNumber (int dir)
+    {
+        return dir % 6;
+    }
+
+    void DisableInactiveNodes ()
+    {
+        foreach (KeyValuePair<Vector3, GridNode> node in dic)
+        {
+            if (!node.Value.isActive)
+            {
+                Destroy(node.Value.gameObject);
+                //dic.Remove(node.Key); 
+                //TODO: Fråga robert
+            }
+        }
+    }
+
+    void NodeListToArray()
+    {
+        List<GridNode> theNodes = new List<GridNode>();
+        foreach (KeyValuePair<Vector3, GridNode> node in dic)
+        {
+            if (node.Value.isActive)
+            {
+                theNodes.Add(node.Value);
+            }
+        }
+        activeNodes = theNodes.ToArray();
+    }
+
+    //void Update () //Used for testing purposes only
+    //{
+    //    if (Input.GetMouseButton(0))
+    //    {
+    //        HandleInput();
+    //        Debug.Log("Mouse button being pressed.");
+    //    }
+    //}
 
     //Kallas vid musknappsklick, används enbart för test
     void HandleInput ()
@@ -160,7 +209,6 @@ public class GridGenerator : MonoBehaviour {
         {
             m_Material = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
             m_Material.color = Color.red;
-            Debug.Log("Doing things.");
         }
     }
 
@@ -180,19 +228,21 @@ public class GridGenerator : MonoBehaviour {
 
         //Lägger till noder i en array och ger tilldelar dem en plats i dictionaryn.
         //Varje nod har sin koordinat sparad i GridNode.cs som read only.
-        GridNode node = nodes[i] = Instantiate<GridNode>(gridNodePrefab);
+        GridNode node =  Instantiate<GridNode>(gridNodePrefab);
         node.transform.SetParent(transform, false);
         node.transform.localPosition = position;
         node.Coordinates = cubeCoordinates;
         dic.Add(cubeCoordinates, node);
 
-        //Lägger till text ovanpå alla noder.
-       Text text = Instantiate<Text>(nodeTextPrefab);
+    //Lägger till text ovanpå alla noder. 
+    //TODO: Learn how to use #if-statements in VS to separate game / editor code
+        Text text = Instantiate<Text>(nodeTextPrefab);
         text.rectTransform.SetParent(gridCanvas.transform, false);
         text.rectTransform.anchoredPosition = new Vector2(position.x, position.z);
         text.text = cubeCoordinates.x.ToString() + "\n" +
                     cubeCoordinates.y.ToString() + "\n" +
                     cubeCoordinates.z.ToString();
+
     }
 
 }

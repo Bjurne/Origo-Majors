@@ -8,12 +8,16 @@ public class WaypointContents : MonoBehaviour {
     public bool holdingTeleporter = false;
     public bool holdingBoosterPickUp = false;
     
-    void Start () {
-		
-	}
-	
+    
+	public void OnDroneEnter () {
+        if (holdingBoosterPickUp && occupied)
+        {
+            Debug.Log("A booster has been picked up!");
+        }
 
-	void Update () {
-		
+        if (holdingTeleporter && occupied)
+        {
+            Debug.Log("A teleporter has been entered!");
+        }
 	}
 }
