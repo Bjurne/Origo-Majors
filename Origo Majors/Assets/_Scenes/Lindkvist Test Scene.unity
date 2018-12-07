@@ -249,8 +249,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 160421297}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.43124017, y: 0.0013558287, z: -0.0006424737, w: 0.902236}
+  m_LocalPosition: {x: 11.972764, y: 13.519585, z: -7.5787683}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1781312133}
@@ -284,6 +284,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &844978919 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114191547108016676, guid: 8a566577eac1a38479d47dd2a33e9456,
+    type: 2}
+  m_PrefabInternal: {fileID: 1341279029}
+  m_Script: {fileID: 11500000, guid: c9b4e5170f4528b4ea35df0dd4464fc6, type: 3}
 --- !u!1001 &1341279029
 Prefab:
   m_ObjectHideFlags: 0
@@ -326,12 +332,12 @@ Prefab:
     - target: {fileID: 114191547108016676, guid: 8a566577eac1a38479d47dd2a33e9456,
         type: 2}
       propertyPath: nodeOuterRadius
-      value: 3
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 114191547108016676, guid: 8a566577eac1a38479d47dd2a33e9456,
         type: 2}
       propertyPath: boardSize
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224093847241752650, guid: 8a566577eac1a38479d47dd2a33e9456,
         type: 2}
@@ -464,6 +470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e2039098555d543ad8efff0afd9fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 160421299}
+  gridGenerator: {fileID: 844978919}
 --- !u!4 &1781312133
 Transform:
   m_ObjectHideFlags: 0
