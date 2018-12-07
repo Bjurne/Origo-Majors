@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 23964752663007328}
   - component: {fileID: 33262244949963200}
   - component: {fileID: 114098202599301470}
-  - component: {fileID: 65386060135493126}
   - component: {fileID: 64160097361217232}
   m_Layer: 9
   m_Name: GridNode
@@ -40,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1994781429901472}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -51,7 +50,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1994781429901472}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -60,7 +59,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: b6ce4406d100b294fb6afa008f296766, type: 2}
+  - {fileID: 2100000, guid: 710dee88171c8c144bc26a7d607bf379, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,7 +85,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1994781429901472}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 3c435918df212a24688c1126bdf122c6, type: 3}
 --- !u!64 &64160097361217232
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -101,18 +100,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 3c435918df212a24688c1126bdf122c6, type: 3}
---- !u!65 &65386060135493126
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1994781429901472}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114098202599301470
 MonoBehaviour:
   m_ObjectHideFlags: 1
