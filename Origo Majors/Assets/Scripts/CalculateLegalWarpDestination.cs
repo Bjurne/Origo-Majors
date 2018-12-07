@@ -60,7 +60,7 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
                         {
                             hit.collider.GetComponent<GridNode>().gameObject.tag = "LegalWarpDestination";
                             Debug.Log(hit.collider.GetComponent<GridNode>().Coordinates + " has been added to legalWarpDestination");
-                            hit.transform.localScale = new Vector3(2, 2, 2);
+                            //hit.transform.localScale = new Vector3(2, 2, 2);
                         }
                     }
                     nodeToCheckFrom = hit.transform.position;
