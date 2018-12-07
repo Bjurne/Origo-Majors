@@ -32,15 +32,18 @@ public class BoosterPickUpGenerator : MonoBehaviour {
 
                 if (randomBoosterPickUp == 0)
                 {
-                    Instantiate(warpBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
+                    GameObject myBooster = Instantiate(warpBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
+                    myBooster.transform.parent = myNode.transform;
                 }
                 else if (randomBoosterPickUp == 1)
                 {
-                    Instantiate(mapperBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
+                    GameObject myBooster = Instantiate(mapperBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
+                    myBooster.transform.parent = myNode.transform;
                 }
                 else
                 {
-                    Instantiate(remapperBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
+                    GameObject myBooster = Instantiate(remapperBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
+                    myBooster.transform.parent = myNode.transform;
                 }
 
                 myNode.holdingBoosterPickUp = true;

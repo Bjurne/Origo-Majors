@@ -26,7 +26,8 @@ public class TeleportGenerator : MonoBehaviour {
 
             if (!illegalSpawnPoint)
             {
-                Instantiate(teleportPrefab, myNode.transform.position, Quaternion.identity);
+                GameObject myTeleport = Instantiate(teleportPrefab, myNode.transform.position, Quaternion.identity);
+                myTeleport.transform.parent = myNode.transform;
                 myNode.holdingTeleporter = true;
                 i++;
             }
