@@ -68,7 +68,7 @@ public class StateManager : MonoBehaviour {
             {
                 if (drone.tag == currentPlayer.ToString())
                 {
-                    drone.gameObject.layer = 10; // refenses to selctable layer
+                    drone.gameObject.layer = 10; // refenses to, selctable layer
                 }
                 else
                 {

@@ -13,8 +13,19 @@ public class Dice : MonoBehaviour
     private int diceValue;
     [HideInInspector]
     public int moveRange;
-    //  public Text textNumber;
+    public Text currentPlayerTurn;
     public Sprite[] NumberSprite;
+
+
+   
+
+
+    private void Update()
+    {
+   
+        currentPlayerTurn.text = stateManager.currentPlayer.ToString()+"'s Turn";
+
+    }
 
     public void Number()
     {
