@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportPrefab: {fileID: 1441617400084314, guid: b3ff86399ac993a48be9e690d608b990,
     type: 2}
-  waypoints: []
-  gridGenerator: {fileID: 0}
+  gridNodes: []
+  gridGenerator: {fileID: 1258363272267494, guid: 8a566577eac1a38479d47dd2a33e9456,
+    type: 2}
   numberOfTeleports: 12

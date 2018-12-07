@@ -51,8 +51,8 @@ public class GridGenerator : MonoBehaviour {
  
 
         //Herr Svedlunds coola kod
-        FindObjectOfType<TeleportGenerator>().GenerateTeleports();
-        FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
+        //FindObjectOfType<TeleportGenerator>().GenerateTeleports();
+        //FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
     }
 	
     public void UpdateBoardSizeVariables (int boardSize)
@@ -171,7 +171,8 @@ public class GridGenerator : MonoBehaviour {
             if (!node.Value.isActive)
             {
                 Destroy(node.Value.gameObject);
-                //dic.Remove(node.Key); //TODO: Fråga robert
+                //dic.Remove(node.Key); 
+                //TODO: Fråga robert
             }
         }
     }
