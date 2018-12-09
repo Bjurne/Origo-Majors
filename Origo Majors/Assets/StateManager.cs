@@ -17,7 +17,7 @@ public class StateManager : MonoBehaviour {
         // draw nodes
         gridscript.GenerateGameBoard(9); // number 9 to be changed later
         currentPlayer = Player.Blue;     // blue player starts
-  //      rollButton.interactable = false; // rollbutton disabled
+        rollButton.interactable = false; // rollbutton disabled
     }
 
     public Player currentPlayer;
@@ -28,11 +28,11 @@ public class StateManager : MonoBehaviour {
     public Dice diceRoller;
     public Button rollButton;
     
-
+    // layers
     public LayerMask selectable;
     public LayerMask nonSelectable;
 
-
+    // turn stucture bools
     public bool initialPlacementIsDone = false;
     public bool isDoneRolling = false; 
     public bool isDoneMoving= false;
@@ -43,7 +43,8 @@ public class StateManager : MonoBehaviour {
         // place the initial drones
         if (initialPlacementIsDone == false)
         {
-    //        Debug.Log(" started if sttement ");
+            rollButton.interactable = false;
+            //        Debug.Log(" started if sttement ");
 
             if (Input.GetMouseButtonUp(0))
             {
@@ -60,6 +61,7 @@ public class StateManager : MonoBehaviour {
 
         if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == false)
         {
+            rollButton.interactable = false;
             Debug.Log(" Time to selct ");
             //Select all drones so we can turn them off.
             var allDrones = FindObjectsOfType<DroneLocation>();

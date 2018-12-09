@@ -22,8 +22,15 @@ public class Dice : MonoBehaviour
 
     private void Update()
     {
-   
+        if (stateManager.initialPlacementIsDone == false)
+        {
+            currentPlayerTurn.text = stateManager.currentPlayer.ToString() + "'s Turn to place Drone";
+
+        }
+        else
+        {
         currentPlayerTurn.text = stateManager.currentPlayer.ToString()+"'s Turn";
+        }
 
     }
 
@@ -59,4 +66,25 @@ public class Dice : MonoBehaviour
     }
 
 
+    //public void NumberDisplay()
+    //{
+    //    if (moveRange == 1)
+    //    {
+    //        this.transform.GetChild(1).GetComponent<Image>().sprite = NumberSprite[0];
+    //    }
+    //    if (moveRange==2)
+    //    {
+    //        this.transform.GetChild(1).GetComponent<Image>().sprite = NumberSprite[1];
+    //    }
+    //    if (moveRange== 3)
+    //    {
+    //        this.transform.GetChild(1).GetComponent<Image>().sprite = NumberSprite[2];
+
+    //    }
+    //    if (moveRange==4)
+    //    {
+    //        this.transform.GetChild(1).GetComponent<Image>().sprite = NumberSprite[3];
+
+    //    }
+    //}
 }
