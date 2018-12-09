@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class Dice : MonoBehaviour
 {
-    // flytta in text (textrutan) in i Text Number (script) för att referera till text rutan 
-    // som tillhör UI:n
+
     [SerializeField]
     private StateManager stateManager;
     [SerializeField]
@@ -15,9 +14,9 @@ public class Dice : MonoBehaviour
     public int moveRange;
     public Text currentPlayerTurn;
     public Sprite[] NumberSprite;
+    public Sprite rollSprite;
 
 
-   
 
 
     private void Update()

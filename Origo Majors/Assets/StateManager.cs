@@ -27,7 +27,9 @@ public class StateManager : MonoBehaviour {
     public DronePlacement initialPlacement; 
     public Dice diceRoller;
     public Button rollButton;
-    
+
+    public Sprite rollSprite; 
+
     // layers
     public LayerMask selectable;
     public LayerMask nonSelectable;
@@ -54,6 +56,10 @@ public class StateManager : MonoBehaviour {
 
         if (initialPlacementIsDone == true && isDoneRolling == false ) // time to roll the dice
         {
+            // add a reset for dice roll image
+            diceRoller.transform.GetChild(1).GetComponent<Image>().sprite = rollSprite;
+
+
             rollButton.interactable = true;
             
             
