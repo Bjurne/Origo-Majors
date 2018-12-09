@@ -14,7 +14,7 @@ public class Dice : MonoBehaviour
     public int moveRange;
     public Text currentPlayerTurn;
     public Sprite[] NumberSprite;
-    public Sprite rollSprite;
+   
 
 
 
