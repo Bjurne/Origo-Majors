@@ -28,7 +28,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
 
             if (!illegalSpawnPoint)
             {
-                int randomBoosterPickUp = Random.Range(0, 3);
+                int randomBoosterPickUp = Random.Range(0, 1); // <---- MVP only one booster available, change random range to 3 to enable the other boosters
 
                 if (randomBoosterPickUp == 0)
                 {
