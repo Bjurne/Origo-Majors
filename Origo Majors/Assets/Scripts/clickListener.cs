@@ -17,7 +17,8 @@ public class ClickListener : MonoBehaviour {
     private RaycastHit hit;
     private Vector3 clickPosition = -Vector3.one;
     private Plane plane = new Plane(Vector3.up, 0f);
-    
+    public Material hexGridMaterial;
+
 
 
     void Update ()
@@ -86,6 +87,7 @@ public class ClickListener : MonoBehaviour {
         {
             if (gn.gameObject.tag == "LegalWarpDestination")
             {
+                gn.GetComponent<MeshRenderer>().material = hexGridMaterial ;
                 gn.tag = "Untagged";
             }
         }

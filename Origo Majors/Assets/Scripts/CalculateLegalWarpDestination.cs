@@ -10,6 +10,7 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
     public GameObject dice;
     public GameObject clickListener;
     private Vector3 nodeToCheckFrom;
+    public Material legalWarpDestinationMarker;
 
 
     public void calculateLegalWarpDestinations()
@@ -61,6 +62,12 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
                             hit.collider.GetComponent<GridNode>().gameObject.tag = "LegalWarpDestination";
                             Debug.Log(hit.collider.GetComponent<GridNode>().Coordinates + " has been added to legalWarpDestination");
                             //hit.transform.localScale = new Vector3(2, 2, 2);
+
+                            //Color nodeColor = hit.collider.GetComponent<MeshRenderer>().material.color;
+                            //nodeColor.a = 255f;
+                            //hit.collider.GetComponent<MeshRenderer>().material.color = nodeColor;
+
+                            hit.collider.GetComponent<MeshRenderer>().material = legalWarpDestinationMarker;
                         }
                     }
                     nodeToCheckFrom = hit.transform.position;
