@@ -7,7 +7,7 @@ public class CameraHolder : MonoBehaviour {
     public Camera myCamera;
     public GridGenerator gridGenerator;
 
-    Vector3 turnSpeed = new Vector3(0, 100, 0);
+    public Vector3 turnSpeed = new Vector3(0, 100, 0);
     Vector3 cameraOffset = new Vector3(0, -7, 0);
 
     void Start ()

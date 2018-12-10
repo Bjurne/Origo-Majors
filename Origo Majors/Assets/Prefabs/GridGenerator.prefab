@@ -70,11 +70,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardSize: 5
-  nodeOuterRadius: 2
+  nodeOuterRadius: 1.8
   gridNodePrefab: {fileID: 114496839066958290, guid: 4c41b95f121f168449962f9cd0065ea1,
     type: 2}
   nodeTextPrefab: {fileID: 114641495060694864, guid: d27828bf71d96464e8f7d62b0053af34,
     type: 2}
+  activeNodes: []
 --- !u!114 &114916438169207498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,7 +124,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1061657489312088}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -1.5000002}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4768293818973762}
@@ -131,6 +132,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1.5, y: 0.6}
-  m_SizeDelta: {x: 3, y: 3}
+  m_AnchoredPosition: {x: 0, y: 0.1}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
