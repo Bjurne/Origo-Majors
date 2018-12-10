@@ -13,14 +13,13 @@ public class CameraHolder : MonoBehaviour {
     //Temp controller
     float x;
 
-    public float dragSpeed = 2;
+    // camera drag variabler
+    public float dragSpeed = 200;
     private Vector3 dragOrigin;
-
-    public bool cameraDragging = true;
-
-    public float outerLeft = -10f;
-    public float outerRight = 10f;
-
+    internal bool cameraDragging = true;
+    float originEulerX;
+    float originEulerY;
+    float originEulerZ;
 
     void Start ()
     {
@@ -30,15 +29,14 @@ public class CameraHolder : MonoBehaviour {
 
     void Update ()
     {
-
+        // if (klickar på någonting som inte är klickbart (din färgs drönare, etc.)
         CameraDrag();
+        //TODO: Implementera denna (i ClickListener?) och kalla enbart på detta om man inte klickar på något annat.
 
-        //Regular ol button-input rotation
-        if (Input.GetKey("a") || Input.GetKey("d"))
-        {
-            x = Input.GetAxisRaw("Horizontal");
-            CameraRotation(x);
-        }
+        //Om man vill använda knappar
+        //ButtonRotation();
+
+        //Exempel på någon typ av "stand-by"
         //IdleRotation();
     }
 
@@ -59,9 +57,14 @@ public class CameraHolder : MonoBehaviour {
         transform.Rotate(turnSpeed * Time.deltaTime);
     }
 
-    void CameraRotation (float x)
+    void ButtonRotation ()
     {
-        transform.Rotate(0, x, 0);
+        if (Input.GetKey("a") || Input.GetKey("d"))
+        {
+            x = Input.GetAxisRaw("Horizontal");
+            transform.Rotate(0, x, 0);
+        }
+
     }
 
     void CameraDrag ()
@@ -86,6 +89,9 @@ public class CameraHolder : MonoBehaviour {
             if (Input.GetMouseButtonDown(0))
             {
                 dragOrigin = Input.mousePosition;
+                originEulerX = transform.eulerAngles.x;
+                originEulerY = transform.eulerAngles.y;
+                originEulerZ = transform.eulerAngles.z;
                 return;
             }
 
@@ -93,21 +99,10 @@ public class CameraHolder : MonoBehaviour {
 
             Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
             Vector3 move = new Vector3(0, pos.x * dragSpeed, 0);
+            Debug.Log(move);
 
-            if (move.x > 0f)
-            {
-                if (this.transform.position.x < outerRight)
-                {
-                    transform.Rotate(move);
-                }
-            }
-            else
-            {
-                if (this.transform.position.x > outerLeft)
-                {
-                    transform.Rotate(move);
-                }
-            }
+            transform.eulerAngles = new Vector3(originEulerX, originEulerY + move.y, originEulerZ);
+            //TODO: Kolla om man kan sätta upp någon typ av "current angle" utan att spara i en variabel först.
         }
     }
 

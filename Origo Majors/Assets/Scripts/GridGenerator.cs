@@ -173,16 +173,6 @@ public class GridGenerator : MonoBehaviour {
             Destroy(item.Value.gameObject);
             dic.Remove(item.Key);
         }
-
-        //foreach (var node in dic.Where().ToList())
-        //{
-        //    if (!node.Value.isActive)
-        //    {
-        //        dic.Remove(node.Key);
-        //        Destroy(node.Value.gameObject);
-        //        //TODO: Fråga robert
-        //    }
-        //}
     }
 
     void NodeListToArray()
@@ -196,27 +186,6 @@ public class GridGenerator : MonoBehaviour {
             }
         }
         activeNodes = theNodes.ToArray();
-    }
-
-    //void Update () //Used for testing purposes only
-    //{
-    //    if (Input.GetMouseButton(0))
-    //    {
-    //        HandleInput();
-    //        Debug.Log("Mouse button being pressed.");
-    //    }
-    //}
-
-    //Kallas vid musknappsklick, används enbart för test
-    void HandleInput ()
-    {
-        Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(inputRay, out hit))
-        {
-            m_Material = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
-            m_Material.color = Color.red;
-        }
     }
 
     void CreateNode(int x, int z, int i)
