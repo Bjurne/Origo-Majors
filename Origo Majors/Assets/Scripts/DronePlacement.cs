@@ -56,6 +56,7 @@ public class DronePlacement : MonoBehaviour {
                 if ((((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false) && !teleporterPresent) && !boosterPresent)
                 {
                     GameObject newDrone = Instantiate(dronePrefab, selectedWaypoint.transform.position, Quaternion.identity);
+                    newDrone.transform.parent = selectedWaypoint.transform;
 
                     MeshRenderer[] children = newDrone.GetComponentsInChildren<MeshRenderer>();
 

@@ -63,6 +63,9 @@ public class ClickListener : MonoBehaviour {
     private void MoveDrone()
     {
         currentlySelectedObject.transform.position = selectedWaypoint.transform.position;
+        currentlySelectedObject.transform.parent = selectedWaypoint.transform;
+
+
         selectedWaypoint.GetComponent<WaypointContents>().occupied = true;
         currentlySelectedObject.GetComponent<DroneLocation>().ChangeLocation();
         selectedWaypoint.GetComponent<WaypointContents>().OnDroneEnter();

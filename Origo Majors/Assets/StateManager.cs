@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +22,7 @@ public class StateManager : MonoBehaviour {
     }
 
     public Player currentPlayer;
+    public GameObject dronePlaceholderPrefab;
 
     // reference other scripts
     public GridGenerator gridscript;
@@ -114,7 +116,30 @@ public class StateManager : MonoBehaviour {
         {
             currentPlayer++;
         }
+        
+        CountTotalDrones();
+        CountPlayerDrones();
     }
+
+    private void CountTotalDrones()
+    {
+        var allDrones = FindObjectsOfType<DroneLocation>();
+        if (allDrones.Length <= 0 && initialPlacementIsDone)
+        {
+            //Victory Screen
+            Debug.Log("The game is over");
+        }
+    }
+
+    private void CountPlayerDrones()
+    {
+        GameObject[] myDrones = GameObject.FindGameObjectsWithTag(currentPlayer.ToString()) as GameObject[];
+        if (myDrones.Length <= 0 && initialPlacementIsDone)
+        {
+            PassTurnToNextPlayer();
+        }
+    }
+
 
     public void initialPlacementIsDoneTurn ()    
     {

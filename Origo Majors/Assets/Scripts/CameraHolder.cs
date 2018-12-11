@@ -22,7 +22,7 @@ public class CameraHolder : MonoBehaviour {
     void Start ()
     {
         //SÅHÄR KKALLAR MAN PÅ GRID GENERATOR NU
-        //gridGenerator.CallGridGenerator(5, 1.8f);
+        gridGenerator.CallGridGenerator(5, 1.8f);
 
         myCamera.transform.LookAt(transform.position + cameraOffset);
         transform.position = MoveToCenter();

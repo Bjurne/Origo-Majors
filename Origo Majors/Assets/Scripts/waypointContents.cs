@@ -47,9 +47,14 @@ public class WaypointContents : MonoBehaviour {
                 stateManager.yellowScore++;
                 Debug.Log(stateManager.currentPlayer + " now has " + stateManager.yellowScore + " points!");
             }
-            GameObject myTeleporter = GetComponentInChildren<ParticleSystem>().gameObject;
+            GameObject myTeleporter = GetComponentInChildren<TeleporterScript>().gameObject;
             Destroy(myTeleporter);
             holdingTeleporter = false;
+
+            GameObject myDrone = GetComponentInChildren<DroneLocation>().gameObject;
+            myDrone.GetComponent<DroneLocation>().currentlyOccupiedWaypoint = null;
+            myDrone.GetComponent<DroneLocation>().previouslyOccupiedWaypoint = null;
+            Destroy(myDrone);
         }
 	}
 }
