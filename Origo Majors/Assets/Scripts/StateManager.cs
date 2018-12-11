@@ -25,6 +25,8 @@ public class StateManager : MonoBehaviour {
         // draw nodes
         currentPlayer = Player.Blue;     // blue player starts
         rollButton.interactable = false; // rollbutton disabled
+        skipTurnButton.interactable = false;
+
     }
 
     public Player currentPlayer;
@@ -35,6 +37,7 @@ public class StateManager : MonoBehaviour {
     public DronePlacement initialPlacement; 
     public Dice diceRoller;
     public Button rollButton;
+    public Button skipTurnButton;
 
     public Sprite rollSprite; 
 
@@ -60,7 +63,7 @@ public class StateManager : MonoBehaviour {
         // place the initial drones
         if (initialPlacementIsDone == false)
         {
-            rollButton.interactable = false;
+          //  rollButton.interactable = false;
             //        Debug.Log(" started if sttement ");
 
             if (Input.GetMouseButtonUp(0))
@@ -73,11 +76,8 @@ public class StateManager : MonoBehaviour {
         {
             // add a reset for dice roll image
             diceRoller.transform.GetChild(1).GetComponent<Image>().sprite = rollSprite;
-
-
             rollButton.interactable = true;
-            
-            
+            skipTurnButton.interactable = true;    
         }
 
         if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == false)
@@ -176,9 +176,14 @@ public class StateManager : MonoBehaviour {
         initialPlacementIsDone = true;
     }
 
-	
+    public void SkipTurn()
+    {
+        Debug.Log("skipturn clicked mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+        isDoneRolling = true;
+        isDoneMoving = true;
+    }
 
 
 
-	
+
 }

@@ -65,6 +65,7 @@ public class Dice : MonoBehaviour
     }
 
 
+
     //public void NumberDisplay()
     //{
     //    if (moveRange == 1)
