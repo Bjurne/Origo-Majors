@@ -14,11 +14,15 @@ public enum Player
 
 public class StateManager : MonoBehaviour {
 
+    private void Awake()
+    {
+        //SÅHÄR KKALLAR MAN PÅ GRID GENERATOR NU
+        gridGenerator.CallGridGenerator(5, 1.8f);
+    }
+
     void Start()
     {
         // draw nodes
-        //SÅHÄR KKALLAR MAN PÅ GRID GENERATOR NU
-        gridGenerator.CallGridGenerator(5, 1.8f);
         currentPlayer = Player.Blue;     // blue player starts
         rollButton.interactable = false; // rollbutton disabled
     }
