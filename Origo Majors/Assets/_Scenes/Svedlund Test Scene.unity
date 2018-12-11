@@ -773,7 +773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &243258112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3223,6 +3223,21 @@ Prefab:
       propertyPath: stateManager
       value: 
       objectReference: {fileID: 2733073}
+    - target: {fileID: 224947256798568822, guid: 9e4c8061018e65a47af1edef6d26e65a,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224275805552040364, guid: 9e4c8061018e65a47af1edef6d26e65a,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224977283904869370, guid: 9e4c8061018e65a47af1edef6d26e65a,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e4c8061018e65a47af1edef6d26e65a, type: 2}
   m_IsPrefabAsset: 0
@@ -4123,7 +4138,7 @@ RectTransform:
   m_Children:
   - {fileID: 1308751209}
   m_Father: {fileID: 735197113}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4169,7 +4184,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114165607264002490, guid: 9e4c8061018e65a47af1edef6d26e65a,
+      - m_Target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
           type: 2}
         m_MethodName: SkipTurn
         m_Mode: 1
@@ -5652,7 +5667,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Skip
+  m_Text: 'Press Enter to skip turn
+
+'
 --- !u!222 &1308751211
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12884,6 +12901,11 @@ Prefab:
       propertyPath: blueScore
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
+        type: 2}
+      propertyPath: skipTurnButton
+      value: 
+      objectReference: {fileID: 940674847}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c990241860e90540b3b2f6c52c52f06, type: 2}
   m_IsPrefabAsset: 0
