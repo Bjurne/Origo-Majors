@@ -210,3 +210,83 @@ public class StateManager : MonoBehaviour {
 
 
 }
+
+/*
+public enum BigState
+{
+    //Menu-stuff,
+    StartUpGameBoard,       //Initialize gridgenerator
+    GenerateObjects,        //Portals and boosters
+    PlaceStartingLocations, //Self-explanatory
+    PlayGameLoop,           //Loop through this until game is done
+    SetNewGameBoard,        //Save entered portal positions, clear gameboard objects,
+                            //place drones at previous portal positions, generate new portals & boosters,
+                            //go run through PlayGameLoop
+    VictoryState            //Announce winner, Player can go back to menu
+}
+
+public enum GameLoop
+{
+    WaitForRoll, //Player can click roll button
+    DecideActionBeforeMove, //Show legal moves. Player can Use Booster, Move or Skip to end
+    Move, //Player can click on any drone and move a drone
+    DecideActionAfterMove, //Player can use Booster or Skip to end
+    EndOfTurn //End of turn, check amount of portals available, if 0, go to next stage
+}
+
+    void Start ()
+    {
+        BigState(StartUpGameBoard);
+
+        BigState(GenerateObjects);
+    }
+
+    void Update ()
+    {
+        if(BigState == 2)
+        {
+            PlaceStartingLocations();
+        }
+
+        if(BigState == 3)
+        {
+            currentPlayer = 0;
+
+            if (GameLoop == 0)
+            {
+                //Do stuff with currentPlayer
+            }
+            if (GameLoop == 1)
+            {
+                //Do stuff with currentPlayer
+            }
+            if (GameLoop == 2)
+            {
+                //Do stuff with currentPlayer
+            }
+            if (GameLoop == 3)
+            {
+                //Do stuff with currentPlayer
+            }
+            if (GameLoop == 4)
+            {
+                if (available portals = 0)
+                {
+                    if (available dimensions = 0)
+                    {
+                        BigState(VictoryState); // WIN GAME
+                    }
+                    else
+                    {
+                    BigState(SetNewGameBoard); //SetNewGameBoard (DO A BUNCH OF SHIT)
+                    }
+                }
+                else
+                {
+                    currentPlayer++;
+                    GameLoop = 0; //Go again with a new player
+                }
+            }
+        }
+    }
+    */
