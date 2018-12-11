@@ -46,7 +46,6 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
 
                 try
                 {
-                    Debug.Log("Inne i Try");
                     if (Physics.Raycast(nodeToCheckFrom, dir, out hit, 100, waypoints))
                     // TODO fixa rangen till gridGenerator.nodeRadius
                     {

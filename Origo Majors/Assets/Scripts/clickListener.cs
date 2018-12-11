@@ -15,7 +15,7 @@ public class ClickListener : MonoBehaviour {
     private bool hasBeenMoved = false;
     private Ray ray;
     private RaycastHit hit;
-    private Vector3 clickPosition = -Vector3.one;
+    //private Vector3 clickPosition = -Vector3.one;
     private Plane plane = new Plane(Vector3.up, 0f);
     public Material hexGridMaterial;
 
@@ -49,7 +49,7 @@ public class ClickListener : MonoBehaviour {
         if (Physics.Raycast(ray, out hit, 1000f, waypoints) && currentlySelectedObject != null)
         // Vi kollar i nästa steg ifall den valda waypointen är ockuperad eller inte
         {
-            clickPosition = hit.point;
+            //clickPosition = hit.point;
             selectedWaypoint = hit.collider.gameObject;
             bool occupied = selectedWaypoint.GetComponent<WaypointContents>().occupied;
 
@@ -112,7 +112,7 @@ public class ClickListener : MonoBehaviour {
         if ((Physics.Raycast(ray, out hit, 1000f, selectable)) && !hasBeenMoved)
         // och om pjäsen tillhör mig / current player
         {
-            clickPosition = hit.point;
+            //clickPosition = hit.point;
             currentlySelectedObject = hit.rigidbody.gameObject;
             selectionMarker = currentlySelectedObject.transform.GetChild(0).gameObject;
             selectionMarker.SetActive(true);
@@ -137,7 +137,7 @@ public class ClickListener : MonoBehaviour {
         float distanceToPlane;
         if (plane.Raycast(ray, out distanceToPlane))
         {
-            clickPosition = ray.GetPoint(distanceToPlane);
+            //clickPosition = ray.GetPoint(distanceToPlane);
         }
     }
 }

@@ -39,6 +39,7 @@ public class StateManager : MonoBehaviour {
     public Button rollButton;
     public Button skipTurnButton;
     public ClickListener clickListener;
+    public GameObject victoryScreen;
 
     public Sprite rollSprite; 
 
@@ -106,7 +107,7 @@ public class StateManager : MonoBehaviour {
             }
         }
 
-        if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == true)
+        if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == true && isGameOver == false)
         {
             var allDrones = FindObjectsOfType<DroneLocation>();
 
@@ -159,6 +160,8 @@ public class StateManager : MonoBehaviour {
             //Victory Screen
             Debug.Log("The game is over");
             isGameOver = true;
+            victoryScreen.SetActive(true);
+            victoryScreen.GetComponent<VictoryScreenScript>().DisplayVictoryScreen();
         }
     }
 
@@ -171,6 +174,8 @@ public class StateManager : MonoBehaviour {
             //Victory Screen
             Debug.Log("The game is over");
             isGameOver = true;
+            victoryScreen.SetActive(true);
+            victoryScreen.GetComponent<VictoryScreenScript>().DisplayVictoryScreen();
         }
     }
 

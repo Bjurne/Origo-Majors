@@ -3017,7 +3017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &718558473
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3238,6 +3238,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114171441958587670, guid: 9e4c8061018e65a47af1edef6d26e65a,
+        type: 2}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 832737740}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e4c8061018e65a47af1edef6d26e65a, type: 2}
   m_IsPrefabAsset: 0
@@ -3704,6 +3709,12 @@ MonoBehaviour:
   holdingTeleporter: 0
   holdingBoosterPickUp: 0
   stateManager: {fileID: 0}
+--- !u!114 &832737740 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114964326762270862, guid: 9e4c8061018e65a47af1edef6d26e65a,
+    type: 2}
+  m_PrefabInternal: {fileID: 735197112}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &843603707
 GameObject:
   m_ObjectHideFlags: 0
@@ -6879,7 +6890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1564830050
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7257,7 +7268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1635398952
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12905,7 +12916,7 @@ Prefab:
     - target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
         type: 2}
       propertyPath: blueScore
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
         type: 2}
@@ -12927,6 +12938,11 @@ Prefab:
       propertyPath: clickListener
       value: 
       objectReference: {fileID: 1106706473}
+    - target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
+        type: 2}
+      propertyPath: victoryScreen
+      value: 
+      objectReference: {fileID: 243258111}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c990241860e90540b3b2f6c52c52f06, type: 2}
   m_IsPrefabAsset: 0

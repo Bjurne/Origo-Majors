@@ -13,8 +13,7 @@ public class VictoryScreenScript : MonoBehaviour {
     public Text fourthPlaceText;
     public string winnerName;
 
-    //void DisplayVictoryScreen () {
-    void Start ()
+    public void DisplayVictoryScreen ()
     {
         int blueScore = stateManager.blueScore;
         int redScore = stateManager.redScore;
@@ -27,22 +26,22 @@ public class VictoryScreenScript : MonoBehaviour {
 
         if (highestScore == blueScore)
         {
-            winnerName = ("Blue Player: ");
+            winnerName = ("Blue Player");
         }
         else if (highestScore == redScore)
         {
-            winnerName = ("Red Player: ");
+            winnerName = ("Red Player");
         }
         else if (highestScore == greenScore)
         {
-            winnerName = ("Green Player: ");
+            winnerName = ("Green Player");
         }
         else if (highestScore == yellowScore)
         {
-            winnerName = ("Yellow Player: ");
+            winnerName = ("Yellow Player");
         }
 
-        firstPlaceText.text = (winnerName + highestScore.ToString());
+        firstPlaceText.text = (winnerName + " wins with " + highestScore.ToString() + " points!");
     }
 	
 }
