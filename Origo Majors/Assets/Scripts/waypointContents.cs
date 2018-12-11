@@ -16,7 +16,7 @@ public class WaypointContents : MonoBehaviour {
             Debug.Log("A booster has been picked up!");
             stateManager = FindObjectOfType<StateManager>();
             stateManager.currentPlayer--;
-            GameObject myBooster = GetComponentInChildren<ParticleSystem>().gameObject;
+            GameObject myBooster = GetComponentInChildren<BoosterScript>().gameObject;
             // TODO fixa något bättre att referera till än ett particelSystem, detta är wonky,
             //speciellt då Teleporters eventuellt också vill ha ett particelSystem
             Destroy(myBooster);

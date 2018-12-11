@@ -6708,7 +6708,7 @@ Prefab:
     - target: {fileID: 114083167989645142, guid: 5ad4331564b139045b6677b86c184d70,
         type: 2}
       propertyPath: numberOfDronesToSpawnPerPlayer
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ad4331564b139045b6677b86c184d70, type: 2}
