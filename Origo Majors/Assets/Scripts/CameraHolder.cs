@@ -17,14 +17,16 @@ public class CameraHolder : MonoBehaviour {
     public float dragSpeed = 200;
     private Vector3 dragOrigin;
     internal bool cameraDragging = true;
-    float originEulerX;
     float originEulerY;
-    float originEulerZ;
 
     void Start ()
     {
+        //SÅHÄR KKALLAR MAN PÅ GRID GENERATOR NU
+        //gridGenerator.CallGridGenerator(5, 1.8f);
+
         myCamera.transform.LookAt(transform.position + cameraOffset);
         transform.position = MoveToCenter();
+
     }
 
     void Update ()

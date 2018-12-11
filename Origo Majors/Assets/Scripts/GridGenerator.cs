@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class GridGenerator : MonoBehaviour {
 
-    public int boardSize = 5;
-    public float nodeOuterRadius = 2f;
+    internal int boardSize;
+    internal float nodeOuterRadius;
     float nodeInnerRadius; //float nodeInnerRadius = nodeOuterRadius * 0.866025405f;
     int boardMaxDistance;
 
@@ -30,36 +30,42 @@ public class GridGenerator : MonoBehaviour {
     //     testNode.transform.localScale = new Vector3(2, 2, 2);
     //  }
 
-    public void Awake ()
-    {
-        activeNodes = new GridNode[0];
-        dic = new Dictionary<Vector3, GridNode>();
-        gridCanvas = GetComponentInChildren<Canvas>();
-        nodeInnerRadius = nodeOuterRadius * 0.866025405f; // temp location
-
-        UpdateBoardSizeVariables(boardSize);
-    }
 
     private void Start ()
     {
-        InitializeGridGenerator();
-
         //Herr Svedlunds coola kod
-        FindObjectOfType<TeleportGenerator>().GenerateTeleports();
-        FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
+        try
+        {
+            FindObjectOfType<TeleportGenerator>().GenerateTeleports();
+            FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
+        }
+        catch
+        {
+            Debug.Log("No instance of TeleportGenerator or BoosterPickUpGenerator found.");
+        }
+
     }
 	
-    public void UpdateBoardSizeVariables (int boardSize)
+    public void CallGridGenerator (int bSize, float bSpacing)
     {
-        boardMaxDistance = (boardSize * 2) - 1;
-    }
+        InitializeGridGenVariables(bSize, bSpacing);
 
-    public void InitializeGridGenerator ()
-    {
         GenerateGameBoard(boardMaxDistance);
         PaintActiveBoard();
         DisableInactiveNodes();
         NodeListToArray();
+    }
+
+    private void InitializeGridGenVariables(int bSize, float bSpacing)
+    {
+        boardSize = bSize;
+        nodeOuterRadius = bSpacing;
+
+        activeNodes = new GridNode[0];
+        dic = new Dictionary<Vector3, GridNode>();
+        gridCanvas = GetComponentInChildren<Canvas>();
+        nodeInnerRadius = nodeOuterRadius * 0.866025405f; // temp location ???
+        boardMaxDistance = (boardSize * 2) - 1;
     }
 
     public void GenerateGameBoard (int boardMaxDist)
