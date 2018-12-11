@@ -2609,7 +2609,7 @@ Prefab:
     - target: {fileID: 114869637031004384, guid: 14573136086987d44bbd38dc1ebdc86f,
         type: 2}
       propertyPath: numberOfBoosterPickUps
-      value: 12
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14573136086987d44bbd38dc1ebdc86f, type: 2}
@@ -6708,7 +6708,7 @@ Prefab:
     - target: {fileID: 114083167989645142, guid: 5ad4331564b139045b6677b86c184d70,
         type: 2}
       propertyPath: numberOfDronesToSpawnPerPlayer
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ad4331564b139045b6677b86c184d70, type: 2}
@@ -7948,7 +7948,7 @@ ParticleSystem:
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
-    m_Texture: {fileID: 2800000, guid: f991e4ecd62e74fb0bc83cdbbb427c8c, type: 3}
+    m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
     m_TextureUVChannel: 0
@@ -10912,7 +10912,7 @@ ParticleSystem:
       type: 0
       properties: 0
   LightsModule:
-    enabled: 1
+    enabled: 0
     ratio: 1
     light: {fileID: 0}
     randomDistribution: 1

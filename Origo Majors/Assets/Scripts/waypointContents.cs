@@ -26,6 +26,30 @@ public class WaypointContents : MonoBehaviour {
         if (holdingTeleporter && occupied)
         {
             Debug.Log("A teleporter has been entered!");
+            stateManager = FindObjectOfType<StateManager>();
+            if (stateManager.currentPlayer == Player.Blue)
+            {
+                stateManager.blueScore++;
+                Debug.Log(stateManager.currentPlayer + " now has " + stateManager.blueScore + " points!");
+            }
+            else if (stateManager.currentPlayer == Player.Red)
+            {
+                stateManager.redScore++;
+                Debug.Log(stateManager.currentPlayer + " now has " + stateManager.redScore + " points!");
+            }
+            else if (stateManager.currentPlayer == Player.Green)
+            {
+                stateManager.greenScore++;
+                Debug.Log(stateManager.currentPlayer + " now has " + stateManager.greenScore + " points!");
+            }
+            else if (stateManager.currentPlayer == Player.Yellow)
+            {
+                stateManager.yellowScore++;
+                Debug.Log(stateManager.currentPlayer + " now has " + stateManager.yellowScore + " points!");
+            }
+            GameObject myTeleporter = GetComponentInChildren<ParticleSystem>().gameObject;
+            Destroy(myTeleporter);
+            holdingTeleporter = false;
         }
 	}
 }

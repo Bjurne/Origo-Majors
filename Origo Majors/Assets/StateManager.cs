@@ -15,7 +15,7 @@ public class StateManager : MonoBehaviour {
     void Start()
     {
         // draw nodes
-        gridscript.GenerateGameBoard(9); // number 9 to be changed later
+        //gridscript.GenerateGameBoard(9); // number 9 to be changed later
         currentPlayer = Player.Blue;     // blue player starts
         rollButton.interactable = false; // rollbutton disabled
     }
@@ -38,6 +38,12 @@ public class StateManager : MonoBehaviour {
     public bool initialPlacementIsDone = false;
     public bool isDoneRolling = false; 
     public bool isDoneMoving= false;
+
+    //Player scores
+    public int blueScore = 0;
+    public int redScore = 0;
+    public int greenScore = 0;
+    public int yellowScore = 0;
 
 
     void Update()
