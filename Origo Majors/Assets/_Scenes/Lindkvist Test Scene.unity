@@ -299,6 +299,14 @@ Prefab:
       propertyPath: gridGenerator
       value: 
       objectReference: {fileID: 844978919}
+    - target: {fileID: 1349899923165300, guid: e287ab2308f523e45a0abc6383cf1d28, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821479775709754, guid: e287ab2308f523e45a0abc6383cf1d28, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e287ab2308f523e45a0abc6383cf1d28, type: 2}
   m_IsPrefabAsset: 0

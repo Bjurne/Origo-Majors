@@ -21,9 +21,6 @@ public class GridGenerator : MonoBehaviour {
     public Dictionary<Vector3, GridNode> dic; //Roberts variabelnamn, confirmed teacher standard
     public GridNode[] activeNodes;
 
-
-    Material m_Material;
-
     //EXEMPEL PÅ HUR MAN ANVÄNDER DICTIONARYN
     //Detta hittar noden på koordinaten "centerNode", refererar till
     //gameObject "testNode" och ändrar storleken på den
@@ -45,10 +42,7 @@ public class GridGenerator : MonoBehaviour {
 
     private void Start ()
     {
-        GenerateGameBoard(boardMaxDistance);
-        PaintActiveBoard();
-        DisableInactiveNodes();
-        NodeListToArray();
+        InitializeGridGenerator();
 
         //Herr Svedlunds coola kod
         FindObjectOfType<TeleportGenerator>().GenerateTeleports();
@@ -58,6 +52,14 @@ public class GridGenerator : MonoBehaviour {
     public void UpdateBoardSizeVariables (int boardSize)
     {
         boardMaxDistance = (boardSize * 2) - 1;
+    }
+
+    public void InitializeGridGenerator ()
+    {
+        GenerateGameBoard(boardMaxDistance);
+        PaintActiveBoard();
+        DisableInactiveNodes();
+        NodeListToArray();
     }
 
     public void GenerateGameBoard (int boardMaxDist)
@@ -128,20 +130,6 @@ public class GridGenerator : MonoBehaviour {
                 }
                 paintCoordinate = origo;
             }
-        }
-    }
-
-    private void PaintNode (Vector3 paintCoordinate)
-    {
-        GridNode paintNode;
-        if (dic.TryGetValue(paintCoordinate, out paintNode))
-        {
-            m_Material = paintNode.GetComponent<MeshRenderer>().material;
-            m_Material.color = Color.red;
-        }
-        else
-        {
-            Debug.Log("No coordinate found! " + paintCoordinate);
         }
     }
 
