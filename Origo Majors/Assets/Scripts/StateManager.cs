@@ -125,17 +125,30 @@ public class StateManager : MonoBehaviour {
         }
         
         CountTotalDrones();
+        CountTeleports();
         if (!isGameOver)
         {
             CountPlayerDrones();
         }
     }
-
+    
     private void CountTotalDrones()
     {
         var allDrones = FindObjectsOfType<DroneLocation>();
         Debug.Log(allDrones.Length + " drones are still in play");
-        if (allDrones.Length <= 1 && initialPlacementIsDone)
+        if (allDrones.Length <= 0 && initialPlacementIsDone)
+        {
+            //Victory Screen
+            Debug.Log("The game is over");
+            isGameOver = true;
+        }
+    }
+
+    private void CountTeleports()
+    {
+        var allTeleports = FindObjectsOfType<TeleporterScript>();
+        Debug.Log(allTeleports.Length + " teleports are still in play");
+        if (allTeleports.Length <= 0 && initialPlacementIsDone)
         {
             //Victory Screen
             Debug.Log("The game is over");
