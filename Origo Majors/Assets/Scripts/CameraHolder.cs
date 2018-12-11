@@ -86,20 +86,19 @@ public class CameraHolder : MonoBehaviour {
         if (cameraDragging)
         {
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
                 dragOrigin = Input.mousePosition;
                 originEulerY = transform.eulerAngles.y;
                 return;
             }
 
-            if (!Input.GetMouseButton(0)) return;
+            if (!Input.GetMouseButton(1)) return;
 
             Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
             Vector3 move = new Vector3(0, pos.x * dragSpeed, 0);
 
             transform.eulerAngles = new Vector3(this.transform.eulerAngles.x, originEulerY + move.y, this.transform.eulerAngles.z);
-            //TODO: Kolla om man kan sätta upp någon typ av "current angle" utan att spara i en variabel först.
         }
     }
 
