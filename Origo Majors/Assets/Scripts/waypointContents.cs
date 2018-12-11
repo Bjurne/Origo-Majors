@@ -50,6 +50,7 @@ public class WaypointContents : MonoBehaviour {
             GameObject myTeleporter = GetComponentInChildren<TeleporterScript>().gameObject;
             Destroy(myTeleporter);
             holdingTeleporter = false;
+            occupied = false;
 
             GameObject myDrone = GetComponentInChildren<DroneLocation>().gameObject;
             myDrone.GetComponent<DroneLocation>().currentlyOccupiedWaypoint = null;

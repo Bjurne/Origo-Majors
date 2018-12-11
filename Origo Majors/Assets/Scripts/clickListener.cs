@@ -83,7 +83,7 @@ public class ClickListener : MonoBehaviour {
         stateManager.isDoneMoving = true;
     }
 
-    private void ClearLegalWarpDestinations()
+    public void ClearLegalWarpDestinations()
     {
         GridNode[] gos = GridNode.FindObjectsOfType(typeof(GridNode)) as GridNode[];
         foreach (GridNode gn in gos)
@@ -96,7 +96,7 @@ public class ClickListener : MonoBehaviour {
         }
     }
 
-    private void ClearCurrentlySelected()
+    public void ClearCurrentlySelected()
     {
         if (currentlySelectedObject != null)
         {

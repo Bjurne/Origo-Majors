@@ -3226,17 +3226,17 @@ Prefab:
     - target: {fileID: 224947256798568822, guid: 9e4c8061018e65a47af1edef6d26e65a,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224275805552040364, guid: 9e4c8061018e65a47af1edef6d26e65a,
         type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224977283904869370, guid: 9e4c8061018e65a47af1edef6d26e65a,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e4c8061018e65a47af1edef6d26e65a, type: 2}
@@ -4138,7 +4138,7 @@ RectTransform:
   m_Children:
   - {fileID: 1308751209}
   m_Father: {fileID: 735197113}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4994,6 +4994,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1954901136779392, guid: f175d98a1be0c2b4a896b4eebd445691,
     type: 2}
   m_PrefabInternal: {fileID: 20199380}
+--- !u!114 &1106706473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114476790858755670, guid: f175d98a1be0c2b4a896b4eebd445691,
+    type: 2}
+  m_PrefabInternal: {fileID: 20199380}
+  m_Script: {fileID: 11500000, guid: 2d011d5b2de1b904bb1a82fc2657568d, type: 3}
 --- !u!1 &1146864672
 GameObject:
   m_ObjectHideFlags: 0
@@ -12906,6 +12912,21 @@ Prefab:
       propertyPath: skipTurnButton
       value: 
       objectReference: {fileID: 940674847}
+    - target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
+        type: 2}
+      propertyPath: isDoneMoving
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
+        type: 2}
+      propertyPath: isDoneRolling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
+        type: 2}
+      propertyPath: clickListener
+      value: 
+      objectReference: {fileID: 1106706473}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c990241860e90540b3b2f6c52c52f06, type: 2}
   m_IsPrefabAsset: 0

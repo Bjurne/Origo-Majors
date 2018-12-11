@@ -38,6 +38,7 @@ public class StateManager : MonoBehaviour {
     public Dice diceRoller;
     public Button rollButton;
     public Button skipTurnButton;
+    public ClickListener clickListener;
 
     public Sprite rollSprite; 
 
@@ -78,13 +79,12 @@ public class StateManager : MonoBehaviour {
             diceRoller.transform.GetChild(1).GetComponent<Image>().sprite = rollSprite;
             rollButton.interactable = true;
             skipTurnButton.interactable = true;
-            if (Input.GetKeyDown("enter"))
+            
+        }
+        if (Input.GetKeyDown("enter"))
             {
                 SkipTurn();
-        //        isDoneRolling = true;
-         //       isDoneMoving = true;
             }
-        }
 
         if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == false)
         {
@@ -108,13 +108,25 @@ public class StateManager : MonoBehaviour {
 
         if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == true)
         {
+            var allDrones = FindObjectsOfType<DroneLocation>();
+
+            foreach (var drone in allDrones)
+            {
+                if (drone.tag == currentPlayer.ToString())
+                {
+                    drone.gameObject.layer = 11; // refenses to, nonselctable layer
+                }
+            }
+            clickListener.ClearCurrentlySelected();
+            clickListener.ClearLegalWarpDestinations();
             Debug.Log( "next turn" );
             PassTurnToNextPlayer();
             rollButton.interactable = false; // disables button. is here for now
 
             isDoneRolling = false;
             isDoneMoving = false;
-}
+
+        }
     }
 
     public void PassTurnToNextPlayer()
