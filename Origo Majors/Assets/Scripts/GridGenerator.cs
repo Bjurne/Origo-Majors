@@ -95,17 +95,6 @@ public class GridGenerator : MonoBehaviour {
         return centerNode;
     }
 
-    //Markerar mittNoden med en röd färg
-    public void PaintCenter ()
-    {
-        GridNode testNode;
-        if (dic.TryGetValue(FindCenter(), out testNode))
-        {
-            m_Material = testNode.GetComponent<MeshRenderer>().material;
-            m_Material.color = Color.red;
-        }
-    }
-
     //Målar hela brädet 
     public void PaintActiveBoard()
     {
