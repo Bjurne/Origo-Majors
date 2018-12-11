@@ -42,6 +42,7 @@ public class StateManager : MonoBehaviour {
     public bool initialPlacementIsDone = false;
     public bool isDoneRolling = false; 
     public bool isDoneMoving= false;
+    public bool isGameOver = false;
 
     //Player scores
     public int blueScore = 0;
@@ -120,16 +121,21 @@ public class StateManager : MonoBehaviour {
         }
         
         CountTotalDrones();
-        CountPlayerDrones();
+        if (!isGameOver)
+        {
+            CountPlayerDrones();
+        }
     }
 
     private void CountTotalDrones()
     {
         var allDrones = FindObjectsOfType<DroneLocation>();
-        if (allDrones.Length <= 0 && initialPlacementIsDone)
+        Debug.Log(allDrones.Length + " drones are still in play");
+        if (allDrones.Length <= 1 && initialPlacementIsDone)
         {
             //Victory Screen
             Debug.Log("The game is over");
+            isGameOver = true;
         }
     }
 

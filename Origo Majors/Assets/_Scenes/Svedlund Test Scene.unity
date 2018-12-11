@@ -12211,6 +12211,22 @@ Prefab:
       propertyPath: rollButton
       value: 
       objectReference: {fileID: 1422057307}
+    - target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
+        type: 2}
+      propertyPath: rollSprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
+        type: 2}
+      propertyPath: gridGenerator
+      value: 
+      objectReference: {fileID: 1515755753}
+    - target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
+        type: 2}
+      propertyPath: dronePlaceholderPrefab
+      value: 
+      objectReference: {fileID: 1421427863671348, guid: 9c4264f1ebdf7cf4ca8f89f981d776a6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c990241860e90540b3b2f6c52c52f06, type: 2}
   m_IsPrefabAsset: 0
