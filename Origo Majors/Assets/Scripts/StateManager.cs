@@ -13,10 +13,12 @@ public enum Player
 }
 
 public class StateManager : MonoBehaviour {
+
     void Start()
     {
         // draw nodes
-        //gridscript.GenerateGameBoard(9); // number 9 to be changed later
+        //SÅHÄR KKALLAR MAN PÅ GRID GENERATOR NU
+        gridGenerator.CallGridGenerator(5, 1.8f);
         currentPlayer = Player.Blue;     // blue player starts
         rollButton.interactable = false; // rollbutton disabled
     }
@@ -25,7 +27,7 @@ public class StateManager : MonoBehaviour {
     public GameObject dronePlaceholderPrefab;
 
     // reference other scripts
-    public GridGenerator gridscript;
+    public GridGenerator gridGenerator;
     public DronePlacement initialPlacement; 
     public Dice diceRoller;
     public Button rollButton;
