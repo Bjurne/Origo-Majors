@@ -78,7 +78,7 @@ public class StateManager : MonoBehaviour {
         {
             // add a reset for dice roll image
             diceRoller.transform.GetChild(1).GetComponent<Image>().sprite = rollSprite;
-            //rollButton.GetComponent<Image>().color = ;
+            setRollButtonColor();
             rollButton.interactable = true;
             skipTurnButton.interactable = true;
             
@@ -129,6 +129,28 @@ public class StateManager : MonoBehaviour {
             isDoneMoving = false;
 
         }
+    }
+
+    private void setRollButtonColor()
+    {
+        Vector4 rollButtonColor = Color.white;
+        if (currentPlayer == Player.Blue)
+        {
+            rollButtonColor = Color.blue;
+        }
+        else if (currentPlayer == Player.Red)
+        {
+            rollButtonColor = Color.red;
+        }
+        else if (currentPlayer == Player.Green)
+        {
+            rollButtonColor = Color.green;
+        }
+        else if (currentPlayer == Player.Yellow)
+        {
+            rollButtonColor = Color.yellow;
+        }
+        rollButton.GetComponent<Image>().color = rollButtonColor;
     }
 
     public void PassTurnToNextPlayer()
