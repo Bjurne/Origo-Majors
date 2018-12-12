@@ -15,9 +15,18 @@ public class WaypointContents : MonoBehaviour {
         {
             Debug.Log("A booster has been picked up!");
             stateManager = FindObjectOfType<StateManager>();
-            //FindObjectOfType<ClickListener>().ClearCurrentlySelected();
-            //FindObjectOfType<ClickListener>().ClearLegalWarpDestinations();
+
+
             GameObject myBooster = GetComponentInChildren<BoosterScript>().gameObject;
+
+            //Det vi behöver göra här är att kolla vilken typ av booster som blivit upplockad.
+            //tex genom att kolla (myBooster.name), eller döpa om "BoosterScript" till tre olika namn och ge de olika
+            //Booster prefabsen varsitt, och sedan GetComponentInChildren<ETT UTAV BOOSTER-NAMNEN>()
+            // sedan if myBooster is Booster a - do this
+            // if myBooster is Booster b - do that
+            // if myBooster is Booster c - do them other things
+
+
             Destroy(myBooster);
             holdingBoosterPickUp = false;
 
