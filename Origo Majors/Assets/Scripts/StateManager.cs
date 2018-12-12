@@ -238,11 +238,11 @@ public class StateManager : MonoBehaviour {
 public enum BigState
 {
     //Menu-stuff,
-    StartUpGameBoard,       //Initialize gridgenerator
-    GenerateObjects,        //Portals and boosters
-    PlaceStartingLocations, //Self-explanatory
+    //StartUpGameBoard      //Initialize gridgenerator
+    //GenerateObjects       //Portals and boosters
+    PlaceStartingDrones,    //Self-explanatory
     PlayGameLoop,           //Loop through this until game is done
-    SetNewGameBoard,        //Save entered portal positions, clear gameboard objects,
+    //SetNewGameBoard       //Save entered portal positions, clear gameboard objects,
                             //place drones at previous portal positions, generate new portals & boosters,
                             //go run through PlayGameLoop
     VictoryState            //Announce winner, Player can go back to menu
@@ -259,55 +259,56 @@ public enum GameLoop
 
     void Start ()
     {
-        BigState(StartUpGameBoard);
+        StartUpGameBoard();
+        GenerateObjects();
 
-        BigState(GenerateObjects);
     }
 
     void Update ()
     {
-        if(BigState == 2)
+        if(currentState == BigState.PlaceStartingDrones)
         {
-            PlaceStartingLocations();
+            //Do stuff
         }
 
-        if(BigState == 3)
+        if(currentState == BigState.PlayGameLoop)
         {
-            currentPlayer = 0;
 
-            if (GameLoop == 0)
+            if (currentGameLoop == GameLoop.WaitForRoll)
             {
                 //Do stuff with currentPlayer
             }
-            if (GameLoop == 1)
+            if (currentGameLoop == GameLoop.DecideActionBeforeMove)
             {
                 //Do stuff with currentPlayer
             }
-            if (GameLoop == 2)
+            if (currentGameLoop == GameLoop.Move)
             {
                 //Do stuff with currentPlayer
             }
-            if (GameLoop == 3)
+            if (currentGameLoop == GameLoop.DecideActionAfterMove)
             {
                 //Do stuff with currentPlayer
             }
-            if (GameLoop == 4)
+            if (currentGameLoop == GameLoop.EndOfTurn)
             {
-                if (available portals = 0)
+                if (availablePortals = 0)
                 {
-                    if (available dimensions = 0)
+                    if (availableDimensions = 0)
                     {
-                        BigState(VictoryState); // WIN GAME
+                        VictoryState(); // Exits loop
+                        
                     }
                     else
                     {
-                    BigState(SetNewGameBoard); //SetNewGameBoard (DO A BUNCH OF SHIT)
+                        SetNewGameBoard(); // (DO A BUNCH OF SHIT)
+                        currentGameLoop = GameLoop.WaitForRoll; //New dimension, back to gameLoop
                     }
                 }
                 else
                 {
                     currentPlayer++;
-                    GameLoop = 0; //Go again with a new player
+                    currentGameLoop = GameLoop.WaitForRoll; //Go again with a new player
                 }
             }
         }
