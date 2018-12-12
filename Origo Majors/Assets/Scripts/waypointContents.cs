@@ -15,12 +15,27 @@ public class WaypointContents : MonoBehaviour {
         {
             Debug.Log("A booster has been picked up!");
             stateManager = FindObjectOfType<StateManager>();
-            stateManager.currentPlayer--;
+            //FindObjectOfType<ClickListener>().ClearCurrentlySelected();
+            //FindObjectOfType<ClickListener>().ClearLegalWarpDestinations();
             GameObject myBooster = GetComponentInChildren<BoosterScript>().gameObject;
-            // TODO fixa något bättre att referera till än ett particelSystem, detta är wonky,
-            //speciellt då Teleporters eventuellt också vill ha ett particelSystem
             Destroy(myBooster);
             holdingBoosterPickUp = false;
+
+            stateManager.currentPlayer--;
+
+            var allDrones = FindObjectsOfType<DroneLocation>();
+
+            foreach (var drone in allDrones)
+            {
+                if (drone.tag == stateManager.currentPlayer.ToString())
+                {
+                    drone.gameObject.layer = 10; // refenses to, selctable layer
+                }
+                else
+                {
+                    drone.gameObject.layer = 11; // refenses to nonselctable layer
+                }
+            }
         }
 
         if (holdingTeleporter && occupied)

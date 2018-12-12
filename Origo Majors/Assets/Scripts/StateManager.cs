@@ -78,6 +78,7 @@ public class StateManager : MonoBehaviour {
         {
             // add a reset for dice roll image
             diceRoller.transform.GetChild(1).GetComponent<Image>().sprite = rollSprite;
+            //rollButton.GetComponent<Image>().color = ;
             rollButton.interactable = true;
             skipTurnButton.interactable = true;
             

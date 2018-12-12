@@ -28,7 +28,15 @@ public class Dice : MonoBehaviour
         }
         else
         {
-        currentPlayerTurn.text = stateManager.currentPlayer.ToString()+"'s Turn";
+            if (stateManager.isDoneRolling == false)
+            {
+                currentPlayerTurn.text = stateManager.currentPlayer.ToString() + "'s Turn to roll";
+            }
+            else
+            {
+                currentPlayerTurn.text = stateManager.currentPlayer.ToString() + "'s Turn to move";
+            }
+
         }
 
     }
