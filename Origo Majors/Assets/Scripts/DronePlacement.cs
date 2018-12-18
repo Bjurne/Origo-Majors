@@ -46,6 +46,7 @@ public class DronePlacement : MonoBehaviour {
         {
             clickPosition = hit.point;
             selectedWaypoint = hit.collider.gameObject;
+            Debug.Log("Youre clicking " + selectedWaypoint);
             bool occupied = selectedWaypoint.GetComponent<WaypointContents>().occupied;
 
             if ((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false)

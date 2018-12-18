@@ -96,7 +96,7 @@ public class StateManager : MonoBehaviour {
         if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == false)
         {
             rollButton.interactable = false;
-            Debug.Log(" Time to selct ");
+            //Debug.Log(" Time to selct ");
             //Select all drones so we can turn them off.
             var allDrones = FindObjectsOfType<DroneLocation>();
 

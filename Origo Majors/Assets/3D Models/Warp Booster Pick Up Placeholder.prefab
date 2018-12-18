@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4765358727811136}
-  - component: {fileID: 114847534111551742}
+  - component: {fileID: 114801268539006422}
   m_Layer: 0
   m_Name: Warp Booster Pick Up Placeholder
   m_TagString: Untagged
@@ -142,7 +142,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1829154893087784}
   m_Mesh: {fileID: 4300000, guid: 29c473b235ab21f408dfbacc280f73eb, type: 3}
---- !u!114 &114847534111551742
+--- !u!114 &114801268539006422
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,6 +150,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1685326278180318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec6d14723bfdefa4d845958a9188e66e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e4639d79b70742499e05cf8d4c58582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

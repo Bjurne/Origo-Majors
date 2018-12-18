@@ -8,7 +8,15 @@ public class WaypointContents : MonoBehaviour {
     public bool holdingTeleporter = false;
     public bool holdingBoosterPickUp = false;
     public StateManager stateManager;
+    //public Vector4[] scoredDrones;
+    private int placeInList;
+    public List<Vector4> scoredDrones;
 
+    private void Awake()
+    {
+        //scoredDrones = new Vector4[12];
+        //List<Vector4> scoredDrones = new List<Vector4>();
+    }
 
     public void OnDroneEnter () {
         if (holdingBoosterPickUp && occupied)
@@ -16,8 +24,14 @@ public class WaypointContents : MonoBehaviour {
             Debug.Log("A booster has been picked up!");
             stateManager = FindObjectOfType<StateManager>();
 
-
-            GameObject myBooster = GetComponentInChildren<BoosterScript>().gameObject;
+                GameObject myBooster = GetComponentInChildren<WarpBoosterScript>().gameObject;
+            try
+            {
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
 
             //Det vi behöver göra här är att kolla vilken typ av booster som blivit upplockad.
             //tex genom att kolla (myBooster.name), eller döpa om "BoosterScript" till tre olika namn och ge de olika
@@ -51,6 +65,13 @@ public class WaypointContents : MonoBehaviour {
         {
             Debug.Log("A teleporter has been entered!");
             stateManager = FindObjectOfType<StateManager>();
+            int ownerOfDrone = (int)stateManager.currentPlayer;
+            Vector3 spawnCoordinates = gameObject.GetComponent<GridNode>().Coordinates;
+
+            Vector4 droneScored = new Vector4(ownerOfDrone, spawnCoordinates.x, spawnCoordinates.y, spawnCoordinates.z);
+
+            scoredDrones.Add(droneScored);
+
             if (stateManager.currentPlayer == Player.Blue)
             {
                 stateManager.blueScore++;
@@ -80,6 +101,11 @@ public class WaypointContents : MonoBehaviour {
             myDrone.GetComponent<DroneLocation>().currentlyOccupiedWaypoint = null;
             myDrone.GetComponent<DroneLocation>().previouslyOccupiedWaypoint = null;
             Destroy(myDrone);
+
+            foreach (Vector4 drone in scoredDrones)
+            {
+                Debug.Log(drone + " is in scoredDrones");
+            }
         }
 	}
 }
