@@ -26,6 +26,8 @@ public class StateManager : MonoBehaviour {
     public Button skipTurnButton;
     public ClickListener clickListener;
     public GameObject victoryScreen;
+    public CameraHolder myCameraHolder;
+    public GameBoardScript myGameBoardScript;
 
     public Sprite rollSprite; 
 
@@ -47,8 +49,11 @@ public class StateManager : MonoBehaviour {
 
     private void Awake()
     {
-        //SÅHÄR KKALLAR MAN PÅ GRID GENERATOR NU
         gridGenerator.CallGridGenerator(5, 1.8f);
+
+        myGameBoardScript.MoveBoardToCenter();
+
+        myCameraHolder.MoveCameraToCenter();
     }
 
     void Start()
