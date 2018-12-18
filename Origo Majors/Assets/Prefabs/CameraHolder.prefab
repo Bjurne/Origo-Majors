@@ -66,13 +66,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1821479775709754}
-  m_LocalRotation: {x: 0.39728418, y: -0.43239358, z: 0.2205702, w: 0.7788132}
-  m_LocalPosition: {x: -41.1, y: -80.5, z: 26.9}
+  m_LocalRotation: {x: 0.43054968, y: -0.41177103, z: 0.2304235, w: 0.7694002}
+  m_LocalPosition: {x: -38, y: -82.8, z: 24.8}
   m_LocalScale: {x: 6.2383327, y: 6.2383327, z: 6.2383327}
   m_Children: []
   m_Father: {fileID: 4832877556191346}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 54.054, y: -58.078003, z: 0}
+  m_LocalEulerAnglesHint: {x: 58.462, y: -56.31, z: 0}
 --- !u!4 &4832877556191346
 Transform:
   m_ObjectHideFlags: 1
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCamera: {fileID: 20980081892964398}
   gridGenerator: {fileID: 0}
-  turnSpeed: {x: 0, y: 30, z: 0}
+  turnSpeed: {x: 0, y: 5, z: 0}
   dragSpeed: 200
 --- !u!212 &212398837272525094
 SpriteRenderer:
