@@ -19,16 +19,6 @@ public class CameraHolder : MonoBehaviour {
     internal bool cameraDragging = true;
     float originEulerY;
 
-    void Start ()
-    {
-        //SÅHÄR KKALLAR MAN PÅ GRID GENERATOR NU
-        //gridGenerator.CallGridGenerator(5, 1.8f);
-
-        myCamera.transform.LookAt(transform.position + cameraOffset);
-        transform.position = MoveToCenter();
-
-    }
-
     void Update ()
     {
         // if (klickar på någonting som inte är klickbart (din färgs drönare, etc.)
@@ -42,16 +32,23 @@ public class CameraHolder : MonoBehaviour {
         //IdleRotation();
     }
 
-    public Vector3 MoveToCenter ()
+    public void MoveCameraToCenter()
     {
-        Vector3 cameraHeight = new Vector3(0, 0, 0);
+        myCamera.transform.LookAt(transform.position + cameraOffset);
+        MoveToCenter();
+    }
+
+    public void MoveToCenter ()
+    {
         GridNode testNode;
         if (gridGenerator.dic.TryGetValue(gridGenerator.FindCenter(), out testNode))
         {
-            return testNode.gameObject.transform.position + cameraHeight;
+            transform.position = testNode.gameObject.transform.position;
         }
-        Debug.Log("Debug!");
-        return Vector3.zero;
+        else
+        {
+        Debug.Log("CameraHolder can't find center node!");
+        }
     }
 
     void IdleRotation ()
