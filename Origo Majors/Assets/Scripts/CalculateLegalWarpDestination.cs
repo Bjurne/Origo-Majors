@@ -51,7 +51,7 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
                     {
                         //Debug.DrawRay(currentlySelectedObject.transform.position, hit.point);
                         Debug.Log(hit.collider.GetComponent<GridNode>().Coordinates + " has been hit by the ray");
-                        if (hit.collider.GetComponent<WaypointContents>().occupied)
+                        if (hit.collider.GetComponent<NodeContents>().occupied)
                         {
                             Debug.Log("The path is blocked, and this move is illegal");
                             continue;

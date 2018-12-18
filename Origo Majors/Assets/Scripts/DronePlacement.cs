@@ -47,12 +47,12 @@ public class DronePlacement : MonoBehaviour {
             clickPosition = hit.point;
             selectedWaypoint = hit.collider.gameObject;
             Debug.Log("Youre clicking " + selectedWaypoint);
-            bool occupied = selectedWaypoint.GetComponent<WaypointContents>().occupied;
+            bool occupied = selectedWaypoint.GetComponent<NodeContents>().occupied;
 
             if ((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false)
             {
-                bool teleporterPresent = selectedWaypoint.GetComponent<WaypointContents>().holdingTeleporter;
-                bool boosterPresent = selectedWaypoint.GetComponent<WaypointContents>().holdingBoosterPickUp;
+                bool teleporterPresent = selectedWaypoint.GetComponent<NodeContents>().holdingTeleporter;
+                bool boosterPresent = selectedWaypoint.GetComponent<NodeContents>().holdingBoosterPickUp;
 
                 if ((((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false) && !teleporterPresent) && !boosterPresent)
                 {
@@ -71,7 +71,7 @@ public class DronePlacement : MonoBehaviour {
                     Debug.Log(player.ToString());
                     newDrone.tag = player.ToString();
 
-                    selectedWaypoint.GetComponent<WaypointContents>().occupied = true;
+                    selectedWaypoint.GetComponent<NodeContents>().occupied = true;
                     newDrone.GetComponent<DroneLocation>().previouslyOccupiedWaypoint = selectedWaypoint;
                     newDrone.GetComponent<DroneLocation>().currentlyOccupiedWaypoint = selectedWaypoint;
                     numberOfDronesSpawned++;

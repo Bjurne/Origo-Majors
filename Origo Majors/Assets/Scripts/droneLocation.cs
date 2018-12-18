@@ -14,13 +14,13 @@ public class DroneLocation : MonoBehaviour {
             previouslyOccupiedWaypoint = currentlyOccupiedWaypoint;
             //Debug.Log(previouslyOccupiedWaypoint + " is saved as prev. waypoint");
 
-            previouslyOccupiedWaypoint.GetComponent<WaypointContents>().occupied = false;
+            previouslyOccupiedWaypoint.GetComponent<NodeContents>().occupied = false;
             //Debug.Log(previouslyOccupiedWaypoint + " is no longer occupied");
 
             currentlyOccupiedWaypoint = FindObjectOfType<ClickListener>().selectedWaypoint;
             //Debug.Log(currentlyOccupiedWaypoint + " is now the new position");
 
-            currentlyOccupiedWaypoint.GetComponent<WaypointContents>().occupied = true;
+            currentlyOccupiedWaypoint.GetComponent<NodeContents>().occupied = true;
             //Debug.Log(currentlyOccupiedWaypoint + " is now set to occupied");
         }
     }

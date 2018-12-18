@@ -51,7 +51,7 @@ public class ClickListener : MonoBehaviour {
         {
             //clickPosition = hit.point;
             selectedWaypoint = hit.collider.gameObject;
-            bool occupied = selectedWaypoint.GetComponent<WaypointContents>().occupied;
+            bool occupied = selectedWaypoint.GetComponent<NodeContents>().occupied;
 
             if ((!occupied) && selectedWaypoint.tag == "LegalWarpDestination")
             {
@@ -66,9 +66,9 @@ public class ClickListener : MonoBehaviour {
         currentlySelectedObject.transform.parent = selectedWaypoint.transform;
 
 
-        selectedWaypoint.GetComponent<WaypointContents>().occupied = true;
+        selectedWaypoint.GetComponent<NodeContents>().occupied = true;
         currentlySelectedObject.GetComponent<DroneLocation>().ChangeLocation();
-        selectedWaypoint.GetComponent<WaypointContents>().OnDroneEnter();
+        selectedWaypoint.GetComponent<NodeContents>().OnDroneEnter();
 
         Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
 
