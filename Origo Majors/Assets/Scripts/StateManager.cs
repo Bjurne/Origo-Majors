@@ -229,9 +229,14 @@ public class StateManager : MonoBehaviour {
 
     public void SkipTurn()
     {
-        Debug.Log("skipturn clicked mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+        //Debug.Log("skipturn clicked mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+        //isDoneRolling = true;
+        //isDoneMoving = true;
+        Debug.Log(isDoneMoving + " " + isDoneRolling);
+
         isDoneRolling = true;
         isDoneMoving = true;
+        Debug.Log(isDoneMoving + " " + isDoneRolling);
     }
 
 
