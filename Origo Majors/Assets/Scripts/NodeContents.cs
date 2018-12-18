@@ -8,14 +8,13 @@ public class NodeContents : MonoBehaviour {
     public bool holdingTeleporter = false;
     public bool holdingBoosterPickUp = false;
     public StateManager stateManager;
-    //public Vector4[] scoredDrones;
     private int placeInList;
-    public List<Vector4> scoredDrones;
+    //public List<Vector4> scoredDrones;
+    //public GameObject scoredDroneStorage;
 
     private void Awake()
     {
         //scoredDrones = new Vector4[12];
-        //List<Vector4> scoredDrones = new List<Vector4>();
     }
 
     public void OnDroneEnter () {
@@ -94,7 +93,9 @@ public class NodeContents : MonoBehaviour {
 
             Vector4 droneScored = new Vector4(ownerOfDrone, spawnCoordinates.x, spawnCoordinates.y, spawnCoordinates.z);
 
-            scoredDrones.Add(droneScored);
+            ScoredDroneStorage scoredDroneStorage = FindObjectOfType<ScoredDroneStorage>();
+
+            scoredDroneStorage.scoredDrones.Add(droneScored);
 
             if (stateManager.currentPlayer == Player.Blue)
             {
@@ -126,10 +127,6 @@ public class NodeContents : MonoBehaviour {
             myDrone.GetComponent<DroneLocation>().previouslyOccupiedWaypoint = null;
             Destroy(myDrone);
 
-            foreach (Vector4 drone in scoredDrones)
-            {
-                Debug.Log(drone + " is in scoredDrones");
-            }
         }
 	}
 }

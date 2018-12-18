@@ -89,7 +89,7 @@ public class DronePlacement : MonoBehaviour {
         }
     }
 
-    private Color GetPlayerColor(Player player)
+    public Color GetPlayerColor(Player player)
     {
         if (player == Player.Blue)
         {
