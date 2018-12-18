@@ -6,7 +6,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
 
     public GameObject warpBoosterPickUpPrefab;
     public GameObject mapperBoosterPickUpPrefab;
-    public GameObject remapperBoosterPickUpPrefab;
+    public GameObject dupeBoosterPickUpPrefab;
     public GridNode[] gridNodes;
     public GameObject gridGenerator;
     public int numberOfBoosterPickUps;
@@ -42,7 +42,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
                 }
                 else
                 {
-                    GameObject myBooster = Instantiate(remapperBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
+                    GameObject myBooster = Instantiate(dupeBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
                     myBooster.transform.parent = myNode.transform;
                 }
 
