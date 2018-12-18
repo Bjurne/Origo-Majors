@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4920851443520536}
   m_Layer: 0
-  m_Name: Remapper Booster Pick Up Placeholder
+  m_Name: Dupe Booster Pick Up Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
