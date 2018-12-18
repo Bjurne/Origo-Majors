@@ -34,6 +34,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4920851443520536}
+  - component: {fileID: 114922277821769700}
   m_Layer: 0
   m_Name: Dupe Booster Pick Up Placeholder
   m_TagString: Untagged
@@ -141,3 +142,14 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1719804371236118}
   m_Mesh: {fileID: 4300000, guid: 780c72f81861dfe4b88049c8cd9c38b6, type: 3}
+--- !u!114 &114922277821769700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328791530360408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d7c8ab10a3f2e41854b19fa51d3d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
