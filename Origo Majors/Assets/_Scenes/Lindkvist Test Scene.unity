@@ -355,7 +355,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4834444697170938, guid: 2a0e96e9586858648ba334757781cb64, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4834444697170938, guid: 2a0e96e9586858648ba334757781cb64, type: 2}
       propertyPath: m_LocalPosition.y
@@ -400,6 +400,15 @@ Prefab:
       propertyPath: gridGenerator
       value: 
       objectReference: {fileID: 369953272}
+    - target: {fileID: 23523264067131254, guid: 2a0e96e9586858648ba334757781cb64,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464686163551230, guid: 2a0e96e9586858648ba334757781cb64, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a0e96e9586858648ba334757781cb64, type: 2}
   m_IsPrefabAsset: 0
