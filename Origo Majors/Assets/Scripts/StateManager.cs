@@ -14,20 +14,6 @@ public enum Player
 
 public class StateManager : MonoBehaviour {
 
-    private void Awake()
-    {
-        //SÅHÄR KKALLAR MAN PÅ GRID GENERATOR NU
-        gridGenerator.CallGridGenerator(5, 1.8f);
-    }
-
-    void Start()
-    {
-        // draw nodes
-        currentPlayer = Player.Blue;     // blue player starts
-        rollButton.interactable = false; // rollbutton disabled
-        skipTurnButton.interactable = false;
-
-    }
 
     public Player currentPlayer;
     public GameObject dronePlaceholderPrefab;
@@ -59,6 +45,20 @@ public class StateManager : MonoBehaviour {
     public int greenScore = 0;
     public int yellowScore = 0;
 
+    private void Awake()
+    {
+        //SÅHÄR KKALLAR MAN PÅ GRID GENERATOR NU
+        gridGenerator.CallGridGenerator(5, 1.8f);
+    }
+
+    void Start()
+    {
+        // draw nodes
+        currentPlayer = Player.Blue;     // blue player starts
+        rollButton.interactable = false; // rollbutton disabled
+        skipTurnButton.interactable = false;
+
+    }
 
     void Update()
     {
