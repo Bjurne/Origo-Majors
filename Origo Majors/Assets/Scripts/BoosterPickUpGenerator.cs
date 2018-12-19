@@ -10,10 +10,17 @@ public class BoosterPickUpGenerator : MonoBehaviour {
     public GridNode[] gridNodes;
     public GameObject gridGenerator;
     public int numberOfBoosterPickUps;
+    private int dimensionNumber;
+
 
     public void GenerateBoosterPickUps()
     {
         gridNodes = gridGenerator.GetComponent<GridGenerator>().activeNodes;
+
+        int totalNumberOfDrones = (FindObjectOfType<StartupSettings>().numberOfSelectedDrones + 2) * (FindObjectOfType<StartupSettings>().numberOfSelectedplayers + 1);
+
+        if (dimensionNumber == 0) numberOfBoosterPickUps = (int)(totalNumberOfDrones / 2.5f);
+        else numberOfBoosterPickUps -= 2;
 
         for (int i = 0; i < numberOfBoosterPickUps;)
         {

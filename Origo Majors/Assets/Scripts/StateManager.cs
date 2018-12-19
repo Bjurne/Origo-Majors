@@ -244,30 +244,51 @@ public class StateManager : MonoBehaviour {
 
     public void LoadNewDimension()
     {
-        WarpBoosterScript[] remainingWarpBoosterPickUps = FindObjectsOfType<WarpBoosterScript>();
-
-        foreach (WarpBoosterScript boosterScript in remainingWarpBoosterPickUps)
-        {
-            Destroy(boosterScript.gameObject);
-        }
-
-
+        ClearRemainingBoosterPickUps();
+        ClearRemainingDrones();
+        
         initialPlacementIsDone = true;
         isDoneRolling = false;
         isDoneMoving = false;
         isGameOver = false;
 
         currentPlayer = Player.Blue;
-
+        
         FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones();
-
-
-
         FindObjectOfType<TeleportGenerator>().GenerateTeleports();
         FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
     }
 
 
+    private void ClearRemainingBoosterPickUps()
+    {
+        WarpBoosterScript[] remainingWarpBoosterPickUps = FindObjectsOfType<WarpBoosterScript>();
+        MapperBoosterScript[] remainingMapperBoosterPickUps = FindObjectsOfType<MapperBoosterScript>();
+        DupeBoosterScript[] remainingDupeBoosterPickUps = FindObjectsOfType<DupeBoosterScript>();
+
+        foreach (WarpBoosterScript boosterScript in remainingWarpBoosterPickUps)
+        {
+            Destroy(boosterScript.gameObject);
+        }
+        foreach (MapperBoosterScript boosterScript in remainingMapperBoosterPickUps)
+        {
+            Destroy(boosterScript.gameObject);
+        }
+        foreach (DupeBoosterScript boosterScript in remainingDupeBoosterPickUps)
+        {
+            Destroy(boosterScript.gameObject);
+        }
+    }
+
+    private void ClearRemainingDrones()
+    {
+        var allDrones = FindObjectsOfType<DroneLocation>();
+        foreach (var drone in allDrones)
+        {
+            drone.gameObject.GetComponentInParent<NodeContents>().occupied = false;
+            Destroy(drone.gameObject);
+        }
+    }
 }
 
 /*
