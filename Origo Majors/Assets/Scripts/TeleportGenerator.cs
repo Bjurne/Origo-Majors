@@ -21,7 +21,13 @@ public class TeleportGenerator : MonoBehaviour {
         {
             int randomWaypoint = UnityEngine.Random.Range(0, gridNodes.Length);
             var myNode = gridNodes[randomWaypoint].GetComponent<NodeContents>();
-            bool illegalSpawnPoint = myNode.holdingTeleporter;
+
+            bool illegalSpawnPoint = false;
+            
+            if ((myNode.holdingTeleporter) || myNode.occupied)
+            {
+                illegalSpawnPoint = true;
+            }
 
 
             if (!illegalSpawnPoint)

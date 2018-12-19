@@ -27,6 +27,8 @@ public class ScoredDroneStorage : MonoBehaviour {
 
                     GameObject respawnedDrone = Instantiate(dronePrefab, nodeToRespawnAt.position, Quaternion.identity);
                     respawnedDrone.transform.parent = nodeToRespawnAt;
+                    respawnedDrone.tag = player.ToString();
+
 
                     MeshRenderer[] children = respawnedDrone.GetComponentsInChildren<MeshRenderer>();
 

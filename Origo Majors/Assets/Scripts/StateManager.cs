@@ -200,10 +200,12 @@ public class StateManager : MonoBehaviour {
         if (allTeleports.Length <= 0 && initialPlacementIsDone)
         {
             //Victory Screen
-            Debug.Log("The game is over");
-            isGameOver = true;
-            victoryScreen.SetActive(true);
-            victoryScreen.GetComponent<VictoryScreenScript>().DisplayVictoryScreen();
+            //Debug.Log("The game is over");
+            //isGameOver = true;
+            //victoryScreen.SetActive(true);
+            //victoryScreen.GetComponent<VictoryScreenScript>().DisplayVictoryScreen();
+
+            LoadNewDimension();
         }
     }
 
@@ -239,7 +241,28 @@ public class StateManager : MonoBehaviour {
         Debug.Log(isDoneMoving + " " + isDoneRolling);
     }
 
+    public void LoadNewDimension()
+    {
+        WarpBoosterScript[] remainingWarpBoosterPickUps = FindObjectsOfType<WarpBoosterScript>();
 
+        foreach (WarpBoosterScript boosterScript in remainingWarpBoosterPickUps)
+        {
+            Destroy(boosterScript.gameObject);
+        }
+
+
+        initialPlacementIsDone = true;
+        isDoneRolling = false;
+        isDoneMoving = false;
+        isGameOver = false;
+
+        currentPlayer = Player.Blue;
+
+        FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones();
+
+        FindObjectOfType<TeleportGenerator>().GenerateTeleports();
+        FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
+    }
 
 
 }
