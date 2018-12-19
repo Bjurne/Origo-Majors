@@ -260,6 +260,8 @@ public class StateManager : MonoBehaviour {
 
         FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones();
 
+
+
         FindObjectOfType<TeleportGenerator>().GenerateTeleports();
         FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
     }
