@@ -829,6 +829,10 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+    - m_Text: 2 Drones
+      m_Image: {fileID: 0}
+    - m_Text: 3 Drones
+      m_Image: {fileID: 0}
     - m_Text: 4 Drones
       m_Image: {fileID: 0}
     - m_Text: 5 Drones
@@ -5995,7 +5999,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 4 Drones
+  m_Text: 2 Drones
 --- !u!222 &1967682418
 CanvasRenderer:
   m_ObjectHideFlags: 0

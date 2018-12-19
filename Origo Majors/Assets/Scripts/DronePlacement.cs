@@ -31,16 +31,7 @@ public class DronePlacement : MonoBehaviour {
             throw;
         }
         numberOfDronesToSpawn = numberOfDronesToSpawnPerPlayer * numberOfPlayers;
-	}
-    
-    // Update is called once per frame
-    //public void update()
-    //{
-    //    debug.log("runs placing ");
-    //    if (input.getmousebuttonup(0))
-    //    {
-    //        placedrone();
-    //    }
+	}    //    }
     //}
 
     public void PlaceDrone(Player player)
