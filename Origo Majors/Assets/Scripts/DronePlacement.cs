@@ -21,7 +21,7 @@ public class DronePlacement : MonoBehaviour {
 
         try
         {
-            numberOfDronesToSpawnPerPlayer = GetComponent<StartupSettings>().numberOfSelectedDrones;
+            numberOfDronesToSpawnPerPlayer = FindObjectOfType<StartupSettings>().numberOfSelectedDrones;
             // TODO: set numberOfSelectedplayers in statemanager then reference player number here
             //int numberOfSelectedplayers;
         }

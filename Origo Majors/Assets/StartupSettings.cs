@@ -24,7 +24,7 @@ public class StartupSettings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Number of players" + numberOfSelectedplayers);
+        //Debug.Log("Number of players" + numberOfSelectedplayers);
         numberOfSelectedplayers = playernumber.value + 2;
 
         Debug.Log("Number of drones" + numberOfSelectedDrones);

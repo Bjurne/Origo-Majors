@@ -38,6 +38,10 @@ public class ScoredDroneStorage : MonoBehaviour {
                     {
                         mesh.material.color = dronePlacement.GetPlayerColor(player);
                     }
+
+                    nodeToRespawnAt.gameObject.GetComponent<NodeContents>().occupied = true;
+                    respawnedDrone.GetComponent<DroneLocation>().previouslyOccupiedWaypoint = nodeToRespawnAt.gameObject;
+                    respawnedDrone.GetComponent<DroneLocation>().currentlyOccupiedWaypoint = nodeToRespawnAt.gameObject;
                 }
             }
         }
