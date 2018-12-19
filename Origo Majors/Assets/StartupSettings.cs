@@ -29,7 +29,7 @@ public class StartupSettings : MonoBehaviour
 
         Debug.Log("Number of drones" + numberOfSelectedDrones);
 
-        numberOfSelectedDrones = dronenumber.value + 4;
+        numberOfSelectedDrones = dronenumber.value + 2;
 
     }
 
