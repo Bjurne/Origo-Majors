@@ -9,6 +9,7 @@ public class TeleportGenerator : MonoBehaviour {
     public GridNode[] gridNodes;
     public GameObject gridGenerator;
     private int numberOfNodes;
+    private int dimensionNumber;
 
     public int numberOfTeleports;
 
@@ -16,6 +17,16 @@ public class TeleportGenerator : MonoBehaviour {
     public void GenerateTeleports ()
     {
         gridNodes = gridGenerator.GetComponent<GridGenerator>().activeNodes;
+
+        int totalNumberOfDrones = (FindObjectOfType<StartupSettings>().numberOfSelectedDrones + 2) * (FindObjectOfType<StartupSettings>().numberOfSelectedplayers + 1);
+
+        Debug.Log("totalNumberOfDrones = " + totalNumberOfDrones);
+        Debug.Log("numberOfDrones = " + FindObjectOfType<StartupSettings>().numberOfSelectedDrones);
+        Debug.Log("numberOfPlayers = " + FindObjectOfType<StartupSettings>().numberOfSelectedplayers);
+
+        if (dimensionNumber == 0) numberOfTeleports = (int)(totalNumberOfDrones / 2);
+        else if (dimensionNumber == 3) numberOfTeleports = 1;
+        else numberOfTeleports /= 2;
 
         for (int i = 0; i < numberOfTeleports;)
         {
