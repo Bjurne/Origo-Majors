@@ -18,9 +18,22 @@ public class DronePlacement : MonoBehaviour {
 
     void Start () {
         clickListener.SetActive(false);
+
+        try
+        {
+            numberOfDronesToSpawnPerPlayer = GetComponent<StartupSettings>().numberOfSelectedDrones;
+            // TODO: set numberOfSelectedplayers in statemanager then reference player number here
+            //int numberOfSelectedplayers;
+        }
+        catch (Exception)
+        {
+            numberOfDronesToSpawnPerPlayer = 6;
+            numberOfPlayers = 4;
+            throw;
+        }
         numberOfDronesToSpawn = numberOfDronesToSpawnPerPlayer * numberOfPlayers;
 	}
-
+    
     // Update is called once per frame
     //public void update()
     //{
