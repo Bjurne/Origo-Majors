@@ -23,8 +23,7 @@ public class TeleportGenerator : MonoBehaviour {
         //Debug.Log("totalNumberOfDrones = " + totalNumberOfDrones);
         //Debug.Log("numberOfDrones = " + FindObjectOfType<StartupSettings>().numberOfSelectedDrones);
         //Debug.Log("numberOfPlayers = " + FindObjectOfType<StartupSettings>().numberOfSelectedplayers);
-
-        Debug.Log("dimensionNumber in TeleportGenerator is " + dimensionNumber);
+        
 
         if (dimensionNumber == 0) numberOfTeleports = (int)(totalNumberOfDrones / 2);
         else if (dimensionNumber == 2) numberOfTeleports = 1;

@@ -42,18 +42,21 @@ public class NodeContents : MonoBehaviour {
             //    Destroy(myBooster);
             //    holdingBoosterPickUp = false;
 
+            //    stateManager.currentPlayer--;
+
+
             //    var everyDrones = FindObjectsOfType<DroneLocation>();
 
             //    foreach (var drone in everyDrones)
             //    {
-            //        if (drone.tag != stateManager.currentPlayer.ToString())
-            //        {
-            //            drone.gameObject.layer = 10; // refenses to, selctable layer
-            //        }
-            //        else
-            //        {
-            //            drone.gameObject.layer = 11; // refenses to nonselctable layer
-            //        }
+            //        drone.gameObject.layer = 11; // refenses to nonselctable layer
+            //    }
+
+            //    var allPortals = FindObjectsOfType<TeleporterScript>();
+
+            //    foreach (var portal in allPortals)
+            //    {
+            //        portal.gameObject.layer = 10;
             //    }
             //}
             //catch (System.Exception)

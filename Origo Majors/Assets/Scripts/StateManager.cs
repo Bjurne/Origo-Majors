@@ -214,7 +214,6 @@ public class StateManager : MonoBehaviour {
             else
             {
                 currentDimension++;
-                Debug.Log("currentDimension in StateManager is " + currentDimension);
                 LoadNewDimension();
             }
         }
