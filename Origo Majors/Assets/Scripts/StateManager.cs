@@ -63,6 +63,7 @@ public class StateManager : MonoBehaviour {
         rollButton.interactable = false; // rollbutton disabled
         skipTurnButton.interactable = false;
 
+       
     }
 
     void Update()
@@ -162,7 +163,7 @@ public class StateManager : MonoBehaviour {
     {
         Debug.Log(" passar turen ");
 
-        if (currentPlayer == Player.Yellow)
+        if (currentPlayer == (Player)FindObjectOfType<StartupSettings>().numberOfSelectedplayers )
         {
             currentPlayer = 0;
         }
