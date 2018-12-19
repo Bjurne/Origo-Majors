@@ -7,7 +7,8 @@ public class StartupSettings : MonoBehaviour
 {
     public Dropdown playernumber;
     public Dropdown dronenumber;
-
+    public int numberOfSelectedplayers;
+    public int numberOfSelectedDrones;
     // keep this between scenes
     void Awake()
     {
@@ -23,12 +24,21 @@ public class StartupSettings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(playernumber.value);
+        Debug.Log("Number of players" + numberOfSelectedplayers);
+        numberOfSelectedplayers = playernumber.value + 2;
+
+        Debug.Log("Number of drones" + numberOfSelectedDrones);
+
+        numberOfSelectedDrones = dronenumber.value + 4;
+
     }
 
-    // debug log shows current selected in drop down first being 0
-    // TODO: add a function that sets NUMBEROFPLAYERS to the dropdown value
-    // or if function to se if
+    public void PlayerCount ()
+    {
+          
+    }
+
+    
 }
 
 
