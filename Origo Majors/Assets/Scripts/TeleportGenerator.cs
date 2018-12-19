@@ -9,7 +9,6 @@ public class TeleportGenerator : MonoBehaviour {
     public GridNode[] gridNodes;
     public GameObject gridGenerator;
     private int numberOfNodes;
-    private int dimensionNumber;
 
     public int numberOfTeleports;
 
@@ -18,14 +17,17 @@ public class TeleportGenerator : MonoBehaviour {
     {
         gridNodes = gridGenerator.GetComponent<GridGenerator>().activeNodes;
 
-        int totalNumberOfDrones = (FindObjectOfType<StartupSettings>().numberOfSelectedDrones + 2) * (FindObjectOfType<StartupSettings>().numberOfSelectedplayers + 1);
+        int totalNumberOfDrones = FindObjectOfType<DronePlacement>().numberOfDronesToSpawn;
+        int dimensionNumber = FindObjectOfType<StateManager>().currentDimension;
 
-        Debug.Log("totalNumberOfDrones = " + totalNumberOfDrones);
-        Debug.Log("numberOfDrones = " + FindObjectOfType<StartupSettings>().numberOfSelectedDrones);
-        Debug.Log("numberOfPlayers = " + FindObjectOfType<StartupSettings>().numberOfSelectedplayers);
+        //Debug.Log("totalNumberOfDrones = " + totalNumberOfDrones);
+        //Debug.Log("numberOfDrones = " + FindObjectOfType<StartupSettings>().numberOfSelectedDrones);
+        //Debug.Log("numberOfPlayers = " + FindObjectOfType<StartupSettings>().numberOfSelectedplayers);
+
+        Debug.Log("dimensionNumber in TeleportGenerator is " + dimensionNumber);
 
         if (dimensionNumber == 0) numberOfTeleports = (int)(totalNumberOfDrones / 2);
-        else if (dimensionNumber == 3) numberOfTeleports = 1;
+        else if (dimensionNumber == 2) numberOfTeleports = 1;
         else numberOfTeleports /= 2;
 
         for (int i = 0; i < numberOfTeleports;)
@@ -50,7 +52,7 @@ public class TeleportGenerator : MonoBehaviour {
             }
             else
             {
-                Debug.Log("This waypoint is allready holding a teleporter");
+                Debug.Log("This waypoint is allready holding a teleporter or is occupied");
             }
         }
 		

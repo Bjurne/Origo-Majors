@@ -10,17 +10,18 @@ public class BoosterPickUpGenerator : MonoBehaviour {
     public GridNode[] gridNodes;
     public GameObject gridGenerator;
     public int numberOfBoosterPickUps;
-    private int dimensionNumber;
 
 
     public void GenerateBoosterPickUps()
     {
         gridNodes = gridGenerator.GetComponent<GridGenerator>().activeNodes;
 
-        int totalNumberOfDrones = (FindObjectOfType<StartupSettings>().numberOfSelectedDrones + 2) * (FindObjectOfType<StartupSettings>().numberOfSelectedplayers + 1);
+        int totalNumberOfDrones = FindObjectOfType<DronePlacement>().numberOfDronesToSpawn;
+        int dimensionNumber = FindObjectOfType<StateManager>().currentDimension;
+
 
         if (dimensionNumber == 0) numberOfBoosterPickUps = (int)(totalNumberOfDrones / 2.5f);
-        else numberOfBoosterPickUps -= 2;
+        else numberOfBoosterPickUps += 2;
 
         for (int i = 0; i < numberOfBoosterPickUps;)
         {
@@ -58,7 +59,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
             }
             else
             {
-                Debug.Log("This waypoint is allready holding a Booster Pick Up");
+                Debug.Log("This waypoint is allready holding a Booster Pick Up or is occupied");
             }
         }
     }

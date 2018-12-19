@@ -50,16 +50,16 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
                     // TODO fixa rangen till gridGenerator.nodeRadius
                     {
                         //Debug.DrawRay(currentlySelectedObject.transform.position, hit.point);
-                        Debug.Log(hit.collider.GetComponent<GridNode>().Coordinates + " has been hit by the ray");
+                        //Debug.Log(hit.collider.GetComponent<GridNode>().Coordinates + " has been hit by the ray");
                         if (hit.collider.GetComponent<NodeContents>().occupied)
                         {
-                            Debug.Log("The path is blocked, and this move is illegal");
+                            //Debug.Log("The path is blocked, and this move is illegal");
                             continue;
                         }
                         if (y == moveRange - 1)
                         {
                             hit.collider.GetComponent<GridNode>().gameObject.tag = "LegalWarpDestination";
-                            Debug.Log(hit.collider.GetComponent<GridNode>().Coordinates + " has been added to legalWarpDestination");
+                            //Debug.Log(hit.collider.GetComponent<GridNode>().Coordinates + " has been added to legalWarpDestination");
                             //hit.transform.localScale = new Vector3(2, 2, 2);
 
                             //Color nodeColor = hit.collider.GetComponent<MeshRenderer>().material.color;

@@ -47,6 +47,9 @@ public class StateManager : MonoBehaviour {
     public int greenScore = 0;
     public int yellowScore = 0;
 
+    //The current dimension
+    public int currentDimension = 0;
+
     private void Awake()
     {
         gridGenerator.CallGridGenerator(5, 1.8f);
@@ -172,7 +175,7 @@ public class StateManager : MonoBehaviour {
             currentPlayer++;
         }
         
-        CountTotalDrones();
+        //CountTotalDrones();
         CountTeleports();
         if (!isGameOver)
         {
@@ -200,13 +203,20 @@ public class StateManager : MonoBehaviour {
         Debug.Log(allTeleports.Length + " teleports are still in play");
         if (allTeleports.Length <= 0 && initialPlacementIsDone)
         {
-            //Victory Screen
-            //Debug.Log("The game is over");
-            //isGameOver = true;
-            //victoryScreen.SetActive(true);
-            //victoryScreen.GetComponent<VictoryScreenScript>().DisplayVictoryScreen();
-
-            LoadNewDimension();
+            if (currentDimension == 2)
+            {
+                //Victory Screen
+                Debug.Log("The game is over");
+                isGameOver = true;
+                victoryScreen.SetActive(true);
+                victoryScreen.GetComponent<VictoryScreenScript>().DisplayVictoryScreen();
+            }
+            else
+            {
+                currentDimension++;
+                Debug.Log("currentDimension in StateManager is " + currentDimension);
+                LoadNewDimension();
+            }
         }
     }
 
@@ -248,8 +258,8 @@ public class StateManager : MonoBehaviour {
         ClearRemainingDrones();
         
         initialPlacementIsDone = true;
-        isDoneRolling = false;
-        isDoneMoving = false;
+        isDoneRolling = true;
+        isDoneMoving = true;
         isGameOver = false;
 
         currentPlayer = Player.Blue;

@@ -62,6 +62,9 @@ public class ClickListener : MonoBehaviour {
 
     private void MoveDrone()
     {
+        //currentlySelectedObject.transform.position = Vector3.Lerp(currentlySelectedObject.transform.position, selectedWaypoint.transform.position, Time.deltaTime * 5);
+        //Should work in a coroutine
+
         currentlySelectedObject.transform.position = selectedWaypoint.transform.position;
         currentlySelectedObject.transform.parent = selectedWaypoint.transform;
 
