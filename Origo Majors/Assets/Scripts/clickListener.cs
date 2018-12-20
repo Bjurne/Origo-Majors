@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ClickListener : MonoBehaviour {
 
@@ -25,6 +26,12 @@ public class ClickListener : MonoBehaviour {
 
     void Update ()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Destroy(FindObjectOfType<StartupSettings>().gameObject);
+            SceneManager.LoadScene("patriktest");
+        }
+
         if (Input.GetMouseButtonUp (0))
         {
             hasBeenMoved = false;
