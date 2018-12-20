@@ -32,6 +32,10 @@ public class NodeContents : MonoBehaviour {
                 Destroy(myBooster);
                 holdingBoosterPickUp = false;
 
+                StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
+
+
+
                 stateManager.currentPlayer--;
             }
             catch (System.Exception)
@@ -127,7 +131,9 @@ public class NodeContents : MonoBehaviour {
             }
             GameObject myTeleporter = GetComponentInChildren<TeleporterScript>().gameObject;
             Destroy(myTeleporter);
-            StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
+
+            StartCoroutine(FindObjectOfType<CameraShake>().Shake(.2f, .5f));
+
             holdingTeleporter = false;
             occupied = false;
 

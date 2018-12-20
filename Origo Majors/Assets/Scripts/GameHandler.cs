@@ -49,7 +49,7 @@ public class GameHandler : MonoBehaviour
 
     private void Start()
     {
-        //myGridGenerator.CallGridGenerator(5, 1.8f);
+        myGridGenerator.CallGridGenerator(5, 1.8f);
 
         myGameBoardScript.MoveBoardToCenter();
 
