@@ -22,7 +22,7 @@ public class StartupSettings : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void SetGameSettings()
     {
         //Debug.Log("Number of players" + numberOfSelectedplayers);
         numberOfSelectedplayers = playernumber.value + 1;

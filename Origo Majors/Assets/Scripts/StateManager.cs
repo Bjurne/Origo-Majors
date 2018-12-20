@@ -170,6 +170,7 @@ public class StateManager : MonoBehaviour {
 
     public void PassTurnToNextPlayer()
     {
+        CountTeleports();
         Debug.Log(" passar turen ");
 
         if (currentPlayer == (Player)FindObjectOfType<StartupSettings>().numberOfSelectedplayers )
@@ -184,7 +185,6 @@ public class StateManager : MonoBehaviour {
         
 
         //CountTotalDrones();
-        CountTeleports();
         if (!isGameOver)
         {
             CountPlayerDrones();
@@ -216,6 +216,9 @@ public class StateManager : MonoBehaviour {
                 //Victory Screen
                 Debug.Log("The game is over");
                 isGameOver = true;
+
+                victoryScreen.GetComponent<VictoryScreenScript>().winnerName = currentPlayer.ToString();
+
                 victoryScreen.SetActive(true);
                 victoryScreen.GetComponent<VictoryScreenScript>().DisplayVictoryScreen();
             }

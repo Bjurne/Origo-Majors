@@ -136,6 +136,9 @@ public class NodeContents : MonoBehaviour {
             myDrone.GetComponent<DroneLocation>().previouslyOccupiedWaypoint = null;
             Destroy(myDrone);
 
+            //var allTeleporters = FindObjectsOfType<TeleporterScript>();
+
+            //if (allTeleporters.Length <= 0) FindObjectOfType<VictoryScreenScript>().winnerName = stateManager.currentPlayer.ToString();
         }
 	}
 }
