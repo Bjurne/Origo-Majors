@@ -134,6 +134,12 @@ public class StateManager : MonoBehaviour {
             PassTurnToNextPlayer();
             rollButton.interactable = false; // disables button. is here for now
 
+            
+            FindObjectOfType<BoosterPickUpGenerator>().chanceToSpawnBooster++;
+            FindObjectOfType<BoosterPickUpGenerator>().CheckChanceToSpawnBooster();
+
+            Debug.Log("chanceToSpawnBooster is now: " + FindObjectOfType<BoosterPickUpGenerator>().chanceToSpawnBooster);
+
             isDoneRolling = false;
             isDoneMoving = false;
 
@@ -174,7 +180,9 @@ public class StateManager : MonoBehaviour {
         {
             currentPlayer++;
         }
+
         
+
         //CountTotalDrones();
         CountTeleports();
         if (!isGameOver)
@@ -277,14 +285,17 @@ public class StateManager : MonoBehaviour {
 
         foreach (WarpBoosterScript boosterScript in remainingWarpBoosterPickUps)
         {
+            boosterScript.GetComponentInParent<NodeContents>().holdingBoosterPickUp = false;
             Destroy(boosterScript.gameObject);
         }
         foreach (MapperBoosterScript boosterScript in remainingMapperBoosterPickUps)
         {
+            boosterScript.GetComponentInParent<NodeContents>().holdingBoosterPickUp = false;
             Destroy(boosterScript.gameObject);
         }
         foreach (DupeBoosterScript boosterScript in remainingDupeBoosterPickUps)
         {
+            boosterScript.GetComponentInParent<NodeContents>().holdingBoosterPickUp = false;
             Destroy(boosterScript.gameObject);
         }
     }
@@ -294,7 +305,7 @@ public class StateManager : MonoBehaviour {
         var allDrones = FindObjectsOfType<DroneLocation>();
         foreach (var drone in allDrones)
         {
-            drone.gameObject.GetComponentInParent<NodeContents>().occupied = false;
+            drone.GetComponentInParent<NodeContents>().occupied = false;
             Destroy(drone.gameObject);
         }
     }

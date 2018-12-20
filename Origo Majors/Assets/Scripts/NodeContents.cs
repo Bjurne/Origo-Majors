@@ -21,6 +21,8 @@ public class NodeContents : MonoBehaviour {
 
         if (holdingBoosterPickUp && occupied)
         {
+            FindObjectOfType<BoosterPickUpGenerator>().chanceToSpawnBooster-=2;
+
             Debug.Log("A booster has been picked up!");
             stateManager = FindObjectOfType<StateManager>();
 
@@ -90,6 +92,8 @@ public class NodeContents : MonoBehaviour {
 
         if (holdingTeleporter && occupied)
         {
+            FindObjectOfType<BoosterPickUpGenerator>().chanceToSpawnBooster-=2;
+            
             Debug.Log("A teleporter has been entered!");
             stateManager = FindObjectOfType<StateManager>();
             int ownerOfDrone = (int)stateManager.currentPlayer;
