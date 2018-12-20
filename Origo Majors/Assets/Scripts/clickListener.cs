@@ -152,6 +152,7 @@ public class ClickListener : MonoBehaviour {
         }
         Debug.Log("Movement complete, calling some neat functions");
 
+        currentlySelectedObject.transform.parent = selectedWaypoint.transform;
 
         currentlySelectedObject.GetComponent<DroneLocation>().ChangeLocation();
         selectedWaypoint.GetComponent<NodeContents>().OnDroneEnter();
@@ -159,7 +160,7 @@ public class ClickListener : MonoBehaviour {
         Debug.Log(currentlySelectedObject.name + " is being moved to " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
 
         hasBeenMoved = true;
-        selectionMarker.SetActive(false); // denna funkar inte för tillfället, av någon anledning
+        selectionMarker.SetActive(false);
         selectionMarker = null;
         currentlySelectedObject = null;
         selectedWaypoint = null;

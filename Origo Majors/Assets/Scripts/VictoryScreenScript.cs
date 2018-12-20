@@ -26,33 +26,36 @@ public class VictoryScreenScript : MonoBehaviour {
 
         int secondHighest = (from score in scores orderby score descending select score).Skip(1).First();
 
-        if (highestScore == secondHighest)
-        {
-            firstPlaceText.text = ("It's a draw! Everyone lost!");
-        }
-        else
-        {
+        //if (highestScore == secondHighest)
+        //{
+        //    firstPlaceText.text = ("It's a draw! Everyone lost!");
+        //}
+        //else
+        //{
 
-            if (highestScore == blueScore)
-            {
-                winnerName = ("Blue Player");
-            }
-            else if (highestScore == redScore)
-            {
-                winnerName = ("Red Player");
-            }
-            else if (highestScore == greenScore)
-            {
-                winnerName = ("Green Player");
-            }
-            else if (highestScore == yellowScore)
-            {
-                winnerName = ("Yellow Player");
-            }
+        //    if (highestScore == blueScore)
+        //    {
+        //        winnerName = ("Blue Player");
+        //    }
+        //    else if (highestScore == redScore)
+        //    {
+        //        winnerName = ("Red Player");
+        //    }
+        //    else if (highestScore == greenScore)
+        //    {
+        //        winnerName = ("Green Player");
+        //    }
+        //    else if (highestScore == yellowScore)
+        //    {
+        //        winnerName = ("Yellow Player");
+        //    }
 
-            firstPlaceText.text = (winnerName + " wins with " + highestScore.ToString() + " points!");
+        //    firstPlaceText.text = (winnerName + " wins with " + highestScore.ToString() + " points!");
 
-        }
+        //}
+
+        firstPlaceText.text = (winnerName + " is the winner!");
+
     }
-	
+
 }
