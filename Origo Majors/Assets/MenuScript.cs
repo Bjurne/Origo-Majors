@@ -13,7 +13,11 @@ public class MenuScript : MonoBehaviour {
 
         var textComponents = Component.FindObjectsOfType<Text>();
         foreach (var component in textComponents)
-            component.font = Origotext;
+            component.font = Origotext ;
+
+        var textcolorComponents = Component.FindObjectsOfType<Text>();
+        foreach (var component in textcolorComponents)
+            component.color = Color.white;
     }
 
     public void QuitGame()
