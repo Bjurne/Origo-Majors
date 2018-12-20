@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonGroup : MonoBehaviour
 {
-
+    public GameObject tempDrone;
     int rng;
 
     public void A_PlaceMyDrone()
@@ -33,17 +33,19 @@ public class ButtonGroup : MonoBehaviour
         Debug.Log("---------------------------------");
         Debug.Log("Clicked Make Move");
 
-        rng = Random.Range(0, 2);
-        if (rng == 1)
-        {
-            Debug.Log("Found and entered a portal");
-            GameHandler.Instance.ReducePortalCount();
-        }
-        else
-        {
-            Debug.Log("Found no portal, availablePortals stays the same");
-        }
-        GameHandler.Instance.CheckPortalsAfterMove();
+        StartCoroutine(MoveDrone(tempDrone, GameHandler.Instance.GetRandomNode().transform.position));
+
+        //rng = Random.Range(0, 2);
+        //if (rng == 1)
+        //{
+        //    Debug.Log("Found and entered a portal");
+        //    GameHandler.Instance.ReducePortalCount();
+        //}
+        //else
+        //{
+        //    Debug.Log("Found no portal, availablePortals stays the same");
+        //}
+        //GameHandler.Instance.CheckPortalsAfterMove();
     }
 
     public void A_AfterMove()
@@ -58,6 +60,27 @@ public class ButtonGroup : MonoBehaviour
         Debug.Log("---------------------------------");
         Debug.Log("Clicked Skip Turn, go to EndOfTurn");
         GameHandler.Instance.ChangeState(GameState.EndOfTurn);
+    }
+
+    private IEnumerator MoveDrone(GameObject SelectedThing, Vector3 moveToPos)
+    {
+        bool notDoneMoving = true;
+        float stepCounter = 0;
+        Vector3 originalPos;
+        originalPos = SelectedThing.transform.position;
+
+        while (notDoneMoving)
+        {
+            if(SelectedThing.transform.position == moveToPos)
+            {
+                notDoneMoving = false;
+            }
+            SelectedThing.transform.position = Vector3.Lerp(originalPos, moveToPos, stepCounter);
+            stepCounter += 0.05f;
+            yield return null;
+        }
+        Debug.Log("Movement complete");
+        GameHandler.Instance.CheckPortalsAfterMove();
     }
 
 }

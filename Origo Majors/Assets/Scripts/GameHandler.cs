@@ -233,4 +233,12 @@ public class GameHandler : MonoBehaviour
         int newId = turnId % playerArray.Length;
         return newId;
     }
+
+    public GameObject GetRandomNode()
+    {
+        int hello = Random.Range(0, myGridGenerator.activeNodes.Length);
+
+        return myGridGenerator.activeNodes[hello].gameObject;
+    }
+
 }
