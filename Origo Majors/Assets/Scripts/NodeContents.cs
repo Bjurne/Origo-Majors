@@ -18,6 +18,7 @@ public class NodeContents : MonoBehaviour {
     }
 
     public void OnDroneEnter () {
+
         if (holdingBoosterPickUp && occupied)
         {
             Debug.Log("A booster has been picked up!");
@@ -122,6 +123,7 @@ public class NodeContents : MonoBehaviour {
             }
             GameObject myTeleporter = GetComponentInChildren<TeleporterScript>().gameObject;
             Destroy(myTeleporter);
+            StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
             holdingTeleporter = false;
             occupied = false;
 
