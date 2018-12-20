@@ -19,6 +19,8 @@ public class ClickListener : MonoBehaviour {
     private Plane plane = new Plane(Vector3.up, 0f);
     public Material hexGridMaterial;
 
+    private bool inMotion = false;
+
 
 
     void Update ()
@@ -62,28 +64,11 @@ public class ClickListener : MonoBehaviour {
 
     private void MoveDrone()
     {
-        //currentlySelectedObject.transform.position = Vector3.Lerp(currentlySelectedObject.transform.position, selectedWaypoint.transform.position, Time.deltaTime * 5);
-        //Should work in a coroutine
-
-        currentlySelectedObject.transform.position = selectedWaypoint.transform.position;
-        currentlySelectedObject.transform.parent = selectedWaypoint.transform;
-
+        inMotion = true;
+        StartCoroutine(AnimateDrone(currentlySelectedObject, selectedWaypoint.transform.position));
 
         selectedWaypoint.GetComponent<NodeContents>().occupied = true;
-        currentlySelectedObject.GetComponent<DroneLocation>().ChangeLocation();
-        selectedWaypoint.GetComponent<NodeContents>().OnDroneEnter();
 
-        Debug.Log(currentlySelectedObject.name + " has been moved to " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
-
-        //Vector3 directionMoved = currentlySelectedObject.GetComponent<DroneLocation>().currentlyOccupiedWaypoint.transform.position - currentlySelectedObject.GetComponent<DroneLocation>().previouslyOccupiedWaypoint.transform.position;
-        //Debug.Log("direction is " + directionMoved);
-
-        hasBeenMoved = true;
-        selectionMarker.SetActive(false); // denna funkar inte för tillfället, av någon anledning
-        currentlySelectedObject = null;
-        selectionMarker = null;
-        selectedWaypoint = null;
-        stateManager.isDoneMoving = true;
     }
 
     public void ClearLegalWarpDestinations()
@@ -103,10 +88,14 @@ public class ClickListener : MonoBehaviour {
     {
         if (currentlySelectedObject != null)
         {
-            selectionMarker.SetActive(false);
+            if (selectionMarker != null) selectionMarker.SetActive(false);
+
+            if (!inMotion)
+            {
             currentlySelectedObject = null;
             selectionMarker = null;
             selectedWaypoint = null;
+            }
         }
     }
 
@@ -143,4 +132,40 @@ public class ClickListener : MonoBehaviour {
             //clickPosition = ray.GetPoint(distanceToPlane);
         }
     }
+
+    private IEnumerator AnimateDrone(GameObject SelectedThing, Vector3 moveToPos)
+    {
+        bool notDoneMoving = true;
+        float stepCounter = 0;
+        Vector3 originalPos;
+        originalPos = SelectedThing.transform.position;
+
+        while (notDoneMoving)
+        {
+            if (SelectedThing.transform.position == moveToPos)
+            {
+                notDoneMoving = false;
+            }
+            SelectedThing.transform.position = Vector3.Lerp(originalPos, moveToPos, stepCounter);
+            stepCounter += 0.05f;
+            yield return null;
+        }
+        Debug.Log("Movement complete, calling some neat functions");
+
+
+        currentlySelectedObject.GetComponent<DroneLocation>().ChangeLocation();
+        selectedWaypoint.GetComponent<NodeContents>().OnDroneEnter();
+
+        Debug.Log(currentlySelectedObject.name + " is being moved to " + selectedWaypoint.GetComponent<GridNode>().Coordinates);
+
+        hasBeenMoved = true;
+        selectionMarker.SetActive(false); // denna funkar inte för tillfället, av någon anledning
+        selectionMarker = null;
+        currentlySelectedObject = null;
+        selectedWaypoint = null;
+
+        inMotion = false;
+        stateManager.isDoneMoving = true;
+    }
+
 }
