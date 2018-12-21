@@ -7,6 +7,7 @@ public class LoadMenuScene : MonoBehaviour {
 
 	public void LoadMenu()
     {
+        Destroy(FindObjectOfType<StartupSettings>().gameObject);
         SceneManager.LoadScene("patriktest");
     }
 }

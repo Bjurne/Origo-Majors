@@ -1801,6 +1801,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.2109909
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 8187740945068b542975a381a88f456d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31d842154e94fc644a861e08af4c458e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8187740945068b542975a381a88f456d, type: 3}
   m_IsPrefabAsset: 0
@@ -4209,7 +4213,7 @@ Prefab:
     - target: {fileID: 114896094020208188, guid: 9e4c8061018e65a47af1edef6d26e65a,
         type: 2}
       propertyPath: m_FontData.m_Alignment
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114165607264002490, guid: 9e4c8061018e65a47af1edef6d26e65a,
         type: 2}
@@ -4289,6 +4293,11 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: -75
       objectReference: {fileID: 0}
+    - target: {fileID: 114194473450684156, guid: 9e4c8061018e65a47af1edef6d26e65a,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: e69484481b5a9494e931505191420458, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e4c8061018e65a47af1edef6d26e65a, type: 2}
   m_IsPrefabAsset: 0
@@ -7782,6 +7791,18 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4956207507755342, guid: e287ab2308f523e45a0abc6383cf1d28, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956207507755342, guid: e287ab2308f523e45a0abc6383cf1d28, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 15.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956207507755342, guid: e287ab2308f523e45a0abc6383cf1d28, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -7.29
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e287ab2308f523e45a0abc6383cf1d28, type: 2}
   m_IsPrefabAsset: 0
@@ -10865,7 +10886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2052025372
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11034,7 +11055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 6.200012, y: 4.600006}
+  m_AnchoredPosition: {x: 6.200012, y: 268.5}
   m_SizeDelta: {x: 175, y: 140}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2088031316
