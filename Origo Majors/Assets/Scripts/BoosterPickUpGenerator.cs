@@ -68,7 +68,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
 
     public void CheckChanceToSpawnBooster()
     {
-        
+        if (chanceToSpawnBooster <= -8) chanceToSpawnBooster = 0;
         if (chanceToSpawnBooster > Random.Range(1,11))
         {
             SpawnBooster();
@@ -81,7 +81,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
 
     public void SpawnBooster()
     {
-        for (int i = 0; i < 1;)
+        for (int i = 0; i < 10;)
         {
             int randomWaypoint = Random.Range(0, gridNodes.Length);
             bool illegalSpawnPoint = false;
@@ -113,14 +113,15 @@ public class BoosterPickUpGenerator : MonoBehaviour {
                 }
 
                 myNode.holdingBoosterPickUp = true;
-                i++;
+                i=+10;
+
+                Debug.Log("A booster has been spawned!");
             }
             else
             {
                 Debug.Log("This node is cluttered, retrying to spawn booster");
+                i++; // we give this up to ten goes before we opt out
             }
-
-            Debug.Log("A booster has been spawned!");
         }
     }
 }

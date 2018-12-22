@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public enum Player
 {
@@ -50,6 +52,9 @@ public class StateManager : MonoBehaviour {
     //The current dimension
     public int currentDimension = 0;
 
+    //Used to actively count number of players remaning
+    public int numberOfActivePlayers = 0;
+
     private void Awake()
     {
         gridGenerator.CallGridGenerator(5, 1.8f);
@@ -66,7 +71,7 @@ public class StateManager : MonoBehaviour {
         rollButton.interactable = false; // rollbutton disabled
         skipTurnButton.interactable = false;
 
-       
+        numberOfActivePlayers = FindObjectOfType<StartupSettings>().numberOfSelectedplayers;
     }
 
     void Update()
@@ -80,6 +85,12 @@ public class StateManager : MonoBehaviour {
             if (Input.GetMouseButtonUp(0))
             {
                 initialPlacement.PlaceDrone(currentPlayer);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Destroy(FindObjectOfType<StartupSettings>().gameObject);
+                SceneManager.LoadScene("patriktest");
             }
         } 
 
@@ -171,9 +182,10 @@ public class StateManager : MonoBehaviour {
     public void PassTurnToNextPlayer()
     {
         CountTeleports();
+        //if (initialPlacementIsDone == true) CountActivePlayers();
         Debug.Log(" passar turen ");
 
-        if (currentPlayer == (Player)FindObjectOfType<StartupSettings>().numberOfSelectedplayers )
+        if (currentPlayer == (Player)FindObjectOfType<StartupSettings>().numberOfSelectedplayers)
         {
             currentPlayer = 0;
         }
@@ -182,15 +194,55 @@ public class StateManager : MonoBehaviour {
             currentPlayer++;
         }
 
-        
+
 
         //CountTotalDrones();
         if (!isGameOver)
         {
             CountPlayerDrones();
         }
+        
     }
-    
+
+    private void CountActivePlayers()
+    {
+        int activePlayers = 0;
+        int blueDronesRemaining = 0;
+        int redDronesRemaining = 0;
+        int greenDronesRemaining = 0;
+        int yellowDronesRemaining = 0;
+
+
+        var allDrones = FindObjectsOfType<DroneLocation>();
+
+        foreach (var drone in allDrones)
+        {
+            if (drone.tag == Player.Blue.ToString())
+            {
+                blueDronesRemaining++;
+            }
+            if (drone.tag == Player.Red.ToString())
+            {
+                redDronesRemaining++;
+            }
+            if (drone.tag == Player.Green.ToString())
+            {
+                greenDronesRemaining++;
+            }
+            if (drone.tag == Player.Yellow.ToString())
+            {
+                yellowDronesRemaining++;
+            }
+        }
+
+        if (blueDronesRemaining >= 1) activePlayers++;
+        if (redDronesRemaining >= 1) activePlayers++;
+        if (greenDronesRemaining >= 1) activePlayers++;
+        if (yellowDronesRemaining >= 1) activePlayers++;
+
+        numberOfActivePlayers = activePlayers;
+    }
+
     private void CountTotalDrones()
     {
         var allDrones = FindObjectsOfType<DroneLocation>();
@@ -272,7 +324,7 @@ public class StateManager : MonoBehaviour {
         isDoneMoving = true;
         isGameOver = false;
 
-        currentPlayer = Player.Blue;
+        currentPlayer--;
         
         FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones();
         FindObjectOfType<TeleportGenerator>().GenerateTeleports();

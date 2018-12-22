@@ -40,12 +40,13 @@ public class DronePlacement : MonoBehaviour {
         //{
 
         //}
+        
+
         Vector3 clickPosition = -Vector3.one;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, 1000f, waypoints))
-        // och ifall selected waypoint inte är ockuperad
         {
             clickPosition = hit.point;
             selectedWaypoint = hit.collider.gameObject;
