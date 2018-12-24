@@ -24,11 +24,10 @@ public class DronePlacement : MonoBehaviour {
             numberOfDronesToSpawnPerPlayer = FindObjectOfType<StartupSettings>().numberOfSelectedDrones;
             numberOfPlayers = FindObjectOfType<StartupSettings>().numberOfSelectedplayers +1;
         }
-        catch (Exception)
+        catch (Exception e)
         {
             numberOfDronesToSpawnPerPlayer = 6;
             numberOfPlayers = 4;
-            throw;
         }
         numberOfDronesToSpawn = numberOfDronesToSpawnPerPlayer * numberOfPlayers;
 	}    //    }

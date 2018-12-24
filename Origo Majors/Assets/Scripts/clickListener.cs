@@ -109,7 +109,6 @@ public class ClickListener : MonoBehaviour {
     private void ClickForSelection()
     {
         if ((Physics.Raycast(ray, out hit, 1000f, selectable)) && !hasBeenMoved)
-        // och om pjäsen tillhör mig / current player
         {
             //clickPosition = hit.point;
             currentlySelectedObject = hit.rigidbody.gameObject;
@@ -126,8 +125,6 @@ public class ClickListener : MonoBehaviour {
         {
             //currentlySelectedObject.transform.GetChild(0).gameObject.SetActive(false);
             //currentlySelectedObject = null;
-            Debug.Log("Currently selected object is none");
-            Debug.Log("The Selection Marker of Currently selected object is none");
         }
     }
 

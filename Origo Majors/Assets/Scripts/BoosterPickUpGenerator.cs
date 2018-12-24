@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoosterPickUpGenerator : MonoBehaviour {
 
     public GameObject warpBoosterPickUpPrefab;
-    public GameObject mapperBoosterPickUpPrefab;
+    public GameObject throttleBoosterPickUpPrefab;
     public GameObject dupeBoosterPickUpPrefab;
     public GridNode[] gridNodes;
     public GameObject gridGenerator;
@@ -38,7 +38,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
 
             if (!illegalSpawnPoint)
             {
-                int randomBoosterPickUp = Random.Range(0, 1); // <---- MVP only one booster available, change random range to 3 to enable the other boosters
+                int randomBoosterPickUp = Random.Range(0, 2); // <---- MVP only one booster available, change random range to 3 to enable the other boosters
 
                 if (randomBoosterPickUp == 0)
                 {
@@ -47,7 +47,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
                 }
                 else if (randomBoosterPickUp == 1)
                 {
-                    GameObject myBooster = Instantiate(mapperBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
+                    GameObject myBooster = Instantiate(throttleBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
                     myBooster.transform.parent = myNode.transform;
                 }
                 else
@@ -68,8 +68,8 @@ public class BoosterPickUpGenerator : MonoBehaviour {
 
     public void CheckChanceToSpawnBooster()
     {
-        if (chanceToSpawnBooster <= -8) chanceToSpawnBooster = 0;
-        if (chanceToSpawnBooster > Random.Range(1,11))
+        if (chanceToSpawnBooster <= -1) chanceToSpawnBooster = 0;
+        if (chanceToSpawnBooster > Random.Range(1,10))
         {
             SpawnBooster();
             chanceToSpawnBooster = 0;
@@ -94,7 +94,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
 
             if (!illegalSpawnPoint)
             {
-                int randomBoosterPickUp = Random.Range(0, 1); // <---- MVP only one booster available, change random range to 3 to enable the other boosters
+                int randomBoosterPickUp = Random.Range(0, 2); // <---- MVP only one booster available, change random range to 3 to enable the other boosters
 
                 if (randomBoosterPickUp == 0)
                 {
@@ -103,7 +103,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
                 }
                 else if (randomBoosterPickUp == 1)
                 {
-                    GameObject myBooster = Instantiate(mapperBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
+                    GameObject myBooster = Instantiate(throttleBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
                     myBooster.transform.parent = myNode.transform;
                 }
                 else

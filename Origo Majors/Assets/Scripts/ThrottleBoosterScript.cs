@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapperBoosterScript : MonoBehaviour {
+public class ThrottleBoosterScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

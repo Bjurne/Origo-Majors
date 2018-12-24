@@ -71,7 +71,7 @@ public class StateManager : MonoBehaviour {
         rollButton.interactable = false; // rollbutton disabled
         skipTurnButton.interactable = false;
 
-        numberOfActivePlayers = FindObjectOfType<StartupSettings>().numberOfSelectedplayers;
+        //numberOfActivePlayers = FindObjectOfType<StartupSettings>().numberOfSelectedplayers;
     }
 
     void Update()
@@ -89,7 +89,13 @@ public class StateManager : MonoBehaviour {
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Destroy(FindObjectOfType<StartupSettings>().gameObject);
+                try
+                {
+                    Destroy(FindObjectOfType<StartupSettings>().gameObject);
+                }
+                catch (Exception e)
+                {
+                }
                 SceneManager.LoadScene("patriktest");
             }
         } 
@@ -98,7 +104,7 @@ public class StateManager : MonoBehaviour {
         {
             // add a reset for dice roll image
             diceRoller.transform.GetChild(1).GetComponent<Image>().sprite = rollSprite;
-            setRollButtonColor();
+            diceRoller.setRollButtonColor();
             rollButton.interactable = true;
             skipTurnButton.interactable = true;
             
@@ -113,6 +119,21 @@ public class StateManager : MonoBehaviour {
             rollButton.interactable = false;
             //Debug.Log(" Time to selct ");
             //Select all drones so we can turn them off.
+
+            ThrottleBar[] allThrottleBars = diceRoller.GetComponentsInChildren<ThrottleBar>(true);
+
+            foreach (var throttleBar in allThrottleBars)
+            {
+                if (throttleBar.gameObject.tag == currentPlayer.ToString())
+                {
+                    throttleBar.gameObject.SetActive(true);
+                }
+                else
+                {
+                    throttleBar.gameObject.SetActive(false);
+                }
+            }
+
             var allDrones = FindObjectsOfType<DroneLocation>();
 
             foreach(var drone in allDrones)
@@ -139,6 +160,13 @@ public class StateManager : MonoBehaviour {
                     drone.gameObject.layer = 11; // refenses to, nonselctable layer
                 }
             }
+
+            ThrottleBar[] allThrottleBars = diceRoller.GetComponentsInChildren<ThrottleBar>(true);
+            foreach (var throttleBar in allThrottleBars)
+            {
+                throttleBar.gameObject.SetActive(false);
+            }
+
             clickListener.ClearCurrentlySelected();
             clickListener.ClearLegalWarpDestinations();
             Debug.Log( "next turn" );
@@ -157,27 +185,7 @@ public class StateManager : MonoBehaviour {
         }
     }
 
-    private void setRollButtonColor()
-    {
-        Vector4 rollButtonColor = Color.white;
-        if (currentPlayer == Player.Blue)
-        {
-            rollButtonColor = Color.blue;
-        }
-        else if (currentPlayer == Player.Red)
-        {
-            rollButtonColor = Color.red;
-        }
-        else if (currentPlayer == Player.Green)
-        {
-            rollButtonColor = Color.green;
-        }
-        else if (currentPlayer == Player.Yellow)
-        {
-            rollButtonColor = Color.yellow;
-        }
-        rollButton.GetComponent<Image>().color = rollButtonColor;
-    }
+
 
     public void PassTurnToNextPlayer()
     {
@@ -246,7 +254,7 @@ public class StateManager : MonoBehaviour {
     private void CountTotalDrones()
     {
         var allDrones = FindObjectsOfType<DroneLocation>();
-        Debug.Log(allDrones.Length + " drones are still in play");
+        //Debug.Log(allDrones.Length + " drones are still in play");
         if (allDrones.Length <= 0 && initialPlacementIsDone)
         {
             //Victory Screen
@@ -260,7 +268,7 @@ public class StateManager : MonoBehaviour {
     private void CountTeleports()
     {
         var allTeleports = FindObjectsOfType<TeleporterScript>();
-        Debug.Log(allTeleports.Length + " teleports are still in play");
+        //Debug.Log(allTeleports.Length + " teleports are still in play");
         if (allTeleports.Length <= 0 && initialPlacementIsDone)
         {
             if (currentDimension == 2)
@@ -307,7 +315,7 @@ public class StateManager : MonoBehaviour {
         //Debug.Log("skipturn clicked mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
         //isDoneRolling = true;
         //isDoneMoving = true;
-        Debug.Log(isDoneMoving + " " + isDoneRolling);
+        //Debug.Log(isDoneMoving + " " + isDoneRolling);
 
         isDoneRolling = true;
         isDoneMoving = true;
@@ -335,7 +343,7 @@ public class StateManager : MonoBehaviour {
     private void ClearRemainingBoosterPickUps()
     {
         WarpBoosterScript[] remainingWarpBoosterPickUps = FindObjectsOfType<WarpBoosterScript>();
-        MapperBoosterScript[] remainingMapperBoosterPickUps = FindObjectsOfType<MapperBoosterScript>();
+        ThrottleBoosterScript[] remainingMapperBoosterPickUps = FindObjectsOfType<ThrottleBoosterScript>();
         DupeBoosterScript[] remainingDupeBoosterPickUps = FindObjectsOfType<DupeBoosterScript>();
 
         foreach (WarpBoosterScript boosterScript in remainingWarpBoosterPickUps)
@@ -343,7 +351,7 @@ public class StateManager : MonoBehaviour {
             boosterScript.GetComponentInParent<NodeContents>().holdingBoosterPickUp = false;
             Destroy(boosterScript.gameObject);
         }
-        foreach (MapperBoosterScript boosterScript in remainingMapperBoosterPickUps)
+        foreach (ThrottleBoosterScript boosterScript in remainingMapperBoosterPickUps)
         {
             boosterScript.GetComponentInParent<NodeContents>().holdingBoosterPickUp = false;
             Destroy(boosterScript.gameObject);

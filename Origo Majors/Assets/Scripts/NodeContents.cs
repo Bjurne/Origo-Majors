@@ -33,14 +33,40 @@ public class NodeContents : MonoBehaviour {
                 holdingBoosterPickUp = false;
 
                 StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
-
-
-
+                
                 stateManager.currentPlayer--;
             }
             catch (System.Exception)
             {
-                throw;
+            }
+
+            try
+            {
+                GameObject myBooster = GetComponentInChildren<ThrottleBoosterScript>().gameObject;
+                Destroy(myBooster);
+                holdingBoosterPickUp = false;
+
+                StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
+
+                Debug.Log("A Throttle has been picked up!");
+
+                ThrottleBar[] allThrottleBars = FindObjectOfType<Dice>().GetComponentsInChildren<ThrottleBar>(true);
+
+                foreach (var throttleBar in allThrottleBars)
+                {
+                    if (throttleBar.gameObject.tag == FindObjectOfType<StateManager>().currentPlayer.ToString())
+                    {
+                        throttleBar.GainThrottle();
+                    }
+                    else
+                    {
+                    }
+                }
+                
+
+            }
+            catch (System.Exception)
+            {
             }
 
             //try
