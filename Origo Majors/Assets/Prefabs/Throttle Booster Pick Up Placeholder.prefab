@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4206767482426536}
   m_Layer: 0
-  m_Name: Mapper Booster Pick Up Placeholder
+  m_Name: Throttle Booster Pick Up Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

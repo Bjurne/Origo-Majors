@@ -3850,6 +3850,12 @@ Prefab:
       value: 
       objectReference: {fileID: 1248646184942444, guid: cce8d90081916fb488ac6fcb3d2362af,
         type: 2}
+    - target: {fileID: 114869637031004384, guid: 14573136086987d44bbd38dc1ebdc86f,
+        type: 2}
+      propertyPath: throttleBoosterPickUpPrefab
+      value: 
+      objectReference: {fileID: 1487409129942118, guid: ab8908ba4cbe6b246b56d642f5456c53,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14573136086987d44bbd38dc1ebdc86f, type: 2}
   m_IsPrefabAsset: 0
