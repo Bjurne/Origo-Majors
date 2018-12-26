@@ -50,16 +50,22 @@ public class NodeContents : MonoBehaviour {
 
                 Debug.Log("A Throttle has been picked up!");
 
-                ThrottleBar[] allThrottleBars = FindObjectOfType<Dice>().GetComponentsInChildren<ThrottleBar>(true);
+                Canvas userInterfaceCanvas = FindObjectOfType<animController>().GetComponentInParent<Canvas>();
+
+                ThrottleBar[] allThrottleBars = userInterfaceCanvas.GetComponentsInChildren<ThrottleBar>(true);
+
+                Debug.Log("NodeContents hittar " + allThrottleBars.Length + " stycken throttlebars.");
 
                 foreach (var throttleBar in allThrottleBars)
                 {
                     if (throttleBar.gameObject.tag == FindObjectOfType<StateManager>().currentPlayer.ToString())
                     {
+                        Debug.Log("Ropar på " + FindObjectOfType<StateManager>().currentPlayer.ToString() + "s throttlebar Gainthrottle");
                         throttleBar.GainThrottle();
                     }
                     else
                     {
+                        Debug.Log("Fel tag?");
                     }
                 }
                 

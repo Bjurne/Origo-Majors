@@ -32,6 +32,7 @@ public class StateManager : MonoBehaviour {
     public CameraHolder myCameraHolder;
     public GameBoardScript myGameBoardScript;
     public animController animationController;
+    public GameObject userInterfaceCanvas;
 
     public Sprite rollSprite; 
 
@@ -56,6 +57,8 @@ public class StateManager : MonoBehaviour {
 
     //Used to actively count number of players remaning
     public int numberOfActivePlayers = 0;
+
+    private int comboCounter = 0;
 
     private void Awake()
     {
@@ -122,7 +125,7 @@ public class StateManager : MonoBehaviour {
             //Debug.Log(" Time to selct ");
             //Select all drones so we can turn them off.
 
-            ThrottleBar[] allThrottleBars = diceRoller.GetComponentsInChildren<ThrottleBar>(true);
+            ThrottleBar[] allThrottleBars = userInterfaceCanvas.GetComponentsInChildren<ThrottleBar>(true);
 
             foreach (var throttleBar in allThrottleBars)
             {
@@ -163,7 +166,7 @@ public class StateManager : MonoBehaviour {
                 }
             }
 
-            ThrottleBar[] allThrottleBars = diceRoller.GetComponentsInChildren<ThrottleBar>(true);
+            ThrottleBar[] allThrottleBars = userInterfaceCanvas.GetComponentsInChildren<ThrottleBar>(true);
             foreach (var throttleBar in allThrottleBars)
             {
                 throttleBar.gameObject.SetActive(false);
@@ -204,10 +207,20 @@ public class StateManager : MonoBehaviour {
             currentPlayer++;
         }
 
-        //CountTotalDrones();
+        //CountTotalDrones(); Gjordes för mvpn. Kan behövas för ett annat game mode?
         if (!isGameOver)
         {
             CountPlayerDrones();
+        }
+
+        if (currentPlayer == previousPlayer)
+        {
+            comboCounter++;
+            Debug.Log("Det är en combo!" + comboCounter);
+        }
+        else
+        {
+            comboCounter = 0;
         }
 
         if (currentPlayer != previousPlayer) animationController.SetUISize();

@@ -18,7 +18,6 @@ public class ThrottleBar : MonoBehaviour {
 
     public void Start()
     {
-
     }
 
     public void GainThrottle()
@@ -32,7 +31,7 @@ public class ThrottleBar : MonoBehaviour {
             GameObject myThrottle = Instantiate(throttleToSpawn, thePlaceToSpawnThrottle);
             myThrottle.transform.SetParent(thePlaceToSpawnThrottle);
         }
-        Debug.Log(FindObjectOfType<StateManager>().currentPlayer.ToString() + " has picked up att Throttle!");
+        Debug.Log(FindObjectOfType<StateManager>().currentPlayer.ToString() + " has picked up a Throttle!");
     }
 
     private void FindPlace()
