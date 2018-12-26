@@ -9682,6 +9682,11 @@ Prefab:
       propertyPath: animationController
       value: 
       objectReference: {fileID: 2138883422}
+    - target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
+        type: 2}
+      propertyPath: userInterfaceCanvas
+      value: 
+      objectReference: {fileID: 2138883416}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c990241860e90540b3b2f6c52c52f06, type: 2}
   m_IsPrefabAsset: 0
@@ -10809,6 +10814,11 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &2138883416 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1877499458090078, guid: 72117f388889b6b48a7952efe8eafe88,
+    type: 2}
+  m_PrefabInternal: {fileID: 2018412992}
 --- !u!114 &2138883422 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114233842026837870, guid: 72117f388889b6b48a7952efe8eafe88,
