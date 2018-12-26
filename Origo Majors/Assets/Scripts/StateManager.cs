@@ -208,7 +208,7 @@ public class StateManager : MonoBehaviour {
         }
 
         //CountTotalDrones(); Gjordes för mvpn. Kan behövas för ett annat game mode?
-        if (!isGameOver)
+        if (!isGameOver && initialPlacementIsDone)
         {
             CountPlayerDrones();
         }
@@ -225,6 +225,18 @@ public class StateManager : MonoBehaviour {
 
         if (currentPlayer != previousPlayer) animationController.SetUISize();
         previousPlayer = currentPlayer;
+    }
+
+    private void CountPlayerDrones()
+    {
+        //TODO här letar vi efter vilka gameobjects som helst med rätt tag, vill egentligen bara hitta drönare med rätt tag
+        GameObject[] myDrones = GameObject.FindGameObjectsWithTag(currentPlayer.ToString()) as GameObject[];
+        Debug.Log(currentPlayer.ToString() + " has " + myDrones.Length + " drones left");
+        if (myDrones.Length <= 0)
+        {
+            Debug.Log("currentPlayer has no drones, next player!");
+            PassTurnToNextPlayer();
+        }
     }
 
     private void CountActivePlayers()
@@ -305,14 +317,6 @@ public class StateManager : MonoBehaviour {
         }
     }
 
-    private void CountPlayerDrones()
-    {
-        GameObject[] myDrones = GameObject.FindGameObjectsWithTag(currentPlayer.ToString()) as GameObject[];
-        if (myDrones.Length <= 0 && initialPlacementIsDone)
-        {
-            PassTurnToNextPlayer();
-        }
-    }
 
 
     public void initialPlacementIsDoneTurn ()    
