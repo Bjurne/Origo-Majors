@@ -18,6 +18,7 @@ public class StateManager : MonoBehaviour {
 
 
     public Player currentPlayer;
+    public Player previousPlayer;
     public GameObject dronePlaceholderPrefab;
 
     // reference other scripts
@@ -30,6 +31,7 @@ public class StateManager : MonoBehaviour {
     public GameObject victoryScreen;
     public CameraHolder myCameraHolder;
     public GameBoardScript myGameBoardScript;
+    public animController animationController;
 
     public Sprite rollSprite; 
 
@@ -192,7 +194,7 @@ public class StateManager : MonoBehaviour {
         CountTeleports();
         //if (initialPlacementIsDone == true) CountActivePlayers();
         Debug.Log(" passar turen ");
-
+        
         if (currentPlayer == (Player)FindObjectOfType<StartupSettings>().numberOfSelectedplayers)
         {
             currentPlayer = 0;
@@ -202,14 +204,14 @@ public class StateManager : MonoBehaviour {
             currentPlayer++;
         }
 
-
-
         //CountTotalDrones();
         if (!isGameOver)
         {
             CountPlayerDrones();
         }
-        
+
+        if (currentPlayer != previousPlayer) animationController.SetUISize();
+        previousPlayer = currentPlayer;
     }
 
     private void CountActivePlayers()

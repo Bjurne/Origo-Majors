@@ -200,7 +200,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4768293818973762, guid: 8a566577eac1a38479d47dd2a33e9456, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -12.37
+      value: -12.42
       objectReference: {fileID: 0}
     - target: {fileID: 4768293818973762, guid: 8a566577eac1a38479d47dd2a33e9456, type: 2}
       propertyPath: m_LocalPosition.y
@@ -208,7 +208,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4768293818973762, guid: 8a566577eac1a38479d47dd2a33e9456, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -10.77
+      value: -10.82
       objectReference: {fileID: 0}
     - target: {fileID: 4768293818973762, guid: 8a566577eac1a38479d47dd2a33e9456, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1755,7 +1755,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 8187740945068b542975a381a88f456d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.24
+      value: 0.158
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8187740945068b542975a381a88f456d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1763,7 +1763,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8187740945068b542975a381a88f456d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.34
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8187740945068b542975a381a88f456d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1791,20 +1791,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8187740945068b542975a381a88f456d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.21099
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8187740945068b542975a381a88f456d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.2109909
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8187740945068b542975a381a88f456d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.2109909
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 8187740945068b542975a381a88f456d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 31d842154e94fc644a861e08af4c458e, type: 2}
+    - target: {fileID: 100002, guid: 8187740945068b542975a381a88f456d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8187740945068b542975a381a88f456d, type: 3}
   m_IsPrefabAsset: 0
@@ -4429,7 +4433,7 @@ Prefab:
     - target: {fileID: 224275805552040364, guid: 9e4c8061018e65a47af1edef6d26e65a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 40
+      value: 283
       objectReference: {fileID: 0}
     - target: {fileID: 114194473450684156, guid: 9e4c8061018e65a47af1edef6d26e65a,
         type: 2}
@@ -5435,7 +5439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 7, y: 7}
+  m_AnchoredPosition: {x: 7, y: 250}
   m_SizeDelta: {x: 188, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &940674847
@@ -7288,7 +7292,6 @@ GameObject:
   - component: {fileID: 1301958502}
   - component: {fileID: 1301958501}
   - component: {fileID: 1301958500}
-  - component: {fileID: 1301958499}
   m_Layer: 5
   m_Name: Player 4
   m_TagString: Untagged
@@ -7317,21 +7320,6 @@ RectTransform:
   m_AnchoredPosition: {x: -75, y: 55}
   m_SizeDelta: {x: 150, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1301958499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1301958497}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4bac6ad1f1738946af54041c727ed3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateManager: {fileID: 2733073}
-  anim: {fileID: 0}
-  currentPlayer: 0
-  dronePlacement: {fileID: 1411821066}
 --- !u!95 &1301958500
 Animator:
   serializedVersion: 3
@@ -8265,6 +8253,18 @@ Prefab:
     - target: {fileID: 4427278052484670, guid: 2a0e96e9586858648ba334757781cb64, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121723907240660, guid: 2a0e96e9586858648ba334757781cb64, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427278052484670, guid: 2a0e96e9586858648ba334757781cb64, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.078
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427278052484670, guid: 2a0e96e9586858648ba334757781cb64, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a0e96e9586858648ba334757781cb64, type: 2}
@@ -10262,9 +10262,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateManager: {fileID: 2733073}
-  anim: {fileID: 0}
-  currentPlayer: 0
-  dronePlacement: {fileID: 1411821066}
+  currentPlayer: 1
+  lastActiveAnimator: {fileID: 0}
+  blueAnimator: {fileID: 0}
+  redAnimator: {fileID: 0}
+  greenAnimator: {fileID: 0}
+  yellowAnimator: {fileID: 0}
 --- !u!95 &1706565610
 Animator:
   serializedVersion: 3
@@ -10779,7 +10782,6 @@ GameObject:
   - component: {fileID: 1892171827}
   - component: {fileID: 1892171832}
   - component: {fileID: 1892171831}
-  - component: {fileID: 1892171830}
   - component: {fileID: 1892171829}
   - component: {fileID: 1892171828}
   m_Layer: 5
@@ -10818,37 +10820,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1892171826}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d862cc36409b9da42b935a7d219adc8e, type: 3}
+  m_Script: {fileID: 11500000, guid: b4bac6ad1f1738946af54041c727ed3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateManager: {fileID: 2733073}
   currentPlayer: 0
-  dronePlaceholderPrefab: {fileID: 0}
-  gridGenerator: {fileID: 0}
-  initialPlacement: {fileID: 0}
-  diceRoller: {fileID: 0}
-  rollButton: {fileID: 0}
-  skipTurnButton: {fileID: 0}
-  clickListener: {fileID: 0}
-  victoryScreen: {fileID: 0}
-  myCameraHolder: {fileID: 0}
-  myGameBoardScript: {fileID: 0}
-  rollSprite: {fileID: 0}
-  selectable:
-    serializedVersion: 2
-    m_Bits: 0
-  nonSelectable:
-    serializedVersion: 2
-    m_Bits: 0
-  initialPlacementIsDone: 0
-  isDoneRolling: 0
-  isDoneMoving: 0
-  isGameOver: 0
-  blueScore: 0
-  redScore: 0
-  greenScore: 0
-  yellowScore: 0
-  currentDimension: 0
-  numberOfActivePlayers: 0
+  lastActiveAnimator: {fileID: 0}
+  blueAnimator: {fileID: 1892171829}
+  redAnimator: {fileID: 1706565610}
+  greenAnimator: {fileID: 2129955337}
+  yellowAnimator: {fileID: 1301958500}
 --- !u!95 &1892171829
 Animator:
   serializedVersion: 3
@@ -10858,30 +10839,15 @@ Animator:
   m_GameObject: {fileID: 1892171826}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1ea8218cebadcc64993e106375e60743, type: 2}
+  m_Controller: {fileID: 9100000, guid: dbb3e855e60b4db4896362bb22ead8a7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1892171830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1892171826}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4bac6ad1f1738946af54041c727ed3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateManager: {fileID: 2733073}
-  anim: {fileID: 0}
-  currentPlayer: 0
-  dronePlacement: {fileID: 1411821066}
 --- !u!114 &1892171831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11344,6 +11310,11 @@ Prefab:
       propertyPath: myGameBoardScript
       value: 
       objectReference: {fileID: 1268607399}
+    - target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
+        type: 2}
+      propertyPath: animationController
+      value: 
+      objectReference: {fileID: 2138883422}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c990241860e90540b3b2f6c52c52f06, type: 2}
   m_IsPrefabAsset: 0
@@ -12478,9 +12449,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateManager: {fileID: 2733073}
-  anim: {fileID: 0}
-  currentPlayer: 0
-  dronePlacement: {fileID: 1411821066}
+  currentPlayer: 2
+  lastActiveAnimator: {fileID: 0}
+  blueAnimator: {fileID: 0}
+  redAnimator: {fileID: 0}
+  greenAnimator: {fileID: 0}
+  yellowAnimator: {fileID: 0}
 --- !u!95 &2129955337
 Animator:
   serializedVersion: 3
@@ -12544,13 +12518,14 @@ GameObject:
   - component: {fileID: 2138883418}
   - component: {fileID: 2138883417}
   - component: {fileID: 2138883421}
+  - component: {fileID: 2138883422}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2138883417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12637,7 +12612,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2138883416}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 1ea8218cebadcc64993e106375e60743, type: 2}
   m_CullingMode: 0
@@ -12648,3 +12623,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2138883422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2138883416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4bac6ad1f1738946af54041c727ed3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateManager: {fileID: 2733073}
+  currentPlayer: 3
+  lastActiveAnimator: {fileID: 0}
+  blueAnimator: {fileID: 1892171829}
+  redAnimator: {fileID: 1706565610}
+  greenAnimator: {fileID: 2129955337}
+  yellowAnimator: {fileID: 1301958500}
