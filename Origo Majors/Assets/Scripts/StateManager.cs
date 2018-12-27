@@ -338,7 +338,9 @@ public class StateManager : MonoBehaviour {
 
         isDoneRolling = true;
         isDoneMoving = true;
-        Debug.Log(isDoneMoving + " " + isDoneRolling);
+        CalculateLegalWarpDestination calculateMove = FindObjectOfType<CalculateLegalWarpDestination>();
+        if (calculateMove.thisIsAQuantumLeap) calculateMove.thisIsAQuantumLeap = false;
+        //Debug.Log(isDoneMoving + " " + isDoneRolling);
     }
 
     public void LoadNewDimension()
