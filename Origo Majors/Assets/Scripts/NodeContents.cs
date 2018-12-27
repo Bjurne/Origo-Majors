@@ -23,7 +23,7 @@ public class NodeContents : MonoBehaviour {
         {
             FindObjectOfType<BoosterPickUpGenerator>().chanceToSpawnBooster-=2;
 
-            Debug.Log("A booster has been picked up!");
+            //Debug.Log("A booster has been picked up!");
             stateManager = FindObjectOfType<StateManager>();
 
             try
@@ -48,28 +48,49 @@ public class NodeContents : MonoBehaviour {
 
                 StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
 
-                Debug.Log("A Throttle has been picked up!");
+                //Debug.Log("A Throttle has been picked up!");
 
                 Canvas userInterfaceCanvas = FindObjectOfType<animController>().GetComponentInParent<Canvas>();
 
                 ThrottleBar[] allThrottleBars = userInterfaceCanvas.GetComponentsInChildren<ThrottleBar>(true);
 
-                Debug.Log("NodeContents hittar " + allThrottleBars.Length + " stycken throttlebars.");
+                //Debug.Log("NodeContents hittar " + allThrottleBars.Length + " stycken throttlebars.");
 
                 foreach (var throttleBar in allThrottleBars)
                 {
                     if (throttleBar.gameObject.tag == FindObjectOfType<StateManager>().currentPlayer.ToString())
                     {
-                        Debug.Log("Ropar på " + FindObjectOfType<StateManager>().currentPlayer.ToString() + "s throttlebar Gainthrottle");
+                        //Debug.Log("Ropar på " + FindObjectOfType<StateManager>().currentPlayer.ToString() + "s throttlebar Gainthrottle");
                         throttleBar.GainThrottle();
                     }
                     else
                     {
-                        Debug.Log("Fel tag?");
+                        //Debug.Log("Fel tag?");
                     }
                 }
                 
 
+            }
+            catch (System.Exception)
+            {
+            }
+
+            try
+            {
+                GameObject myBooster = GetComponentInChildren<QuantumLeapBoosterScript>().gameObject;
+                Destroy(myBooster);
+                holdingBoosterPickUp = false;
+
+                StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
+
+                Debug.Log("A Qunatum Leap Booster has been picked up!");
+
+                stateManager.currentPlayer--;
+
+                Dice diceScript = FindObjectOfType<Dice>();
+                CalculateLegalWarpDestination calculateLegalMoves = FindObjectOfType<CalculateLegalWarpDestination>();
+
+                calculateLegalMoves.thisIsAQuantumLeap = true;
             }
             catch (System.Exception)
             {

@@ -7,7 +7,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
 
     public GameObject warpBoosterPickUpPrefab;
     public GameObject throttleBoosterPickUpPrefab;
-    public GameObject dupeBoosterPickUpPrefab;
+    public GameObject QuantumLeapBoosterPickUpPrefab;
     public GridNode[] gridNodes;
     public GameObject gridGenerator;
     public int numberOfBoosterPickUps;
@@ -30,42 +30,6 @@ public class BoosterPickUpGenerator : MonoBehaviour {
         for (int y = 0; y < numberOfBoosterPickUps; y++)
         {
             SpawnSingleBooster();
-            //int randomWaypoint = Random.Range(0, gridNodes.Length);
-            //bool illegalSpawnPoint = false;
-
-            //var myNode = gridNodes[randomWaypoint].GetComponent<NodeContents>();
-            //if ((myNode.holdingTeleporter) || myNode.holdingBoosterPickUp || myNode.occupied)
-            //{
-            //    illegalSpawnPoint = true;
-            //}
-
-            //if (!illegalSpawnPoint)
-            //{
-            //    int randomBoosterPickUp = Random.Range(0, 3); // <---- MVP only one booster available, change random range to 3 to enable the other boosters
-
-            //    if (randomBoosterPickUp == 0)
-            //    {
-            //        GameObject myBooster = Instantiate(warpBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
-            //        myBooster.transform.parent = myNode.transform;
-            //    }
-            //    else if (randomBoosterPickUp == 1 || randomBoosterPickUp == 2)
-            //    {
-            //        GameObject myBooster = Instantiate(throttleBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
-            //        myBooster.transform.parent = myNode.transform;
-            //    }
-            //    else
-            //    {
-            //        GameObject myBooster = Instantiate(dupeBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
-            //        myBooster.transform.parent = myNode.transform;
-            //    }
-
-            //    myNode.holdingBoosterPickUp = true;
-            //    i++;
-            //}
-            //else
-            //{
-            //    Debug.Log("This node is allready holding a Booster Pick Up or is occupied. Finding a new node.");
-            //}
         }
     }
     
@@ -84,7 +48,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
 
             if (!illegalSpawnPoint)
             {
-                int randomBoosterPickUp = UnityEngine.Random.Range(0, 3); // <---- MVP only one booster available, change random range to 3 to enable the other boosters
+                int randomBoosterPickUp = UnityEngine.Random.Range(0, 4); // <---- MVP only one booster available, change random range to 3 to enable the other boosters
 
                 if (randomBoosterPickUp == 0)
                 {
@@ -96,9 +60,9 @@ public class BoosterPickUpGenerator : MonoBehaviour {
                     GameObject myBooster = Instantiate(throttleBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
                     myBooster.transform.parent = myNode.transform;
                 }
-                else
+                else if (randomBoosterPickUp == 3)
                 {
-                    GameObject myBooster = Instantiate(dupeBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
+                    GameObject myBooster = Instantiate(QuantumLeapBoosterPickUpPrefab, myNode.transform.position, Quaternion.identity);
                     myBooster.transform.parent = myNode.transform;
                 }
 

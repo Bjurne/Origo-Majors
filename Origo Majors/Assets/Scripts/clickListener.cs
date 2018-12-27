@@ -59,12 +59,14 @@ public class ClickListener : MonoBehaviour {
         // Vi kollar i nästa steg ifall den valda waypointen är ockuperad eller inte
         {
             //clickPosition = hit.point;
+            CalculateLegalWarpDestination calculateMove = FindObjectOfType<CalculateLegalWarpDestination>();
             selectedWaypoint = hit.collider.gameObject;
             bool occupied = selectedWaypoint.GetComponent<NodeContents>().occupied;
 
             if ((!occupied) && selectedWaypoint.tag == "LegalWarpDestination")
             {
                 MoveDrone();
+                if (calculateMove.thisIsAQuantumLeap) calculateMove.thisIsAQuantumLeap = false;
             }
         }
     }

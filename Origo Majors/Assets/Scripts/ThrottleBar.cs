@@ -18,6 +18,9 @@ public class ThrottleBar : MonoBehaviour {
 
     public void Start()
     {
+        GainThrottle();
+        GainThrottle();
+        GainThrottle();
     }
 
     public void GainThrottle()

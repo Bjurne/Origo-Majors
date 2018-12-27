@@ -363,7 +363,7 @@ public class StateManager : MonoBehaviour {
     {
         WarpBoosterScript[] remainingWarpBoosterPickUps = FindObjectsOfType<WarpBoosterScript>();
         ThrottleBoosterScript[] remainingMapperBoosterPickUps = FindObjectsOfType<ThrottleBoosterScript>();
-        DupeBoosterScript[] remainingDupeBoosterPickUps = FindObjectsOfType<DupeBoosterScript>();
+        QuantumLeapBoosterScript[] remainingDupeBoosterPickUps = FindObjectsOfType<QuantumLeapBoosterScript>();
 
         foreach (WarpBoosterScript boosterScript in remainingWarpBoosterPickUps)
         {
@@ -375,7 +375,7 @@ public class StateManager : MonoBehaviour {
             boosterScript.GetComponentInParent<NodeContents>().holdingBoosterPickUp = false;
             Destroy(boosterScript.gameObject);
         }
-        foreach (DupeBoosterScript boosterScript in remainingDupeBoosterPickUps)
+        foreach (QuantumLeapBoosterScript boosterScript in remainingDupeBoosterPickUps)
         {
             boosterScript.GetComponentInParent<NodeContents>().holdingBoosterPickUp = false;
             Destroy(boosterScript.gameObject);

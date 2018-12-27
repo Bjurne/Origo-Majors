@@ -86,7 +86,7 @@ public class Dice : MonoBehaviour
         }
     }
 
-    private void SetDiceDisplaySprite()
+    public void SetDiceDisplaySprite()
     {
         if (moveRange == 1)
         {
@@ -106,6 +106,11 @@ public class Dice : MonoBehaviour
         if (moveRange == 4)
         {
             this.transform.GetChild(1).GetComponent<Image>().sprite = NumberSprite[3];
+        }
+
+        if (FindObjectOfType<CalculateLegalWarpDestination>().thisIsAQuantumLeap)
+        {
+            this.transform.GetChild(1).GetComponent<Image>().sprite = NumberSprite[4];
         }
     }
 
