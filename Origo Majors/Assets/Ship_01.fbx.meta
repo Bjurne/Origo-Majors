@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 695eb446b3010514592b70ce1bb8ac23
+guid: 4c610eaaf63be2f40bddefe017ca219c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: "Bl\xE5_Pj\xE4s"
+    100000: "R\xF6d_Pj\xE4s"
     100002: //RootNode
-    400000: "Bl\xE5_Pj\xE4s"
+    400000: "R\xF6d_Pj\xE4s"
     400002: //RootNode
     2100000: Car Paint - Yellow
-    2300000: "Bl\xE5_Pj\xE4s"
-    3300000: "Bl\xE5_Pj\xE4s"
-    4300000: "Bl\xE5_Pj\xE4s"
+    2300000: "R\xF6d_Pj\xE4s"
+    3300000: "R\xF6d_Pj\xE4s"
+    4300000: "R\xF6d_Pj\xE4s"
   externalObjects: {}
   materials:
     importMaterials: 1

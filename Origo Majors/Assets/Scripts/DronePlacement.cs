@@ -14,6 +14,11 @@ public class DronePlacement : MonoBehaviour {
     public int numberOfPlayers;
     public int numberOfDronesToSpawn;
 
+    public GameObject droneModel01;
+    public GameObject droneModel02;
+    public GameObject droneModel03;
+    public GameObject droneModel04;
+
     public StateManager stateManager;
 
     void Start () {
@@ -59,6 +64,11 @@ public class DronePlacement : MonoBehaviour {
 
                 if ((((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false) && !teleporterPresent) && !boosterPresent)
                 {
+                    if (stateManager.currentPlayer == Player.Blue) dronePrefab = droneModel01;
+                    if (stateManager.currentPlayer == Player.Red) dronePrefab = droneModel02;
+                    if (stateManager.currentPlayer == Player.Green) dronePrefab = droneModel03;
+                    if (stateManager.currentPlayer == Player.Yellow) dronePrefab = droneModel04;
+
                     GameObject newDrone = Instantiate(dronePrefab, selectedWaypoint.transform.position, Quaternion.identity);
                     newDrone.transform.parent = selectedWaypoint.transform;
 

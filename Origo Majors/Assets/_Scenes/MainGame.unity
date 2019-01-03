@@ -8860,6 +8860,30 @@ Prefab:
       propertyPath: numberOfDronesToSpawnPerPlayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114083167989645142, guid: 5ad4331564b139045b6677b86c184d70,
+        type: 2}
+      propertyPath: droneModel01
+      value: 
+      objectReference: {fileID: 1469070340885316, guid: c969473c5e7e9a94599aa774e3f22e45,
+        type: 2}
+    - target: {fileID: 114083167989645142, guid: 5ad4331564b139045b6677b86c184d70,
+        type: 2}
+      propertyPath: droneModel02
+      value: 
+      objectReference: {fileID: 1055456877348602, guid: c3d18467c8d62704cab74ec65c7856ce,
+        type: 2}
+    - target: {fileID: 114083167989645142, guid: 5ad4331564b139045b6677b86c184d70,
+        type: 2}
+      propertyPath: droneModel03
+      value: 
+      objectReference: {fileID: 1800160806721736, guid: e6abca46bd47bb944bed433a5e306849,
+        type: 2}
+    - target: {fileID: 114083167989645142, guid: 5ad4331564b139045b6677b86c184d70,
+        type: 2}
+      propertyPath: droneModel04
+      value: 
+      objectReference: {fileID: 1421427863671348, guid: 9c4264f1ebdf7cf4ca8f89f981d776a6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ad4331564b139045b6677b86c184d70, type: 2}
   m_IsPrefabAsset: 0
