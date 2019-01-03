@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,9 +7,11 @@ public class CameraHolder : MonoBehaviour {
 
     public Camera myCamera;
     public GridGenerator gridGenerator;
+    public GameObject cameraArm;
 
     public Vector3 turnSpeed = new Vector3(0, 100, 0);
-    Vector3 cameraOffset = new Vector3(0, -7, 0);
+    private Vector3 cameraOffset = new Vector3(0, -2, 0);
+    public int zoomStrength;
     
     //Temp controller
     float x;
@@ -18,11 +21,15 @@ public class CameraHolder : MonoBehaviour {
     private Vector3 dragOrigin;
     internal bool cameraDragging = true;
     float originEulerY;
+    float originEulerZ;
+    private Vector3 movez;
+    private Vector3 armRotationChecker;
 
     void Update ()
     {
         // if (klickar på någonting som inte är klickbart (din färgs drönare, etc.)
         CameraDrag();
+        CameraZoom();
         //TODO: Implementera denna (i ClickListener?) och kalla enbart på detta om man inte klickar på något annat.
 
         //Om man vill använda knappar
@@ -30,6 +37,15 @@ public class CameraHolder : MonoBehaviour {
 
         //Exempel på någon typ av "stand-by"
         //IdleRotation();
+    }
+
+    private void CameraZoom()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") != 0)
+        {
+            float zoom = Input.GetAxis("Mouse ScrollWheel");
+            myCamera.transform.localPosition -= new Vector3(zoom * zoomStrength, 0, 0);
+        }
     }
 
     public void MoveCameraToCenter()
@@ -84,22 +100,27 @@ public class CameraHolder : MonoBehaviour {
 
         if (cameraDragging)
         {
-
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1)) //När man högerklickar hämtar den information om musens dåvarande position
             {
                 dragOrigin = Input.mousePosition;
                 originEulerY = transform.eulerAngles.y;
+                originEulerZ = cameraArm.transform.eulerAngles.z;
                 return;
             }
 
             if (!Input.GetMouseButton(1)) return;
 
             Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
-            Vector3 move = new Vector3(0, pos.x * dragSpeed, 0);
+            Vector3 movex = new Vector3(0, pos.x * dragSpeed, 0);
+            Vector3 movez = new Vector3(0, 0, (pos.y * dragSpeed) * -1);
 
-            transform.eulerAngles = new Vector3(this.transform.eulerAngles.x, originEulerY + move.y, this.transform.eulerAngles.z);
+            transform.eulerAngles = new Vector3(this.transform.eulerAngles.x, originEulerY + movex.y, this.transform.eulerAngles.z);
+            armRotationChecker = new Vector3(cameraArm.transform.eulerAngles.x, cameraArm.transform.eulerAngles.y, originEulerZ + movez.z);
+            if (armRotationChecker.z > 10 && armRotationChecker.z < 80) //Kollar om kameran har tänkts roterat inom de givna värdena, uppdaterar kameran om så är fallet
+            {
+                cameraArm.transform.eulerAngles = armRotationChecker;
+            }
         }
     }
-
 
 }
