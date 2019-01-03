@@ -161,7 +161,45 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
             nodeToCheckFrom = Vector3.zero;
 
         }
+
     }
+
+    public void HighlightDronesWithLegalMoves()
+    {
+        var allDrones = FindObjectsOfType<DroneLocation>();
+
+        foreach (var drone in allDrones)
+        {
+            if (drone.tag == FindObjectOfType<StateManager>().currentPlayer.ToString())
+            {
+                clickListener.GetComponent<ClickListener>().currentlySelectedObject = drone.gameObject;
+                calculateLegalWarpDestinations();
+
+                int numberOfLegalWarpDestinations = 0;
+                GridNode[] gos = GridNode.FindObjectsOfType(typeof(GridNode)) as GridNode[];
+                foreach (GridNode gn in gos)
+                {
+                    if (gn.gameObject.tag == "LegalWarpDestination")
+                    {
+                        numberOfLegalWarpDestinations++;
+                    }
+                }
+
+                if (numberOfLegalWarpDestinations > 0)
+                {
+                    drone.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                }
+                
+                clickListener.GetComponent<ClickListener>().ClearLegalWarpDestinations();
+            }
+            else
+            {
+                
+            }
+        }
+        clickListener.GetComponent<ClickListener>().ClearLegalWarpDestinations();
+    }
+
     //dirXPositive  1.0, 0.0, 0.0
     //dirYPositive  1.6, 0.0, 2.7
     //dirZPositive  -1.6, 0.0, 2.7

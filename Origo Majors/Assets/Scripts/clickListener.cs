@@ -97,7 +97,20 @@ public class ClickListener : MonoBehaviour {
     {
         if (currentlySelectedObject != null)
         {
-            if (selectionMarker != null) selectionMarker.SetActive(false);
+            //if (selectionMarker != null) selectionMarker.SetActive(false);
+
+            if (selectionMarker != null)
+            {
+                var allDrones = FindObjectsOfType<DroneLocation>();
+                foreach (var drone in allDrones)
+                {
+                    {
+                        drone.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                    }
+                }
+            }
+
+
 
             if (!inMotion)
             {

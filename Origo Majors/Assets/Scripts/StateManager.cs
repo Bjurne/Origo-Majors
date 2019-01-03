@@ -103,7 +103,9 @@ public class StateManager : MonoBehaviour {
                 }
                 SceneManager.LoadScene("MainMenu");
             }
-        } 
+        }
+
+        if (FindObjectOfType<CalculateLegalWarpDestination>().thisIsAQuantumLeap && isDoneRolling == false) diceRoller.Number();
 
         if (initialPlacementIsDone == true && isDoneRolling == false ) // time to roll the dice
         {
@@ -124,6 +126,7 @@ public class StateManager : MonoBehaviour {
             rollButton.interactable = false;
             //Debug.Log(" Time to selct ");
             //Select all drones so we can turn them off.
+
 
             ThrottleBar[] allThrottleBars = userInterfaceCanvas.GetComponentsInChildren<ThrottleBar>(true);
 

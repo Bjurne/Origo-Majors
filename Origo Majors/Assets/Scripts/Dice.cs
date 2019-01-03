@@ -59,7 +59,9 @@ public class Dice : MonoBehaviour
 
         SetMoveRange();
         SetDiceDisplaySprite();
-        
+
+        FindObjectOfType<CalculateLegalWarpDestination>().HighlightDronesWithLegalMoves();
+
         stateManager.isDoneRolling = true;
     }
 
