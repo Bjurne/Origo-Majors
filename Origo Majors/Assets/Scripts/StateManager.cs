@@ -101,7 +101,7 @@ public class StateManager : MonoBehaviour {
                 catch (Exception e)
                 {
                 }
-                SceneManager.LoadScene("patriktest");
+                SceneManager.LoadScene("MainMenu");
             }
         } 
 

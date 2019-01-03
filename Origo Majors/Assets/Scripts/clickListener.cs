@@ -29,7 +29,7 @@ public class ClickListener : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Destroy(FindObjectOfType<StartupSettings>().gameObject);
-            SceneManager.LoadScene("patriktest");
+            SceneManager.LoadScene("MainMenu");
         }
 
         if (Input.GetMouseButtonUp (0))

@@ -27,6 +27,6 @@ public class MenuScript : MonoBehaviour {
 
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync("Svedlund Test Scene");
+        SceneManager.LoadSceneAsync("MainGame");
     }
 }

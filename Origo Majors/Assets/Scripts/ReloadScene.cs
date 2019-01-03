@@ -10,6 +10,6 @@ public class ReloadScene : MonoBehaviour {
     public void reloadScene()
     {
         victoryScreenCanvas.SetActive(false);
-        SceneManager.LoadScene("Svedlund Test Scene");
+        SceneManager.LoadScene("MainGame");
     }
 }
