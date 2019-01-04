@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class BackgroundScript : MonoBehaviour {
 
-    public GameObject background;
-    public SpriteRenderer backgroundOverlay0;
+    public SpriteRenderer layer0;
+    public SpriteRenderer layer1;
+    public SpriteRenderer layer2;
     Vector3 turnSpeed = new Vector3 (0.0f, 0.0f, 1.0f);
-    float thing;
 
     private void Update()
     {
-        StarTransparency();
-        IdleRotation();
+        IdleRotation(layer0, 1.0f);
+        IdleRotation(layer1, 1.1f);
+        IdleRotation(layer2, 1.2f);
 
+        StarTransparency(layer1, 0);
+        StarTransparency(layer2, 360);
     }
 
-    private void StarTransparency()
+    private void IdleRotation(SpriteRenderer layer, float rotationOffset)
     {
-        thing = (Mathf.Sin(Time.frameCount * 0.01f) + 1f) / 2;
-        backgroundOverlay0.color = new Color(255, 255, 255, thing);
+        layer.transform.Rotate((turnSpeed * rotationOffset) * Time.deltaTime);
     }
 
-    private void IdleRotation()
+    private void StarTransparency(SpriteRenderer layer, int offset)
     {
-        transform.Rotate(turnSpeed * Time.deltaTime);
+        float thing = (Mathf.Sin((Time.frameCount + offset) * 0.01f) + 1f) / 2;
+        layer.color = new Color(255, 255, 255, thing);
     }
 
 }
