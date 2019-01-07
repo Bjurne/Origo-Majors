@@ -45,6 +45,7 @@ public class StateManager : MonoBehaviour {
     public bool isDoneRolling = false; 
     public bool isDoneMoving= false;
     public bool isGameOver = false;
+    public bool pausExcecution = false;
 
     //Player scores
     public int blueScore = 0;
@@ -105,91 +106,94 @@ public class StateManager : MonoBehaviour {
             }
         }
 
-        if (FindObjectOfType<CalculateLegalWarpDestination>().thisIsAQuantumLeap && isDoneRolling == false) diceRoller.Number();
-
-        if (initialPlacementIsDone == true && isDoneRolling == false ) // time to roll the dice
+        if (!pausExcecution)
         {
-            // add a reset for dice roll image
-            diceRoller.transform.GetChild(1).GetComponent<Image>().sprite = rollSprite;
-            diceRoller.setRollButtonColor();
-            rollButton.interactable = true;
-            skipTurnButton.interactable = true;
-            
-        }
-        if (Input.GetKeyDown("enter"))
+            if (FindObjectOfType<CalculateLegalWarpDestination>().thisIsAQuantumLeap && isDoneRolling == false) diceRoller.Number();
+
+            if (initialPlacementIsDone == true && isDoneRolling == false) // time to roll the dice
+            {
+                // add a reset for dice roll image
+                diceRoller.transform.GetChild(1).GetComponent<Image>().sprite = rollSprite;
+                diceRoller.setRollButtonColor();
+                rollButton.interactable = true;
+                skipTurnButton.interactable = true;
+
+            }
+            if (Input.GetKeyDown("enter"))
             {
                 SkipTurn();
             }
 
-        if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == false)
-        {
-            rollButton.interactable = false;
-            //Debug.Log(" Time to selct ");
-            //Select all drones so we can turn them off.
-
-
-            ThrottleBar[] allThrottleBars = userInterfaceCanvas.GetComponentsInChildren<ThrottleBar>(true);
-
-            foreach (var throttleBar in allThrottleBars)
+            if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == false)
             {
-                if (throttleBar.gameObject.tag == currentPlayer.ToString())
+                rollButton.interactable = false;
+                //Debug.Log(" Time to selct ");
+                //Select all drones so we can turn them off.
+
+
+                ThrottleBar[] allThrottleBars = userInterfaceCanvas.GetComponentsInChildren<ThrottleBar>(true);
+
+                foreach (var throttleBar in allThrottleBars)
                 {
-                    throttleBar.gameObject.SetActive(true);
+                    if (throttleBar.gameObject.tag == currentPlayer.ToString())
+                    {
+                        throttleBar.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        throttleBar.gameObject.SetActive(false);
+                    }
                 }
-                else
+
+                var allDrones = FindObjectsOfType<DroneLocation>();
+
+                foreach (var drone in allDrones)
+                {
+                    if (drone.tag == currentPlayer.ToString())
+                    {
+                        drone.gameObject.layer = 10; // refenses to, selctable layer
+                    }
+                    else
+                    {
+                        drone.gameObject.layer = 11; // refenses to nonselctable layer
+                    }
+                }
+            }
+
+            if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == true && isGameOver == false)
+            {
+                var allDrones = FindObjectsOfType<DroneLocation>();
+
+                foreach (var drone in allDrones)
+                {
+                    if (drone.tag == currentPlayer.ToString())
+                    {
+                        drone.gameObject.layer = 11; // refenses to, nonselctable layer
+                    }
+                }
+
+                ThrottleBar[] allThrottleBars = userInterfaceCanvas.GetComponentsInChildren<ThrottleBar>(true);
+                foreach (var throttleBar in allThrottleBars)
                 {
                     throttleBar.gameObject.SetActive(false);
                 }
+
+                clickListener.ClearCurrentlySelected();
+                clickListener.ClearLegalWarpDestinations();
+                Debug.Log("next turn");
+                PassTurnToNextPlayer();
+                rollButton.interactable = false; // disables button. is here for now
+
+
+                FindObjectOfType<BoosterPickUpGenerator>().chanceToSpawnBooster++;
+                FindObjectOfType<BoosterPickUpGenerator>().CheckChanceToSpawnBooster();
+
+                Debug.Log("chanceToSpawnBooster is now: " + FindObjectOfType<BoosterPickUpGenerator>().chanceToSpawnBooster);
+
+                isDoneRolling = false;
+                isDoneMoving = false;
+
             }
-
-            var allDrones = FindObjectsOfType<DroneLocation>();
-
-            foreach(var drone in allDrones)
-            {
-                if (drone.tag == currentPlayer.ToString())
-                {
-                    drone.gameObject.layer = 10; // refenses to, selctable layer
-                }
-                else
-                {
-                    drone.gameObject.layer = 11; // refenses to nonselctable layer
-                }
-            }
-        }
-
-        if (initialPlacementIsDone == true && isDoneRolling == true && isDoneMoving == true && isGameOver == false)
-        {
-            var allDrones = FindObjectsOfType<DroneLocation>();
-
-            foreach (var drone in allDrones)
-            {
-                if (drone.tag == currentPlayer.ToString())
-                {
-                    drone.gameObject.layer = 11; // refenses to, nonselctable layer
-                }
-            }
-
-            ThrottleBar[] allThrottleBars = userInterfaceCanvas.GetComponentsInChildren<ThrottleBar>(true);
-            foreach (var throttleBar in allThrottleBars)
-            {
-                throttleBar.gameObject.SetActive(false);
-            }
-
-            clickListener.ClearCurrentlySelected();
-            clickListener.ClearLegalWarpDestinations();
-            Debug.Log( "next turn" );
-            PassTurnToNextPlayer();
-            rollButton.interactable = false; // disables button. is here for now
-
-            
-            FindObjectOfType<BoosterPickUpGenerator>().chanceToSpawnBooster++;
-            FindObjectOfType<BoosterPickUpGenerator>().CheckChanceToSpawnBooster();
-
-            Debug.Log("chanceToSpawnBooster is now: " + FindObjectOfType<BoosterPickUpGenerator>().chanceToSpawnBooster);
-
-            isDoneRolling = false;
-            isDoneMoving = false;
-
         }
     }
 
@@ -199,6 +203,11 @@ public class StateManager : MonoBehaviour {
     {
         CountTeleports();
         //if (initialPlacementIsDone == true) CountActivePlayers();
+
+        if (initialPlacementIsDone)
+        {
+            Paus();
+        }
         Debug.Log(" passar turen ");
         
         if (currentPlayer == (Player)FindObjectOfType<StartupSettings>().numberOfSelectedplayers)
@@ -228,6 +237,18 @@ public class StateManager : MonoBehaviour {
 
         if (currentPlayer != previousPlayer) animationController.SetUISize();
         previousPlayer = currentPlayer;
+
+        if (!isGameOver)
+        {
+            if (initialPlacementIsDone)
+            {
+                FindObjectOfType<textHandlerScript>().Print("Turn");
+            }
+            else
+            {
+                FindObjectOfType<textHandlerScript>().Print("PlacementTurn");
+            }
+        }
     }
 
     private void CountPlayerDrones()
@@ -395,6 +416,15 @@ public class StateManager : MonoBehaviour {
             drone.GetComponentInParent<NodeContents>().occupied = false;
             Destroy(drone.gameObject);
         }
+    }
+
+    public IEnumerator Paus()
+    {
+        Debug.Log("Starting paus");
+        pausExcecution = true;
+        yield return new WaitForSeconds(1);
+        Debug.Log("Paus is done");
+        pausExcecution = false;
     }
 }
 

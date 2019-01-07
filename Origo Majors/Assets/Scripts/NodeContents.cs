@@ -25,6 +25,8 @@ public class NodeContents : MonoBehaviour {
 
             //Debug.Log("A booster has been picked up!");
             stateManager = FindObjectOfType<StateManager>();
+            StartCoroutine(stateManager.Paus());
+
 
             try
             {
@@ -33,7 +35,8 @@ public class NodeContents : MonoBehaviour {
                 holdingBoosterPickUp = false;
 
                 StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
-                
+                FindObjectOfType<textHandlerScript>().Print("WarpBooster");
+
                 stateManager.currentPlayer--;
             }
             catch (System.Exception)
@@ -47,6 +50,7 @@ public class NodeContents : MonoBehaviour {
                 holdingBoosterPickUp = false;
 
                 StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
+                FindObjectOfType<textHandlerScript>().Print("ThrottleBooster");
 
                 //Debug.Log("A Throttle has been picked up!");
 
@@ -82,6 +86,7 @@ public class NodeContents : MonoBehaviour {
                 holdingBoosterPickUp = false;
 
                 StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
+                FindObjectOfType<textHandlerScript>().Print("QLBooster");
 
                 Debug.Log("A Qunatum Leap Booster has been picked up!");
 
@@ -186,6 +191,8 @@ public class NodeContents : MonoBehaviour {
             Destroy(myTeleporter);
 
             StartCoroutine(FindObjectOfType<CameraShake>().Shake(.2f, .5f));
+            FindObjectOfType<textHandlerScript>().Print("Portal");
+            StartCoroutine(stateManager.Paus());
 
             holdingTeleporter = false;
             occupied = false;
@@ -200,4 +207,13 @@ public class NodeContents : MonoBehaviour {
             //if (allTeleporters.Length <= 0) FindObjectOfType<VictoryScreenScript>().winnerName = stateManager.currentPlayer.ToString();
         }
 	}
+
+    //IEnumerator Paus()
+    //{
+    //    Debug.Log("Starting paus");
+    //    stateManager.pausExcecution = true;
+    //    yield return new WaitForSeconds(2);
+    //    Debug.Log("Paus is done");
+    //    stateManager.pausExcecution = false;
+    //}
 }
