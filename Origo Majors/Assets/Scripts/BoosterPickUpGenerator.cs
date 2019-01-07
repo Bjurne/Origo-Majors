@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BoosterPickUpGenerator : MonoBehaviour {
 
+    public AudioManager audiomanager;
     public GameObject warpBoosterPickUpPrefab;
     public GameObject throttleBoosterPickUpPrefab;
     public GameObject QuantumLeapBoosterPickUpPrefab;
@@ -13,7 +14,11 @@ public class BoosterPickUpGenerator : MonoBehaviour {
     public int numberOfBoosterPickUps;
 
     public int chanceToSpawnBooster;
-    
+
+    public void Start()
+    {
+        audiomanager = FindObjectOfType<AudioManager>();
+    }
 
     public void GenerateBoosterPickUps()
     {
@@ -84,6 +89,7 @@ public class BoosterPickUpGenerator : MonoBehaviour {
         if (chanceToSpawnBooster <= -1) chanceToSpawnBooster = 0;
         if (chanceToSpawnBooster > UnityEngine.Random.Range(1,6))
         {
+            audiomanager.newBoosterSource.Play();
             SpawnSingleBooster();
             chanceToSpawnBooster = 0;
         }

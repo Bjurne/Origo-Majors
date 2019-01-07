@@ -16,7 +16,7 @@ public enum Player
 
 public class StateManager : MonoBehaviour {
 
-
+    public AudioManager audiomanager;
     public Player currentPlayer;
     public Player previousPlayer;
     public GameObject dronePlaceholderPrefab;
@@ -73,6 +73,7 @@ public class StateManager : MonoBehaviour {
 
     void Start()
     {
+        audiomanager = FindObjectOfType<AudioManager>();
         // draw nodes
         currentPlayer = Player.Blue;     // blue player starts
         rollButton.interactable = false; // rollbutton disabled
@@ -388,6 +389,8 @@ public class StateManager : MonoBehaviour {
 
     public void LoadNewDimension()
     {
+        audiomanager.newDimensionSource.Play();
+
         ClearRemainingBoosterPickUps();
         ClearRemainingDrones();
         

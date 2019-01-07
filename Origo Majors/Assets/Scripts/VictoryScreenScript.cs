@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 
 public class VictoryScreenScript : MonoBehaviour {
-
+    public AudioManager audiomanager;
     public StateManager stateManager;
     public Text firstPlaceText;
     //public Text secondPlaceText;
@@ -13,8 +13,14 @@ public class VictoryScreenScript : MonoBehaviour {
     //public Text fourthPlaceText;
     public string winnerName;
 
+    //public void Start()
+    //{
+    //}
+
     public void DisplayVictoryScreen ()
     {
+        audiomanager = FindObjectOfType<AudioManager>();
+        audiomanager.winScreenSource.Play();
         int blueScore = stateManager.blueScore;
         int redScore = stateManager.redScore;
         int greenScore = stateManager.greenScore;

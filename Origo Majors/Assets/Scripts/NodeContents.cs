@@ -2,19 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class NodeContents : MonoBehaviour {
 
     public bool occupied = false;
     public bool holdingTeleporter = false;
     public bool holdingBoosterPickUp = false;
     public StateManager stateManager;
+    public AudioManager audiomanager;
     private int placeInList;
     //public List<Vector4> scoredDrones;
     //public GameObject scoredDroneStorage;
 
     private void Awake()
     {
+
         //scoredDrones = new Vector4[12];
+    }
+    private void Start()
+    {
+    audiomanager = FindObjectOfType<AudioManager>();
+        
     }
 
     public void OnDroneEnter () {
@@ -34,6 +42,7 @@ public class NodeContents : MonoBehaviour {
                 Destroy(myBooster);
                 holdingBoosterPickUp = false;
 
+                audiomanager.booster1source.Play();
                 StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
                 FindObjectOfType<textHandlerScript>().Print("WarpBooster");
 
@@ -51,6 +60,8 @@ public class NodeContents : MonoBehaviour {
 
                 StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
                 FindObjectOfType<textHandlerScript>().Print("ThrottleBooster");
+                audiomanager.booster2source.Play();
+
 
                 //Debug.Log("A Throttle has been picked up!");
 
@@ -87,6 +98,8 @@ public class NodeContents : MonoBehaviour {
 
                 StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
                 FindObjectOfType<textHandlerScript>().Print("QLBooster");
+                audiomanager.booster3source.Play();
+
 
                 Debug.Log("A Qunatum Leap Booster has been picked up!");
 
@@ -201,19 +214,11 @@ public class NodeContents : MonoBehaviour {
             myDrone.GetComponent<DroneLocation>().currentlyOccupiedWaypoint = null;
             myDrone.GetComponent<DroneLocation>().previouslyOccupiedWaypoint = null;
             Destroy(myDrone);
+            audiomanager.portalEntersource.Play();
 
             //var allTeleporters = FindObjectsOfType<TeleporterScript>();
 
             //if (allTeleporters.Length <= 0) FindObjectOfType<VictoryScreenScript>().winnerName = stateManager.currentPlayer.ToString();
         }
-	}
-
-    //IEnumerator Paus()
-    //{
-    //    Debug.Log("Starting paus");
-    //    stateManager.pausExcecution = true;
-    //    yield return new WaitForSeconds(2);
-    //    Debug.Log("Paus is done");
-    //    stateManager.pausExcecution = false;
-    //}
+    }
 }
