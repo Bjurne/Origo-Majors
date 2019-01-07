@@ -320,6 +320,22 @@ public class StateManager : MonoBehaviour {
         Debug.Log("Green has " + greenDronesRemaining + " drones left");
         Debug.Log("Yellow has " + yellowDronesRemaining + " drones left");
         Debug.Log("Number of active players = " + numberOfActivePlayers);
+
+        if (activePlayers == 1)
+        {
+            //Victory Screen
+            Debug.Log("The game is over");
+            isGameOver = true;
+            //victoryScreen.GetComponent<VictoryScreenScript>().winnerName = currentPlayer.ToString();
+
+            if (blueDronesRemaining > 0) victoryScreen.GetComponent<VictoryScreenScript>().winnerName = "Blue";
+            if (redDronesRemaining > 0) victoryScreen.GetComponent<VictoryScreenScript>().winnerName = "Red";
+            if (greenDronesRemaining > 0) victoryScreen.GetComponent<VictoryScreenScript>().winnerName = "Green";
+            if (yellowDronesRemaining > 0) victoryScreen.GetComponent<VictoryScreenScript>().winnerName = "Yellow";
+
+            victoryScreen.SetActive(true);
+            victoryScreen.GetComponent<VictoryScreenScript>().DisplayVictoryScreen();
+        }
     }
 
     private void CountTotalDrones()
@@ -404,6 +420,9 @@ public class StateManager : MonoBehaviour {
         FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones();
         FindObjectOfType<TeleportGenerator>().GenerateTeleports();
         FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
+
+        CountActivePlayers();
+
     }
 
 
