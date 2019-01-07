@@ -46,6 +46,7 @@ public class StateManager : MonoBehaviour {
     public bool isDoneMoving= false;
     public bool isGameOver = false;
     public bool pausExcecution = false;
+    public bool autoRollerIsEnabled = true; // <----- TODO reference StartupSettings
 
     //Player scores
     public int blueScore = 0;
@@ -109,6 +110,8 @@ public class StateManager : MonoBehaviour {
         if (!pausExcecution)
         {
             if (FindObjectOfType<CalculateLegalWarpDestination>().thisIsAQuantumLeap && isDoneRolling == false) diceRoller.Number();
+            //if (isDoneRolling == false) diceRoller.Number();
+
 
             if (initialPlacementIsDone == true && isDoneRolling == false) // time to roll the dice
             {
@@ -117,7 +120,7 @@ public class StateManager : MonoBehaviour {
                 diceRoller.setRollButtonColor();
                 rollButton.interactable = true;
                 skipTurnButton.interactable = true;
-
+                if (autoRollerIsEnabled) diceRoller.Number();
             }
             if (Input.GetKeyDown("enter"))
             {
@@ -202,7 +205,7 @@ public class StateManager : MonoBehaviour {
     public void PassTurnToNextPlayer()
     {
         CountTeleports();
-        //if (initialPlacementIsDone == true) CountActivePlayers();
+        if (initialPlacementIsDone == true) CountActivePlayers();
 
         if (initialPlacementIsDone)
         {
@@ -294,12 +297,28 @@ public class StateManager : MonoBehaviour {
             }
         }
 
+        var allScoredDrones = FindObjectOfType<ScoredDroneStorage>().scoredDrones;
+
+        foreach (var scoredDrone in allScoredDrones)
+        {
+            if (scoredDrone.x == 0) blueDronesRemaining++;
+            if (scoredDrone.x == 1) redDronesRemaining++;
+            if (scoredDrone.x == 2) greenDronesRemaining++;
+            if (scoredDrone.x == 3) yellowDronesRemaining++;
+        }
+
         if (blueDronesRemaining >= 1) activePlayers++;
         if (redDronesRemaining >= 1) activePlayers++;
         if (greenDronesRemaining >= 1) activePlayers++;
         if (yellowDronesRemaining >= 1) activePlayers++;
 
         numberOfActivePlayers = activePlayers;
+
+        Debug.Log("Blue has " + blueDronesRemaining + " drones left");
+        Debug.Log("Red has " + redDronesRemaining + " drones left");
+        Debug.Log("Green has " + greenDronesRemaining + " drones left");
+        Debug.Log("Yellow has " + yellowDronesRemaining + " drones left");
+        Debug.Log("Number of active players = " + numberOfActivePlayers);
     }
 
     private void CountTotalDrones()
