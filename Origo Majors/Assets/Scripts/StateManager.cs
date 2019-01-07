@@ -116,12 +116,12 @@ public class StateManager : MonoBehaviour {
 
             if (initialPlacementIsDone == true && isDoneRolling == false) // time to roll the dice
             {
-                // add a reset for dice roll image
+                CountActivePlayers();
                 diceRoller.transform.GetChild(1).GetComponent<Image>().sprite = rollSprite;
                 diceRoller.setRollButtonColor();
                 rollButton.interactable = true;
                 skipTurnButton.interactable = true;
-                if (autoRollerIsEnabled) diceRoller.Number();
+                if (autoRollerIsEnabled && !isGameOver) diceRoller.Number();
             }
             if (Input.GetKeyDown("enter"))
             {
@@ -206,7 +206,7 @@ public class StateManager : MonoBehaviour {
     public void PassTurnToNextPlayer()
     {
         CountTeleports();
-        if (initialPlacementIsDone == true) CountActivePlayers();
+        //if (initialPlacementIsDone == true) CountActivePlayers();
 
         if (initialPlacementIsDone)
         {
