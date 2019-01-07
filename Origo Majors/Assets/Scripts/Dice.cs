@@ -13,13 +13,17 @@ public class Dice : MonoBehaviour
     [SerializeField]
     private int diceValue;
     [HideInInspector]
+    public AudioManager audiomanager;
     public int moveRange;
     public Text currentPlayerTurn;
     public Sprite[] NumberSprite;
-   
 
 
 
+    public void Start()
+    {
+        audiomanager = FindObjectOfType<AudioManager>();
+    }
 
     private void Update()
     {
@@ -56,6 +60,8 @@ public class Dice : MonoBehaviour
     {
         diceValue = Random.Range(1, 8);
         if (diceValue > 7) Debug.Log("Tärningsfel");
+
+        audiomanager.rollDiceSource.Play();
 
         SetMoveRange();
         SetDiceDisplaySprite();

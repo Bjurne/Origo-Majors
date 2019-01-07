@@ -12,7 +12,7 @@ public class BackgroundScript : MonoBehaviour {
 
     private void Update()
     {
-        IdleRotation(layer0, 1.0f);
+        //IdleRotation(layer0, 1.0f);
         IdleRotation(layer1, 1.1f);
         IdleRotation(layer2, 1.2f);
         IdleRotation(layer3, 0.8f);

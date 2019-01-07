@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ClickListener : MonoBehaviour {
 
+    public AudioManager audiomanager;
     public LayerMask selectable;
     public LayerMask waypoints;
     public StateManager stateManager;
@@ -23,6 +24,10 @@ public class ClickListener : MonoBehaviour {
     private bool inMotion = false;
 
 
+     void Start()
+    {
+        audiomanager = FindObjectOfType<AudioManager>();
+    }
 
     void Update ()
     {
@@ -58,6 +63,7 @@ public class ClickListener : MonoBehaviour {
         if (Physics.Raycast(ray, out hit, 1000f, waypoints) && currentlySelectedObject != null)
         // Vi kollar i nästa steg ifall den valda waypointen är ockuperad eller inte
         {
+            audiomanager.selectionSource.Play();
             //clickPosition = hit.point;
             selectedWaypoint = hit.collider.gameObject;
             bool occupied = selectedWaypoint.GetComponent<NodeContents>().occupied;
@@ -125,6 +131,7 @@ public class ClickListener : MonoBehaviour {
     {
         if ((Physics.Raycast(ray, out hit, 1000f, selectable)) && !hasBeenMoved)
         {
+            audiomanager.selectionSource.Play();
             //clickPosition = hit.point;
             currentlySelectedObject = hit.rigidbody.gameObject;
             selectionMarker = currentlySelectedObject.transform.GetChild(0).gameObject;
@@ -168,6 +175,7 @@ public class ClickListener : MonoBehaviour {
             SelectedThing.transform.position = Vector3.Lerp(originalPos, moveToPos, stepCounter);
             stepCounter += 0.05f;
             yield return null;
+            audiomanager.moveLerpSource.Play();
         }
         Debug.Log("Movement complete, calling some neat functions");
 
