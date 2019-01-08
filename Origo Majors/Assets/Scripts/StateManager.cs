@@ -118,7 +118,7 @@ public class StateManager : MonoBehaviour {
             {
                 CountActivePlayers();
                 diceRoller.transform.GetChild(1).GetComponent<Image>().sprite = rollSprite;
-                diceRoller.setRollButtonColor();
+                diceRoller.SetRollButtonColor();
                 rollButton.interactable = true;
                 skipTurnButton.interactable = true;
                 if (autoRollerIsEnabled && !isGameOver) diceRoller.Number();
