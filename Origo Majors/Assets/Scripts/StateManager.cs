@@ -208,12 +208,9 @@ public class StateManager : MonoBehaviour {
         CountTeleports();
         //if (initialPlacementIsDone == true) CountActivePlayers();
 
-        if (initialPlacementIsDone)
-        {
-            Paus();
-        }
         Debug.Log(" passar turen ");
         
+        //if (currentPlayer == (Player)numberOfActivePlayers)
         if (currentPlayer == (Player)FindObjectOfType<StartupSettings>().numberOfSelectedplayers)
         {
             currentPlayer = 0;
@@ -253,14 +250,30 @@ public class StateManager : MonoBehaviour {
                 FindObjectOfType<textHandlerScript>().Print("PlacementTurn");
             }
         }
+
+        if (initialPlacementIsDone)
+        {
+            Paus();
+        }
     }
 
     private void CountPlayerDrones()
     {
         //TODO här letar vi efter vilka gameobjects som helst med rätt tag, vill egentligen bara hitta drönare med rätt tag
-        GameObject[] myDrones = GameObject.FindGameObjectsWithTag(currentPlayer.ToString()) as GameObject[];
-        Debug.Log(currentPlayer.ToString() + " has " + myDrones.Length + " drones left");
-        if (myDrones.Length <= 0)
+        //GameObject[] myDrones = GameObject.FindGameObjectsWithTag(currentPlayer.ToString()) as GameObject[];
+        //Debug.Log(currentPlayer.ToString() + " has " + myDrones.Length + " drones left");
+
+        int currentPlayersActiveDrones = 0;
+        var myDrones = FindObjectsOfType<DroneLocation>();
+
+        foreach (var drone in myDrones)
+        {
+            if (drone.tag == currentPlayer.ToString())
+            {
+                currentPlayersActiveDrones++;
+            }
+        }
+        if (currentPlayersActiveDrones <= 0)
         {
             Debug.Log("currentPlayer has no drones, next player!");
             PassTurnToNextPlayer();
@@ -405,7 +418,7 @@ public class StateManager : MonoBehaviour {
 
     public void LoadNewDimension()
     {
-        //Player lastPlayerToEnterNewDimension = currentPlayer;
+        Player lastPlayerToEnterNewDimension = currentPlayer;
         audiomanager.newDimensionSource.Play();
 
         ClearRemainingBoosterPickUps();
@@ -416,7 +429,7 @@ public class StateManager : MonoBehaviour {
         isDoneMoving = true;
         isGameOver = false;
 
-        currentPlayer--;
+        //currentPlayer--;
 
         pausExcecution = true;
         StartCoroutine(FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones());
@@ -424,7 +437,7 @@ public class StateManager : MonoBehaviour {
         FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
 
         CountActivePlayers();
-        //currentPlayer = lastPlayerToEnterNewDimension;
+        currentPlayer = lastPlayerToEnterNewDimension;
         currentPlayer--;
     }
 

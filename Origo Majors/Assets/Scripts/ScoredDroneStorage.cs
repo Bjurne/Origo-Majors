@@ -26,6 +26,9 @@ public class ScoredDroneStorage : MonoBehaviour {
                 {
                     Transform nodeToRespawnAt = gridNode.gameObject.transform;
 
+                    //dronePrefab = StartupSettings.selectedDroneModel(player);
+                    //TODO reference startupsettings for drone model
+
                     GameObject respawnedDrone = Instantiate(dronePrefab, nodeToRespawnAt.position, Quaternion.identity);
                     respawnedDrone.transform.parent = nodeToRespawnAt;
                     respawnedDrone.tag = player.ToString();

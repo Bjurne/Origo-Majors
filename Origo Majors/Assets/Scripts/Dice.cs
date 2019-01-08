@@ -28,6 +28,8 @@ public class Dice : MonoBehaviour
     public GameObject rollButton;
     public GameObject skipButton;
 
+    public bool hasBeenThrottled = false;
+
 
 
     public void Start()
@@ -81,6 +83,7 @@ public class Dice : MonoBehaviour
         FindObjectOfType<CalculateLegalWarpDestination>().HighlightDronesWithLegalMoves();
 
         stateManager.isDoneRolling = true;
+        hasBeenThrottled = false;
     }
 
     private IEnumerator MoveToCurrentPlayer()

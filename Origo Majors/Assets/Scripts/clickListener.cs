@@ -167,6 +167,8 @@ public class ClickListener : MonoBehaviour {
         originalPos = SelectedThing.transform.position;
         audiomanager.moveLerpSource.Play();
 
+        SelectedThing.transform.LookAt(moveToPos);
+
         while (notDoneMoving)
         {
             if (SelectedThing.transform.position == moveToPos)

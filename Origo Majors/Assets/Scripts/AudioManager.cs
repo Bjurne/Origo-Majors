@@ -14,6 +14,9 @@ public class AudioManager : MonoBehaviour {
     public AudioClip booster3;
     public AudioSource booster3source;
 
+    public AudioClip throttleActivated;
+    public AudioSource throttleActivatedSource;
+
     public AudioClip portalEnter;
     public AudioSource portalEntersource;
 
@@ -38,6 +41,9 @@ public class AudioManager : MonoBehaviour {
     public AudioClip respawnDrone;
     public AudioSource droneRespawnSource;
 
+    public AudioClip failed;
+    public AudioSource failedSource;
+
 
     public void Start()
     {
@@ -46,6 +52,8 @@ public class AudioManager : MonoBehaviour {
         booster2source.clip = booster2;
 
         booster3source.clip = booster3;
+
+        throttleActivatedSource.clip = throttleActivated;
 
         portalEntersource.clip = portalEnter;
 
@@ -62,7 +70,9 @@ public class AudioManager : MonoBehaviour {
         winScreenSource.clip = winScreen;
 
         droneRespawnSource.clip = respawnDrone;
-    }   
+
+        failedSource.clip = failed;
+    }
 }
 
 //add below before start
