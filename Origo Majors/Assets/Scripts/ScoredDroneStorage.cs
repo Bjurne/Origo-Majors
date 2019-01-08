@@ -49,11 +49,14 @@ public class ScoredDroneStorage : MonoBehaviour {
                     respawnedDrone.GetComponent<DroneLocation>().currentlyOccupiedWaypoint = nodeToRespawnAt.gameObject;
                 }
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.2f);
         }
 
         scoredDrones.Clear();
-        FindObjectOfType<StateManager>().pausExcecution = false;
+        //FindObjectOfType<StateManager>().pausExcecution = false;
+
+        //FindObjectOfType<TeleportGenerator>().GenerateTeleports();
+        //FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
 
         yield return null;
     }

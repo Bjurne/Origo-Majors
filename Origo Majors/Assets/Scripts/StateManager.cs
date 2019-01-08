@@ -19,6 +19,7 @@ public class StateManager : MonoBehaviour {
     public AudioManager audiomanager;
     public Player currentPlayer;
     public Player previousPlayer;
+    public Player lastPlayerToEnterNewDimension;
     public GameObject dronePlaceholderPrefab;
 
     // reference other scripts
@@ -47,6 +48,7 @@ public class StateManager : MonoBehaviour {
     public bool isGameOver = false;
     public bool pausExcecution = false;
     public bool autoRollerIsEnabled = true; // <----- TODO reference StartupSettings
+    public bool startOfNewDimension = false;
 
     //Player scores
     public int blueScore = 0;
@@ -184,8 +186,6 @@ public class StateManager : MonoBehaviour {
 
                 clickListener.ClearCurrentlySelected();
                 clickListener.ClearLegalWarpDestinations();
-                Debug.Log("next turn");
-                PassTurnToNextPlayer();
                 rollButton.interactable = false; // disables button. is here for now
 
 
@@ -197,6 +197,8 @@ public class StateManager : MonoBehaviour {
                 isDoneRolling = false;
                 isDoneMoving = false;
 
+                Debug.Log("next turn");
+                PassTurnToNextPlayer();
             }
         }
     }
@@ -206,11 +208,10 @@ public class StateManager : MonoBehaviour {
     public void PassTurnToNextPlayer()
     {
         CountTeleports();
-        //if (initialPlacementIsDone == true) CountActivePlayers();
+        if (initialPlacementIsDone == true) CountActivePlayers();
 
         Debug.Log(" passar turen ");
-        
-        //if (currentPlayer == (Player)numberOfActivePlayers)
+
         if (currentPlayer == (Player)FindObjectOfType<StartupSettings>().numberOfSelectedplayers)
         {
             currentPlayer = 0;
@@ -218,6 +219,12 @@ public class StateManager : MonoBehaviour {
         else
         {
             currentPlayer++;
+        }
+
+        if (startOfNewDimension)
+        {
+            currentPlayer = lastPlayerToEnterNewDimension;
+            //startOfNewDimension = false;
         }
 
         //CountTotalDrones(); Gjordes för mvpn. Kan behövas för ett annat game mode?
@@ -413,12 +420,15 @@ public class StateManager : MonoBehaviour {
         isDoneMoving = true;
         CalculateLegalWarpDestination calculateMove = FindObjectOfType<CalculateLegalWarpDestination>();
         if (calculateMove.thisIsAQuantumLeap) calculateMove.thisIsAQuantumLeap = false;
+        if (startOfNewDimension) startOfNewDimension = false;
         //Debug.Log(isDoneMoving + " " + isDoneRolling);
     }
 
     public void LoadNewDimension()
     {
-        Player lastPlayerToEnterNewDimension = currentPlayer;
+        lastPlayerToEnterNewDimension = currentPlayer;
+        Debug.Log(lastPlayerToEnterNewDimension.ToString() + " was the last to enter, he is going to start now");
+
         audiomanager.newDimensionSource.Play();
 
         ClearRemainingBoosterPickUps();
@@ -431,14 +441,18 @@ public class StateManager : MonoBehaviour {
 
         //currentPlayer--;
 
-        pausExcecution = true;
-        StartCoroutine(FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones());
-        FindObjectOfType<TeleportGenerator>().GenerateTeleports();
-        FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
+        //pausExcecution = true;
 
-        CountActivePlayers();
-        currentPlayer = lastPlayerToEnterNewDimension;
-        currentPlayer--;
+        StartCoroutine(generateContent());
+        
+
+        //CountActivePlayers();
+        //currentPlayer = lastPlayerToEnterNewDimension;
+        //currentPlayer--;
+
+        startOfNewDimension = true;
+
+        //PassTurnToNextPlayer();
     }
 
 
@@ -473,6 +487,18 @@ public class StateManager : MonoBehaviour {
             drone.GetComponentInParent<NodeContents>().occupied = false;
             Destroy(drone.gameObject);
         }
+    }
+
+    private IEnumerator generateContent()
+    {
+        pausExcecution = true;
+        StartCoroutine(FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones());
+        yield return new WaitForSeconds(2.5f);
+        FindObjectOfType<TeleportGenerator>().GenerateTeleports();
+        yield return new WaitForSeconds(0.5f);
+        FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
+        yield return new WaitForSeconds(0.5f);
+        pausExcecution = false;
     }
 
     public IEnumerator Paus()

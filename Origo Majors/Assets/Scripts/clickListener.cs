@@ -196,6 +196,7 @@ public class ClickListener : MonoBehaviour {
 
         inMotion = false;
         stateManager.isDoneMoving = true;
+        if (stateManager.startOfNewDimension) stateManager.startOfNewDimension = false;
     }
 
 }
