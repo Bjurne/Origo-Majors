@@ -6,10 +6,11 @@ public class ScoredDroneStorage : MonoBehaviour {
 
     public List<Vector4> scoredDrones;
     public GameObject dronePrefab;
+    public AudioManager audiomanager;
 
-    public void SpawnScoredDrones()
+    public IEnumerator SpawnScoredDrones()
     {
-
+        //FindObjectOfType<StateManager>().pausExcecution = true;
         for (int i = 0; i < scoredDrones.Count; i++)
         {
             Player player = (Player)scoredDrones[i].x;
@@ -28,7 +29,8 @@ public class ScoredDroneStorage : MonoBehaviour {
                     GameObject respawnedDrone = Instantiate(dronePrefab, nodeToRespawnAt.position, Quaternion.identity);
                     respawnedDrone.transform.parent = nodeToRespawnAt;
                     respawnedDrone.tag = player.ToString();
-
+                    
+                    audiomanager.droneRespawnSource.Play();
 
                     MeshRenderer[] children = respawnedDrone.GetComponentsInChildren<MeshRenderer>();
 
@@ -44,9 +46,12 @@ public class ScoredDroneStorage : MonoBehaviour {
                     respawnedDrone.GetComponent<DroneLocation>().currentlyOccupiedWaypoint = nodeToRespawnAt.gameObject;
                 }
             }
+            yield return new WaitForSeconds(1f);
         }
 
         scoredDrones.Clear();
+        FindObjectOfType<StateManager>().pausExcecution = false;
 
+        yield return null;
     }
 }

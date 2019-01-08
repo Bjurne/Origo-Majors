@@ -15,6 +15,11 @@ public class animController : MonoBehaviour {
     public Animator greenAnimator;
     public Animator yellowAnimator;
 
+    public GameObject blueAvatarImage;
+    public GameObject redAvatarImage;
+    public GameObject greenAvatarImage;
+    public GameObject yellowAvatarImage;
+
     void Start () {
         redAnimator.Play("notredturn");
         lastActiveAnimator = redAnimator;
@@ -28,6 +33,11 @@ public class animController : MonoBehaviour {
         blueAnimator.Play("notblueturn");
         lastActiveAnimator = blueAnimator;
         StartCoroutine(FadeBackgroundAlpha());
+
+        //blueAvatarImage.GetComponent<Image>().sprite = FindObjectOfType<StartupSettings>().blueSelectedAvatar;
+        //redAvatarImage.GetComponent<Image>().sprite = FindObjectOfType<StartupSettings>().redSelectedAvatar;
+        //greenAvatarImage.GetComponent<Image>().sprite = FindObjectOfType<StartupSettings>().greenSelectedAvatar;
+        //yellowAvatarImage.GetComponent<Image>().sprite = FindObjectOfType<StartupSettings>().yellowSelectedAvatar;
 
         SetUISize();
 	}

@@ -18,6 +18,16 @@ public class Dice : MonoBehaviour
     public Text currentPlayerTurn;
     public Sprite[] NumberSprite;
 
+    public Transform bluePlayerDicePosition;
+    public Transform redPlayerDicePosition;
+    public Transform greenPlayerDicePosition;
+    public Transform yellowPlayerDicePosition;
+    private Transform currentPlayerDicePosition;
+    private Vector3 dicePrevoiusPosition;
+
+    public GameObject rollButton;
+    public GameObject skipButton;
+
 
 
     public void Start()
@@ -25,27 +35,27 @@ public class Dice : MonoBehaviour
         audiomanager = FindObjectOfType<AudioManager>();
     }
 
-    private void Update()
-    {
-        if (stateManager.initialPlacementIsDone == false)
-        {
-            currentPlayerTurn.text = stateManager.currentPlayer.ToString() + "'s Turn to place Drone";
+    //private void Update()
+    //{
+    //    if (stateManager.initialPlacementIsDone == false)
+    //    {
+    //        currentPlayerTurn.text = stateManager.currentPlayer.ToString() + "'s Turn to place Drone";
 
-        }
-        else
-        {
-            if (stateManager.isDoneRolling == false)
-            {
-                currentPlayerTurn.text = stateManager.currentPlayer.ToString() + "'s Turn to roll";
-            }
-            else
-            {
-                currentPlayerTurn.text = stateManager.currentPlayer.ToString() + "'s Turn to move";
-            }
+    //    }
+    //    else
+    //    {
+    //        if (stateManager.isDoneRolling == false)
+    //        {
+    //            currentPlayerTurn.text = stateManager.currentPlayer.ToString() + "'s Turn to roll";
+    //        }
+    //        else
+    //        {
+    //            currentPlayerTurn.text = stateManager.currentPlayer.ToString() + "'s Turn to move";
+    //        }
 
-        }
+    //    }
 
-    }
+    //}
 
     public void ThrottleChanges(int changes)
     {
@@ -58,6 +68,8 @@ public class Dice : MonoBehaviour
 
     public void Number()
     {
+        StartCoroutine(MoveToCurrentPlayer());
+
         diceValue = Random.Range(1, 8);
         if (diceValue > 7) Debug.Log("Tärningsfel");
 
@@ -69,6 +81,29 @@ public class Dice : MonoBehaviour
         FindObjectOfType<CalculateLegalWarpDestination>().HighlightDronesWithLegalMoves();
 
         stateManager.isDoneRolling = true;
+    }
+
+    private IEnumerator MoveToCurrentPlayer()
+    {
+        if (stateManager.currentPlayer == Player.Blue) currentPlayerDicePosition = bluePlayerDicePosition;
+        if (stateManager.currentPlayer == Player.Red) currentPlayerDicePosition = redPlayerDicePosition;
+        if (stateManager.currentPlayer == Player.Green) currentPlayerDicePosition = greenPlayerDicePosition;
+        if (stateManager.currentPlayer == Player.Yellow) currentPlayerDicePosition = yellowPlayerDicePosition;
+
+        dicePrevoiusPosition = rollButton.transform.position;
+
+        bool notFinalPosition = true;
+        float stepCounter = 0.0f;
+        while (notFinalPosition)
+        {
+            if (rollButton.transform.position == currentPlayerDicePosition.position)
+            {
+                notFinalPosition = false;
+            }
+            rollButton.transform.position = Vector3.Lerp(dicePrevoiusPosition, currentPlayerDicePosition.position, stepCounter);
+            stepCounter += 0.05f;
+            yield return null;
+        }
     }
 
     private void SetMoveRange()
@@ -122,7 +157,7 @@ public class Dice : MonoBehaviour
         }
     }
 
-    public void setRollButtonColor()
+    public void SetRollButtonColor()
     {
         var currentPlayer = stateManager.currentPlayer;
         Vector4 rollButtonColor = Color.white;
@@ -142,7 +177,8 @@ public class Dice : MonoBehaviour
         {
             rollButtonColor = Color.yellow;
         }
-        stateManager.rollButton.GetComponent<Image>().color = rollButtonColor;
+        rollButton.GetComponent<Image>().color = rollButtonColor;
+        skipButton.GetComponent<Image>().color = rollButtonColor;
     }
 
 

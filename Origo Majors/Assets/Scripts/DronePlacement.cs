@@ -6,6 +6,7 @@ using UnityEngine;
 public class DronePlacement : MonoBehaviour {
 
     public GameObject clickListener;
+    public AudioManager audiomanager;
     public int numberOfDronesSpawned;
     public int numberOfDronesToSpawnPerPlayer;
     public LayerMask waypoints;
@@ -71,6 +72,8 @@ public class DronePlacement : MonoBehaviour {
 
                     GameObject newDrone = Instantiate(dronePrefab, selectedWaypoint.transform.position, Quaternion.identity);
                     newDrone.transform.parent = selectedWaypoint.transform;
+
+                    audiomanager.droneRespawnSource.Play();
 
                     MeshRenderer[] children = newDrone.GetComponentsInChildren<MeshRenderer>();
 

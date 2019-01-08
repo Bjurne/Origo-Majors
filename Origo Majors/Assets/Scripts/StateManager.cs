@@ -116,12 +116,12 @@ public class StateManager : MonoBehaviour {
 
             if (initialPlacementIsDone == true && isDoneRolling == false) // time to roll the dice
             {
-                // add a reset for dice roll image
+                CountActivePlayers();
                 diceRoller.transform.GetChild(1).GetComponent<Image>().sprite = rollSprite;
-                diceRoller.setRollButtonColor();
+                diceRoller.SetRollButtonColor();
                 rollButton.interactable = true;
                 skipTurnButton.interactable = true;
-                if (autoRollerIsEnabled) diceRoller.Number();
+                if (autoRollerIsEnabled && !isGameOver) diceRoller.Number();
             }
             if (Input.GetKeyDown("enter"))
             {
@@ -206,7 +206,7 @@ public class StateManager : MonoBehaviour {
     public void PassTurnToNextPlayer()
     {
         CountTeleports();
-        if (initialPlacementIsDone == true) CountActivePlayers();
+        //if (initialPlacementIsDone == true) CountActivePlayers();
 
         if (initialPlacementIsDone)
         {
@@ -320,6 +320,22 @@ public class StateManager : MonoBehaviour {
         Debug.Log("Green has " + greenDronesRemaining + " drones left");
         Debug.Log("Yellow has " + yellowDronesRemaining + " drones left");
         Debug.Log("Number of active players = " + numberOfActivePlayers);
+
+        if (activePlayers == 1)
+        {
+            //Victory Screen
+            Debug.Log("The game is over");
+            isGameOver = true;
+            //victoryScreen.GetComponent<VictoryScreenScript>().winnerName = currentPlayer.ToString();
+
+            if (blueDronesRemaining > 0) victoryScreen.GetComponent<VictoryScreenScript>().winnerName = "Blue";
+            if (redDronesRemaining > 0) victoryScreen.GetComponent<VictoryScreenScript>().winnerName = "Red";
+            if (greenDronesRemaining > 0) victoryScreen.GetComponent<VictoryScreenScript>().winnerName = "Green";
+            if (yellowDronesRemaining > 0) victoryScreen.GetComponent<VictoryScreenScript>().winnerName = "Yellow";
+
+            victoryScreen.SetActive(true);
+            victoryScreen.GetComponent<VictoryScreenScript>().DisplayVictoryScreen();
+        }
     }
 
     private void CountTotalDrones()
@@ -389,6 +405,7 @@ public class StateManager : MonoBehaviour {
 
     public void LoadNewDimension()
     {
+        //Player lastPlayerToEnterNewDimension = currentPlayer;
         audiomanager.newDimensionSource.Play();
 
         ClearRemainingBoosterPickUps();
@@ -400,10 +417,15 @@ public class StateManager : MonoBehaviour {
         isGameOver = false;
 
         currentPlayer--;
-        
-        FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones();
+
+        pausExcecution = true;
+        StartCoroutine(FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones());
         FindObjectOfType<TeleportGenerator>().GenerateTeleports();
         FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
+
+        CountActivePlayers();
+        //currentPlayer = lastPlayerToEnterNewDimension;
+        currentPlayer--;
     }
 
 
