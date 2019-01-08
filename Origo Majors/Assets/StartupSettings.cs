@@ -7,8 +7,11 @@ public class StartupSettings : MonoBehaviour
 {
     public Dropdown playernumber;
     public Dropdown dronenumber;
+    [HideInInspector]
     public int numberOfSelectedplayers;
+    [HideInInspector]
     public int numberOfSelectedDrones;
+
     // keep this between scenes
     void Awake()
     {
@@ -19,6 +22,12 @@ public class StartupSettings : MonoBehaviour
     void Start()
     {
 
+    }
+    public void Update()
+    {
+        // todo 
+        // when number if player selcted equals int
+        // reveal custumise for number of selcted players
     }
 
     // Update is called once per frame
