@@ -165,6 +165,7 @@ public class ClickListener : MonoBehaviour {
         float stepCounter = 0;
         Vector3 originalPos;
         originalPos = SelectedThing.transform.position;
+        audiomanager.moveLerpSource.Play();
 
         while (notDoneMoving)
         {
@@ -175,7 +176,6 @@ public class ClickListener : MonoBehaviour {
             SelectedThing.transform.position = Vector3.Lerp(originalPos, moveToPos, stepCounter);
             stepCounter += 0.05f;
             yield return null;
-            audiomanager.moveLerpSource.Play();
         }
         Debug.Log("Movement complete, calling some neat functions");
 

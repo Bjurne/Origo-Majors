@@ -405,6 +405,7 @@ public class StateManager : MonoBehaviour {
 
     public void LoadNewDimension()
     {
+        Player lastPlayerToEnterNewDimension = currentPlayer;
         audiomanager.newDimensionSource.Play();
 
         ClearRemainingBoosterPickUps();
@@ -416,13 +417,15 @@ public class StateManager : MonoBehaviour {
         isGameOver = false;
 
         currentPlayer--;
-        
-        FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones();
+
+        pausExcecution = true;
+        StartCoroutine(FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones());
         FindObjectOfType<TeleportGenerator>().GenerateTeleports();
         FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
 
         CountActivePlayers();
-
+        currentPlayer = lastPlayerToEnterNewDimension;
+        currentPlayer--;
     }
 
 

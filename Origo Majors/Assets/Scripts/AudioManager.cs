@@ -35,7 +35,10 @@ public class AudioManager : MonoBehaviour {
     public AudioClip winScreen;
     public AudioSource winScreenSource;
 
-   
+    public AudioClip respawnDrone;
+    public AudioSource droneRespawnSource;
+
+
     public void Start()
     {
         booster1source.clip = booster1;
@@ -57,6 +60,8 @@ public class AudioManager : MonoBehaviour {
         selectionSource.clip = selection;
 
         winScreenSource.clip = winScreen;
+
+        droneRespawnSource.clip = respawnDrone;
     }   
 }
 
