@@ -405,7 +405,7 @@ public class StateManager : MonoBehaviour {
 
     public void LoadNewDimension()
     {
-        Player lastPlayerToEnterNewDimension = currentPlayer;
+        //Player lastPlayerToEnterNewDimension = currentPlayer;
         audiomanager.newDimensionSource.Play();
 
         ClearRemainingBoosterPickUps();
@@ -424,7 +424,7 @@ public class StateManager : MonoBehaviour {
         FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
 
         CountActivePlayers();
-        currentPlayer = lastPlayerToEnterNewDimension;
+        //currentPlayer = lastPlayerToEnterNewDimension;
         currentPlayer--;
     }
 
