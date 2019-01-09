@@ -13,17 +13,13 @@ public class Customization : MonoBehaviour {
     public GameObject player3;
     public GameObject player4;
 
-    bool player3check;
-    bool player4check;
-    bool player1check;
+  
+
+
 
     // Use this for initialization
     void Start () {
-        player3check = false;
-        player4check = false;
-        //player3.SetActive(player3check);
-        //player4.SetActive(player4check );
-        //player1.SetActive(player1check);
+
        
     }
     
@@ -41,33 +37,54 @@ public class Customization : MonoBehaviour {
         else
         {
             player3.SetActive(false);
-
         }
         if (numberOfSelectedplayers == 4 && player1.activeInHierarchy == true)
         {
             player4.SetActive(true);
-
         }
         else
         {
             player4.SetActive(false);
-
-
         }
-        //else
-        //{
-        //    player3.SetActive(false);
-        //}
 
-        //if (numberOfSelectedplayers == 4 && player1.activeInHierarchy)
-        //{
-        //    player4.SetActive(true);
-        //}
-        //else
-        //{
-        //    player4.SetActive(false);
-        //}
+    }
 
+
+    public Button player1dronebutton00;
+    public Button player1dronebutton01;
+    public Button player1dronebutton02;
+    public Button player1dronebutton03;
+
+
+    public int player1DroneSelected = 0;
+    public int player2DroneSelected = 1;
+    public int player3DroneSelected = 2;
+    public int player4DroneSelected = 3;
+
+
+    public void player1buttonpressed()
+    {
+        // todo 
+
+        if (player1DroneSelected == 0)
+        {
+            player1dronebutton00.Select();
+        }
+        else if (player1DroneSelected == 1)
+        {
+            player1dronebutton01.Select();
+        }
+        else if (player1DroneSelected == 2)
+        {
+            player1dronebutton02.Select();
+        }
+        else if (player1DroneSelected == 3)
+        {
+            player1dronebutton03.Select();
+        }
+
+
+        // this works sorta now, need to be remvoed from update and be run at button click.
     }
 }
 

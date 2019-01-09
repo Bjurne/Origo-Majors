@@ -12,10 +12,19 @@ public class StartupSettings : MonoBehaviour
     [HideInInspector]
     public int numberOfSelectedDrones;
 
+
+    //defoult drone
     public int player1DroneSelected = 0;
     public int player2DroneSelected = 1;
     public int player3DroneSelected = 2;
     public int player4DroneSelected = 3;
+
+
+    //default avatar
+    public int player1AvatarSelected = 0;
+    public int player2AvatarSelected = 1;
+    public int player3AvatarSelected = 2;
+    public int player4AvatarSelected = 3;
 
     // keep this between scenes
     void Awake()
@@ -30,9 +39,8 @@ public class StartupSettings : MonoBehaviour
     }
     public void Update()
     {
-        // todo 
-        // when number if player selcted equals int
-        // reveal custumise for number of selcted players
+    
+
     }
 
     // Update is called once per frame
@@ -44,6 +52,8 @@ public class StartupSettings : MonoBehaviour
         //Debug.Log("Number of drones" + numberOfSelectedDrones);
 
         numberOfSelectedDrones = dronenumber.value + 2;
+
+
 
     }
 
@@ -119,8 +129,82 @@ public class StartupSettings : MonoBehaviour
     public void Player4Drone03()
     {
         player4DroneSelected = 3;
+ 
+    }
+    
+    // player 1 avtar selection
+    public void Player1Avatar00 ()
+    {
+        player1AvatarSelected = 0;
+    }
+    public void Player1Avatar01()
+    {
+        player1AvatarSelected = 1;
+    }
+    public void Player1Avatar02()
+    {
+        player1AvatarSelected = 2;
+    }
+    public void Player1Avatar03()
+    {
+        player1AvatarSelected = 3;
     }
 
+    // player 2 avatar selection
+    public void Player2Avatar00()
+    {
+        player2AvatarSelected = 0;
+    }
+    public void Player2Avatar01()
+    {
+        player2AvatarSelected = 1;
+    }
+    public void Player2Avatar02()
+    {
+        player2AvatarSelected = 2;
+    }
+    public void Player2Avatar03()
+    {
+        player2AvatarSelected = 3;
+    }
+
+
+    // player 3 avatar selection
+    public void Player3Avatar00()
+    {
+        player3AvatarSelected = 0;
+    }
+    public void Player3Avatar01()
+    {
+        player3AvatarSelected = 1;
+    }
+    public void Player3Avatar02()
+    {
+        player3AvatarSelected = 2;
+    }
+    public void Player3Avatar03()
+    {
+        player3AvatarSelected = 3;
+    }
+
+
+    //  player 4 avatar selection
+    public void Player4Avatar00()
+    {
+        player4AvatarSelected = 0;
+    }
+    public void Player4Avatar01()
+    {
+        player4AvatarSelected = 1;
+    }
+    public void Player4Avatar02()
+    {
+        player4AvatarSelected = 2;
+    }
+    public void Player4Avatar03()
+    {
+        player4AvatarSelected = 3;
+    }
 
 }
 

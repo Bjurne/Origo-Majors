@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 8646249}
   - component: {fileID: 8646248}
   m_Layer: 0
-  m_Name: Drone 03
+  m_Name: Avatar 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,7 +187,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8646249}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player3Avatar03
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &8646249
@@ -1863,7 +1874,7 @@ GameObject:
   - component: {fileID: 173565922}
   - component: {fileID: 173565921}
   m_Layer: 0
-  m_Name: Drone 01
+  m_Name: Avatar 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1925,7 +1936,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 173565922}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player3Avatar01
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &173565922
@@ -2380,7 +2402,7 @@ GameObject:
   - component: {fileID: 269130716}
   - component: {fileID: 269130715}
   m_Layer: 0
-  m_Name: Drone 02
+  m_Name: Avatar 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2442,7 +2464,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 269130716}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player2Avatar02
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &269130716
@@ -2833,7 +2866,7 @@ GameObject:
   - component: {fileID: 343685443}
   - component: {fileID: 343685442}
   m_Layer: 0
-  m_Name: Drone 00
+  m_Name: Avatar 00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2895,7 +2928,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 343685443}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player3Avatar00
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &343685443
@@ -3212,7 +3256,7 @@ GameObject:
   - component: {fileID: 418333333}
   - component: {fileID: 418333332}
   m_Layer: 0
-  m_Name: Drone 03
+  m_Name: Avatar 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3274,7 +3318,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 418333333}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player2Avatar03
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &418333333
@@ -3633,7 +3688,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0, g: 0.07727194, b: 1, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0, g: 0.06666667, b: 0.8745099, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3710,7 +3765,7 @@ GameObject:
   - component: {fileID: 470525670}
   - component: {fileID: 470525669}
   m_Layer: 0
-  m_Name: Drone 01
+  m_Name: Avatar 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3772,7 +3827,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 470525670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player1Avatar01
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &470525670
@@ -4336,7 +4402,7 @@ GameObject:
   - component: {fileID: 568139669}
   - component: {fileID: 568139668}
   m_Layer: 0
-  m_Name: Drone 03
+  m_Name: Avatar 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4398,7 +4464,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 568139669}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player1Avatar03
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &568139669
@@ -4591,7 +4668,7 @@ GameObject:
   - component: {fileID: 595126548}
   - component: {fileID: 595126547}
   m_Layer: 0
-  m_Name: Drone 02
+  m_Name: Avatar 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4653,7 +4730,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 595126548}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player4Avatar02
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &595126548
@@ -4771,7 +4859,7 @@ GameObject:
   - component: {fileID: 618448861}
   - component: {fileID: 618448860}
   m_Layer: 0
-  m_Name: Drone 00
+  m_Name: Avatar 00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4833,7 +4921,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 618448861}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player4Avatar00
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &618448861
@@ -5090,7 +5189,7 @@ GameObject:
   - component: {fileID: 678910407}
   - component: {fileID: 678910406}
   m_Layer: 0
-  m_Name: Drone 00
+  m_Name: Avatar 00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5152,7 +5251,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 678910407}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player1Avatar00
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &678910407
@@ -5341,6 +5451,14 @@ MonoBehaviour:
   player1: {fileID: 1488357034}
   player3: {fileID: 1816905417}
   player4: {fileID: 478810542}
+  player1dronebutton00: {fileID: 77145187}
+  player1dronebutton01: {fileID: 445572271}
+  player1dronebutton02: {fileID: 145044742}
+  player1dronebutton03: {fileID: 1230552692}
+  player1DroneSelected: 0
+  player2DroneSelected: 1
+  player3DroneSelected: 2
+  player4DroneSelected: 3
 --- !u!1 &715311913
 GameObject:
   m_ObjectHideFlags: 0
@@ -5529,7 +5647,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -500
   m_Sprite: {fileID: 21300000, guid: ce37bb5e6c0f28b4c9b9f98378819b43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6029,7 +6147,7 @@ GameObject:
   - component: {fileID: 824266224}
   - component: {fileID: 824266223}
   m_Layer: 0
-  m_Name: Drone 00
+  m_Name: Avatar 00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6091,7 +6209,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 824266224}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player2Avatar00
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &824266224
@@ -6194,7 +6323,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -500
   m_Sprite: {fileID: 21300000, guid: ab9c18ead77ba0c4296c11f05173f5c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6387,7 +6516,7 @@ GameObject:
   - component: {fileID: 868452956}
   - component: {fileID: 868452955}
   m_Layer: 0
-  m_Name: Drone 01
+  m_Name: Avatar 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6449,7 +6578,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 868452956}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player4Avatar01
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &868452956
@@ -6552,7 +6692,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -500
   m_Sprite: {fileID: 21300000, guid: 25809c893dc28f74e92e349af4c4e662, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.015686275}
   m_FlipX: 0
@@ -7630,7 +7770,7 @@ GameObject:
   - component: {fileID: 995256236}
   - component: {fileID: 995256235}
   m_Layer: 0
-  m_Name: Drone 02
+  m_Name: Avatar 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7692,7 +7832,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 995256236}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player1Avatar02
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &995256236
@@ -8737,7 +8888,7 @@ GameObject:
   - component: {fileID: 1075404626}
   - component: {fileID: 1075404625}
   m_Layer: 0
-  m_Name: Drone 02
+  m_Name: Avatar 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8799,7 +8950,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1075404626}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player3Avatar02
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1075404626
@@ -8848,7 +9010,7 @@ GameObject:
   - component: {fileID: 1126542243}
   - component: {fileID: 1126542242}
   m_Layer: 0
-  m_Name: Drone 03
+  m_Name: Avatar 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8910,7 +9072,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1126542243}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player4Avatar03
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1126542243
@@ -10029,7 +10202,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: e69484481b5a9494e931505191420458, type: 3}
-    m_FontSize: 44
+    m_FontSize: 38
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
@@ -10693,7 +10866,7 @@ GameObject:
   - component: {fileID: 1461201319}
   - component: {fileID: 1461201318}
   m_Layer: 0
-  m_Name: Drone 01
+  m_Name: Avatar 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10755,7 +10928,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1461201319}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1834615408}
+        m_MethodName: Player2Avatar01
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1461201319
@@ -11058,6 +11242,17 @@ MonoBehaviour:
       - m_Target: {fileID: 225596722}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 699133512}
+        m_MethodName: player1buttonpressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13063,6 +13258,10 @@ MonoBehaviour:
   player2DroneSelected: 1
   player3DroneSelected: 2
   player4DroneSelected: 3
+  player1AvatarSelected: 0
+  player2AvatarSelected: 1
+  player3AvatarSelected: 2
+  player4AvatarSelected: 3
 --- !u!4 &1834615409
 Transform:
   m_ObjectHideFlags: 0
