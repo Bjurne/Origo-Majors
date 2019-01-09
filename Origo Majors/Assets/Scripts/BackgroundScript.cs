@@ -16,16 +16,14 @@ public class BackgroundScript : MonoBehaviour {
     SpriteRenderer currentNebula;
     SpriteRenderer[] nebulas;
 
-
     private void Awake()
     {
-        SpriteRenderer[] nebulas = { nebula0, nebula1, nebula2, nebula3 };
+        nebulas = new SpriteRenderer[] { nebula0, nebula1, nebula2, nebula3 };
         ChangeNebula(nebula0);
     }
 
     private void Update()
     {
-
         IdleRotation(currentNebula, 0.5f);
 
         IdleRotation(layer0, 0.6f);
