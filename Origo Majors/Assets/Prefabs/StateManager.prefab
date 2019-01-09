@@ -51,11 +51,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d862cc36409b9da42b935a7d219adc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audiomanager: {fileID: 0}
   currentPlayer: 0
-  gridscript: {fileID: 0}
+  previousPlayer: 0
+  lastPlayerToEnterNewDimension: 0
+  dronePlaceholderPrefab: {fileID: 1421427863671348, guid: 9c4264f1ebdf7cf4ca8f89f981d776a6,
+    type: 2}
+  gridGenerator: {fileID: 0}
   initialPlacement: {fileID: 0}
   diceRoller: {fileID: 0}
   rollButton: {fileID: 0}
+  skipTurnButton: {fileID: 0}
+  clickListener: {fileID: 0}
+  victoryScreen: {fileID: 0}
+  myCameraHolder: {fileID: 0}
+  myGameBoardScript: {fileID: 0}
+  animationController: {fileID: 0}
+  userInterfaceCanvas: {fileID: 0}
+  backgroundScript: {fileID: 0}
+  rollSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   selectable:
     serializedVersion: 2
     m_Bits: 1024
@@ -65,3 +79,13 @@ MonoBehaviour:
   initialPlacementIsDone: 0
   isDoneRolling: 0
   isDoneMoving: 0
+  isGameOver: 0
+  pausExcecution: 0
+  autoRollerIsEnabled: 1
+  startOfNewDimension: 0
+  blueScore: 0
+  redScore: 0
+  greenScore: 0
+  yellowScore: 0
+  currentDimension: 0
+  numberOfActivePlayers: 0

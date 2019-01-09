@@ -12257,6 +12257,30 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114233842026837870, guid: 72117f388889b6b48a7952efe8eafe88,
+        type: 2}
+      propertyPath: avatarImage01
+      value: 
+      objectReference: {fileID: 21300000, guid: 7f9dc0e8be41f184ba02a3d2a5ec602d,
+        type: 3}
+    - target: {fileID: 114233842026837870, guid: 72117f388889b6b48a7952efe8eafe88,
+        type: 2}
+      propertyPath: avatarImage02
+      value: 
+      objectReference: {fileID: 21300000, guid: 428f8251e33cab542b7e85b6b5e99039,
+        type: 3}
+    - target: {fileID: 114233842026837870, guid: 72117f388889b6b48a7952efe8eafe88,
+        type: 2}
+      propertyPath: avatarImage03
+      value: 
+      objectReference: {fileID: 21300000, guid: 82e41574ac64e1c43a53dda9115f8253,
+        type: 3}
+    - target: {fileID: 114233842026837870, guid: 72117f388889b6b48a7952efe8eafe88,
+        type: 2}
+      propertyPath: avatarImage04
+      value: 
+      objectReference: {fileID: 21300000, guid: d799eaed13f6fdf41b4fc42099e9ec2e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72117f388889b6b48a7952efe8eafe88, type: 2}
   m_IsPrefabAsset: 0

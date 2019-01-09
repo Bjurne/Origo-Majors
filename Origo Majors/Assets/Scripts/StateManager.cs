@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 
 public enum Player
@@ -34,6 +35,7 @@ public class StateManager : MonoBehaviour {
     public GameBoardScript myGameBoardScript;
     public animController animationController;
     public GameObject userInterfaceCanvas;
+    public BackgroundScript backgroundScript;
 
     public Sprite rollSprite; 
 
@@ -430,6 +432,8 @@ public class StateManager : MonoBehaviour {
     {
         lastPlayerToEnterNewDimension = currentPlayer;
         Debug.Log(lastPlayerToEnterNewDimension.ToString() + " was the last to enter, he is going to start now");
+
+        backgroundScript.ChangeNebula(backgroundScript.nebulas[Random.Range(0,4)]);
 
         audiomanager.newDimensionSource.Play();
 

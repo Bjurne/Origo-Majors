@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MenuScript : MonoBehaviour {
 
     public Font Origotext;
+    public BackgroundScript backgroundScript;
 
     private void Start()
     {
@@ -18,6 +19,9 @@ public class MenuScript : MonoBehaviour {
         var textcolorComponents = Component.FindObjectsOfType<Text>();
         foreach (var component in textcolorComponents)
             component.color = Color.white;
+
+        backgroundScript.ChangeNebula(backgroundScript.nebulas[Random.Range(0, 4)]);
+
     }
 
     public void QuitGame()

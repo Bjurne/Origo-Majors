@@ -14,7 +14,7 @@ public class BackgroundScript : MonoBehaviour {
     public SpriteRenderer layer3;
     Vector3 turnSpeed = new Vector3 (0.0f, 0.0f, 1.0f);
     SpriteRenderer currentNebula;
-    SpriteRenderer[] nebulas;
+    public SpriteRenderer[] nebulas;
 
     private void Awake()
     {
