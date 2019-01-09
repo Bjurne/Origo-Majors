@@ -35,10 +35,7 @@ public class ScoredDroneStorage : MonoBehaviour {
                     //TODO reference startupsettings for drone model
                     StateManager stateManager = FindObjectOfType<StateManager>();
 
-                    if (player == Player.Blue) dronePrefab = droneModel01;
-                    if (player == Player.Red) dronePrefab = droneModel02;
-                    if (player == Player.Green) dronePrefab = droneModel03;
-                    if (player == Player.Yellow) dronePrefab = droneModel04;
+                    SetPlayerDroneModel(player);
 
 
                     GameObject respawnedDrone = Instantiate(dronePrefab, nodeToRespawnAt.position, Quaternion.identity);
@@ -75,5 +72,45 @@ public class ScoredDroneStorage : MonoBehaviour {
         //FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
 
         yield return null;
+    }
+
+    private void SetPlayerDroneModel(Player player)
+    {
+        StartupSettings startUpSettings = FindObjectOfType<StartupSettings>();
+        StateManager stateManager = FindObjectOfType<StateManager>();
+
+        Player currentPlayer = player;
+
+        if (currentPlayer == Player.Blue)
+        {
+            if (startUpSettings.player1DroneSelected == 0) dronePrefab = droneModel01;
+            else if (startUpSettings.player1DroneSelected == 1) dronePrefab = droneModel02;
+            else if (startUpSettings.player1DroneSelected == 2) dronePrefab = droneModel03;
+            else if (startUpSettings.player1DroneSelected == 3) dronePrefab = droneModel04;
+        }
+
+        else if (currentPlayer == Player.Red)
+        {
+            if (startUpSettings.player2DroneSelected == 0) dronePrefab = droneModel01;
+            else if (startUpSettings.player2DroneSelected == 1) dronePrefab = droneModel02;
+            else if (startUpSettings.player2DroneSelected == 2) dronePrefab = droneModel03;
+            else if (startUpSettings.player2DroneSelected == 3) dronePrefab = droneModel04;
+        }
+
+        else if (currentPlayer == Player.Green)
+        {
+            if (startUpSettings.player3DroneSelected == 0) dronePrefab = droneModel01;
+            else if (startUpSettings.player3DroneSelected == 1) dronePrefab = droneModel02;
+            else if (startUpSettings.player3DroneSelected == 2) dronePrefab = droneModel03;
+            else if (startUpSettings.player3DroneSelected == 3) dronePrefab = droneModel04;
+        }
+
+        else if (currentPlayer == Player.Yellow)
+        {
+            if (startUpSettings.player4DroneSelected == 0) dronePrefab = droneModel01;
+            else if (startUpSettings.player4DroneSelected == 1) dronePrefab = droneModel02;
+            else if (startUpSettings.player4DroneSelected == 2) dronePrefab = droneModel03;
+            else if (startUpSettings.player4DroneSelected == 3) dronePrefab = droneModel04;
+        }
     }
 }
