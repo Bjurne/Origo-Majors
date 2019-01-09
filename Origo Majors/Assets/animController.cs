@@ -20,6 +20,11 @@ public class animController : MonoBehaviour {
     public GameObject greenAvatarImage;
     public GameObject yellowAvatarImage;
 
+    public Sprite avatarImage01;
+    public Sprite avatarImage02;
+    public Sprite avatarImage03;
+    public Sprite avatarImage04;
+
     void Start () {
         redAnimator.Play("notredturn");
         lastActiveAnimator = redAnimator;
@@ -33,6 +38,8 @@ public class animController : MonoBehaviour {
         blueAnimator.Play("notblueturn");
         lastActiveAnimator = blueAnimator;
         StartCoroutine(FadeBackgroundAlpha());
+
+        SetPlayerAvatarImage();
 
         //blueAvatarImage.GetComponent<Image>().sprite = FindObjectOfType<StartupSettings>().blueSelectedAvatar;
         //redAvatarImage.GetComponent<Image>().sprite = FindObjectOfType<StartupSettings>().redSelectedAvatar;
@@ -134,5 +141,30 @@ public class animController : MonoBehaviour {
             yellowAnimator.GetComponentInChildren<Image>().CrossFadeAlpha(1, 0.5f, false);
         }
         yield return new WaitForSeconds(1);
+    }
+
+    private void SetPlayerAvatarImage()
+    {
+        StartupSettings startUpSettings = FindObjectOfType<StartupSettings>();
+
+        if (startUpSettings.player1AvatarSelected == 0) blueAvatarImage.GetComponent<Image>().sprite = avatarImage01;
+        else if (startUpSettings.player1AvatarSelected == 1) blueAvatarImage.GetComponent<Image>().sprite = avatarImage02;
+        else if (startUpSettings.player1AvatarSelected == 2) blueAvatarImage.GetComponent<Image>().sprite = avatarImage03;
+        else if (startUpSettings.player1AvatarSelected == 3) blueAvatarImage.GetComponent<Image>().sprite = avatarImage04;
+
+        if (startUpSettings.player2AvatarSelected == 0) redAvatarImage.GetComponent<Image>().sprite = avatarImage01;
+        else if (startUpSettings.player2AvatarSelected == 1) redAvatarImage.GetComponent<Image>().sprite = avatarImage02;
+        else if (startUpSettings.player2AvatarSelected == 2) redAvatarImage.GetComponent<Image>().sprite = avatarImage03;
+        else if (startUpSettings.player2AvatarSelected == 3) redAvatarImage.GetComponent<Image>().sprite = avatarImage04;
+
+        if (startUpSettings.player3AvatarSelected == 0) greenAvatarImage.GetComponent<Image>().sprite = avatarImage01;
+        else if (startUpSettings.player3AvatarSelected == 1) greenAvatarImage.GetComponent<Image>().sprite = avatarImage02;
+        else if (startUpSettings.player3AvatarSelected == 2) greenAvatarImage.GetComponent<Image>().sprite = avatarImage03;
+        else if (startUpSettings.player3AvatarSelected == 3) greenAvatarImage.GetComponent<Image>().sprite = avatarImage04;
+
+        if (startUpSettings.player4AvatarSelected == 0) yellowAvatarImage.GetComponent<Image>().sprite = avatarImage01;
+        else if (startUpSettings.player4AvatarSelected == 1) yellowAvatarImage.GetComponent<Image>().sprite = avatarImage02;
+        else if (startUpSettings.player4AvatarSelected == 2) yellowAvatarImage.GetComponent<Image>().sprite = avatarImage03;
+        else if (startUpSettings.player4AvatarSelected == 3) yellowAvatarImage.GetComponent<Image>().sprite = avatarImage04;
     }
 }
