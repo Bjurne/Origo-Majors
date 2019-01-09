@@ -137,6 +137,7 @@ public class ClickListener : MonoBehaviour {
             currentlySelectedObject = hit.rigidbody.gameObject;
             currentlySelectedObject.transform.GetChild(1).gameObject.SetActive(false);
             selectionMarker = currentlySelectedObject.transform.GetChild(0).gameObject;
+            selectionMarker.GetComponent<ParticleSystem>().startColor = FindObjectOfType<DronePlacement>().GetPlayerColor(stateManager.currentPlayer);
             selectionMarker.SetActive(true);
             if (currentlySelectedObject != null)
             {
