@@ -74,6 +74,9 @@ public class DronePlacement : MonoBehaviour {
                     GameObject newDrone = Instantiate(dronePrefab, selectedWaypoint.transform.position, Quaternion.identity);
                     newDrone.transform.parent = selectedWaypoint.transform;
 
+                    ParticleSystem particleSpawn = newDrone.transform.GetChild(2).GetComponent<ParticleSystem>();
+                    particleSpawn.startColor = GetPlayerColor(player);
+
                     audiomanager.droneRespawnSource.Play();
 
                     MeshRenderer[] children = newDrone.GetComponentsInChildren<MeshRenderer>();

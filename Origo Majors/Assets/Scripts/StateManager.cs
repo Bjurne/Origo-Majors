@@ -495,8 +495,10 @@ public class StateManager : MonoBehaviour {
     {
         pausExcecution = true;
         StartCoroutine(FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones());
-        yield return new WaitForSeconds(2.5f);
+        float timeToWait = FindObjectOfType<ScoredDroneStorage>().scoredDrones.Count * 0.2f;
+        yield return new WaitForSeconds(timeToWait);
         FindObjectOfType<TeleportGenerator>().GenerateTeleports();
+        //timeToWait = FindObjectOfType<TeleportGenerator>().numberOfTeleports;
         yield return new WaitForSeconds(0.5f);
         FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
         yield return new WaitForSeconds(0.5f);

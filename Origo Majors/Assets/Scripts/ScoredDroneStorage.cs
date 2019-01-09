@@ -8,6 +8,11 @@ public class ScoredDroneStorage : MonoBehaviour {
     public GameObject dronePrefab;
     public AudioManager audiomanager;
 
+    public GameObject droneModel01;
+    public GameObject droneModel02;
+    public GameObject droneModel03;
+    public GameObject droneModel04;
+
     public IEnumerator SpawnScoredDrones()
     {
         //FindObjectOfType<StateManager>().pausExcecution = true;
@@ -28,16 +33,27 @@ public class ScoredDroneStorage : MonoBehaviour {
 
                     //dronePrefab = StartupSettings.selectedDroneModel(player);
                     //TODO reference startupsettings for drone model
+                    StateManager stateManager = FindObjectOfType<StateManager>();
+
+                    if (player == Player.Blue) dronePrefab = droneModel01;
+                    if (player == Player.Red) dronePrefab = droneModel02;
+                    if (player == Player.Green) dronePrefab = droneModel03;
+                    if (player == Player.Yellow) dronePrefab = droneModel04;
+
 
                     GameObject respawnedDrone = Instantiate(dronePrefab, nodeToRespawnAt.position, Quaternion.identity);
                     respawnedDrone.transform.parent = nodeToRespawnAt;
                     respawnedDrone.tag = player.ToString();
                     
+                    DronePlacement dronePlacement = FindObjectOfType<DronePlacement>();
+
+                    ParticleSystem particleSpawn = respawnedDrone.transform.GetChild(2).GetComponent<ParticleSystem>();
+                    particleSpawn.startColor = dronePlacement.GetPlayerColor(player);
+
                     audiomanager.droneRespawnSource.Play();
 
                     MeshRenderer[] children = respawnedDrone.GetComponentsInChildren<MeshRenderer>();
 
-                    DronePlacement dronePlacement = FindObjectOfType<DronePlacement>();
 
                     foreach (MeshRenderer mesh in children)
                     {
