@@ -34,7 +34,7 @@ public class ThrottleScript : MonoBehaviour {
     public void FindDiceAndRunThrottle()
     {
         AudioManager audioManager = FindObjectOfType<AudioManager>();
-        if (FindObjectOfType<Dice>().hasBeenThrottled == false)
+        if (FindObjectOfType<Dice>().hasBeenThrottled == false && FindObjectOfType<CalculateLegalWarpDestination>().thisIsAQuantumLeap == false)
         {
             FindObjectOfType<Dice>().hasBeenThrottled = true;
             audioManager.throttleActivatedSource.Play();
