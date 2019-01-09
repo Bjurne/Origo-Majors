@@ -24,6 +24,8 @@ public class CameraHolder : MonoBehaviour {
     float originEulerZ;
     private Vector3 movez;
     private Vector3 armRotationChecker;
+    public float minZoom;
+    public float maxZoom;
 
     void Update ()
     {
@@ -43,8 +45,12 @@ public class CameraHolder : MonoBehaviour {
     {
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
-            float zoom = Input.GetAxis("Mouse ScrollWheel");
-            myCamera.transform.localPosition -= new Vector3(zoom * zoomStrength, 0, 0);
+            float zoom = Input.GetAxis("Mouse ScrollWheel") * zoomStrength;
+
+            if ((myCamera.transform.localPosition.x - zoom) > minZoom && (myCamera.transform.localPosition.x - zoom) < maxZoom)
+            {
+                myCamera.transform.localPosition -= new Vector3(zoom, 0, 0);
+            }
         }
     }
 
