@@ -5455,10 +5455,8 @@ MonoBehaviour:
   player1dronebutton01: {fileID: 445572271}
   player1dronebutton02: {fileID: 145044742}
   player1dronebutton03: {fileID: 1230552692}
-  player1DroneSelected: 0
-  player2DroneSelected: 1
-  player3DroneSelected: 2
-  player4DroneSelected: 3
+  player1DroneSelection: 0
+  startupsettings: {fileID: 1834615408}
 --- !u!1 &715311913
 GameObject:
   m_ObjectHideFlags: 0
@@ -11251,7 +11249,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 699133512}
-        m_MethodName: player1buttonpressed
+        m_MethodName: Player1buttonpressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
