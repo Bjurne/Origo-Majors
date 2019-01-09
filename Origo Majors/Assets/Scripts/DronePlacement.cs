@@ -64,12 +64,41 @@ public class DronePlacement : MonoBehaviour {
                 bool teleporterPresent = selectedWaypoint.GetComponent<NodeContents>().holdingTeleporter;
                 bool boosterPresent = selectedWaypoint.GetComponent<NodeContents>().holdingBoosterPickUp;
 
+                StartupSettings startUpSettings = FindObjectOfType<StartupSettings>();
+
                 if ((((numberOfDronesSpawned < numberOfDronesToSpawn) && occupied == false) && !teleporterPresent) && !boosterPresent)
                 {
-                    if (stateManager.currentPlayer == Player.Blue) dronePrefab = droneModel01;
-                    if (stateManager.currentPlayer == Player.Red) dronePrefab = droneModel02;
-                    if (stateManager.currentPlayer == Player.Green) dronePrefab = droneModel03;
-                    if (stateManager.currentPlayer == Player.Yellow) dronePrefab = droneModel04;
+                    if (stateManager.currentPlayer == Player.Blue)
+                    {
+                        if (startUpSettings.player1DroneSelected == 0) dronePrefab = droneModel01;
+                        else if (startUpSettings.player1DroneSelected == 1) dronePrefab = droneModel02;
+                        else if (startUpSettings.player1DroneSelected == 2) dronePrefab = droneModel03;
+                        else if (startUpSettings.player1DroneSelected == 3) dronePrefab = droneModel04;
+                    }
+
+                    else if (stateManager.currentPlayer == Player.Red)
+                    {
+                        if (startUpSettings.player2DroneSelected == 0) dronePrefab = droneModel01;
+                        else if (startUpSettings.player2DroneSelected == 1) dronePrefab = droneModel02;
+                        else if (startUpSettings.player2DroneSelected == 2) dronePrefab = droneModel03;
+                        else if (startUpSettings.player2DroneSelected == 3) dronePrefab = droneModel04;
+                    }
+
+                    else if (stateManager.currentPlayer == Player.Green)
+                    {
+                        if (startUpSettings.player3DroneSelected == 0) dronePrefab = droneModel01;
+                        else if (startUpSettings.player3DroneSelected == 1) dronePrefab = droneModel02;
+                        else if (startUpSettings.player3DroneSelected == 2) dronePrefab = droneModel03;
+                        else if (startUpSettings.player3DroneSelected == 3) dronePrefab = droneModel04;
+                    }
+
+                    else if (stateManager.currentPlayer == Player.Yellow)
+                    {
+                        if (startUpSettings.player4DroneSelected == 0) dronePrefab = droneModel01;
+                        else if (startUpSettings.player4DroneSelected == 1) dronePrefab = droneModel02;
+                        else if (startUpSettings.player4DroneSelected == 2) dronePrefab = droneModel03;
+                        else if (startUpSettings.player4DroneSelected == 3) dronePrefab = droneModel04;
+                    }
 
                     GameObject newDrone = Instantiate(dronePrefab, selectedWaypoint.transform.position, Quaternion.identity);
                     newDrone.transform.parent = selectedWaypoint.transform;
