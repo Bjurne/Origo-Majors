@@ -26,19 +26,27 @@ public class CameraHolder : MonoBehaviour {
     private Vector3 armRotationChecker;
     public float minZoom;
     public float maxZoom;
+    public bool cameraControl;
 
     void Update ()
     {
         // if (klickar på någonting som inte är klickbart (din färgs drönare, etc.)
-        CameraDrag();
-        CameraZoom();
+        if (cameraControl == true)
+        {
+            CameraDrag();
+            CameraZoom();
+        }
+        else if (cameraControl == false)
+        {
+            IdleRotation();
+        }
         //TODO: Implementera denna (i ClickListener?) och kalla enbart på detta om man inte klickar på något annat.
 
         //Om man vill använda knappar
         //ButtonRotation();
 
         //Exempel på någon typ av "stand-by"
-        //IdleRotation();
+
     }
 
     private void CameraZoom()
