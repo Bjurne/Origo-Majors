@@ -207,7 +207,7 @@ public class StateManager : MonoBehaviour {
 
     public void PassTurnToNextPlayer()
     {
-        CountTeleports();
+        if (!startOfNewDimension) CountTeleports();
         if (initialPlacementIsDone == true) CountActivePlayers();
 
         Debug.Log(" passar turen ");
@@ -445,8 +445,8 @@ public class StateManager : MonoBehaviour {
 
         //pausExcecution = true;
 
-        StartCoroutine(generateContent());
-        
+        //StartCoroutine(generateContent());
+        FindObjectOfType<ScoredDroneStorage>().SpawnScoredDronesInstantly();
 
         //CountActivePlayers();
         //currentPlayer = lastPlayerToEnterNewDimension;
@@ -491,20 +491,20 @@ public class StateManager : MonoBehaviour {
         }
     }
 
-    private IEnumerator generateContent()
-    {
-        pausExcecution = true;
-        StartCoroutine(FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones());
-        float timeToWait = FindObjectOfType<ScoredDroneStorage>().scoredDrones.Count * 0.2f;
-        yield return new WaitForSeconds(timeToWait);
-        FindObjectOfType<TeleportGenerator>().GenerateTeleports();
-        //timeToWait = FindObjectOfType<TeleportGenerator>().numberOfTeleports;
-        yield return new WaitForSeconds(0.5f);
-        FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
-        yield return new WaitForSeconds(0.5f);
-        pausExcecution = false;
-        FindObjectOfType<textHandlerScript>().Print("Turn");
-    }
+    //private IEnumerator generateContent()
+    //{
+    //    pausExcecution = true;
+    //    StartCoroutine(FindObjectOfType<ScoredDroneStorage>().SpawnScoredDrones());
+    //    //float timeToWait = FindObjectOfType<ScoredDroneStorage>().scoredDrones.Count * 0.2f;
+    //    yield return new WaitForSeconds(3);
+    //    FindObjectOfType<TeleportGenerator>().GenerateTeleports();
+    //    //timeToWait = FindObjectOfType<TeleportGenerator>().numberOfTeleports;
+    //    yield return new WaitForSeconds(0.5f);
+    //    FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
+    //    yield return new WaitForSeconds(0.5f);
+    //    pausExcecution = false;
+    //    FindObjectOfType<textHandlerScript>().Print("Turn");
+    //}
 
     public IEnumerator Paus()
     {

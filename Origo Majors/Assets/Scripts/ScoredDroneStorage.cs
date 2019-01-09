@@ -13,7 +13,65 @@ public class ScoredDroneStorage : MonoBehaviour {
     public GameObject droneModel03;
     public GameObject droneModel04;
 
-    public IEnumerator SpawnScoredDrones()
+    public void SpawnScoredDronesInstantly()
+    {
+        //FindObjectOfType<StateManager>().pausExcecution = true;
+        for (int i = 0; i < scoredDrones.Count; i++)
+        {
+            Player player = (Player)scoredDrones[i].x;
+            int x = (int)scoredDrones[i].y;
+            int y = (int)scoredDrones[i].z;
+            int z = (int)scoredDrones[i].w;
+
+            GridGenerator gridGenerator = FindObjectOfType<GridGenerator>();
+            foreach (var gridNode in gridGenerator.activeNodes)
+            {
+                Vector3 nodeCoordinates = gridNode.Coordinates;
+                if (nodeCoordinates.x == x && nodeCoordinates.y == y && nodeCoordinates.z == z)
+                {
+                    Transform nodeToRespawnAt = gridNode.gameObject.transform;
+
+                    //dronePrefab = StartupSettings.selectedDroneModel(player);
+                    //TODO reference startupsettings for drone model
+                    StateManager stateManager = FindObjectOfType<StateManager>();
+
+                    SetPlayerDroneModel(player);
+
+
+                    GameObject respawnedDrone = Instantiate(dronePrefab, nodeToRespawnAt.position, Quaternion.identity);
+                    respawnedDrone.transform.parent = nodeToRespawnAt;
+                    respawnedDrone.tag = player.ToString();
+
+                    DronePlacement dronePlacement = FindObjectOfType<DronePlacement>();
+
+                    ParticleSystem particleSpawn = respawnedDrone.transform.GetChild(2).GetComponent<ParticleSystem>();
+                    particleSpawn.startColor = dronePlacement.GetPlayerColor(player);
+
+                    audiomanager.droneRespawnSource.Play();
+
+                    MeshRenderer[] children = respawnedDrone.GetComponentsInChildren<MeshRenderer>();
+
+
+                    foreach (MeshRenderer mesh in children)
+                    {
+                        mesh.material.color = dronePlacement.GetPlayerColor(player);
+                    }
+
+                    nodeToRespawnAt.gameObject.GetComponent<NodeContents>().occupied = true;
+                    respawnedDrone.GetComponent<DroneLocation>().previouslyOccupiedWaypoint = nodeToRespawnAt.gameObject;
+                    respawnedDrone.GetComponent<DroneLocation>().currentlyOccupiedWaypoint = nodeToRespawnAt.gameObject;
+                }
+            }
+        }
+
+        scoredDrones.Clear();
+        //FindObjectOfType<StateManager>().pausExcecution = false;
+
+        FindObjectOfType<TeleportGenerator>().GenerateTeleports();
+        FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
+    }
+
+    public IEnumerator SpawnScoredDronesSlowly()
     {
         //FindObjectOfType<StateManager>().pausExcecution = true;
         for (int i = 0; i < scoredDrones.Count; i++)

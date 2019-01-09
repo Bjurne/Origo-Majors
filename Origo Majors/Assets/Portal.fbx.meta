@@ -1,86 +1,36 @@
 fileFormatVersion: 2
-guid: 3e5e558ad2ab9004680be6b3159971cf
+guid: 56e862aec8f8dcf44ad7dca2b774b5c7
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Cap_1
-    100004: Cap_1_2
-    100006: Cap_1_3
-    100008: Cap_2
-    100010: Cap_2_2
-    100012: Cap_2_3
-    100014: Extrude_3
-    100016: Extrude_4
-    100018: Extrude_5
-    100020: Rounding_1
-    100022: Rounding_1_2
-    100024: Rounding_1_3
-    100026: Rounding_2
-    100028: Rounding_2_2
-    100030: Rounding_2_3
-    400000: //RootNode
-    400002: Cap_1
-    400004: Cap_1_2
-    400006: Cap_1_3
-    400008: Cap_2
-    400010: Cap_2_2
-    400012: Cap_2_3
-    400014: Extrude_3
-    400016: Extrude_4
-    400018: Extrude_5
-    400020: Rounding_1
-    400022: Rounding_1_2
-    400024: Rounding_1_3
-    400026: Rounding_2
-    400028: Rounding_2_2
-    400030: Rounding_2_3
-    2100000: "Aluminum - Brushed 0\xB0 - Texture"
-    2300000: Cap_1
-    2300002: Cap_1_2
-    2300004: Cap_1_3
-    2300006: Cap_2
-    2300008: Cap_2_2
-    2300010: Cap_2_3
-    2300012: Extrude_3
-    2300014: Extrude_4
-    2300016: Extrude_5
-    2300018: Rounding_1
-    2300020: Rounding_1_2
-    2300022: Rounding_1_3
-    2300024: Rounding_2
-    2300026: Rounding_2_2
-    2300028: Rounding_2_3
-    3300000: Cap_1
-    3300002: Cap_1_2
-    3300004: Cap_1_3
-    3300006: Cap_2
-    3300008: Cap_2_2
-    3300010: Cap_2_3
-    3300012: Extrude_3
-    3300014: Extrude_4
-    3300016: Extrude_5
-    3300018: Rounding_1
-    3300020: Rounding_1_2
-    3300022: Rounding_1_3
-    3300024: Rounding_2
-    3300026: Rounding_2_2
-    3300028: Rounding_2_3
-    4300000: Extrude_4
-    4300002: Rounding_1
-    4300004: Cap_1
-    4300006: Rounding_2
-    4300008: Cap_2
-    4300010: Extrude_5
-    4300012: Rounding_1_2
-    4300014: Cap_1_2
-    4300016: Rounding_2_2
-    4300018: Cap_2_2
-    4300020: Extrude_3
-    4300022: Rounding_1_3
-    4300024: Cap_1_3
-    4300026: Rounding_2_3
-    4300028: Cap_2_3
+    100000: Cube
+    100002: //RootNode
+    100004: Torus
+    100006: Tube
+    100008: Tube_1
+    100010: Tube_2
+    400000: Cube
+    400002: //RootNode
+    400004: Torus
+    400006: Tube
+    400008: Tube_1
+    400010: Tube_2
+    2100000: Metal - Gold
+    2300000: Cube
+    2300002: Torus
+    2300004: Tube
+    2300006: Tube_1
+    2300008: Tube_2
+    3300000: Cube
+    3300002: Torus
+    3300004: Tube
+    3300006: Tube_1
+    3300008: Tube_2
+    4300000: Cube
+    4300002: Torus
+    4300004: Tube
+    4300006: Tube_2
+    4300008: Tube_1
     7400000: CINEMA_4D_Main
     9500000: //RootNode
   externalObjects: {}
@@ -115,7 +65,7 @@ ModelImporter:
       name: CINEMA_4D_Main
       takeName: CINEMA_4D_Main
       firstFrame: 0
-      lastFrame: 360
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
