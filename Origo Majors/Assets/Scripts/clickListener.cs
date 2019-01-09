@@ -63,7 +63,7 @@ public class ClickListener : MonoBehaviour {
         if (Physics.Raycast(ray, out hit, 1000f, waypoints) && currentlySelectedObject != null)
         // Vi kollar i nästa steg ifall den valda waypointen är ockuperad eller inte
         {
-            audiomanager.selectionSource.Play();
+            //audiomanager.selectionSource.Play();
             //clickPosition = hit.point;
             selectedWaypoint = hit.collider.gameObject;
             bool occupied = selectedWaypoint.GetComponent<NodeContents>().occupied;
@@ -132,7 +132,9 @@ public class ClickListener : MonoBehaviour {
     {
         if ((Physics.Raycast(ray, out hit, 1000f, selectable)) && !hasBeenMoved)
         {
-            audiomanager.selectionSource.Play();
+            if (legalMoves.thisIsAQuantumLeap) audiomanager.booster3source.Play();
+            else audiomanager.selectionSource.Play();
+
             //clickPosition = hit.point;
             currentlySelectedObject = hit.rigidbody.gameObject;
             currentlySelectedObject.transform.GetChild(1).gameObject.SetActive(false);

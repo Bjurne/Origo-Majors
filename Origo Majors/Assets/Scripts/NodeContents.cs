@@ -60,7 +60,7 @@ public class NodeContents : MonoBehaviour {
 
                 StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
                 FindObjectOfType<textHandlerScript>().Print("ThrottleBooster");
-                audiomanager.booster2source.Play();
+                audiomanager.throttleBoosterPickUpSource.Play();
 
 
                 //Debug.Log("A Throttle has been picked up!");
@@ -98,7 +98,7 @@ public class NodeContents : MonoBehaviour {
 
                 StartCoroutine(FindObjectOfType<CameraShake>().Shake(.15f, .4f));
                 FindObjectOfType<textHandlerScript>().Print("QLBooster");
-                audiomanager.booster3source.Play();
+                audiomanager.quantumLeapBoosterPickUpSource.Play();
 
 
                 Debug.Log("A Qunatum Leap Booster has been picked up!");

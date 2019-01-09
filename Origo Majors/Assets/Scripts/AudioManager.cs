@@ -44,6 +44,12 @@ public class AudioManager : MonoBehaviour {
     public AudioClip failed;
     public AudioSource failedSource;
 
+    public AudioClip throttleBoosterPickUp;
+    public AudioSource throttleBoosterPickUpSource;
+
+    public AudioClip quantumLeapBoosterPickUp;
+    public AudioSource quantumLeapBoosterPickUpSource;
+
 
     public void Start()
     {
@@ -72,6 +78,11 @@ public class AudioManager : MonoBehaviour {
         droneRespawnSource.clip = respawnDrone;
 
         failedSource.clip = failed;
+
+        throttleBoosterPickUpSource.clip = throttleBoosterPickUp;
+
+        quantumLeapBoosterPickUpSource.clip = quantumLeapBoosterPickUp;
+
     }
 }
 
