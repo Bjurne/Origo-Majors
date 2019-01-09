@@ -52,10 +52,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickListener: {fileID: 0}
-  numberOfDronesToSpawn: 6
+  diceCanvas: {fileID: 0}
+  audiomanager: {fileID: 0}
+  numberOfDronesSpawned: 0
+  numberOfDronesToSpawnPerPlayer: 2
   waypoints:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 512
   selectedWaypoint: {fileID: 0}
   dronePrefab: {fileID: 1421427863671348, guid: 9c4264f1ebdf7cf4ca8f89f981d776a6,
     type: 2}
+  numberOfPlayers: 4
+  numberOfDronesToSpawn: 0
+  droneModel01: {fileID: 1469070340885316, guid: c969473c5e7e9a94599aa774e3f22e45,
+    type: 2}
+  droneModel02: {fileID: 1055456877348602, guid: c3d18467c8d62704cab74ec65c7856ce,
+    type: 2}
+  droneModel03: {fileID: 1800160806721736, guid: e6abca46bd47bb944bed433a5e306849,
+    type: 2}
+  droneModel04: {fileID: 1421427863671348, guid: 9c4264f1ebdf7cf4ca8f89f981d776a6,
+    type: 2}
+  stateManager: {fileID: 0}

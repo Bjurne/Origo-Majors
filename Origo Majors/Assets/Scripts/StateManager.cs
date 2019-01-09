@@ -250,7 +250,7 @@ public class StateManager : MonoBehaviour {
         {
             if (initialPlacementIsDone)
             {
-                FindObjectOfType<textHandlerScript>().Print("Turn");
+                if (!startOfNewDimension) FindObjectOfType<textHandlerScript>().Print("Turn");
             }
             else
             {
@@ -418,6 +418,8 @@ public class StateManager : MonoBehaviour {
 
         isDoneRolling = true;
         isDoneMoving = true;
+
+        clickListener.ClearAllSelectionMarkers();
         CalculateLegalWarpDestination calculateMove = FindObjectOfType<CalculateLegalWarpDestination>();
         if (calculateMove.thisIsAQuantumLeap) calculateMove.thisIsAQuantumLeap = false;
         if (startOfNewDimension) startOfNewDimension = false;
@@ -499,6 +501,7 @@ public class StateManager : MonoBehaviour {
         FindObjectOfType<BoosterPickUpGenerator>().GenerateBoosterPickUps();
         yield return new WaitForSeconds(0.5f);
         pausExcecution = false;
+        FindObjectOfType<textHandlerScript>().Print("Turn");
     }
 
     public IEnumerator Paus()

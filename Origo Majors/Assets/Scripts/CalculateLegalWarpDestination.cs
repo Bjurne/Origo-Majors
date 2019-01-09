@@ -187,7 +187,7 @@ public class CalculateLegalWarpDestination : MonoBehaviour {
 
                 if (numberOfLegalWarpDestinations > 0)
                 {
-                    drone.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                    drone.gameObject.transform.GetChild(1).gameObject.SetActive(true);
                 }
                 
                 clickListener.GetComponent<ClickListener>().ClearLegalWarpDestinations();

@@ -32,7 +32,7 @@ public class Dice : MonoBehaviour
 
 
 
-    public void Start()
+    public void Awake()
     {
         audiomanager = FindObjectOfType<AudioManager>();
     }

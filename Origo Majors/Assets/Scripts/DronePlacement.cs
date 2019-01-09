@@ -6,6 +6,7 @@ using UnityEngine;
 public class DronePlacement : MonoBehaviour {
 
     public GameObject clickListener;
+    public GameObject diceCanvas;
     public AudioManager audiomanager;
     public int numberOfDronesSpawned;
     public int numberOfDronesToSpawnPerPlayer;
@@ -128,6 +129,7 @@ public class DronePlacement : MonoBehaviour {
     void placementPhaseDone()
     {
         Debug.Log("Placement phase is done");
+        diceCanvas.SetActive(true);
         stateManager.initialPlacementIsDone = true;
         clickListener.SetActive(true);
     }

@@ -112,6 +112,7 @@ public class ClickListener : MonoBehaviour {
                 {
                     {
                         drone.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                        //drone.gameObject.transform.GetChild(1).gameObject.SetActive(false);
                     }
                 }
             }
@@ -134,6 +135,7 @@ public class ClickListener : MonoBehaviour {
             audiomanager.selectionSource.Play();
             //clickPosition = hit.point;
             currentlySelectedObject = hit.rigidbody.gameObject;
+            currentlySelectedObject.transform.GetChild(1).gameObject.SetActive(false);
             selectionMarker = currentlySelectedObject.transform.GetChild(0).gameObject;
             selectionMarker.SetActive(true);
             if (currentlySelectedObject != null)
@@ -197,6 +199,18 @@ public class ClickListener : MonoBehaviour {
         inMotion = false;
         stateManager.isDoneMoving = true;
         if (stateManager.startOfNewDimension) stateManager.startOfNewDimension = false;
+        ClearAllSelectionMarkers();
     }
 
+    public void ClearAllSelectionMarkers()
+    {
+        var allDrones = FindObjectsOfType<DroneLocation>();
+        foreach (var drone in allDrones)
+        {
+            {
+                drone.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                drone.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+            }
+        }
+    }
 }

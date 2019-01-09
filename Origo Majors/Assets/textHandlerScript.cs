@@ -111,7 +111,7 @@ public class textHandlerScript : MonoBehaviour {
             }
             else if (randomText == 2)
             {
-                myText = "It's " + stateManager.currentPlayer + " turn!";
+                myText = "It's " + stateManager.currentPlayer + "'s turn!";
             }
             else
             {
@@ -129,7 +129,7 @@ public class textHandlerScript : MonoBehaviour {
             }
             else if (randomText == 2)
             {
-                myText = "It's " + stateManager.currentPlayer + " turn!";
+                myText = "It's " + stateManager.currentPlayer + "'s turn!";
             }
             else
             {
