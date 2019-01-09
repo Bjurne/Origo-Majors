@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Customization : MonoBehaviour {
 
 
+
     public Dropdown playernumber;
     public int numberOfSelectedplayers;
 
@@ -14,11 +15,23 @@ public class Customization : MonoBehaviour {
     public GameObject player4;
 
   
+    public Button player1dronebutton00;
+    public Button player1dronebutton01;
+    public Button player1dronebutton02;
+    public Button player1dronebutton03;
+
+    // shows which drone is selected in an int in this script
+    public int player1DroneSelection ;
+    //public int player2DroneSelected = 1;
+    //public int player3DroneSelected = 2;
+    //public int player4DroneSelected = 3;
 
 
+    public StartupSettings startupsettings;
 
     // Use this for initialization
     void Start () {
+        //startupsettings = FindObjectOfType<StartupSettings>();
 
        
     }
@@ -26,6 +39,7 @@ public class Customization : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         // check number od selected players 
         // show players 3-4 if their number is selected and if player one is setactive
         numberOfSelectedplayers = playernumber.value + 2;
@@ -50,35 +64,24 @@ public class Customization : MonoBehaviour {
     }
 
 
-    public Button player1dronebutton00;
-    public Button player1dronebutton01;
-    public Button player1dronebutton02;
-    public Button player1dronebutton03;
 
-
-    public int player1DroneSelected = 0;
-    public int player2DroneSelected = 1;
-    public int player3DroneSelected = 2;
-    public int player4DroneSelected = 3;
-
-
-    public void player1buttonpressed()
+    public void Player1buttonpressed()
     {
-        // todo 
+        player1DroneSelection = startupsettings.player1DroneSelected;
 
-        if (player1DroneSelected == 0)
+        if (player1DroneSelection == 0)
         {
             player1dronebutton00.Select();
         }
-        else if (player1DroneSelected == 1)
+        else if (player1DroneSelection == 1)
         {
             player1dronebutton01.Select();
         }
-        else if (player1DroneSelected == 2)
+        else if (player1DroneSelection == 2)
         {
             player1dronebutton02.Select();
         }
-        else if (player1DroneSelected == 3)
+        else if (player1DroneSelection == 3)
         {
             player1dronebutton03.Select();
         }
