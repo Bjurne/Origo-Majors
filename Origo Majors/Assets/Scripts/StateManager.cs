@@ -36,8 +36,8 @@ public class StateManager : MonoBehaviour {
     public animController animationController;
     public GameObject userInterfaceCanvas;
     public BackgroundScript backgroundScript;
-
-    public Sprite rollSprite; 
+    public Sprite rollSprite;
+    public ParticleSystem dimensionVFX;
 
     // layers
     public LayerMask selectable;
@@ -66,6 +66,9 @@ public class StateManager : MonoBehaviour {
 
     private int comboCounter = 0;
 
+    //VFX Cooldown timer because Idk how to use coroutines
+    private int dimensionVFXCooldown = 0;
+
     private void Awake()
     {
         gridGenerator.CallGridGenerator(5, 1.8f);
@@ -77,6 +80,7 @@ public class StateManager : MonoBehaviour {
 
     void Start()
     {
+        myCameraHolder.cameraControl = true;
         audiomanager = FindObjectOfType<AudioManager>();
         // draw nodes
         currentPlayer = Player.Blue;     // blue player starts
@@ -88,6 +92,7 @@ public class StateManager : MonoBehaviour {
 
     void Update()
     {
+
         // place the initial drones
         if (initialPlacementIsDone == false)
         {
@@ -347,7 +352,10 @@ public class StateManager : MonoBehaviour {
         {
             //Victory Screen
             Debug.Log("The game is over");
+            myCameraHolder.cameraControl = false;
+            diceRoller.gameObject.SetActive(false);
             isGameOver = true;
+
             //victoryScreen.GetComponent<VictoryScreenScript>().winnerName = currentPlayer.ToString();
 
             if (blueDronesRemaining > 0) victoryScreen.GetComponent<VictoryScreenScript>().winnerName = "Blue";
@@ -370,6 +378,7 @@ public class StateManager : MonoBehaviour {
             Debug.Log("The game is over");
             isGameOver = true;
             victoryScreen.SetActive(true);
+            diceRoller.gameObject.SetActive(false);
             victoryScreen.GetComponent<VictoryScreenScript>().DisplayVictoryScreen();
         }
     }
@@ -383,7 +392,8 @@ public class StateManager : MonoBehaviour {
             if (currentDimension == 2)
             {
                 //Victory Screen
-                Debug.Log("The game is over");
+                Debug.Log("The game is overxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+                myCameraHolder.cameraControl = false;
                 isGameOver = true;
 
                 victoryScreen.GetComponent<VictoryScreenScript>().winnerName = currentPlayer.ToString();
@@ -434,6 +444,9 @@ public class StateManager : MonoBehaviour {
         Debug.Log(lastPlayerToEnterNewDimension.ToString() + " was the last to enter, he is going to start now");
 
         backgroundScript.ChangeNebula(backgroundScript.nebulas[Random.Range(0,4)]);
+        dimensionVFX.Play();
+        StartCoroutine(DimensionVFXTimer());
+
 
         audiomanager.newDimensionSource.Play();
 
@@ -518,5 +531,12 @@ public class StateManager : MonoBehaviour {
         Debug.Log("Paus is done");
         pausExcecution = false;
     }
+
+    public IEnumerator DimensionVFXTimer()
+    {
+        yield return new WaitForSeconds(4);
+        dimensionVFX.Stop();
+    }
+
 }
 
