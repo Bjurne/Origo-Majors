@@ -18,7 +18,9 @@ public class ThrottleBar : MonoBehaviour {
 
     public void Start()
     {
-        //GainThrottle();
+        GainThrottle();
+        HideThrottles();
+
         //GainThrottle();
         //GainThrottle();
     }
@@ -70,5 +72,10 @@ public class ThrottleBar : MonoBehaviour {
         {
             throttleToSpawn = ThrottleOnePrefab;
         }
+    }
+
+    private void HideThrottles()
+    {
+        gameObject.SetActive(false);
     }
 }

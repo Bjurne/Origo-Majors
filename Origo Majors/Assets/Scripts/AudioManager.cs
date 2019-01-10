@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -59,6 +60,8 @@ public class AudioManager : MonoBehaviour {
     public AudioClip victoryScreenMusicLooping;
     public AudioSource victoryScreenMusicLoopingSource;
 
+    public float musicVolume = 0;
+
 
     public void Start()
     {
@@ -99,7 +102,21 @@ public class AudioManager : MonoBehaviour {
         victoryScreenMusicLoopingSource.clip = victoryScreenMusicLooping;
 
 
-        //OrigoMajorsMainThemeLoopingSource.Play();
+        StartCoroutine(FadeinMusic());
+    }
+
+    private IEnumerator FadeinMusic()
+    {
+        //musicVolume = origoMajorsMainThemeLoopingSource.volume;
+        origoMajorsMainThemeLoopingSource.volume = musicVolume;
+        origoMajorsMainThemeLoopingSource.Play();
+        while (musicVolume <0.27)
+        {
+            musicVolume += 0.02f;
+            origoMajorsMainThemeLoopingSource.volume = musicVolume;
+            yield return new WaitForSeconds(0.2f);
+        }
+        yield return null;
     }
 }
 

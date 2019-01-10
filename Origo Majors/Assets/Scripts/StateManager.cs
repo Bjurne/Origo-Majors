@@ -143,20 +143,7 @@ public class StateManager : MonoBehaviour {
                 //Debug.Log(" Time to selct ");
                 //Select all drones so we can turn them off.
 
-
-                ThrottleBar[] allThrottleBars = userInterfaceCanvas.GetComponentsInChildren<ThrottleBar>(true);
-
-                foreach (var throttleBar in allThrottleBars)
-                {
-                    if (throttleBar.gameObject.tag == currentPlayer.ToString())
-                    {
-                        throttleBar.gameObject.SetActive(true);
-                    }
-                    else
-                    {
-                        throttleBar.gameObject.SetActive(false);
-                    }
-                }
+                HideThrottles();
 
                 var allDrones = FindObjectsOfType<DroneLocation>();
 
@@ -210,7 +197,22 @@ public class StateManager : MonoBehaviour {
         }
     }
 
+    private void HideThrottles()
+    {
+        ThrottleBar[] allThrottleBars = userInterfaceCanvas.GetComponentsInChildren<ThrottleBar>(true);
 
+        foreach (var throttleBar in allThrottleBars)
+        {
+            if (throttleBar.gameObject.tag == currentPlayer.ToString())
+            {
+                throttleBar.gameObject.SetActive(true);
+            }
+            else
+            {
+                throttleBar.gameObject.SetActive(false);
+            }
+        }
+    }
 
     public void PassTurnToNextPlayer()
     {
