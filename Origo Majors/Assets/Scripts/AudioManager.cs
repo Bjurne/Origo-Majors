@@ -53,8 +53,11 @@ public class AudioManager : MonoBehaviour {
     public AudioClip victoryScreenWobble;
     public AudioSource victoryScreenWobbleSource;
 
-    public AudioClip OrigoMajorsMainThemeLooping;
-    public AudioSource OrigoMajorsMainThemeLoopingSource;
+    public AudioClip origoMajorsMainThemeLooping;
+    public AudioSource origoMajorsMainThemeLoopingSource;
+
+    public AudioClip victoryScreenMusicLooping;
+    public AudioSource victoryScreenMusicLoopingSource;
 
 
     public void Start()
@@ -91,7 +94,9 @@ public class AudioManager : MonoBehaviour {
 
         victoryScreenWobbleSource.clip = victoryScreenWobble;
 
-        OrigoMajorsMainThemeLoopingSource.clip = OrigoMajorsMainThemeLooping;
+        origoMajorsMainThemeLoopingSource.clip = origoMajorsMainThemeLooping;
+
+        victoryScreenMusicLoopingSource.clip = victoryScreenMusicLooping;
 
 
         //OrigoMajorsMainThemeLoopingSource.Play();

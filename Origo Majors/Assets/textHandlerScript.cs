@@ -57,7 +57,7 @@ public class textHandlerScript : MonoBehaviour {
             }
             else if (randomText == 2)
             {
-                myText = stateManager.currentPlayer + " has a Throttle Booster now, watch out!";
+                myText = stateManager.currentPlayer + " is gearing up!";
             }
             else
             {
@@ -93,7 +93,7 @@ public class textHandlerScript : MonoBehaviour {
             }
             else if (randomText == 2)
             {
-                myText = stateManager.currentPlayer + " has secured a drone for the next dimension!";
+                myText = stateManager.currentPlayer + " is going strong!";
             }
             else
             {
