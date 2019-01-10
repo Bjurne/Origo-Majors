@@ -4132,7 +4132,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 082d878cc3facc145bb31b8385dd5739, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.27
   m_Pitch: 1
   Loop: 1
@@ -7466,7 +7466,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6b5c3d2f7592e1b4f899b53068fdbe8e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.27
   m_Pitch: 1
   Loop: 1
@@ -9465,6 +9465,11 @@ MonoBehaviour:
   holdingBoosterPickUp: 0
   stateManager: {fileID: 0}
   audiomanager: {fileID: 0}
+--- !u!198 &1486637037 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198350396864657100, guid: e287ab2308f523e45a0abc6383cf1d28,
+    type: 2}
+  m_PrefabInternal: {fileID: 1401644350}
 --- !u!1 &1495399473
 GameObject:
   m_ObjectHideFlags: 0
@@ -12414,6 +12419,11 @@ Prefab:
       propertyPath: backgroundScript
       value: 
       objectReference: {fileID: 1404999932}
+    - target: {fileID: 114364678219024714, guid: 5c990241860e90540b3b2f6c52c52f06,
+        type: 2}
+      propertyPath: dimensionVFX
+      value: 
+      objectReference: {fileID: 1486637037}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c990241860e90540b3b2f6c52c52f06, type: 2}
   m_IsPrefabAsset: 0
