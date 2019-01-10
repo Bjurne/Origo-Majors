@@ -3899,7 +3899,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 699133512}
-        m_MethodName: Player4buttonpressed
+        m_MethodName: Player4Dronepressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5060,10 +5060,30 @@ MonoBehaviour:
   player4dronebutton01: {fileID: 1132489540}
   player4dronebutton02: {fileID: 27299517}
   player4dronebutton03: {fileID: 773736549}
+  player1avatarbutton00: {fileID: 678910406}
+  player1avatarbutton01: {fileID: 470525669}
+  player1avatarbutton02: {fileID: 995256235}
+  player1avatarbutton03: {fileID: 568139668}
+  player2avatarbutton00: {fileID: 824266223}
+  player2avatarbutton01: {fileID: 1461201318}
+  player2avatarbutton02: {fileID: 269130715}
+  player2avatarbutton03: {fileID: 418333332}
+  player3avatarbutton00: {fileID: 343685442}
+  player3avatarbutton01: {fileID: 173565921}
+  player3avatarbutton02: {fileID: 1075404625}
+  player3avatarbutton03: {fileID: 8646248}
+  player4avatarbutton00: {fileID: 618448860}
+  player4avatarbutton01: {fileID: 868452955}
+  player4avatarbutton02: {fileID: 595126547}
+  player4avatarbutton03: {fileID: 1126542242}
   player1DroneSelection: 0
   player2DroneSelection: 0
   player3DroneSelection: 0
   player4DroneSelection: 0
+  player1AvatarSelection: 0
+  player2AvatarSelection: 0
+  player3AvatarSelection: 0
+  player4AvatarSelection: 0
   startupsettings: {fileID: 1834615408}
 --- !u!1 &715311913
 GameObject:
@@ -9490,7 +9510,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 699133512}
-        m_MethodName: Player2buttonpressed
+        m_MethodName: Player2Dronepressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 699133512}
+        m_MethodName: Player2Avatarpressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10484,7 +10515,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 699133512}
-        m_MethodName: Player1buttonpressed
+        m_MethodName: Player1Dronepressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 699133512}
+        m_MethodName: Player1Avatarpressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12112,7 +12154,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 699133512}
-        m_MethodName: Player3buttonpressed
+        m_MethodName: Player3Dronepressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

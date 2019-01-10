@@ -36,13 +36,38 @@ public class Customization : MonoBehaviour
     public Button player4dronebutton02;
     public Button player4dronebutton03;
 
+    // button referedcnces for avatars to keep highlighted when activated
+    public Button player1avatarbutton00;
+    public Button player1avatarbutton01;
+    public Button player1avatarbutton02;
+    public Button player1avatarbutton03;
+
+    public Button player2avatarbutton00;
+    public Button player2avatarbutton01;
+    public Button player2avatarbutton02;
+    public Button player2avatarbutton03;
+
+    public Button player3avatarbutton00;
+    public Button player3avatarbutton01;
+    public Button player3avatarbutton02;
+    public Button player3avatarbutton03;
+
+    public Button player4avatarbutton00;
+    public Button player4avatarbutton01;
+    public Button player4avatarbutton02;
+    public Button player4avatarbutton03;
+
     // shows which drone is selected in an int in this script
     public int player1DroneSelection;
     public int player2DroneSelection;
     public int player3DroneSelection;
     public int player4DroneSelection;
 
-
+    // same as above but for avatars
+    public int player1AvatarSelection;
+    public int player2AvatarSelection;
+    public int player3AvatarSelection;
+    public int player4AvatarSelection;
 
 
 
@@ -82,9 +107,11 @@ public class Customization : MonoBehaviour
 
 
     // keep buttons selection always selected, even setactive false/true
-    public void Player1buttonpressed()
+    public void Player1Dronepressed()
     {
+        Debug.Log("what");
         player1DroneSelection = startupsettings.player1DroneSelected;
+
 
         if (player1DroneSelection == 0)
         {
@@ -105,7 +132,7 @@ public class Customization : MonoBehaviour
     }
 
 
-    public void Player2buttonpressed()
+        public void Player2Dronepressed()
     {
         player2DroneSelection = startupsettings.player2DroneSelected;
 
@@ -128,7 +155,7 @@ public class Customization : MonoBehaviour
     }
 
 
-    public void Player3buttonpressed()
+    public void Player3Dronepressed()
     {
         player3DroneSelection = startupsettings.player3DroneSelected;
 
@@ -150,7 +177,7 @@ public class Customization : MonoBehaviour
         }
     }
 
-    public void Player4buttonpressed()
+    public void Player4Dronepressed()
     {
         player4DroneSelection = startupsettings.player4DroneSelected;
 
@@ -171,6 +198,56 @@ public class Customization : MonoBehaviour
             player4dronebutton03.Select();
         }
     }
+
+
+
+
+    ////same as above but avatars
+    //public void Player1Avatarpressed ()
+    //{
+
+    //    player1AvatarSelection = startupsettings.player1AvatarSelected;
+
+    //    if (player1AvatarSelection == 0)
+    //    {
+    //        player1avatarbutton00.Select();
+    //    }
+    //    else if (player1AvatarSelection == 1)
+    //    {
+    //        player1avatarbutton01.Select();
+    //    }
+    //    else if (player1AvatarSelection == 2)
+    //    {
+    //        player1avatarbutton02.Select();
+    //    }
+    //    else if (player1AvatarSelection == 3)
+    //    {
+    //        player1avatarbutton03.Select();
+    //    }
+    //}
+
+    //public void Player2Avatarpressed()
+    //{
+
+    //    player1AvatarSelection = startupsettings.player1AvatarSelected;
+
+    //    if (player1AvatarSelection == 0)
+    //    {
+    //        player1avatarbutton00.Select();
+    //    }
+    //    else if (player1AvatarSelection == 1)
+    //    {
+    //        player1avatarbutton01.Select();
+    //    }
+    //    else if (player1AvatarSelection == 2)
+    //    {
+    //        player1avatarbutton02.Select();
+    //    }
+    //    else if (player1AvatarSelection == 3)
+    //    {
+    //        player2avatarbutton03.Select();
+    //    }
+    //}
 
 }
 
