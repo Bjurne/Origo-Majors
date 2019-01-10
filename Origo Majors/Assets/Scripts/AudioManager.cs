@@ -50,6 +50,12 @@ public class AudioManager : MonoBehaviour {
     public AudioClip quantumLeapBoosterPickUp;
     public AudioSource quantumLeapBoosterPickUpSource;
 
+    public AudioClip victoryScreenWobble;
+    public AudioSource victoryScreenWobbleSource;
+
+    public AudioClip OrigoMajorsMainThemeLooping;
+    public AudioSource OrigoMajorsMainThemeLoopingSource;
+
 
     public void Start()
     {
@@ -83,6 +89,12 @@ public class AudioManager : MonoBehaviour {
 
         quantumLeapBoosterPickUpSource.clip = quantumLeapBoosterPickUp;
 
+        victoryScreenWobbleSource.clip = victoryScreenWobble;
+
+        OrigoMajorsMainThemeLoopingSource.clip = OrigoMajorsMainThemeLooping;
+
+
+        //OrigoMajorsMainThemeLoopingSource.Play();
     }
 }
 
