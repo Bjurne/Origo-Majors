@@ -22,7 +22,9 @@ public class VictoryScreenScript : MonoBehaviour {
     public void DisplayVictoryScreen ()
     {
         audiomanager = FindObjectOfType<AudioManager>();
-        audiomanager.winScreenSource.Play();
+        audiomanager.origoMajorsMainThemeLoopingSource.Stop();
+        audiomanager.victoryScreenWobbleSource.Play();
+        //audiomanager.victoryScreenMusicLoopingSource.Play();
         int blueScore = stateManager.blueScore;
         int redScore = stateManager.redScore;
         int greenScore = stateManager.greenScore;
